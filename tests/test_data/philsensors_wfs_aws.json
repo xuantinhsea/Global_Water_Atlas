@@ -1,0 +1,67 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "aws.fid--7d220083_1a0a49b7368_602c",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.062478,
+     14.087681
+    ]
+   },
+   "geometry_name": "geom",
+   "properties": {
+    "station_id": 30,
+    "location": "AMBULONG",
+    "municipality": "TANAUAN CITY",
+    "province": "Batangas",
+    "region": "4-A",
+    "full_location": "AMBULONG, TANAUAN CITY, Batangas",
+    "latitude": 14.087681,
+    "longitude": 121.062478,
+    "type_id": 5,
+    "group_id": "aws",
+    "date_installed": "2012-02-15Z",
+    "datetime_read": "2012-03-05T00:30:02Z"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "aws.fid--7d220083_1a0a49b7368_602d",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     124.235167,
+     7.196167
+    ]
+   },
+   "geometry_name": "geom",
+   "properties": {
+    "station_id": 188,
+    "location": "PEOPLE'S PALACE GROUNDS",
+    "municipality": "COTABATO CITY",
+    "province": "Cotabato",
+    "region": "12",
+    "full_location": "PEOPLE'S PALACE GROUNDS, COTABATO CITY, Cotabato",
+    "latitude": 7.196167,
+    "longitude": 124.235167,
+    "type_id": 5,
+    "group_id": "aws",
+    "date_installed": "2011-08-25Z",
+    "datetime_read": "2012-05-05T14:30:09Z"
+   }
+  }
+ ],
+ "totalFeatures": 209,
+ "numberMatched": 209,
+ "numberReturned": 2,
+ "timeStamp": "2026-09-15T12:54:18.804Z",
+ "crs": {
+  "type": "name",
+  "properties": {
+   "name": "urn:ogc:def:crs:EPSG::4326"
+  }
+ }
+}

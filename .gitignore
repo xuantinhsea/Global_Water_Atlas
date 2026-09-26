@@ -1,0 +1,29 @@
+build/
+docs/_build/
+.venv/
+.vscode/
+*.egg-info/
+downloaded_data/
+
+# Internal data cache
+rivretrieve/data
+
+# Global Water Atlas: derived catalog, runtime state, built front end
+wateratlas/catalog_data/
+wateratlas/state/
+wateratlas/frontend/dist/
+wateratlas/frontend/node_modules/
+node_modules/
+*.tsbuildinfo
+
+# Upstream CI workflows, kept locally but not pushed yet. Pushing them needs a
+# GitHub token with the `workflow` scope; remove this line when enabling CI.
+.github/workflows/
+
+**/*.pyc
+**/*.png
+**/*.env
+
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store

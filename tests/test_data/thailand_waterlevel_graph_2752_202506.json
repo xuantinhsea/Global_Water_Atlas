@@ -1,0 +1,444 @@
+{
+ "result": "OK",
+ "data": {
+  "graph_data": [
+   {
+    "datetime": "2025-06-01 00:00",
+    "value": null,
+    "value_out": null,
+    "discharge": null
+   },
+   {
+    "datetime": "2025-06-01 01:00",
+    "value": 107.97,
+    "value_out": null,
+    "discharge": 388
+   },
+   {
+    "datetime": "2025-06-01 02:00",
+    "value": 107.98,
+    "value_out": null,
+    "discharge": 392
+   },
+   {
+    "datetime": "2025-06-01 03:00",
+    "value": 107.98,
+    "value_out": null,
+    "discharge": 392
+   },
+   {
+    "datetime": "2025-06-01 04:00",
+    "value": 107.99,
+    "value_out": null,
+    "discharge": 396
+   },
+   {
+    "datetime": "2025-06-01 05:00",
+    "value": 108,
+    "value_out": null,
+    "discharge": 400
+   },
+   {
+    "datetime": "2025-06-01 06:00",
+    "value": 108,
+    "value_out": null,
+    "discharge": 400
+   },
+   {
+    "datetime": "2025-06-01 07:00",
+    "value": 108.01,
+    "value_out": null,
+    "discharge": 404
+   },
+   {
+    "datetime": "2025-06-01 08:00",
+    "value": 108.01,
+    "value_out": null,
+    "discharge": 404
+   },
+   {
+    "datetime": "2025-06-01 09:00",
+    "value": 108.02,
+    "value_out": null,
+    "discharge": 408
+   },
+   {
+    "datetime": "2025-06-01 10:00",
+    "value": 108.02,
+    "value_out": null,
+    "discharge": 408
+   },
+   {
+    "datetime": "2025-06-01 11:00",
+    "value": 108.02,
+    "value_out": null,
+    "discharge": 408
+   },
+   {
+    "datetime": "2025-06-01 12:00",
+    "value": 108.02,
+    "value_out": null,
+    "discharge": 408
+   },
+   {
+    "datetime": "2025-06-01 13:00",
+    "value": 108.03,
+    "value_out": null,
+    "discharge": 412
+   },
+   {
+    "datetime": "2025-06-01 14:00",
+    "value": 108.03,
+    "value_out": null,
+    "discharge": 412
+   },
+   {
+    "datetime": "2025-06-01 15:00",
+    "value": 108.03,
+    "value_out": null,
+    "discharge": 412
+   },
+   {
+    "datetime": "2025-06-01 16:00",
+    "value": 108.04,
+    "value_out": null,
+    "discharge": 416
+   },
+   {
+    "datetime": "2025-06-01 17:00",
+    "value": 108.05,
+    "value_out": null,
+    "discharge": 420
+   },
+   {
+    "datetime": "2025-06-01 18:00",
+    "value": 108.05,
+    "value_out": null,
+    "discharge": 420
+   },
+   {
+    "datetime": "2025-06-01 19:00",
+    "value": 108.06,
+    "value_out": null,
+    "discharge": 424
+   },
+   {
+    "datetime": "2025-06-01 20:00",
+    "value": 108.07,
+    "value_out": null,
+    "discharge": 428
+   },
+   {
+    "datetime": "2025-06-01 21:00",
+    "value": 108.07,
+    "value_out": null,
+    "discharge": 428
+   },
+   {
+    "datetime": "2025-06-01 22:00",
+    "value": 108.08,
+    "value_out": null,
+    "discharge": 432
+   },
+   {
+    "datetime": "2025-06-01 23:00",
+    "value": null,
+    "value_out": null,
+    "discharge": null
+   },
+   {
+    "datetime": "2025-06-02 00:00",
+    "value": null,
+    "value_out": null,
+    "discharge": null
+   },
+   {
+    "datetime": "2025-06-02 01:00",
+    "value": 108.09,
+    "value_out": null,
+    "discharge": 436
+   },
+   {
+    "datetime": "2025-06-02 02:00",
+    "value": 108.1,
+    "value_out": null,
+    "discharge": 440
+   },
+   {
+    "datetime": "2025-06-02 03:00",
+    "value": 108.1,
+    "value_out": null,
+    "discharge": 440
+   },
+   {
+    "datetime": "2025-06-02 04:00",
+    "value": 108.11,
+    "value_out": null,
+    "discharge": 444
+   },
+   {
+    "datetime": "2025-06-02 05:00",
+    "value": 108.11,
+    "value_out": null,
+    "discharge": 444
+   },
+   {
+    "datetime": "2025-06-02 06:00",
+    "value": 108.12,
+    "value_out": null,
+    "discharge": 448
+   },
+   {
+    "datetime": "2025-06-02 07:00",
+    "value": 108.12,
+    "value_out": null,
+    "discharge": 448
+   },
+   {
+    "datetime": "2025-06-02 08:00",
+    "value": 108.12,
+    "value_out": null,
+    "discharge": 448
+   },
+   {
+    "datetime": "2025-06-02 09:00",
+    "value": 108.12,
+    "value_out": null,
+    "discharge": 448
+   },
+   {
+    "datetime": "2025-06-02 10:00",
+    "value": 108.12,
+    "value_out": null,
+    "discharge": 448
+   },
+   {
+    "datetime": "2025-06-02 11:00",
+    "value": 108.12,
+    "value_out": null,
+    "discharge": 448
+   },
+   {
+    "datetime": "2025-06-02 12:00",
+    "value": 108.14,
+    "value_out": null,
+    "discharge": 456
+   },
+   {
+    "datetime": "2025-06-02 13:00",
+    "value": 108.14,
+    "value_out": null,
+    "discharge": 456
+   },
+   {
+    "datetime": "2025-06-02 14:00",
+    "value": 108.15,
+    "value_out": null,
+    "discharge": 460
+   },
+   {
+    "datetime": "2025-06-02 15:00",
+    "value": 108.16,
+    "value_out": null,
+    "discharge": 464
+   },
+   {
+    "datetime": "2025-06-02 16:00",
+    "value": 108.18,
+    "value_out": null,
+    "discharge": 472
+   },
+   {
+    "datetime": "2025-06-02 17:00",
+    "value": 108.19,
+    "value_out": null,
+    "discharge": 476
+   },
+   {
+    "datetime": "2025-06-02 18:00",
+    "value": 108.21,
+    "value_out": null,
+    "discharge": 484
+   },
+   {
+    "datetime": "2025-06-02 19:00",
+    "value": 108.21,
+    "value_out": null,
+    "discharge": 484
+   },
+   {
+    "datetime": "2025-06-02 20:00",
+    "value": 108.22,
+    "value_out": null,
+    "discharge": 488
+   },
+   {
+    "datetime": "2025-06-02 21:00",
+    "value": 108.23,
+    "value_out": null,
+    "discharge": 492
+   },
+   {
+    "datetime": "2025-06-02 22:00",
+    "value": 108.26,
+    "value_out": null,
+    "discharge": 504
+   },
+   {
+    "datetime": "2025-06-02 23:00",
+    "value": null,
+    "value_out": null,
+    "discharge": null
+   },
+   {
+    "datetime": "2025-06-03 00:00",
+    "value": null,
+    "value_out": null,
+    "discharge": null
+   },
+   {
+    "datetime": "2025-06-03 01:00",
+    "value": 108.28,
+    "value_out": null,
+    "discharge": 512
+   },
+   {
+    "datetime": "2025-06-03 02:00",
+    "value": 108.29,
+    "value_out": null,
+    "discharge": 516
+   },
+   {
+    "datetime": "2025-06-03 03:00",
+    "value": 108.3,
+    "value_out": null,
+    "discharge": 520
+   },
+   {
+    "datetime": "2025-06-03 04:00",
+    "value": 108.31,
+    "value_out": null,
+    "discharge": 524
+   },
+   {
+    "datetime": "2025-06-03 05:00",
+    "value": 108.31,
+    "value_out": null,
+    "discharge": 524
+   },
+   {
+    "datetime": "2025-06-03 06:00",
+    "value": 108.32,
+    "value_out": null,
+    "discharge": 528
+   },
+   {
+    "datetime": "2025-06-03 07:00",
+    "value": 108.33,
+    "value_out": null,
+    "discharge": 532
+   },
+   {
+    "datetime": "2025-06-03 08:00",
+    "value": 108.33,
+    "value_out": null,
+    "discharge": 532
+   },
+   {
+    "datetime": "2025-06-03 09:00",
+    "value": 108.34,
+    "value_out": null,
+    "discharge": 536
+   },
+   {
+    "datetime": "2025-06-03 10:00",
+    "value": 108.34,
+    "value_out": null,
+    "discharge": 536
+   },
+   {
+    "datetime": "2025-06-03 11:00",
+    "value": 108.35,
+    "value_out": null,
+    "discharge": 540
+   },
+   {
+    "datetime": "2025-06-03 12:00",
+    "value": 108.35,
+    "value_out": null,
+    "discharge": 540
+   },
+   {
+    "datetime": "2025-06-03 13:00",
+    "value": 108.35,
+    "value_out": null,
+    "discharge": 540
+   },
+   {
+    "datetime": "2025-06-03 14:00",
+    "value": 108.36,
+    "value_out": null,
+    "discharge": 544
+   },
+   {
+    "datetime": "2025-06-03 15:00",
+    "value": 108.36,
+    "value_out": null,
+    "discharge": 544
+   },
+   {
+    "datetime": "2025-06-03 16:00",
+    "value": 108.37,
+    "value_out": null,
+    "discharge": 548
+   },
+   {
+    "datetime": "2025-06-03 17:00",
+    "value": 108.37,
+    "value_out": null,
+    "discharge": 548
+   },
+   {
+    "datetime": "2025-06-03 18:00",
+    "value": 108.38,
+    "value_out": null,
+    "discharge": 552
+   },
+   {
+    "datetime": "2025-06-03 19:00",
+    "value": 108.39,
+    "value_out": null,
+    "discharge": 556
+   },
+   {
+    "datetime": "2025-06-03 20:00",
+    "value": 108.39,
+    "value_out": null,
+    "discharge": 556
+   },
+   {
+    "datetime": "2025-06-03 21:00",
+    "value": 108.4,
+    "value_out": null,
+    "discharge": 560
+   },
+   {
+    "datetime": "2025-06-03 22:00",
+    "value": 108.41,
+    "value_out": null,
+    "discharge": 564
+   },
+   {
+    "datetime": "2025-06-03 23:00",
+    "value": 108.41,
+    "value_out": null,
+    "discharge": 564
+   }
+  ],
+  "min_bank": 112,
+  "warning_level": null,
+  "critical_level": null,
+  "ground_level": 100.42,
+  "qmax": 2300
+ }
+}

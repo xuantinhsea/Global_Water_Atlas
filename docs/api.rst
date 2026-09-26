@@ -1,0 +1,33 @@
+﻿API Reference
+=============
+
+.. automodule:: rivretrieve
+   :members:
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Fetchers:
+
+   fetchers/australia
+   fetchers/brazil
+   fetchers/canada
+   fetchers/chile
+   fetchers/czech
+   fetchers/france
+   fetchers/germany_berlin
+   fetchers/japan
+   fetchers/lithuania
+   fetchers/mrc
+   fetchers/noaa_tides
+   fetchers/norway
+   fetchers/pagasa
+   fetchers/philippines
+   fetchers/poland
+   fetchers/portugal
+   fetchers/slovenia
+   fetchers/southafrica
+   fetchers/spain
+   fetchers/thailand
+   fetchers/uk_ea
+   fetchers/uk_nrfa
+   fetchers/usa

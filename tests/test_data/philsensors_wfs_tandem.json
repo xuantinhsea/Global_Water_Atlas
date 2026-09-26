@@ -1,0 +1,67 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "tandem.fid--7d220083_1a0a49b7368_602a",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     126.006671,
+     8.877423
+    ]
+   },
+   "geometry_name": "geom",
+   "properties": {
+    "station_id": 2531,
+    "location": "SAN ROQUE",
+    "municipality": "SAN MIGUEL",
+    "province": "Surigao del Sur",
+    "region": "13",
+    "full_location": "SAN ROQUE, SAN MIGUEL, Surigao del Sur",
+    "latitude": 8.877423,
+    "longitude": 126.006671,
+    "type_id": 3,
+    "group_id": "tandem",
+    "date_installed": "2014-12-31Z",
+    "datetime_read": "2012-10-09T16:00:26Z"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "tandem.fid--7d220083_1a0a49b7368_602b",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     119.741767,
+     5.035717
+    ]
+   },
+   "geometry_name": "geom",
+   "properties": {
+    "station_id": 864,
+    "location": "SANGA-SANGA BRIDGE",
+    "municipality": "BONGAO",
+    "province": "Tawi-tawi",
+    "region": "BARMM",
+    "full_location": "SANGA-SANGA BRIDGE, BONGAO, Tawi-tawi",
+    "latitude": 5.035717,
+    "longitude": 119.741767,
+    "type_id": 3,
+    "group_id": "tandem",
+    "date_installed": "2013-08-28Z",
+    "datetime_read": "2013-09-16T04:40:35Z"
+   }
+  }
+ ],
+ "totalFeatures": 231,
+ "numberMatched": 231,
+ "numberReturned": 2,
+ "timeStamp": "2026-09-15T12:54:18.361Z",
+ "crs": {
+  "type": "name",
+  "properties": {
+   "name": "urn:ogc:def:crs:EPSG::4326"
+  }
+ }
+}

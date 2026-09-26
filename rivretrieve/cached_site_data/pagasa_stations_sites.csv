@@ -1,0 +1,200 @@
+gauge_id,station_name,latitude,longitude,river,country,source,station_group,station_code,pagasa_station_id,province,river_basin,available_parameters,precipitation_daily_sum,precipitation_hourly_sum,stage_instantaneous
+synoptic-133,CALAYAN,19.266755,121.46662,,Philippines,PAGASA,synoptic,CLY,133,,,,True,False,False
+synoptic-325,DAGUPAN,16.086875,120.35225,,Philippines,PAGASA,synoptic,DAG,325,,,,True,False,False
+synoptic-526,CORON,12.003839,120.199892,,Philippines,PAGASA,synoptic,COR,526,,,,True,False,False
+synoptic-648,MAASIN,10.134701,124.860861,,Philippines,PAGASA,synoptic,MSN,648,,,,True,False,False
+synoptic-653,SURIGAO,9.782626,125.48939,,Philippines,PAGASA,synoptic,SRG,653,,,,True,False,False
+synoptic-741,DIPOLOG,8.599401,123.343635,,Philippines,PAGASA,synoptic,DPL,741,,,,True,False,False
+synoptic-746,COTABATO,7.161722,124.214806,,Philippines,PAGASA,synoptic,COT,746,,,,True,False,False
+synoptic-836,ZAMBOANGA,6.919576,122.063633,,Philippines,PAGASA,synoptic,ZAM,836,,,,True,False,False
+synoptic-851,GENERAL SANTOS,6.057181,125.103108,,Philippines,PAGASA,synoptic,GEN,851,,,,True,False,False
+synoptic-435,ALABAT,14.105557,122.017554,,Philippines,PAGASA,synoptic,ALB,435,,,,True,False,False
+synoptic-536,ROMBLON,12.573863,122.260864,,Philippines,PAGASA,synoptic,ROM,536,,,,True,False,False
+synoptic-538,ROXAS,11.600091,122.749723,,Philippines,PAGASA,synoptic,ROX,538,,,,True,False,False
+synoptic-543,MASBATE,12.366157,123.629258,,Philippines,PAGASA,synoptic,MSB,543,,,,True,False,False
+synoptic-553,BORONGAN,11.660791,125.443375,,Philippines,PAGASA,synoptic,BOR,553,,,,True,False,False
+synoptic-642,DUMAGUETE,9.333212,123.299207,,Philippines,PAGASA,synoptic,DMG,642,,,,True,False,False
+synoptic-644,TAGBILARAN,9.6333135,123.8666759,,Philippines,PAGASA,synoptic,TGB,644,,,,True,False,False
+synoptic-446,VIRAC SYNOPTIC,13.576389,124.209444,,Philippines,PAGASA,synoptic,VIS,446,,,,True,False,False
+synoptic-546,CATARMAN,12.505557,124.628533,,Philippines,PAGASA,synoptic,CTR,546,,,,True,False,False
+synoptic-747,CAGAYAN DE ORO,8.4870051,124.6333242,,Philippines,PAGASA,synoptic,CDO,747,,,,True,False,False
+synoptic-751,MALAYBALAY,8.151326,125.133858,,Philippines,PAGASA,synoptic,MLB,751,,,,True,False,False
+synoptic-753,DAVAO,7.127892,125.654842,,Philippines,PAGASA,synoptic,DAV,753,,,,True,False,False
+synoptic-223,LAOAG,18.183148,120.53432,,Philippines,PAGASA,synoptic,LAO,223,,,,True,False,False
+synoptic-425,PORT AREA,14.588473,120.967718,,Philippines,PAGASA,synoptic,POR,425,,,,True,False,False
+synoptic-428,SANGLEY,14.494957,120.906867,,Philippines,PAGASA,synoptic,SLY,428,,,,True,False,False
+synoptic-429,NAIA,14.507153,121.004417,,Philippines,PAGASA,synoptic,NAI,429,,,,True,False,False
+synoptic-430,SCIENCE GARDEN,14.644836,121.044587,,Philippines,PAGASA,synoptic,SCI,430,,,,True,False,False
+synoptic-432,AMBULONG,14.087447,121.062236,,Philippines,PAGASA,synoptic,AMB,432,,,,True,False,False
+synoptic-444,LEGAZPI,13.150792,123.728406,,Philippines,PAGASA,synoptic,LEG,444,,,,True,False,False
+synoptic-531,SAN JOSE,12.359559,121.048075,,Philippines,PAGASA,synoptic,SNJ,531,,,,True,False,False
+synoptic-545,JUBAN,12.839295,123.997105,,Philippines,PAGASA,synoptic,JBN,545,,,,True,False,False
+synoptic-550,TACLOBAN,11.229979,125.025225,,Philippines,PAGASA,synoptic,TCL,550,,,,True,False,False
+synoptic-602,PAG-ASA ISLAND,11.052494,114.283719,,Philippines,PAGASA,synoptic,PAG,602,,,,True,False,False
+synoptic-618,PUERTO PRINCESA,9.740331,118.758614,,Philippines,PAGASA,synoptic,PUE,618,,,,True,False,False
+synoptic-630,CUYO,10.854149,121.008126,,Philippines,PAGASA,synoptic,CUY,630,,,,True,False,False
+synoptic-222,SINAIT,17.890255,120.459625,,Philippines,PAGASA,synoptic,SIN,222,,,,True,False,False
+synoptic-233,TUGUEGARAO,17.614317,121.725108,,Philippines,PAGASA,synoptic,TUG,233,,,,True,False,False
+synoptic-324,IBA,15.326112,119.969223,,Philippines,PAGASA,synoptic,IBA,324,,,,True,False,False
+synoptic-328,BAGUIO SYNOPTIC,16.4041,120.601447,,Philippines,PAGASA,synoptic,BGS,328,,,,True,False,False
+synoptic-330,CABANATUAN,15.4833376,120.966766,,Philippines,PAGASA,synoptic,CAB,330,,,,True,False,False
+synoptic-336,CASIGURAN,16.265008,122.128872,,Philippines,PAGASA,synoptic,CSG,336,,,,True,False,False
+synoptic-426,SUBIC,14.791917,120.27095,,Philippines,PAGASA,synoptic,SUB,426,,,,True,False,False
+synoptic-427,TAYABAS,14.018381,121.596637,,Philippines,PAGASA,synoptic,TYB,427,,,,True,False,False
+synoptic-431,CALAPAN,13.414709,121.186902,,Philippines,PAGASA,synoptic,CLP,431,,,,True,False,False
+synoptic-434,INFANTA,14.748173,121.678018,,Philippines,PAGASA,synoptic,INF,434,,,,True,False,False
+synoptic-548,CATBALOGAN,11.775132,124.884158,,Philippines,PAGASA,synoptic,CTB,548,,,,True,False,False
+synoptic-752,BUTUAN,8.947039,125.482269,,Philippines,PAGASA,synoptic,BUT,752,,,,True,False,False
+synoptic-645,CEBU (LAHUG),10.333,123.9,,Philippines,PAGASA,synoptic,CBU,645,,,,True,False,False
+hydromet-ibj,Ibajay,11.833333,122.166667,,Philippines,PAGASA,hydromet,IBJ,,Aklan,,,True,False,False
+hydromet-blw,"Makinabang, Baliwag",14.919735,120.886259,,Philippines,PAGASA,hydromet,BLW,,Bulacan,,,True,False,False
+hydromet-slc,"Salacot, San Miguel",15.185291,120.959763,,Philippines,PAGASA,hydromet,SLC,,Bulacan,,,True,False,False
+hydromet-pia,Piat,17.783333,121.466667,,Philippines,PAGASA,hydromet,PIA,,Cagayan,,,True,False,False
+hydromet-bdc,Badoc,18.066667,120.466667,,Philippines,PAGASA,hydromet,BDC,,Ilocos Norte,,,True,False,False
+hydromet-psq,Pasuquin,18.35,120.616667,,Philippines,PAGASA,hydromet,PSQ,,Ilocos Norte,,,True,False,False
+hydromet-arn,Aringay,16.4,120.366667,,Philippines,PAGASA,hydromet,ARN,,La Union,,,True,False,False
+hydromet-gab,Gabaldon,15.466667,121.333333,,Philippines,PAGASA,hydromet,GAB,,Nueva Ecija,,,True,False,False
+hydromet-cns,"Consuelo, Santa Fe",16.18972,120.937401,,Philippines,PAGASA,hydromet,CNS,,Nueva Vizcaya,,,True,False,False
+hydromet-apl,Apalit,14.966667,120.766667,,Philippines,PAGASA,hydromet,APL,,Pampanga,,,True,False,False
+hydromet-bcr,"Becuran, Santa Rita",15.0,120.566667,,Philippines,PAGASA,hydromet,BCR,,Pampanga,,,True,False,False
+hydromet-prc,"Sta. Cruz, Porac",15.083333,120.55,,Philippines,PAGASA,hydromet,PRC,,Pampanga,,,True,False,False
+hydromet-agl,Aguilar,15.883333,120.233333,,Philippines,PAGASA,hydromet,AGL,,Pangasinan,,,True,False,False
+hydromet-alc,Alcala,15.833333,120.516667,,Philippines,PAGASA,hydromet,ALC,,Pangasinan,,,True,False,False
+hydromet-agn,Angono,14.583333,121.166667,,Philippines,PAGASA,hydromet,AGN,,Rizal,,,True,False,False
+hydromet-hac,Hacienda Luisita,15.435981,120.646365,,Philippines,PAGASA,hydromet,HAC,,Tarlac,,,True,False,False
+hydromet-nas,"NAS, UPLB`",14.164685,121.250068,,Philippines,PAGASA,hydromet,NAS,,Laguna,,,True,False,False
+hydromet-klo,"RMSAT, Kalibo",11.703222,122.376861,,Philippines,PAGASA,hydromet,KLO,,Aklan,,,True,False,False
+hydromet-sip,Sipalay,9.74844,122.40399,,Philippines,PAGASA,hydromet,SIP,,Negros Occidental,,,True,False,False
+hydromet-car,Central Carmen,9.820691,124.197029,,Philippines,PAGASA,hydromet,CAR,,Bohol,,,True,False,False
+hydromet-bay,"VISCA, Baybay",10.745179,124.79093,,Philippines,PAGASA,hydromet,BAY,,Leyte,,,True,False,False
+hydromet-mat,Mati,6.951913,126.216333,,Philippines,PAGASA,hydromet,MAT,,Davao Oriental,,,True,False,False
+hydromet-nbt,New Bataan,7.548635,126.13714,,Philippines,PAGASA,hydromet,NBT,,Davao de Oro,,,True,False,False
+synoptic-radar-232,APARRI,18.360172,121.630397,,Philippines,PAGASA,synoptic-radar,APR,232,,,,True,False,False
+synoptic-radar-440,DAET,14.10752,122.982789,,Philippines,PAGASA,synoptic-radar,DAE,440,,,,True,False,False
+synoptic-radar-646,MACTAN,10.322444,123.980131,,Philippines,PAGASA,synoptic-radar,MAC,646,,,,True,False,False
+synoptic-radar-447,VIRAC RADAR,13.629767,124.334053,,Philippines,PAGASA,synoptic-radar,VIR,447,,,,True,False,False
+synoptic-radar-558,GUIUAN,11.0452,125.755708,,Philippines,PAGASA,synoptic-radar,GUI,558,,,,True,False,False
+synoptic-radar-637,ILOILO COMPLEX,10.772898,122.579471,,Philippines,PAGASA,synoptic-radar,ILO,637,,,,True,False,False
+synoptic-radar-134,BASCO,20.42782,121.970462,,Philippines,PAGASA,synoptic-radar,BSC,134,,,,True,False,False
+synoptic-radar-321,BAGUIO RADAR,16.356278,120.559056,,Philippines,PAGASA,synoptic-radar,BGR,321,,,,True,False,False
+synoptic-radar-755,HINATUAN,8.367431,126.33838,,Philippines,PAGASA,synoptic-radar,HIN,755,,,,True,False,False
+synoptic-radar-334,BALER,15.748877,121.632111,,Philippines,PAGASA,synoptic-radar,BLR,334,,,,True,False,False
+telemetered-agno,,15.363917,120.514194,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall,False,True,False
+telemetered-agno-maasin,Maasin,15.66728,120.33183,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall,False,True,False
+telemetered-agno-mt-ampucao,Mt. Ampucao,16.33028,120.66194,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall,False,True,False
+telemetered-agno-bugallon,Bugallon,15.98808,120.22569,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall and Water Level,False,True,True
+telemetered-agno-carmen,Carmen,15.89,120.57022,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall and Water Level,False,True,True
+telemetered-agno-mapandan,Mapandan,16.03003,120.45756,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall and Water Level,False,True,True
+telemetered-agno-san-vicente,San Vicente,15.75756,120.44669,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall and Water Level,False,True,True
+telemetered-agno-santa-barbara,Santa Barbara,16.00528,120.40242,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall and Water Level,False,True,True
+telemetered-agno-santa-maria,Santa Maria,15.98281,120.69234,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall and Water Level,False,True,True
+telemetered-agno-tibag,Tibag,15.48486,120.57022,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall and Water Level,False,True,True
+telemetered-agno-agno-ffwc,Agno FFWC,15.888293,120.608798,Agno,Philippines,PAGASA,telemetered,,,,Agno,Rainfall,False,True,False
+telemetered-bicol-alanao,Alanao,13.91536,122.9262,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall,False,True,False
+telemetered-bicol-bagamelon,Bagamelon,13.60066,123.0242,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall,False,True,False
+telemetered-bicol-caguscos,Caguscos,13.23086,123.3312,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall,False,True,False
+telemetered-bicol-malabog,Malabog,13.16487,123.6653,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall,False,True,False
+telemetered-bicol-ocampo,Ocampo,13.55661,123.3819,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall,False,True,False
+telemetered-bicol-balongay,Balongay,13.71349,123.1287,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall and Water Level,False,True,True
+telemetered-bicol-bato,Bato,13.35348,123.3645,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall and Water Level,False,True,True
+telemetered-bicol-buhi,Buhi,13.4337,123.509,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall and Water Level,False,True,True
+telemetered-bicol-calzada,Calzada,13.25111,123.5105,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall and Water Level,False,True,True
+telemetered-bicol-camaligan,Camaligan,13.61951,123.1633,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall and Water Level,False,True,True
+telemetered-bicol-ombao,Ombao,13.47482,123.2413,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall and Water Level,False,True,True
+telemetered-bicol-sipocot,Sipocot,13.77142,122.975,Bicol,Philippines,PAGASA,telemetered,,,,Bicol,Rainfall and Water Level,False,True,True
+telemetered-cagayan-cauayan,Cauayan,16.911624,121.759251,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall,False,True,False
+telemetered-cagayan-quezon,Quezon,17.311,121.611,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall,False,True,False
+telemetered-cagayan-roxas,Roxas,17.067615,121.601997,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall,False,True,False
+telemetered-cagayan-san-mariano,San Mariano,16.98274,121.97855,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall,False,True,False
+telemetered-cagayan-gamu,Gamu,17.070048,121.843527,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall and Water Level,False,True,True
+telemetered-cagayan-ilagan,Ilagan,17.121359,121.90697,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall and Water Level,False,True,True
+telemetered-cagayan-maris-dam,Maris Dam,16.837,121.515,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall and Water Level,False,True,True
+telemetered-cagayan-pangal,Pangal,16.608589,121.681978,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall and Water Level,False,True,True
+telemetered-cagayan-pared-bridge,Pared Bridge,17.89472,121.6872,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall and Water Level,False,True,True
+telemetered-cagayan-tabuk,Tabuk,17.403175,121.417689,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall and Water Level,False,True,True
+telemetered-cagayan-tuao-ninoy-aquino-br,Tuao (Ninoy Aquino Br.),17.683103,121.433492,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall and Water Level,False,True,True
+telemetered-cagayan-tumauini,Tumauini,17.272028,121.8003,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Rainfall and Water Level,False,True,True
+telemetered-cagayan-angadanan,Angadanan,16.746475,121.744034,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Water Level,False,False,True
+telemetered-cagayan-aurora-magat-bridge,Aurora (Magat Bridge),16.971111,121.657777,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Water Level,False,False,True
+telemetered-cagayan-buntun,Buntun,17.613917,121.689853,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Water Level,False,False,True
+telemetered-cagayan-pe-ablanca,Peñablanca,17.627186,121.772713,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Water Level,False,False,True
+telemetered-cagayan-piat,Piat,17.809421,121.468633,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Water Level,False,False,True
+telemetered-cagayan-san-pablo,San Pablo,17.439694,121.779611,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Water Level,False,False,True
+telemetered-cagayan-sta-isabel,Sta. Isabel,17.21378,121.81841,Cagayan,Philippines,PAGASA,telemetered,,,,Cagayan,Water Level,False,False,True
+telemetered-cagayan-de-oro-baungon,Baungon,8.312877,124.689449,Cagayan de Oro,Philippines,PAGASA,telemetered,,,,Cagayan de Oro,Rainfall,False,True,False
+telemetered-cagayan-de-oro-cosina,Cosina,8.10417,124.6216,Cagayan de Oro,Philippines,PAGASA,telemetered,,,,Cagayan de Oro,Rainfall,False,True,False
+telemetered-cagayan-de-oro-dagumbaan,Dagumbaan,8.15086,124.5897,Cagayan de Oro,Philippines,PAGASA,telemetered,,,,Cagayan de Oro,Rainfall,False,True,False
+telemetered-cagayan-de-oro-kalilangan,Kalilangan,8.22639,124.6645,Cagayan de Oro,Philippines,PAGASA,telemetered,,,,Cagayan de Oro,Rainfall,False,True,False
+telemetered-cagayan-de-oro-tikalaan,Tikalaan,8.03572,124.62601,Cagayan de Oro,Philippines,PAGASA,telemetered,,,,Cagayan de Oro,Rainfall,False,True,False
+telemetered-cagayan-de-oro-cabula-ndmi,Cabula (NDMI),8.38868,124.613246,Cagayan de Oro,Philippines,PAGASA,telemetered,,,,Cagayan de Oro,Rainfall and Water Level,False,True,True
+telemetered-cagayan-de-oro-pelaez,Pelaez,8.422044,124.629729,Cagayan de Oro,Philippines,PAGASA,telemetered,,,,Cagayan de Oro,Rainfall and Water Level,False,True,True
+telemetered-cagayan-de-oro-mambuaya,Mambuaya,8.31483,124.6015,Cagayan de Oro,Philippines,PAGASA,telemetered,,,,Cagayan de Oro,Water Level,False,False,True
+telemetered-cagayan-de-oro-puntod-ndmi,Puntod (NDMI),8.497058,124.650986,Cagayan de Oro,Philippines,PAGASA,telemetered,,,,Cagayan de Oro,Water Level,False,False,True
+telemetered-cagayan-de-oro-tomalaong,Tomalaong,8.352075,124.635006,Cagayan de Oro,Philippines,PAGASA,telemetered,,,,Cagayan de Oro,Water Level,False,False,True
+telemetered-davao-baguio,Baguio,7.172556,125.403944,Davao,Philippines,PAGASA,telemetered,,,,Davao,Rainfall,False,True,False
+telemetered-davao-callawa,Callawa,7.209361,125.543583,Davao,Philippines,PAGASA,telemetered,,,,Davao,Rainfall,False,True,False
+telemetered-davao-carmen,Carmen,7.115056,125.346139,Davao,Philippines,PAGASA,telemetered,,,,Davao,Rainfall,False,True,False
+telemetered-davao-kibalang,Kibalang,7.344917,125.284833,Davao,Philippines,PAGASA,telemetered,,,,Davao,Rainfall,False,True,False
+telemetered-davao-marilog,Marilog,7.479361,125.249528,Davao,Philippines,PAGASA,telemetered,,,,Davao,Rainfall,False,True,False
+telemetered-davao-new-carmen,New Carmen,7.146778,125.558361,Davao,Philippines,PAGASA,telemetered,,,,Davao,Rainfall,False,True,False
+telemetered-davao-davao-talomo-district,Davao (Talomo District),7.105722,125.593694,Davao,Philippines,PAGASA,telemetered,,,,Davao,Water Level,False,False,True
+telemetered-davao-kalye-apeke,Kalye Apeke,7.185944,125.452444,Davao,Philippines,PAGASA,telemetered,,,,Davao,Water Level,False,False,True
+telemetered-davao-lacson-lamanan,Lacson-Lamanan,7.2355,125.455306,Davao,Philippines,PAGASA,telemetered,,,,Davao,Water Level,False,False,True
+telemetered-davao-sabang-calinan,Sabang (Calinan),7.262333,125.390083,Davao,Philippines,PAGASA,telemetered,,,,Davao,Water Level,False,False,True
+telemetered-davao-suawan,Suawan,7.246944,125.353722,Davao,Philippines,PAGASA,telemetered,,,,Davao,Water Level,False,False,True
+telemetered-davao-tamugan,Tamugan,7.247733,125.399594,Davao,Philippines,PAGASA,telemetered,,,,Davao,Water Level,False,False,True
+telemetered-davao-waan,Waan,7.131889,125.582944,Davao,Philippines,PAGASA,telemetered,,,,Davao,Water Level,False,False,True
+telemetered-pampanga-calaanan,Calaanan,15.64831,121.18586,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall,False,True,False
+telemetered-pampanga-gabaldon,Gabaldon,15.4986,121.35555,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall,False,True,False
+telemetered-pampanga-mu-oz,Muñoz,15.7381,120.96056,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall,False,True,False
+telemetered-pampanga-palali,Palali,15.38056,121.16139,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall,False,True,False
+telemetered-pampanga-porac,Porac,15.08014,120.54542,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall,False,True,False
+telemetered-pampanga-san-rafael,San Rafael,14.96797,120.91444,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall,False,True,False
+telemetered-pampanga-sibul-spring,Sibul Spring,15.16806,121.05917,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall,False,True,False
+telemetered-pampanga-arayat,Arayat,15.1683,120.7822,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall and Water Level,False,True,True
+telemetered-pampanga-candaba,Candaba,15.1156,120.85416,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall and Water Level,False,True,True
+telemetered-pampanga-mayapyap,Mayapyap,15.5144,120.95556,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall and Water Level,False,True,True
+telemetered-pampanga-mexico,Mexico,15.06808,120.73075,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall and Water Level,False,True,True
+telemetered-pampanga-pe-aranda,Peñaranda,15.35389,121.00555,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall and Water Level,False,True,True
+telemetered-pampanga-san-isidro,San Isidro,15.3136,120.91553,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall and Water Level,False,True,True
+telemetered-pampanga-sapang-buho,Sapang Buho,15.5942,121.11916,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall and Water Level,False,True,True
+telemetered-pampanga-sasmuan,Sasmuan,14.93794,120.62306,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall and Water Level,False,True,True
+telemetered-pampanga-sulipan,Sulipan,14.93922,120.76083,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall and Water Level,False,True,True
+telemetered-pampanga-zaragoza,Zaragoza,15.4433,120.75081,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall and Water Level,False,True,True
+telemetered-pampanga-pampanga-ffwc,Pampanga FFWC,15.066147,120.657682,Pampanga,Philippines,PAGASA,telemetered,,,,Pampanga,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-airport,Airport,14.505719,121.004672,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-bagong-nayon,Bagong Nayon,14.626019,121.168581,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-calawis,Calawis,14.671558,121.241664,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-guadanoville,Guadanoville,14.75492,121.0826,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-kor-phil-i-t-center,Kor-Phil. I.T. Center,14.699819,121.031842,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-macabud,Macabud,14.797156,121.139278,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-mandaluyong,Mandaluyong,14.577789,121.033883,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-marikina-youth-camp,Marikina Youth Camp,14.63888,121.0916,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-mascap,Mascap,14.76285,121.183436,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-pacweld,Pacweld,14.678478,120.972708,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-pintong-bukawe,Pintong Bukawe,14.675811,121.205033,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-san-mateo-ii,San Mateo II,14.6965,121.1147,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-san-pedro-9-chapel,San Pedro 9 Chapel,14.701125,121.018125,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-sitio-wawa,Sitio Wawa,14.730256,121.185972,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-taytay,Taytay,14.552811,121.130125,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-timberland,Timberland,14.677392,121.156144,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-valenzuela-nhs,Valenzuela NHS,14.672811,120.984733,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-napindan-ii,Napindan II,14.55848,121.0666,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall and Water Level,False,True,True
+telemetered-pasig-marikina-tullahan-antipolo-aws,Antipolo AWS,14.58606,121.1711,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-la-mesa-dam-aws,La Mesa Dam AWS,14.71442,121.0707,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-pasig-city-hall-aws,Pasig City Hall AWS,14.55952,121.0815,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-port-area-synop-aws,Port Area Synop AWS,14.58833,120.9679,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Rainfall,False,True,False
+telemetered-pasig-marikina-tullahan-burgos,Burgos,14.72193,121.1445,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-la-mesa-dam,La Mesa Dam,14.714244,121.074114,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-manalo-bridge,Manalo Bridge,14.60378,121.0891,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-marcos-highway,Marcos Highway,14.62642,121.0823,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-mindanao-avenue,Mindanao Avenue,14.66729,121.0348,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-napindan-i,Napindan I,14.5538,121.076,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan,,14.629525,121.014928,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-quirino,Quirino,14.718472,121.039981,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-rodriguez,Rodriguez,14.73755,121.154667,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-rosario-bridge,Rosario Bridge,14.59027,121.083,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-san-mateo-i,San Mateo I,14.67955,121.1097,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-sto-ni-o,Sto. Niño,14.63594,121.0931,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-tumana-bridge,Tumana Bridge,14.65643,121.0965,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True
+telemetered-pasig-marikina-tullahan-ugong,Ugong,14.686228,121.001958,Pasig-Marikina-Tullahan,Philippines,PAGASA,telemetered,,,,Pasig-Marikina-Tullahan,Water Level,False,False,True

@@ -1,0 +1,173 @@
+{
+ "result": "OK",
+ "data": [
+  {
+   "id": 1306250226,
+   "waterlevel_datetime": "2026-09-15 16:00",
+   "waterlevel_m": null,
+   "waterlevel_msl": "190.03",
+   "waterlevel_msl_previous": "190.02",
+   "flow_rate": null,
+   "discharge": "78.18",
+   "storage_percent": "97.49",
+   "sort_order": null,
+   "station_type": "tele_waterlevel",
+   "situation_level": 4,
+   "agency": {
+    "id": 12,
+    "agency_name": {
+     "th": "กรมชลประทาน ",
+     "en": "Royal Irrigation Department",
+     "jp": ""
+    },
+    "agency_shortname": {
+     "th": "ชป.",
+     "en": "RID",
+     "jp": ""
+    }
+   },
+   "basin": {
+    "id": 3,
+    "basin_code": 3,
+    "basin_name": {
+     "th": "ลุ่มน้ำโขงตะวันออกเฉียงเหนือ",
+     "en": "Northeast Khong Basin"
+    }
+   },
+   "station": {
+    "id": 3085,
+    "tele_station_name": {
+     "th": "บ้านโคกคำไหล"
+    },
+    "tele_station_lat": 17.557489,
+    "tele_station_long": 103.335228,
+    "tele_station_oldcode": "Kh.93",
+    "tele_station_type": "tele_waterlevel",
+    "left_bank": 346.106,
+    "right_bank": 345.794,
+    "min_bank": 191,
+    "ground_level": 152.39,
+    "offset": 185,
+    "sub_basin_id": 58,
+    "agency_id": 12,
+    "geocode_id": 4470,
+    "hydro_id": 3,
+    "qmax": 150,
+    "is_key_station": false,
+    "warning_level_m": null,
+    "critical_level_m": null,
+    "critical_level_msl": null
+   },
+   "geocode": {
+    "area_code": "4",
+    "area_name": {
+     "th": "ภาคตะวันออกเฉียงเหนือ",
+     "en": "Northeast"
+    },
+    "amphoe_code": "12",
+    "amphoe_name": {
+     "th": "สว่างแดนดิน",
+     "en": "Sawang Daen Din District"
+    },
+    "tumbon_code": "03",
+    "tumbon_name": {
+     "th": "คำสะอาด",
+     "en": "Kham Sa-At"
+    },
+    "province_code": "47",
+    "province_name": {
+     "th": "สกลนคร",
+     "en": "Sakon Nakhon"
+    }
+   },
+   "diff_wl_bank": "0.97",
+   "diff_wl_bank_text": "ต่ำกว่าตลิ่ง (ม.)",
+   "river_gid": 114859,
+   "river_name": "แม่น้ำสงคราม"
+  },
+  {
+   "id": 1306235494,
+   "waterlevel_datetime": "2026-09-15 16:00",
+   "waterlevel_m": null,
+   "waterlevel_msl": "110.70",
+   "waterlevel_msl_previous": "110.69",
+   "flow_rate": null,
+   "discharge": "1616.00",
+   "storage_percent": "88.77",
+   "sort_order": null,
+   "station_type": "tele_waterlevel",
+   "situation_level": 4,
+   "agency": {
+    "id": 12,
+    "agency_name": {
+     "th": "กรมชลประทาน ",
+     "en": "Royal Irrigation Department",
+     "jp": ""
+    },
+    "agency_shortname": {
+     "th": "ชป.",
+     "en": "RID",
+     "jp": ""
+    }
+   },
+   "basin": {
+    "id": 5,
+    "basin_code": 5,
+    "basin_name": {
+     "th": "ลุ่มน้ำมูล",
+     "en": "Mun Basin"
+    }
+   },
+   "station": {
+    "id": 2752,
+    "tele_station_name": {
+     "th": "สะพานเสรีประชาธิปไตย"
+    },
+    "tele_station_lat": 15.22263,
+    "tele_station_long": 104.859131,
+    "tele_station_oldcode": "M.7",
+    "tele_station_type": "tele_waterlevel",
+    "left_bank": 112,
+    "right_bank": 112,
+    "min_bank": 112,
+    "ground_level": 100.42,
+    "offset": 105,
+    "sub_basin_id": 147,
+    "agency_id": 12,
+    "geocode_id": 2760,
+    "hydro_id": 4,
+    "qmax": 2300,
+    "is_key_station": true,
+    "warning_level_m": null,
+    "critical_level_m": 7,
+    "critical_level_msl": 112
+   },
+   "geocode": {
+    "area_code": "4",
+    "area_name": {
+     "th": "ภาคตะวันออกเฉียงเหนือ",
+     "en": "Northeast"
+    },
+    "amphoe_code": "15",
+    "amphoe_name": {
+     "th": "วารินชำราบ",
+     "en": "Warin Chamrap District"
+    },
+    "tumbon_code": "01",
+    "tumbon_name": {
+     "th": "วารินชำราบ",
+     "en": "Warin Chamrap"
+    },
+    "province_code": "34",
+    "province_name": {
+     "th": "อุบลราชธานี",
+     "en": "Ubon Ratchathani"
+    }
+   },
+   "diff_wl_bank": "1.30",
+   "diff_wl_bank_text": "ต่ำกว่าตลิ่ง (ม.)",
+   "river_gid": 146325,
+   "river_name": "แม่น้ำมูล"
+  }
+ ]
+}

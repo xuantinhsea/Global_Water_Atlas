@@ -1,0 +1,80 @@
+gauge_id,station_name,latitude,longitude,river,country,source,station_type,flood_stage,alarm_stage,wl_sensor,rainfall_sensor,wl_sensor_type,last_measurement
+092600,Jinghong,22.01597,100.80222,Mekong,China,Mekong River Commission,CHINA,,,True,True,RADAR,2026-09-15T20:00:00
+092980,Ma’an,21.91,101.26,Ma’an,China,Mekong River Commission,CHINA,,,True,True,RADAR,2026-09-15T20:00:00
+010402,Xieng Kok,20.90056,100.6364,Mekong,Lao PDR,Mekong River Commission,HYCOS,,,True,True,RADAR,
+010901,Pak Beng,19.891,101.127,Mekong,Lao PDR,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T19:45:00
+010701,Ban Xanghai,20.00331,102.2313,Mekong,Lao PDR,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T19:30:00
+011201,Luang Prabang,19.8928,102.13418,Mekong,Lao PDR,Mekong River Commission,HYCOS,18.0,17.5,True,True,RADAR,2026-09-15T19:45:00
+011501,Ban Pakhoung,19.19707,101.82158,Mekong,Lao PDR,Mekong River Commission,JEM,,,True,True,RADAR,2026-09-15T19:30:00
+011901,Vientiane KM4,17.93098,102.61556,Mekong,Lao PDR,Mekong River Commission,HYCOS,12.5,11.5,True,True,RADAR,2026-09-15T19:45:00
+012703,Paksane,18.373404,103.66321,Mekong,Lao PDR,Mekong River Commission,HYCOS,14.5,13.5,True,True,RADAR,2026-09-15T19:45:00
+013102,Thakhek,17.394533,104.8014,Mekong,Lao PDR,Mekong River Commission,HYCOS,14.0,13.0,True,True,RADAR,2026-09-15T19:30:00
+013401,Savannakhet,16.563604,105.74297,Mekong,Lao PDR,Mekong River Commission,HYCOS,13.0,12.0,True,True,RADAR,2026-09-15T19:45:00
+013806,Ban Mai Singsamphan,15.32472,105.5317,Mekong,Lao PDR,Mekong River Commission,HYCOS,13.0,12.0,True,True,RADAR,2026-09-15T16:15:00
+013901,Pakse,15.09976,105.81319,Mekong,Lao PDR,Mekong River Commission,HYCOS,12.0,11.0,True,True,RADAR,2026-09-15T19:30:00
+013903,Pha Phin,14.948,105.889,Mekong,Lao PDR,Mekong River Commission,HYCOS,12.0,11.0,True,True,RADAR,2026-09-15T19:45:00
+013905,Don Sahong,13.9417,105.9549,Mekong,Lao PDR,Mekong River Commission,JEM,,,True,True,RADAR,2026-09-15T19:30:00
+011200,Hat Gna,20.087,102.263,Nam Ou,Lao PDR,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T19:45:00
+260101,Muang Kao,18.56193,103.72594,Nam Sane,Lao PDR,Mekong River Commission,DROUGHT,8.0,7.0,True,True,RADAR,2026-09-15T19:30:00
+270101,Phonesy,18.30233,104.09739,Nam Ca Ding,Lao PDR,Mekong River Commission,DROUGHT,14.75,13.75,True,True,RADAR,2026-09-15T00:00:00
+270502,Ban Nape,18.30457,105.07359,Nam Phao,Lao PDR,Mekong River Commission,HYCOS,5.5,4.5,True,True,RADAR,2026-09-15T19:30:00
+320107,Mahaxai,17.4179,105.19847,Se Bang Fai,Lao PDR,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T19:45:00
+320101,Se Bangfai,17.07652,104.98537,Se Bang Fai,Lao PDR,Mekong River Commission,HYCOS,20.0,19.0,True,True,RADAR,2026-09-15T19:45:00
+350101,Ban Kengdone,16.18727,105.31287,Se Bang Hieng,Lao PDR,Mekong River Commission,HYCOS,16.5,15.0,True,True,RADAR,2026-09-15T19:30:00
+350105,Sopnam,16.68719,106.21497,Se Bang Hieng,Lao PDR,Mekong River Commission,HYCOS,17.0,16.0,True,True,RADAR,2026-09-15T19:45:00
+390102,Khongsedone,15.57774,105.81052,Nam Sedone,Lao PDR,Mekong River Commission,DROUGHT,13.3,12.3,True,True,RADAR,2026-09-15T19:30:00
+430106,Ban Veunkhen,14.8192,106.80566,Se Kong,Lao PDR,Mekong River Commission,HYCOS,16.0,15.0,True,True,RADAR,2026-09-15T19:45:00
+010501,Chiang Saen,20.27412,100.08855,Mekong,Thailand,Mekong River Commission,HYCOS,12.8,11.5,True,True,RADAR,2026-09-15T19:45:00
+011903,Chiang Khan,17.90026,101.66989,Mekong,Thailand,Mekong River Commission,HYCOS,16.0,14.5,True,True,RADAR,2026-09-15T19:45:00
+012002,Nong Khai 2,17.87775,102.71667,Mekong,Thailand,Mekong River Commission,HYCOS,12.2,11.4,True,True,RADAR,2026-09-15T19:45:00
+012702,Bueng Kan,18.401388,103.58111,Mekong,Thailand,Mekong River Commission,HYCOS,11.18,10.18,True,True,RADAR,2026-09-15T19:45:00
+013101,Nakhon Phanom,17.623796,104.51742,Mekong,Thailand,Mekong River Commission,HYCOS,12.0,11.5,True,True,RADAR,2026-09-15T19:45:00
+013402,Mukdahan,16.5828,104.73318,Mekong,Thailand,Mekong River Commission,HYCOS,12.5,12.0,True,True,RADAR,2026-09-15T19:45:00
+013601,Amnat Chareon,16.225834,105.01361,Mekong,Thailand,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T19:45:00
+013501,Khemarat,16.035,105.29,Mekong,Thailand,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T17:00:00
+013801,Khong Chiam,15.32209,105.49348,Mekong,Thailand,Mekong River Commission,HYCOS,14.5,13.5,True,True,RADAR,2026-09-15T19:45:00
+050107,Mae Chan,20.141,100.038,Nam Mae Kok,Thailand,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T19:45:00
+070103,Thoeng,19.68843,100.18723,Nam Mae Ing,Thailand,Mekong River Commission,HYCOS,8.0,7.5,True,True,RADAR,2026-09-15T19:45:00
+150101,Wang Saphung,17.29986,101.77597,Nam Loei,Thailand,Mekong River Commission,HYCOS,9.0,8.0,True,True,RADAR,2026-09-15T19:45:00
+290113,Ban Had Paeng,17.67546,104.28622,Nam Songkhram,Thailand,Mekong River Commission,HYCOS,13.0,12.5,True,True,RADAR,
+290102,Ban Tha Kok Daeng,17.86564,103.77433,Nam Songkhram,Thailand,Mekong River Commission,HYCOS,13.0,12.0,True,True,RADAR,2026-09-15T19:45:00
+014003,Koh Key,13.679922,106.048706,Mekong,Cambodia,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T19:45:00
+014501,Stung Treng,13.5325,105.95019,Mekong,Cambodia,Mekong River Commission,HYCOS,12.0,10.7,True,True,RADAR,2026-09-15T18:30:00
+014901,Kratie,12.48141,106.01762,Mekong,Cambodia,Mekong River Commission,HYCOS,23.0,22.0,True,True,RADAR,2026-09-15T19:45:00
+019802,Kompong Cham,11.994647,105.46873,Mekong,Cambodia,Mekong River Commission,HYCOS,16.2,15.2,True,True,RADAR,2026-09-15T19:45:00
+033401,Chaktomuk,11.56299,104.93529,Bassac,Cambodia,Mekong River Commission,HYCOS,12.0,10.5,True,True,RADAR,2026-09-15T19:30:00
+019806,Neak Luong,11.263037,105.28012,Mekong,Cambodia,Mekong River Commission,HYCOS,8.0,7.5,True,True,RADAR,2026-09-15T19:45:00
+014500,3S at Sekong bridge,13.536,105.99,Sekong,Cambodia,Mekong River Commission,HYCOS,,,True,True,RADAR,
+430102,Siempang,14.11514,106.38795,Sekong,Cambodia,Mekong River Commission,HYCOS,12.5,11.5,True,True,RADAR,2026-09-15T19:45:00
+440102,Voeun Sai,13.96858,106.88483,Sesan,Cambodia,Mekong River Commission,HYCOS,,,True,True,RADAR,
+450101,Lumphat,13.50088,106.97115,Sre Pok,Cambodia,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T01:00:00
+530101,Sisophon,13.58665,102.97661,Stung Mongkolborey,Cambodia,Mekong River Commission,HYCOS,,,True,True,RADAR,
+020106,Kompong Luong,12.57662,104.20779,Tonlesap,Cambodia,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T19:45:00
+610101,Kompong Thom,12.71483,104.88792,Stung Sen,Cambodia,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T19:45:00
+590101,Boribo,12.38491,104.48661,Stung Boribo,Cambodia,Mekong River Commission,DROUGHT,,,True,True,RADAR,2026-09-15T19:45:00
+020102,Prek Kdam,11.81117,104.80678,Tonlesap,Cambodia,Mekong River Commission,HYCOS,10.0,9.5,True,True,RADAR,2026-09-15T19:45:00
+640102,Kompong Speu,11.45625,104.49606,Prek Thnot,Cambodia,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T19:45:00
+019905,Kampong Ampil,11.65785,105.13187,Tonle Toch,Cambodia,Mekong River Commission,DROUGHT,,,True,True,RADAR,2026-09-15T19:45:00
+033402,Koh Khel,11.242035,105.036156,Bassac,Cambodia,Mekong River Commission,HYCOS,8.4,7.9,True,True,RADAR,2026-09-15T19:45:00
+680103,Angkorborey,10.99395,104.97654,Stung Angkor Borey,Cambodia,Mekong River Commission,DROUGHT,,,True,True,RADAR,2026-09-15T19:30:00
+530100,Sakaeo,13.787777,102.71111,Nam River,Thailand,Mekong River Commission,9C9T,,,True,True,RADAR,2026-09-15T19:45:00
+550106,Kamrieng,13.051272,102.49884,Stung Kamrieng,Cambodia,Mekong River Commission,9C9T,6.0,5.0,True,True,RADAR,2026-09-15T19:30:00
+550108,Chanthaburi,13.123888,102.37194,Nam River,Thailand,Mekong River Commission,9C9T,,,True,True,RADAR,2026-09-15T19:45:00
+550107,Phnom Koy,12.995833,102.5375,Stung Koy,Cambodia,Mekong River Commission,9C9T,6.0,5.0,True,True,RADAR,2026-09-15T19:30:00
+019803,Tan Chau,10.80062,105.24802,Mekong,Viet Nam,Mekong River Commission,HYCOS,4.5,3.5,True,True,RADAR,2026-09-15T19:45:00
+019804,My Thuan,10.27532,105.92632,Mekong,Viet Nam,Mekong River Commission,HYCOS,1.8,1.6,True,True,RADAR,2026-09-15T19:45:00
+985203,Vam Kenh,10.2743,106.73714,Mekong,Viet Nam,Mekong River Commission,HYCOS,,,True,True,RADAR,
+440201,Kontum,14.34708,108.03423,Dak Bla,Viet Nam,Mekong River Commission,HYCOS,,,True,True,RADAR,
+450502,Giang Son,12.51017,108.18324,Krong Ana,Viet Nam,Mekong River Commission,HYCOS,425.0,421.0,True,True,RADAR,
+450701,Duc Xuyen,12.29677,107.9759,Krong Kno,Viet Nam,Mekong River Commission,HYCOS,431.5,427.5,True,True,RADAR,
+451305,Ban Don,12.89791,107.78313,Se Re Pok,Viet Nam,Mekong River Commission,HYCOS,17.5,17.1,True,True,RADAR,
+908001,Cho Lach,10.279167,106.12472,Ham Luong,Viet Nam,Mekong River Commission,DROUGHT,,,True,True,RADAR,
+908002,My Hoa,10.2225,106.34917,Ham Luong,Viet Nam,Mekong River Commission,DROUGHT,,,True,True,RADAR,
+981702,Tra Vinh,9.975322,106.35421,Co Chien,Viet Nam,Mekong River Commission,HYCOS,,,True,True,RADAR,
+901503,Long Dinh,10.4,106.256386,Xang,Viet Nam,Mekong River Commission,DROUGHT,,,True,True,RADAR,
+039801,Chau Doc,10.70528,105.13351,Bassac,Viet Nam,Mekong River Commission,HYCOS,4.0,3.0,True,True,RADAR,2026-09-15T19:45:00
+980601,Vam Nao,10.57865,105.36337,Vam Nao,Viet Nam,Mekong River Commission,HYCOS,,,True,True,RADAR,
+039803,Can Tho,10.052889,105.78714,Bassac,Viet Nam,Mekong River Commission,HYCOS,1.9,1.7,True,True,RADAR,2026-09-15T19:45:00
+039812,Dai Ngai,9.734,106.074,Bassac,Viet Nam,Mekong River Commission,HYCOS,,,True,True,RADAR,2026-09-15T07:00:00
+902602,Vi Thanh,9.7761,105.45861,Xa No,Viet Nam,Mekong River Commission,DROUGHT,,,True,True,RADAR,
+902601,Phung Hiep,9.81194,105.82361,Cai Con,Viet Nam,Mekong River Commission,DROUGHT,,,True,True,RADAR,2026-09-15T19:45:00

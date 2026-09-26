@@ -1,0 +1,281 @@
+# Global Water Atlas
+
+A local-first map of observed water data from around the world, built on the
+RivRetrieve library. It puts every station from all 25 providers on a Leaflet
+basemap: river gauges, rain gauges, reservoirs, and coastal and Great Lakes tide
+gauges. You can filter and select stations, preview a series, and download
+discharge, water level, water temperature and rainfall as CSV.
+
+`wateratlas` is a *consumer* of `rivretrieve`. It never modifies the library:
+every station list and every time series still comes from the fetchers in
+`rivretrieve/`.
+
+## Quick start
+
+```bash
+# 1. Install the library plus the app's extra dependencies.
+pip install -e ".[app]"
+
+# 2. Build the station catalog from the cached provider CSVs (once, ~15 s).
+python scripts/build_catalog.py
+
+# 3. Build the front end.
+cd wateratlas/frontend && npm install && npm run build && cd ../..
+
+# 4. Run it.
+wateratlas
+```
+
+That opens <http://127.0.0.1:8000>. `wateratlas doctor` reports anything missing.
+`python -m wateratlas` does the same without the installed command.
+
+For front-end development, run the API and the Vite dev server side by side:
+
+```bash
+wateratlas serve --no-open              # API on :8000
+cd wateratlas/frontend && npm run dev   # UI on :5173, proxies /api to :8000
+```
+
+## What's on the map
+
+**84,278 stations from 25 providers**, of which 84,086 are mappable.
+
+| Data | Examples |
+| --- | --- |
+| River discharge | USGS, ECCC HYDAT, Environment Agency, BoM, Hub'Eau, ANA, … |
+| Water level | River stage almost everywhere; reservoir levels (PAGASA dams); coastal, estuarine and Great Lakes levels (NOAA Tides & Currents) |
+| Water temperature | NOAA, NVE, CHMI, IMGW, Wasserportal Berlin |
+| Rainfall | ThaiWater, MRC, PhilSensors, PAGASA; catchment averages from NRFA |
+
+Units are SI throughout: discharge in m³/s, water level in m, water temperature
+in °C, rainfall in mm. River stage is a height above each gauge's own zero;
+coastal and Great Lakes levels are heights above a tidal or lake datum (see
+[NOAA Tides & Currents](#noaa-tides--currents)). Don't compare levels across
+stations without checking the datum.
+
+## What the catalog build does
+
+The cached CSVs in `rivretrieve/cached_site_data/` mostly predate the column
+standard in `docs/design_docs/data_fetcher.md` §5, so they disagree with each
+other in ways that would keep many stations off a map. `scripts/build_catalog.py`
+reconciles them into one index and reports every row it repaired or dropped:
+
+| Problem | What the build does |
+| --- | --- |
+| Spain has no `latitude`/`longitude` at all — only UTM 30N | Reprojects EPSG:25830 → EPSG:4326 (1,491 stations) |
+| `station_name` vs `gauge_name`, `altitude` vs `gauge_altitude` | Per-provider alias map |
+| `germany_berlin` leads with an unnamed index column | Dropped |
+| Australia repeats 125 `gauge_id` values | First row wins, count reported |
+| `gauge_id` is only unique per provider | Every record keyed `<provider>:<gauge_id>` |
+| Portugal writes `-` for a missing coordinate | Treated as null, station kept but flagged off-map |
+| `uk_ea_sites.csv` embeds 15 MB of JSON blobs | Excluded from the shipped metadata |
+
+Current result: **84,278 stations, 84,086 mappable, 192 without coordinates.**
+48,399 still have no station name, because several providers' cached CSVs carry
+only `gauge_id, latitude, longitude`. Those show their gauge ID on the map.
+
+## Southeast Asia
+
+Six providers cover the region: 8,025 stations, all geolocated. Refresh any of
+their station lists with:
+
+```bash
+python scripts/refresh_sea_sites.py              # all six
+python scripts/refresh_sea_sites.py mrc          # or just one
+```
+
+| Provider | Stations | Data | History |
+| --- | --- | --- | --- |
+| `thailand` | 1,121 | stage, discharge | hourly, from ~2020 |
+| `thailand_rain` | 4,485 | rainfall | **none**: rolling ~41 h |
+| `mrc` | 79 | stage, rainfall | **none**: rolling ~31 days |
+| `philippines` | 2,132 | stage, rainfall | needs a DOST-ASTI token |
+| `pagasa_dams` | 9 | reservoir level, outflow | **none**: today's and yesterday's bulletin |
+| `pagasa_stations` | 199 | inventory only | readings are sold, not published |
+
+### Mekong River Commission
+
+79 telemetry stations across Laos (23), Cambodia (21), Viet Nam (17), Thailand
+(16) and China (2), including Tan Chau and My Thuan in the Mekong Delta. This is
+the only openly reachable gauge data for Laos, Cambodia and Viet Nam.
+
+The feed is a rolling window of roughly the last 31 days at 5–15 minute
+resolution; every date parameter the API accepts is ignored. **Redistribution
+terms for this feed are not published.** It is unauthenticated and serves the
+MRC's public flood-warning map, but the MRC's general data policy requires a
+licence and fees for raw data. Confirm with the MRC Secretariat before
+republishing anything from it, and use a formal data request at
+<https://portal.mrcmekong.org/> for the historical archive.
+
+Note that all 79 stations carry `country = "mrc"` in the catalog, because the
+atlas keys country by provider. Each station's real country is in its provider
+record, visible in the detail panel.
+
+### Philippines
+
+2,132 DOST-ASTI PhilSensors stations — 561 water level, 1,131 rain gauges, 231
+tandem (both) and 209 weather stations. The station catalogue comes from an open
+GeoServer WFS, which is why every station maps without credentials.
+
+The readings API needs an access token that DOST-ASTI issues through a data
+request: non-commercial research, academic or disaster-management use only, no
+redistribution. Set `PHILSENSORS_TOKEN` in `rivretrieve/.env` once you have one.
+Without it `get_data` returns an empty frame and says why.
+
+### Thailand
+
+Two things to know before relying on the ThaiWater providers:
+
+- **The water level archive starts around 2020** and only becomes dense from
+  2023. Earlier requests return a grid of nulls, which the fetcher discards, so
+  a DataFrame is routinely much shorter than the range asked for.
+- **There is no rainfall history.** The provider's rainfall endpoint accepts
+  date parameters and ignores them, always returning a rolling window of about
+  the last 41 hours. `ThailandRainFetcher` returns an empty frame for anything
+  older rather than handing back recent data under the wrong dates.
+
+## NOAA Tides & Currents
+
+`noaa_tides` adds the 2,932 NOAA CO-OPS stations behind
+<https://tidesandcurrents.noaa.gov/map/>: 309 active tide and Great Lakes
+gauges plus 2,623 historic ones, including tidal river stations such as
+Carrollton on the Mississippi at New Orleans. Refresh the list with:
+
+```bash
+python scripts/refresh_noaa_tides_sites.py
+```
+
+| Variable | Source | Notes |
+| --- | --- | --- |
+| `stage_instantaneous` | 6-minute water level | from ~1995; preliminary for the latest month or so |
+| `stage_daily_mean` | mean of 24 verified hourly heights | complete UTC days only |
+| `stage_monthly_mean` | NOAA monthly mean sea level (MSL) | one request for the whole record |
+| `water-temperature_instantaneous` | 6-minute water temperature | 240 stations |
+
+Things to know:
+
+- **Stage is a height above a datum, and the datum depends on the station.**
+  Tide gauges use MLLW, Great Lakes gauges IGLD 1985, and the dozen non-tidal
+  coastal and river stations their station datum (STND). The station's
+  `default_datum` is in the detail panel. A station without MLLW, such as
+  Augusta on the Kennebec River, falls back to STND with a warning. The
+  downloaded CSV does not record the datum; the library returns it in
+  `frame.attrs["datum"]`.
+- **Historic stations are mapped too.** Most are short 1970s deployments, so a
+  default ten-year range returns nothing for them. The detail panel shows
+  `status`, `established` and `removed`, and requests past a station's removal
+  date are never sent.
+- **NOAA rate-limits bursts.** It answers with HTTP 403 for several minutes, so
+  the fetcher paces every request 0.5 s apart and reports a 403 as a failure,
+  not as an empty series.
+
+## Catalog artefacts
+
+The build writes these to `wateratlas/catalog_data/` (gitignored):
+
+- `stations.parquet`: normalised core columns, what the API queries
+- `stations_extra.parquet`: every provider-specific column as JSON, read only for the detail panel
+- `stations.json`: compact positional-array payload for the map (~4.7 MB, ~1.4 MB gzipped)
+- `catalog_report.json`: rows in, rows out, and why each row was dropped
+
+## Credentials
+
+Three providers need secrets, set in `rivretrieve/.env`:
+
+```
+ANA_USERNAME=...        # Brazil, ANA Hidroweb
+ANA_PASSWORD=...
+NVE_API_KEY=...         # Norway, NVE HydAPI
+PHILSENSORS_TOKEN=...   # Philippines, DOST-ASTI PhilSensors
+```
+
+Without them those providers are marked unavailable in the UI and their jobs
+report `blocked` rather than silently returning an empty series.
+
+## Bulk caches
+
+Canada downloads the entire HYDAT SQLite database and Poland builds a local Zarr
+store, both lazily inside `get_data()`. Warm them up front rather than behind a
+user's first click:
+
+```bash
+wateratlas warm                      # both
+wateratlas warm --provider canada    # just one
+```
+
+## How the map handles 84,000 points
+
+Leaflet markers are one DOM node each, and Leaflet.markercluster struggles well
+below this count. Instead:
+
+- `src/cluster.worker.ts` owns the whole station index and runs
+  [supercluster](https://github.com/mapbox/supercluster) off the main thread. It
+  also owns filtering, so panning and zooming never round-trip to the server.
+- `src/lib/canvasLayer.ts` paints clusters and stations into a single canvas
+  with its own hit testing — one DOM node in total.
+
+Supercluster measures its radius in tile units with `extent` per tile (512 by
+default) while Leaflet paints 256 px tiles, so the radius here is 120 for the
+~60 px grouping the map wants.
+
+## API
+
+Everything the UI does is available directly.
+
+| Endpoint | Purpose |
+| --- | --- |
+| `GET /api/providers` | Every provider, with variables, credential and cache state |
+| `GET /api/stations` | Filtered stations as GeoJSON (`format=table` for flat rows) |
+| `GET /api/stations/map` | The compact map payload |
+| `GET /api/station?key=` | Full metadata, including every provider-specific column |
+| `GET /api/station/preview?key=&variable=` | Downsampled series for the detail panel |
+| `POST /api/selection/variables` | Variables worth offering for a selection |
+| `POST /api/selection/estimate` | Pre-flight: what will download, and roughly how long |
+| `POST /api/downloads` | Start a job; returns immediately |
+| `GET /api/downloads/{id}` | Per-station status |
+| `GET /api/downloads/{id}/events` | Server-sent progress events |
+| `GET /api/downloads/{id}/archive` | ZIP: CSVs + `manifest.csv` + `ATTRIBUTION.md` |
+| `POST /api/providers/{country}/warm` | Trigger a bulk cache download as a job |
+
+Station keys are query parameters, not path segments, because Portuguese gauge
+IDs contain slashes (`portugal:04K/04A`).
+
+## Learned availability
+
+`get_available_variables()` is static per fetcher, so for most providers the
+catalog can only say a station *may* publish stage. Four providers know better
+and carry a boolean per variable per station in their cached CSV: Norway,
+PhilSensors, the PAGASA station inventory, and NOAA Tides & Currents.
+
+Every download and preview therefore records what it found in
+`wateratlas/state/availability.sqlite3`: `confirmed` (rows came back), `absent`
+(nothing for that range) or `failed`. A confirmed observation is never
+downgraded by a later empty range — a gauge with a 1990s record still has it
+when a query for 2024 comes back empty. The detail panel shows these as chips,
+and the atlas gets more accurate the more it is used.
+
+Two environment variables move the app's files elsewhere:
+`WATERATLAS_CATALOG_DIR` for the catalog and `WATERATLAS_STATE_DIR` for this
+state.
+
+## Data rights
+
+All data rights remain with the original providers. The MIT licence of this
+repository covers the code only. Every download archive ships an
+`ATTRIBUTION.md` naming each provider that contributed to it, and
+`manifest.csv` records the outcome for every station requested, including the
+ones that returned nothing.
+
+Before deploying this anywhere shared, read each provider's terms: several
+throttle by IP and some restrict redistribution, and a hosted instance
+concentrates all traffic on one address.
+
+## Author and contact
+
+© 2026 Nguyen Xuan Tinh (Ph.D.)
+Nippon Koei Co., Ltd., Water Resources & Energy Department
+〒102-8539 5-4 Kojimachi, Chiyoda-ku, Tokyo, Japan
+E-mail: <xuantinhsea@gmail.com>
+
+The same details are in the app: click the ⓘ next to the title, or open
+<http://127.0.0.1:8000/#about>.

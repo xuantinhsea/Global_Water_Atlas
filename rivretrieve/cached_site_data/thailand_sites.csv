@@ -1,0 +1,1122 @@
+gauge_id,station_name,latitude,longitude,river,country,source,station_code,agency,province,basin_code,ground_level,left_bank,right_bank
+575568,Khlong Lat Bang Yo 2 Gate,13.661021,100.56727,Chao Phraya Basin,Thailand,ThaiWater (HII),BKC004,HII,Samut Prakan,10,-1.63,1.49,0.905
+395,Nathom Bridge,17.777582,104.01503,Northeast Khong Basin,Thailand,ThaiWater (HII),SKM001,HII,Sakon Nakhon,3,131.865,143.857,144.219
+2676,ที่ว่าการอ.นครชัยศรี,13.80096,100.188026,Tha Chin Basin,Thailand,ThaiWater (HII),T.1,RID,Nakhon Pathom,13,-9.1,-7.585999999999999,-7.577999999999999
+528052,วัดบางไผ่นารถ,14.05221,100.175087,Tha Chin Basin,Thailand,ThaiWater (HII),T.15,RID,Nakhon Pathom,13,-5.74,-2.582,-2.785
+479241,Yasothon 1,16.195435,104.52569,Mun Basin,Thailand,ThaiWater (HII),TBW033,HII,Yasothon,5,140.269,146.637,144.663
+1422375,วัดโชติการาม อ.เมืองสุราษฎร์ธานี,9.191049,99.263785,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD15,EGAT,Surat Thani,19,-7.87,1.3295,2.0637
+3085,บ้านโคกคำไหล,17.557489,103.335228,Northeast Khong Basin,Thailand,ThaiWater (HII),Kh.93,RID,Sakon Nakhon,3,152.39,346.106,345.794
+151,Bang Nam Priao,13.87032,101.14574,Bang Pakong Basin,Thailand,ThaiWater (HII),BPK003,HII,Chachoengsao,15,-10.948,1.47,1.851
+1373691,Nang Phraya Bridge-Bang Luang Pak Nakhon Community,8.438141,100.0304,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),PTTEP3,HII,Nakhon Si Thammarat,19,-4.481,0.73,0.8
+505038,บ้านวัดพระรูป,14.47046,100.114769,Tha Chin Basin,Thailand,ThaiWater (HII),T.10,RID,Suphan Buri,13,-2.44,3.373,3.3579999999999997
+1121258,Khwae Yai Bridge,16.04928,98.844765,Mae Klong Basin,Thailand,ThaiWater (HII),MOU431,FOP,Tak,14,415.668,455.345,454.79
+1422373,สะพานบ้างอ้อ อ.พุนพิน,9.074279,99.217619,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD13,EGAT,Surat Thani,19,-9.13,1.6894,2.9921
+80,Chao Phraya 4,15.25029,100.08347,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY004,HII,Chai Nat,10,3.115,19.655,17.541
+505039,บ้านบางการ้อง,14.157,100.127907,Tha Chin Basin,Thailand,ThaiWater (HII),T.13,RID,Suphan Buri,13,-4.67,0.10400000000000009,0.13400000000000034
+3117,บ้านท่าห้วยหลัว,17.821621,103.386932,Northeast Khong Basin,Thailand,ThaiWater (HII),Kh.74,RID,Udon Thani,3,145.135,302.211003,302.259003
+505041,ร.ร.บ้านสามพราน,13.72411,100.215683,Tha Chin Basin,Thailand,ThaiWater (HII),T.14,RID,Nakhon Pathom,13,-8.76,-6.148000000000001,-5.545000000000001
+901,Patthani 2,6.67525,101.286354,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),PAT002,HII,Yala,21,1.74,13.85,13.85
+745,Tha Chin 7,14.01636,100.17979,Tha Chin Basin,Thailand,ThaiWater (HII),THA007,HII,Nakhon Pathom,13,-7.51,2.206,4.904
+137,Trat 1,12.325195,102.5005,East Coast Gulf Basin,Thailand,ThaiWater (HII),TRD001,HII,Trat,17,-6.744,0.772,0.69
+737,Tha Chedi Temple (TTC06),14.15657,100.12744,Tha Chin Basin,Thailand,ThaiWater (HII),THA006,HII,Suphan Buri,13,-2.065,4.39,2.139
+396,Sawang Daen Din,17.594717,103.38448,Northeast Khong Basin,Thailand,ThaiWater (HII),SKM005,HII,Sakon Nakhon,3,148.36,157.313,156.234
+748,Nakhon Chai Si Bridge,13.79217,100.19817,Tha Chin Basin,Thailand,ThaiWater (HII),THA008,HII,Nakhon Pathom,13,-7.99,1.946,2.321
+859,Songkhla Lake 5,7.261514,100.42447,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),SLA005,HII,Songkhla,20,-6.322,1.622,0.974
+665,Chum Saeng Songkhram Communuty,16.8586,100.05965,Yom Basin,Thailand,ThaiWater (HII),VLGE13,HII,Phitsanulok,8,32.365,40.536,43.361
+619,Ton num Bridge,15.91465,99.4194,Sakae Krang Basin,Thailand,ThaiWater (HII),SKG003,HII,Kamphaeng Phet,11,102.34,119.23,118.12
+479236,Songkhram 3,17.59971,103.98087,Northeast Khong Basin,Thailand,ThaiWater (HII),TBW028,HII,Sakon Nakhon,3,142.917,152.09,150.486
+755,Phra Ram 2,13.38362,99.9836,Mae Klong Basin,Thailand,ThaiWater (HII),MKG006,HII,Samut Songkhram,14,-11.86,2.017,1.989
+700553,วัดไชยชุมพลชนะสงคราม (วัดใต้),14.01615,99.53029,Mae Klong Basin,Thailand,ThaiWater (HII),MKSND03,EGAT,Kanchanaburi,14,13.55,25.93,23.41
+136,Trat 3,12.262445,102.52681,East Coast Gulf Basin,Thailand,ThaiWater (HII),TRD003,HII,Trat,17,-5.51,1.23,1.49
+1109499,Kaeng Pho Bridge,16.929113,104.700676,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE010,HII,Nakhon Phanom,3,129.685,139.12,140.778
+1093079,Khlong Cha Uat,7.96636,99.99436,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),CHAU01,HII,Nakhon Si Thammarat,19,0.0,25.467,24.217
+154,Bangpakong 1,13.54901,101.00111,Bang Pakong Basin,Thailand,ThaiWater (HII),BPK001,HII,Chachoengsao,15,-11.654,1.665,1.897
+736,Song Phi Nong,14.21608,100.05017,Tha Chin Basin,Thailand,ThaiWater (HII),THA010,HII,Suphan Buri,13,-1.518,2.439,5.407
+1095849,สะพานหัวเวียง,14.36851,100.414391,Chao Phraya Basin,Thailand,ThaiWater (HII),C.67,RID,Phra Nakhon Si Ayutthaya,10,-6.58,6.576,6.698
+189,Ongkharak,14.113633,101.01952,Bang Pakong Basin,Thailand,ThaiWater (HII),NYK000,HII,Nakhon Nayok,15,-3.173,2.577,2.953
+160,Prachinburi 2,14.053554,101.38684,Bang Pakong Basin,Thailand,ThaiWater (HII),PRC002,HII,Prachin Buri,15,-4.865,5.339,4.044
+1109526,Khlong U Taphao Bridge,7.134997,100.45321,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ONE037,HII,Songkhla,20,-4.515,0.836,1.127
+2599,กรมชลประทานสามเสน,13.78815,100.509148,Chao Phraya Basin,Thailand,ThaiWater (HII),C.12,RID,Bangkok,10,-14.52,2.264,3.642
+26,Chao Phraya 14,13.94749,100.53507,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY014,HII,Nonthaburi,10,-13.306,2.5,2.5
+1085210,Bua Ban Ya De Bridge,5.827553,101.75235,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),SKN002,HII,Narathiwat,21,98.498,114.692,114.096
+592,Sakae Krang 4,15.84175,99.41808,Sakae Krang Basin,Thailand,ThaiWater (HII),SKG004,HII,Nakhon Sawan,11,111.91,137.54,136.59
+4,Chao Phraya 15,13.700301,100.49277,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY015,HII,Bangkok,10,-15.697,2.201,2.161
+2752,สะพานเสรีประชาธิปไตย,15.22263,104.859131,Mun Basin,Thailand,ThaiWater (HII),M.7,RID,Ubon Ratchathani,5,100.42,112.0,112.0
+1130137,Ton Phrae Thong Waterfall,7.48415,99.8918,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),MOU510,FOP,Phatthalung,20,395.5,399.5,399.5
+754,Ban Paew,13.57563,100.07884,Mae Klong Basin,Thailand,ThaiWater (HII),MKG005,HII,Samut Sakhon,14,-2.296,0.959,1.091
+3122,บ้านท่ากกแดง,17.86562,103.774361,Northeast Khong Basin,Thailand,ThaiWater (HII),Kh.98,RID,Sakon Nakhon,3,136.461,289.23900000000003,288.427
+1161516,บ้านหาดทรายแก้ว,8.42915,99.508362,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.176,RID,Nakhon Si Thammarat,19,0.0,27.0,27.0
+770,Bang Taboon and East Bang Taboon,13.26553,99.9418,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),GLF003,HII,Phetchaburi,18,-5.77,3.614,2.1
+1082427,Bo Din Khao,15.169044,100.41471,Chao Phraya Basin,Thailand,ThaiWater (HII),CHK001,HII,Nakhon Sawan,10,0.0,16.8115,16.8115
+526,Kwan Phayao,19.15985,99.91412,North Khong Basin,Thailand,ThaiWater (HII),PYO001,HII,Phayao,2,387.24,393.461,392.528
+1117431,Ban Chedi Ngam Bridge,19.186546,99.9439,North Khong Basin,Thailand,ThaiWater (HII),PYO004,HII,Phayao,2,385.53,387.73,388.11
+2707,บ้านคำสำราญ,14.79088,105.102768,Mun Basin,Thailand,ThaiWater (HII),M.170,RID,Ubon Ratchathani,5,122.85,130.300003,130.300003
+1095877,บ้านหัวสะพาน,6.1525,101.080902,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.77,RID,Yala,21,0.0,40.2999992370605,40.2999992370605
+740540,Nam Mun Bridge,15.310499,105.49311,Mun Basin,Thailand,ThaiWater (HII),AIT011,HII,Ubon Ratchathani,5,86.748,103.141,104.107
+575566,Wat Bangkachao Nok Gate,13.689612,100.554886,Chao Phraya Basin,Thailand,ThaiWater (HII),BKC002,HII,Samut Prakan,10,-1.41,1.74,1.26
+2683,สะพานณรงค์ดำริ,14.05144,101.367378,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.1,RID,Prachin Buri,15,-6.089,3.408,3.122
+740538,Bang Ee Bridge,16.345835,104.889885,Northeast Khong Basin,Thailand,ThaiWater (HII),AIT009,HII,Mukdahan,3,122.228,136.049,131.767
+504990,บ้านทาม,13.97341,101.517448,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.6,RID,Prachin Buri,15,-7.0,7.1,7.1
+1085211,Ka Lu Bi Ban Sai Pa Ri Bridge,5.895713,101.76639,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),SKN003,HII,Narathiwat,21,6.695,24.023,24.313
+726673,บ้านนาสีทอง,7.10502,100.193932,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.67A,RID,Songkhla,20,-1.223,6.278,6.29
+49,Chao Phraya 12,14.30455,100.56645,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY012,HII,Phra Nakhon Si Ayutthaya,10,-8.585,2.617,3.457
+471584,Khanon Ti Temple,14.288251,100.61132,Chao Phraya Basin,Thailand,ThaiWater (HII),HDA005,HII,Phra Nakhon Si Ayutthaya,10,-1.967,2.613,2.537
+2753,บ้านท่ารวก,15.22528,101.277458,Pasak Basin,Thailand,ThaiWater (HII),S.14,RID,Lop Buri,12,53.19,63.824,63.839
+3295,บ้านวังนกแอ่น,16.84712,100.512093,Nan Basin,Thailand,ThaiWater (HII),N.24A,RID,Phitsanulok,9,41.156,95.95399900000001,93.92999900000001
+1109495,Upper Ni Naruemit Gate,16.92321,104.71615,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE006,HII,Nakhon Phanom,3,128.17,140.252,140.86
+1124040,บ้านบองอ,6.16992,101.713257,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.73A,RID,Narathiwat,21,0.0,26.799999,26.799999
+750,Tha Chin 9,13.58598,100.23048,Tha Chin Basin,Thailand,ThaiWater (HII),THA009,HII,Samut Sakhon,13,-6.949,2.175,1.925
+2635,หน้าวัดภูผาพิมุข,7.61689,100.078903,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.265,RID,Phatthalung,20,0.0,8.0,8.0
+823,Tapi 1,9.131233,99.25885,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),TPI001,HII,Surat Thani,19,-5.619,2.237,2.555
+115,Mueang Klaeng,12.802991,101.65024,East Coast Gulf Basin,Thailand,ThaiWater (HII),RAY001,HII,Rayong,17,-2.445,3.966,4.375
+1109500,Upper Ban Na Khu Gate,16.962238,104.52524,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE011,HII,Nakhon Phanom,3,135.854,144.856,144.752
+529399,Lamnam Yam Bridge,17.594904,103.969406,Northeast Khong Basin,Thailand,ThaiWater (HII),FOP014,FOP,Sakon Nakhon,3,141.64,152.486,152.486
+3476,แม่น้ำมูล วัดปากโดม,15.30606,105.17113,Mun Basin,Thailand,ThaiWater (HII),PMTS4,EGAT,Ubon Ratchathani,5,99.76,112.81,118.62
+21,Sri Varee Noi Temple,13.66949,100.80058,Bang Pakong Basin,Thailand,ThaiWater (HII),BKK017,HII,Samut Prakan,15,-2.181,0.432,0.518
+2941,บางระกำ,16.757919,100.115578,Yom Basin,Thailand,ThaiWater (HII),Y.16,RID,Phitsanulok,8,30.84,70.525999,71.552999
+505018,บ้านปากแซง,14.21513,99.058197,Mae Klong Basin,Thailand,ThaiWater (HII),K.58,RID,Kanchanaburi,14,36.66,97.251,96.106
+824,Tapi 3,8.986764,99.2113,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),TPI003,HII,Surat Thani,19,-5.203,6.469,2.619
+1085209,Ai Pa Cho Bridge,5.835714,101.73493,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),SKN001,HII,Narathiwat,21,79.356,95.249,95.051
+1098950,บ้านแก้ง,13.93635,101.972321,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.12A,RID,Sa Kaeo,15,12.509,35.701,35.847
+3,Krung Thep 9,13.7407,100.79468,Bang Pakong Basin,Thailand,ThaiWater (HII),BKK009,HII,Bangkok,15,-3.171,0.6228,1.188
+1373273,Bang Rachan Camp Bridge,14.815288,100.36448,Chao Phraya Basin,Thailand,ThaiWater (HII),HDA007,HII,Sing Buri,10,2.005,10.229,9.789
+740740,Tha Samphao Bridge,7.729605,100.10799,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),FOP039,FOP,Phatthalung,20,-4.8004,1.3336,2.2536
+27,Krung Thep 2,13.96562,100.60262,Chao Phraya Basin,Thailand,ThaiWater (HII),BKK002,HII,Pathum Thani,10,-1.372,1.575,1.292
+2729,บ้านโนนสีไคล,15.00636,104.633453,Mun Basin,Thailand,ThaiWater (HII),M.176,RID,Si Sa Ket,5,110.29,234.042997,233.773997
+504897,บางระกำ,16.762119,100.121201,Yom Basin,Thailand,ThaiWater (HII),Y.64,RID,Phitsanulok,8,30.78,72.860998,74.168998
+1198299,Li River-Ban Hong,18.310793,98.82355,Ping Basin,Thailand,ThaiWater (HII),PIN009,HII,Lamphun,6,306.3054,311.8941,310.8359
+36,Rabibadhana Nong Suea,14.2206,100.89168,Chao Phraya Basin,Thailand,ThaiWater (HII),BKK013,HII,Pathum Thani,10,-0.58,3.96,5.025
+505003,สะพานหน้าจวนผู้ว่าฯ,14.20048,101.219307,Bang Pakong Basin,Thailand,ThaiWater (HII),Ny.7,RID,Nakhon Nayok,15,-1.67,8.2,8.2
+1109497,Upper Huai Kean Upper Gate,16.928366,104.72031,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE008,HII,Nakhon Phanom,3,133.964,139.892,140.596
+5,Krung Thep 3,13.79965,100.43863,Chao Phraya Basin,Thailand,ThaiWater (HII),BKK003,HII,Bangkok,10,-3.101,2.069,2.152
+825,Lilet Communuty,9.191764,99.253975,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),VLGE16,HII,Surat Thani,19,-2.843,1.988,2.367
+2609,บ้านป้อม,14.3691,100.528732,Chao Phraya Basin,Thailand,ThaiWater (HII),C.35,RID,Phra Nakhon Si Ayutthaya,10,-9.25,5.06,6.209
+845,Sawi 1,10.2312,99.09844,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),SVI001,HII,Chumphon,19,-3.351,2.912,3.16
+170,Prachinburi 5,13.97348,101.51751,Bang Pakong Basin,Thailand,ThaiWater (HII),PRC005,HII,Prachin Buri,15,-2.56,7.5808,7.9828
+2575,ประปายโสธร,15.79962,104.134857,Chi Basin Basin,Thailand,ThaiWater (HII),E.2A,RID,Yasothon,4,114.242,245.337,242.388
+1095455,Trang Phatthana Bridge,9.85488,98.8401,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),PATO01,HII,Chumphon,19,0.0,22.56,26.2
+740723,Wat Mongkhon Ruamchai Bridge,16.670555,100.32789,Nan Basin,Thailand,ThaiWater (HII),FOP022,FOP,Phitsanulok,9,31.5193,38.8353,40.0723
+1106457,Khlong Rabai Chai Nat Pa Sak Pumping Station,15.05502,100.32081,Chao Phraya Basin,Thailand,ThaiWater (HII),TCP011,HII,Sing Buri,10,0.0,12.3,12.3
+700556,โรงเรียนบ้านทุ่งนานางหรอก,14.17509,99.43382,Mae Klong Basin,Thailand,ThaiWater (HII),MKSND06,EGAT,Kanchanaburi,14,29.2,45.14,46.28
+751,Krung Thep 6,13.58184,100.36587,Tha Chin Basin,Thailand,ThaiWater (HII),BKK006,HII,Samut Sakhon,13,-2.674,1.301,3.227
+1109513,Khlong Bang Muang Bridge,7.365284,100.27959,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ONE024,HII,Phatthalung,20,-2.958,1.158,1.403
+905,Patthani 1,6.262041,101.268036,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),PAT001,HII,Yala,21,19.79,38.678,38.348
+505050,บ้านบูเก๊ะตา,5.83916,101.892143,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.274,RID,Narathiwat,21,0.0,27.801,27.778
+1106454,Khlong Sai Huai Kaeo Pumping Station,15.082755,100.554504,Chao Phraya Basin,Thailand,ThaiWater (HII),TCP008,HII,Lop Buri,10,0.0,15.44,15.44
+2680,สะพานต้นน้ำบางปะกง,13.98666,101.705406,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.3,RID,Prachin Buri,15,-1.11,10.29,9.66
+335,Khong 4,17.482368,102.79713,Northeast Khong Basin,Thailand,ThaiWater (HII),KON004,HII,Udon Thani,3,165.056,172.263,171.5
+1109508,Upper Ban Tap Tao Gate,17.115396,104.53788,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE019,HII,Nakhon Phanom,3,141.457,149.357,149.909
+2661,บ้านเขาสมิง,12.35731,102.437897,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.58,RID,Trat,17,-4.79,4.5,4.5
+3003,บ้านหนองกระท้าว,17.0851,100.824669,Nan Basin,Thailand,ThaiWater (HII),N.36,RID,Phitsanulok,9,189.324,393.181005,393.206005
+169,Prachinburi 4,14.070941,101.51893,Bang Pakong Basin,Thailand,ThaiWater (HII),PRC004,HII,Prachin Buri,15,0.91,6.8545,6.6625
+422,Chiang Mai 7,19.85606,99.19549,North Khong Basin,Thailand,ThaiWater (HII),CHM007,HII,Chiang Mai,2,506.838,510.505,510.554
+675,Nan 13,16.8222,100.43159,Nan Basin,Thailand,ThaiWater (HII),NAN013,HII,Phitsanulok,9,38.363,49.241,49.565
+61,Lop Buri 2,14.76049,100.5996,Chao Phraya Basin,Thailand,ThaiWater (HII),LBI002,HII,Lop Buri,10,-0.828,9.897,6.523
+54,Chao Phraya 16,14.16476,100.30725,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY016,HII,Phra Nakhon Si Ayutthaya,10,-1.487,3.511,3.609
+50,Lop Buri 1,14.42731,100.55605,Chao Phraya Basin,Thailand,ThaiWater (HII),LBI001,HII,Phra Nakhon Si Ayutthaya,10,-4.415,4.691,9.096
+661,Nakhon Thai,17.10701,100.84587,Nan Basin,Thailand,ThaiWater (HII),KWN001,HII,Phitsanulok,9,196.785,202.195,202.291
+1109506,Upper Na Bua Gate,17.065418,104.57897,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE017,HII,Nakhon Phanom,3,137.968,145.063,144.884
+1,Klong Ladprao Bang Bua Temple,13.85402,100.58746,Chao Phraya Basin,Thailand,ThaiWater (HII),BKK021,HII,Bangkok,10,-0.33,2.2,2.2
+3533,ลำโดมใหญ่ บ้านนาเยีย,15.07663,105.07114,Mun Basin,Thailand,ThaiWater (HII),PMTS7,EGAT,Ubon Ratchathani,5,107.74,119.19,120.11
+2820,บ้านเชียงเพ็ง,15.84008,104.455704,Mun Basin,Thailand,ThaiWater (HII),M.32,RID,Yasothon,5,117.5,128.500003,128.500003
+479235,Songkhram 2,17.322742,103.97923,Northeast Khong Basin,Thailand,ThaiWater (HII),TBW027,HII,Sakon Nakhon,3,148.233,154.846,157.343
+740742,Su Nga Ba Ru 4,6.737094,101.27308,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),FOP041,FOP,Pattani,21,-12.58,6.764,7.063
+1117430,Ban Tam Bridge,19.21819,99.862686,North Khong Basin,Thailand,ThaiWater (HII),PYO003,HII,Phayao,2,389.83,392.63,392.63
+2611,บ้านบางหลวงโดด,14.41588,100.440804,Chao Phraya Basin,Thailand,ThaiWater (HII),C.36,RID,Phra Nakhon Si Ayutthaya,10,-5.95,7.434,7.787
+47,Chao Phraya 10,14.42303,100.48186,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY010,HII,Phra Nakhon Si Ayutthaya,10,-1.178,5.841,8.432
+3542,แม่น้ำมูล บ้านคันไร่,15.26995,105.30611,Mun Basin,Thailand,ThaiWater (HII),PMTS15,EGAT,Ubon Ratchathani,5,94.31,111.8,112.73
+2607,สะพานปรีดี-ธำรง,14.35872,100.580452,Chao Phraya Basin,Thailand,ThaiWater (HII),S.5,RID,Phra Nakhon Si Ayutthaya,10,-8.59,5.088,7.22
+505025,สะพานข้ามแม่น้ำแม่กลองหน้าศาลากลางจ.กาญจนบุรี,13.99597,99.538818,Mae Klong Basin,Thailand,ThaiWater (HII),K.3A,RID,Kanchanaburi,14,13.369,39.199,41.129000000000005
+405,Sri Songkram,17.67484,104.28581,Northeast Khong Basin,Thailand,ThaiWater (HII),SKM004,HII,Nakhon Phanom,3,130.786,143.694,145.404
+1106456,Pak Khlong Ha Wa,14.818599,100.576515,Chao Phraya Basin,Thailand,ThaiWater (HII),TCP010,HII,Lop Buri,10,0.0,8.0,8.0
+37,Lam Luk Ka Klong8,13.9416,100.77499,Bang Pakong Basin,Thailand,ThaiWater (HII),BKK015,HII,Pathum Thani,15,-2.48,2.706,2.789
+2782,บ้านฟ้าหยาด,15.52481,104.249657,Chi Basin Basin,Thailand,ThaiWater (HII),E.20A,RID,Yasothon,4,109.78,239.32299999999998,239.33100000000002
+700,Pa Sak 3,16.11497,101.09709,Pasak Basin,Thailand,ThaiWater (HII),PAS003,HII,Phetchabun,12,88.24,93.54,96.021
+1113288,บ้านแสนตอ,17.66514,100.29809,Nan Basin,Thailand,ThaiWater (HII),SKD10,EGAT,Uttaradit,9,53.8,70.56,72.62
+200,Klong Prom Hod,13.705864,102.48168,Tonle Sap Basin,Thailand,ThaiWater (HII),SKE003,HII,Sa Kaeo,16,40.699,44.661,44.296
+3543,แม่น้ำมูล เมืองอุบลราชธานี (M.7),15.22652,104.86159,Mun Basin,Thailand,ThaiWater (HII),PMTS16,EGAT,Ubon Ratchathani,5,101.79,116.12,113.84
+740532,Nam Loei Bridge,17.860956,101.61144,Northeast Khong Basin,Thailand,ThaiWater (HII),AIT002,HII,Loei,3,196.463,209.977,206.62
+1106455,Khlong Sa Ta Waeo Pumping Station,14.940779,100.59284,Chao Phraya Basin,Thailand,ThaiWater (HII),TCP009,HII,Lop Buri,10,0.0,15.25,15.22
+792,Nakhon Si Thammarat 2,8.089498,100.12784,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),NKO002,HII,Nakhon Si Thammarat,19,-13.352,3.322,4.017
+2597,บ้านคลองลำ,7.55901,99.987556,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.170,RID,Phatthalung,20,8.355,28.854,29.063
+12481,La-ngu,6.885757,99.804344,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),STU002,HII,Satun,22,-8.72,4.233,4.223
+269,Chi 11,15.32248,104.54649,Chi Basin Basin,Thailand,ThaiWater (HII),CHI011,HII,Ubon Ratchathani,4,105.162,117.278,116.794
+1373274,Khlong Chon Bridge (Ban Talat Mai),14.553573,100.316765,Chao Phraya Basin,Thailand,ThaiWater (HII),HDA008,HII,Ang Thong,10,0.748,4.973,5.664
+2677,บ้านเนินผาสุก,13.8096,102.054382,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.10,RID,Sa Kaeo,15,24.468,58.801,59.247
+826,Tapi 2,9.085781,99.170006,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),TPI002,HII,Surat Thani,19,-5.27,3.85,3.635
+3164,บ้านสบสอย,18.29126,98.64756,Ping Basin,Thailand,ThaiWater (HII),P.73,RID,Chiang Mai,6,257.23,530.61,529.7760000000001
+731,Tha Chin 5,14.4705,100.11475,Tha Chin Basin,Thailand,ThaiWater (HII),THA005,HII,Suphan Buri,13,-1.6,7.387,4.959
+2737,ชุมชนสะพานขาว,15.11808,104.318642,Mun Basin,Thailand,ThaiWater (HII),M.9,RID,Si Sa Ket,5,109.07,232.172,233.997
+1482445,Nam Pi Chiang Bridge,18.881905,100.28281,Yom Basin,Thailand,ThaiWater (HII),MOU368,FOP,Phayao,8,254.476,262.627,259.89
+190,Klong Pra Prong,13.937376,101.922035,Bang Pakong Basin,Thailand,ThaiWater (HII),SKE001,HII,Sa Kaeo,15,10.194,19.615,21.249
+29,Rabibadhana West Section,14.20612,100.74476,Chao Phraya Basin,Thailand,ThaiWater (HII),CAN001,HII,Pathum Thani,10,-0.641,4.56,4.857
+1035521,บ้านดอนยาง,15.57186,103.819847,Mun Basin,Thailand,ThaiWater (HII),M.95A,RID,Roi Et,5,115.75,123.10999799999999,123.10999799999999
+527828,บ้านชมพู,16.69232,100.670921,Nan Basin,Thailand,ThaiWater (HII),N.43A,RID,Phitsanulok,9,50.288,113.077001,113.149001
+575567,Khlong Lat Bang Yo 1 Gate,13.676162,100.553085,Chao Phraya Basin,Thailand,ThaiWater (HII),BKC003,HII,Samut Prakan,10,-0.907,1.513,1.899
+1422374,สะพานจุลจอมเกล้า อ.พุนพิน (X.5C),9.113061,99.223751,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD14,EGAT,Surat Thani,19,-9.818,6.155,6.11
+48,Chao Phraya 9,14.4158,100.44071,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY009,HII,Phra Nakhon Si Ayutthaya,10,-4.397,6.153,4.311
+1422296,ห้วยตากที่ อ.บ้านตาก,17.041879,99.058188,Ping Basin,Thailand,ThaiWater (HII),BBD03,EGAT,Tak,6,119.34,124.99,123.66
+2662,สะพานวัดจันทนาราม,12.61359,102.114113,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.57,RID,Chanthaburi,17,-4.91,3.44,3.44
+2986,ต.ธานี,17.006359,99.822113,Yom Basin,Thailand,ThaiWater (HII),Y.4,RID,Sukhothai,8,42.08,95.052999,95.052999
+13892,Na Luang Sen,8.232547,99.70778,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),SWR025,HII,Nakhon Si Thammarat,22,120.5,123.816,123.809
+3002,บ้านข้องโป้,17.082161,102.450798,Chi Basin Basin,Thailand,ThaiWater (HII),E.68A,RID,Nong Bua Lam Phu,4,193.41,396.20899699999995,396.22799699999996
+640,Yom 12,17.02127,99.81973,Yom Basin,Thailand,ThaiWater (HII),YOM012,HII,Sukhothai,8,42.185,52.15,51.974
+1079995,บ้านไสหาร,7.90741,99.542389,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.233,RID,Trang,22,0.0,22.0,22.0
+149,Bang Nam Priao,13.83819,100.9666,Bang Pakong Basin,Thailand,ThaiWater (HII),BKK016,HII,Chachoengsao,15,-2.43,1.387,1.237
+1109496,Ni Naruemit Gate,16.922241,104.71625,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE007,HII,Nakhon Phanom,3,128.654,139.447,143.525
+504962,บ้านป่าก่อ,15.50299,104.595444,Mun Basin,Thailand,ThaiWater (HII),M.179A,RID,Ubon Ratchathani,5,109.44,232.976003,232.969003
+162,Prachinburi 1,13.986616,101.70547,Bang Pakong Basin,Thailand,ThaiWater (HII),PRC001,HII,Prachin Buri,15,-1.794,11.431,11.539
+44,Pa Sak 9,14.40269,100.5864,Pasak Basin,Thailand,ThaiWater (HII),PAS009,HII,Phra Nakhon Si Ayutthaya,12,-5.347,3.882,5.234
+3076,บ้านโนนตูม,17.482571,102.797394,Northeast Khong Basin,Thailand,ThaiWater (HII),Kh.103,RID,Udon Thani,3,166.706,339.278,338.726
+2726,ตำบลในเมือง,14.98457,102.092941,Mun Basin,Thailand,ThaiWater (HII),M.164,RID,Nakhon Ratchasima,5,174.46,177.600006,177.600006
+738,Tha Chin 4,14.75138,100.09592,Tha Chin Basin,Thailand,ThaiWater (HII),THA004,HII,Suphan Buri,13,2.54,7.942,7.948
+2755,บ้านโพธิ์ตาก,15.24992,105.239243,Mun Basin,Thailand,ThaiWater (HII),M.11B,RID,Ubon Ratchathani,5,103.22,216.926,217.53300000000002
+1109514,Khlong Lampam Bridge,7.62273,100.146835,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ONE025,HII,Phatthalung,20,-2.252,1.95,1.372
+479234,Chi 11-1,16.603594,103.96229,Chi Basin Basin,Thailand,ThaiWater (HII),TBW026,HII,Kalasin,4,155.151,162.184,162.953
+3441,น้ำพรม อ.เกษตรสมบูรณ์,16.309406,101.971772,Chi Basin Basin,Thailand,ThaiWater (HII),URTU09,EGAT,Chaiyaphum,4,221.824,225.386,226.548
+3510,ลำพะเนียง อ.เมือง,17.182448,102.431941,Chi Basin Basin,Thailand,ThaiWater (HII),URTU03,EGAT,Nong Bua Lam Phu,4,203.2,210.46,210.14
+645,Yom 7,16.92732,99.95933,Yom Basin,Thailand,ThaiWater (HII),YOM007,HII,Sukhothai,8,33.37,45.385,44.87
+120,Chanthaburi 1,12.613584,102.11407,East Coast Gulf Basin,Thailand,ThaiWater (HII),CHN001,HII,Chanthaburi,17,-3.817,3.252,4.153
+1121243,Tha Sa Kae Bridge,17.253153,100.62827,Nan Basin,Thailand,ThaiWater (HII),MOU385,FOP,Phitsanulok,9,183.415,188.508,188.449
+1373690,Khlong Khon Bridge,13.3319,99.96896,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),PTTEP1,HII,Samut Songkhram,18,-1.78,1.95,2.105
+385579,Water Transmission and Maintenance 2,18.88353,99.08182,Ping Basin,Thailand,ThaiWater (HII),TBW008,HII,Chiang Mai,6,318.75,322.227,322.39
+2648,บ้านเคียนซา,8.84753,99.19886,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.217,RID,Surat Thani,19,-7.874,9.943,9.879
+745748,Huay Bang Bat Bridge,18.282616,103.88075,Northeast Khong Basin,Thailand,ThaiWater (HII),AIT005,HII,Bueng Kan,3,139.693,151.695,152.123
+57,Sena,14.31976,100.37952,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY017,HII,Phra Nakhon Si Ayutthaya,10,-1.647,4.278,3.587
+9931004,Ban Kamphi,15.95648,103.1543,Mun Basin,Thailand,ThaiWater (HII),LDD002,HII,Maha Sarakham,5,157.079,161.3329,161.2189
+2821,วัดเกยไชยเหนือ,15.86918,100.264732,Nan Basin,Thailand,ThaiWater (HII),N.67,RID,Nakhon Sawan,9,12.54,28.92,28.214
+1422367,สะพานสิริกฤตานุกุล์ (บ้านท่านหญิง)อ.วิภาวดี,9.24312,98.919251,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD07,EGAT,Surat Thani,19,28.57,35.9559,34.8809
+255,Mueang Sisaket,15.118111,104.31859,Mun Basin,Thailand,ThaiWater (HII),MUN010,HII,Si Sa Ket,5,109.413,118.176,124.99
+2750,บ้านซึม,15.21996,102.428299,Mun Basin,Thailand,ThaiWater (HII),M.184,RID,Nakhon Ratchasima,5,149.6,306.024,305.988
+2985,ต.ตาดกลอย,17.004061,101.352898,Pasak Basin,Thailand,ThaiWater (HII),S.33,RID,Phetchabun,12,190.93,389.015996,388.55199600000003
+1087618,บ้านปายอยือนิ,6.47977,101.44474,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.273,RID,Yala,21,0.0,16.5,16.5
+2972,บ้านกง,16.927441,99.959427,Yom Basin,Thailand,ThaiWater (HII),Y.15,RID,Sukhothai,8,33.343,81.40299999999999,81.366
+2608,บ้านบางบาล,14.36319,100.484833,Chao Phraya Basin,Thailand,ThaiWater (HII),C.37,RID,Phra Nakhon Si Ayutthaya,10,-3.04,7.113,7.103
+482,Nan 4,17.29433,100.08282,Nan Basin,Thailand,ThaiWater (HII),NAN004,HII,Uttaradit,9,43.678,52.654,51.539
+504994,บ้านโนนสุขภูมิ,13.91009,101.838211,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.13A,RID,Prachin Buri,15,5.151,17.7,16.859
+1109525,Thepha Santi Suk Bridge,6.825135,100.972626,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ONE036,HII,Songkhla,20,-3.535,2.428,3.207
+12478,Tha Yang,12.81345,99.79404,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),PCH003,HII,Phetchaburi,18,21.835,26.09,26.6
+2895,บ้านราชช้างขวัญ,16.4695,100.330872,Nan Basin,Thailand,ThaiWater (HII),N.7A,RID,Phichit,9,23.14,63.747,62.258
+479231,Ing 3,19.56656,99.98423,North Khong Basin,Thailand,ThaiWater (HII),TBW023,HII,Chiang Rai,2,379.367,384.427,385.843
+2975,บ้านท่าไฮ,16.95174,103.168053,Chi Basin Basin,Thailand,ThaiWater (HII),E.65,RID,Kalasin,4,159.94,328.58299999999997,328.55899999999997
+2731,บ้านเขวา,15.01052,104.128448,Mun Basin,Thailand,ThaiWater (HII),M.190,RID,Si Sa Ket,5,120.75,249.505997,249.556997
+39,Chao Phraya 11,14.36913,100.52861,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY011,HII,Phra Nakhon Si Ayutthaya,10,-5.521,5.064,5.524
+1422369,สะพานท่าผาก อ.พุนพิน จ.สุราษฎร์ธานี,9.063301,99.093328,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD09,EGAT,Surat Thani,19,-3.49,4.2636,5.2064
+3531,แม่น้ำมูล ท้ายแก่งสะพือ (M.11B),15.23735,105.24523,Mun Basin,Thailand,ThaiWater (HII),PMTS5,EGAT,Ubon Ratchathani,5,93.42,112.2,112.17
+505011,บ้านเขาโบสถ์,12.73796,101.228401,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.38,RID,Rayong,17,7.034,18.909,18.919
+424,Chiang Mai 3,20.06092,99.36204,North Khong Basin,Thailand,ThaiWater (HII),CHM003,HII,Chiang Mai,2,439.91,450.643,449.753
+749,Saladin Communuty,13.80777,100.27417,Tha Chin Basin,Thailand,ThaiWater (HII),VLGE20,HII,Nakhon Pathom,13,-2.017,2.372,2.311
+1109528,Khlong Ranot Bridge,7.769855,100.30203,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ONE039,HII,Songkhla,20,-1.313,1.175,1.773
+2654,สะพานเทศบาล 2,10.49706,99.17012,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.180,RID,Chumphon,19,-3.67,6.47,7.079
+1079932,ตำบลท่าหลวง,12.657133,102.15435,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.64,RID,Chanthaburi,17,-2.795,7.463,7.891
+1101573,Ban Khlong Sai 8,9.314687,98.889885,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),FOP062,FOP,Surat Thani,19,118.17,123.972,124.198
+131,Na Yai Am,12.722433,101.95606,East Coast Gulf Basin,Thailand,ThaiWater (HII),CHN005,HII,Chanthaburi,17,-2.44,7.2559,4.2759
+11648469,Khlong Nam Ngao,17.69902,102.4467,Northeast Khong Basin,Thailand,ThaiWater (HII),UDN002,HII,Udon Thani,3,170.052,174.051,174.322
+1483127,Phra Ruang Bridge across the Kwai Noi,17.185375,100.68031,Nan Basin,Thailand,ThaiWater (HII),MOU384,FOP,Phitsanulok,9,173.753,190.832,191.375
+79,Tha Chin 1,15.225,100.07824,Chao Phraya Basin,Thailand,ThaiWater (HII),THA001,HII,Chai Nat,10,10.034,19.785,19.418
+2799,บ้านบ่อวัง,15.5783,101.088623,Pasak Basin,Thailand,ThaiWater (HII),S.42,RID,Phetchabun,12,54.6,116.002001,116.55000100000001
+2906,สามง่าม,16.507441,100.204086,Yom Basin,Thailand,ThaiWater (HII),Y.17,RID,Phichit,8,30.03,73.365,73.366
+504940,บ้านเขื่องใน,15.30323,104.50032,Chi Basin Basin,Thailand,ThaiWater (HII),E.98,RID,Ubon Ratchathani,4,106.09,224.322,224.603
+24,Phra Pimol Sai Noi,13.97396,100.31901,Chao Phraya Basin,Thailand,ThaiWater (HII),BKK018,HII,Nonthaburi,10,-2.04,4.05,4.36
+668,Nakhon Pa Mak Ruamjai Bridge,16.60887,100.36977,Nan Basin,Thailand,ThaiWater (HII),VLGE12,HII,Phitsanulok,9,28.755,38.828,38.196
+670714,Si Don Chai Bridge,18.653353,99.06447,Ping Basin,Thailand,ThaiWater (HII),FOP015,FOP,Lamphun,6,287.823,294.34,295.832
+858,Songkhla 7,7.079418,100.42788,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),SLA007,HII,Songkhla,20,-1.739,1.592,2.71
+1373692,Pak Kiew Canal Bridge Baan Hat Somboon Community,9.51646,99.22589,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),PTTEP2,HII,Surat Thani,19,-0.873,2.691,1.616
+1109498,Huai Kean Gate,16.927904,104.72032,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE009,HII,Nakhon Phanom,3,132.762,138.722,139.222
+12480,Trang 3,7.568049,99.65109,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),TNG003,HII,Trang,22,14.0,16.821,16.964
+1109527,Queen Bridge,7.182746,100.59448,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ONE038,HII,Songkhla,20,-0.804,0.902,1.008
+568,Chao Phraya 1,15.68849,100.12381,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY001,HII,Nakhon Sawan,10,7.878,26.06,26.337
+2811,บ้านศาลเจ้าไก่ต่อ,15.78585,99.678329,Sakae Krang Basin,Thailand,ThaiWater (HII),Ct.4,RID,Nakhon Sawan,11,65.73,72.096,72.045
+740537,Huay Muk Bridge,16.546862,104.730385,Northeast Khong Basin,Thailand,ThaiWater (HII),AIT008,HII,Mukdahan,3,125.432,136.758,137.624
+505052,บ้านมูโน๊ะ,6.07114,102.035881,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.119,RID,Narathiwat,21,0.0,7.0,7.0
+315,Khong 3,17.57572,102.273346,Northeast Khong Basin,Thailand,ThaiWater (HII),KON003,HII,Nong Bua Lam Phu,3,195.081,201.673,200.18
+175,Khao Nang Buat Bridge,14.245718,101.27481,Bang Pakong Basin,Thailand,ThaiWater (HII),NYK008,HII,Nakhon Nayok,15,2.642,11.309,8.907
+1373277,Khlong Chon Bridge (Ban Sang Sok),14.650794,100.742775,Pasak Basin,Thailand,ThaiWater (HII),HDA011,HII,Saraburi,12,3.713,11.5,12.085
+2867,บ้านกุดก่วง,16.288441,104.00489,Chi Basin Basin,Thailand,ThaiWater (HII),E.70,RID,Roi Et,4,129.558,275.742006,275.181006
+1098871,บ้านโนนสมบูรณ์,15.51345,102.843826,Mun Basin,Thailand,ThaiWater (HII),M.174,RID,Buri Ram,5,132.94,275.922997,275.934997
+475,NAN 14,17.41834,100.13075,Nan Basin,Thailand,ThaiWater (HII),NAN014,HII,Uttaradit,9,44.976,58.303,54.156
+1198297,Tha River Bridge,18.546852,99.25007,Ping Basin,Thailand,ThaiWater (HII),PIN007,HII,Lamphun,6,437.7019,441.703,441.5951
+128,Kaeng Hang Maeo,12.986792,101.89965,East Coast Gulf Basin,Thailand,ThaiWater (HII),CHN004,HII,Chanthaburi,17,21.6,27.1001,30.1001
+747,Khlong Narapirom,13.88207,100.29086,Chao Phraya Basin,Thailand,ThaiWater (HII),BKK019,HII,Nakhon Pathom,10,-1.59,4.337,3.96
+2559,บริเวณสะพานลันตู,6.02261,101.974892,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.119A,RID,Narathiwat,21,0.0,10.483,9.785
+40,Pa Sak 8,14.56014,100.71987,Pasak Basin,Thailand,ThaiWater (HII),PAS008,HII,Phra Nakhon Si Ayutthaya,12,-5.446,7.381,6.124
+865,Trang 2,7.555884,99.57825,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),TNG002,HII,Trang,22,-3.086,4.054,5.987
+504999,บ้านนาแขม,14.02174,101.750664,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.43A,RID,Prachin Buri,15,1.421,15.498000000000001,15.592
+138,Trat 2,12.369261,102.54332,East Coast Gulf Basin,Thailand,ThaiWater (HII),TRD002,HII,Trat,17,-4.31,3.558,11.076
+2830,บ้านปางมะค่า,15.92832,99.502373,Sakae Krang Basin,Thailand,ThaiWater (HII),Ct.5A,RID,Nakhon Sawan,11,102.21,110.71,110.72
+2739,บ้านสีถาน,15.13208,104.488403,Mun Basin,Thailand,ThaiWater (HII),M.182,RID,Si Sa Ket,5,106.26,226.04399999999998,226.11700000000002
+683,Nan 7,16.27034,100.41396,Nan Basin,Thailand,ThaiWater (HII),NAN007,HII,Phichit,9,21.693,34.849,34.162
+861,Satun 1,6.726527,100.06259,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),STU001,HII,Satun,22,11.52,15.286,15.284
+740739,Ban Laem Tanot Bridge,7.817578,100.047485,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),FOP038,FOP,Phatthalung,20,0.2887,4.0297,3.9357
+11,Krung Thep 1,13.92245,100.63438,Chao Phraya Basin,Thailand,ThaiWater (HII),BKK001,HII,Bangkok,10,-1.9,2.563,2.758
+841,Luang Suan,9.953369,99.06444,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),CMP002,HII,Chumphon,19,-3.609,4.148,7.77
+2679,บ้านวังขนาย,13.95094,99.645477,Mae Klong Basin,Thailand,ThaiWater (HII),K.11A,RID,Kanchanaburi,14,8.33,32.397,31.364
+483,Yom-Nan 3,17.29251,100.07764,Nan Basin,Thailand,ThaiWater (HII),DIV003,HII,Uttaradit,9,42.551,53.928,53.671
+1483131,Khek Bridge,16.835382,100.56083,Nan Basin,Thailand,ThaiWater (HII),MOU386,FOP,Phitsanulok,9,59.237,70.425,71.229
+479240,Num Kum 1,17.03068,104.41476,Northeast Khong Basin,Thailand,ThaiWater (HII),TBW032,HII,Nakhon Phanom,3,142.336,152.375,154.547
+281,Mun 11,15.249705,105.2393,Mun Basin,Thailand,ThaiWater (HII),MUN011,HII,Ubon Ratchathani,5,104.419,112.407,114.533
+1198626,"Khlong Praneat, Talung Village",12.511324,102.37168,East Coast Gulf Basin,Thailand,ThaiWater (HII),TRD005,HII,Trat,17,0.928,5.986,5.219
+2572,บ้านลุ่มสุ่ม,14.09243,99.178993,Mae Klong Basin,Thailand,ThaiWater (HII),K.10,RID,Kanchanaburi,14,27.62,76.625,76.389
+11648258,Ban Khan Maenam Bon Bridge,16.81476,99.80374,Yom Basin,Thailand,ThaiWater (HII),SKT004,HII,Sukhothai,8,44.126,48.218,48.192
+11648470,Khlong Songkhram,17.39577,103.30043,Northeast Khong Basin,Thailand,ThaiWater (HII),UDN003,HII,Udon Thani,3,163.798,166.7721,167.2611
+2647,บ้านตลาดเก่า,8.82934,98.36924,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.186,RID,Phangnga,22,-5.654,5.787,5.879
+83,Chao Phraya 3,15.3277,100.10913,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY003,HII,Chai Nat,10,11.11,20.528,19.607
+2694,บ้านท่าเยี่ยม,14.63599,101.884697,Mun Basin,Thailand,ThaiWater (HII),M.180,RID,Nakhon Ratchasima,5,219.32,443.81599700000004,444.14299700000004
+584,Chao Phraya 2,15.42655,100.13471,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY002,HII,Nakhon Sawan,10,10.176,21.33,21.624
+471583,Chong Sa Dao,14.344762,100.670105,Chao Phraya Basin,Thailand,ThaiWater (HII),HDA004,HII,Phra Nakhon Si Ayutthaya,10,0.227,3.33,3.027
+1101572,Ban Khlong Wai 7,9.368512,98.867485,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),FOP061,FOP,Surat Thani,19,150.416,154.626,154.602
+3544,หน้าเขื่อนปากมูล,15.28496,105.46831,Mun Basin,Thailand,ThaiWater (HII),PMTS17,EGAT,Ubon Ratchathani,5,89.6,111.9,114.3
+1109502,Mittraphap Tha Lat Pak Bang,16.993015,104.591446,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE013,HII,Nakhon Phanom,3,134.848,143.462,142.368
+794,Nop Phi Tam 1,8.786868,99.911316,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),NPI001,HII,Nakhon Si Thammarat,19,-3.574,6.333,3.537
+1106449,Lat Chado,14.464386,100.366005,Chao Phraya Basin,Thailand,ThaiWater (HII),TCP003,HII,Phra Nakhon Si Ayutthaya,10,-0.8,5.0,5.0
+2624,ท้ายเขื่อนพระรามหก,14.56012,100.71994,Pasak Basin,Thailand,ThaiWater (HII),S.26,RID,Phra Nakhon Si Ayutthaya,12,-4.83,10.134,9.64
+587,Sakae Krang 7,15.7832,99.65321,Sakae Krang Basin,Thailand,ThaiWater (HII),SKG007,HII,Nakhon Sawan,11,70.31,74.1,74.15
+1109505,Nam Kam Ban Nong Khaen,17.05715,104.3636,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE016,HII,Nakhon Phanom,3,144.598,149.274,149.723
+726667,บ้านอาพาธ,8.54373,99.223457,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.260,RID,Surat Thani,19,3.08,13.567,13.576
+642740,Mae Sao bridge,20.014154,99.26691,North Khong Basin,Thailand,ThaiWater (HII),MOU015,FOP,Chiang Mai,2,456.499,462.096,463.021
+2687,บ้านเขานางบวช,14.24582,101.274246,Bang Pakong Basin,Thailand,ThaiWater (HII),Ny.1B,RID,Nakhon Nayok,15,2.7,8.81,8.81
+2664,บ้านปึก,12.76323,102.138039,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.13,RID,Chanthaburi,17,5.85,14.780999999999999,14.774000000000001
+512,Wieng Sa,18.54992,100.76151,Nan Basin,Thailand,ThaiWater (HII),NAN009,HII,Nan,9,175.094,186.396,185.01
+2626,บ้านบางแก้ว,14.59044,100.453293,Chao Phraya Basin,Thailand,ThaiWater (HII),C.7A,RID,Ang Thong,10,-6.73,10.042,9.978
+3233,บ้านมาง,18.882099,100.291382,Yom Basin,Thailand,ThaiWater (HII),Y.24,RID,Phayao,8,257.015,524.003989,524.459989
+192,Ta Phraya,14.051278,102.88541,Tonle Sap Basin,Thailand,ThaiWater (HII),TON001,HII,Sa Kaeo,16,55.69,59.0445,58.9445
+2590,บ้านคลองหวะ,6.98637,100.481857,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.174,RID,Songkhla,20,0.0,8.88,8.88
+479233,Chi 1-1,16.259254,103.69041,Chi Basin Basin,Thailand,ThaiWater (HII),TBW025,HII,Kalasin,4,125.276,134.124,133.249
+3017,บ้านคลองตาล,17.16888,99.860977,Yom Basin,Thailand,ThaiWater (HII),Y.33,RID,Sukhothai,8,44.49,102.34100000000001,102.483
+516216,Nam Muap (Ban Phu Yaeng) Bridge,18.924017,100.92668,Nan Basin,Thailand,ThaiWater (HII),FOP011,FOP,Nan,9,258.874,265.274,266.646
+1109504,BanNa Kham Gate,17.000439,104.42528,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE015,HII,Nakhon Phanom,3,138.123,149.656,149.372
+671,Yom-Nan2,16.95387,100.12127,Yom Basin,Thailand,ThaiWater (HII),DIV002,HII,Phitsanulok,8,36.502,44.452,44.415
+2845,บ้านท่าสะแบง,16.034149,103.906937,Chi Basin Basin,Thailand,ThaiWater (HII),E.18,RID,Roi Et,4,120.04,257.425997,256.12199699999996
+3065,บ้านเด่นสำโรง,17.418329,100.130913,Nan Basin,Thailand,ThaiWater (HII),N.60,RID,Uttaradit,9,44.67,107.20400000000001,108.38
+2993,ท้ายเขื่อนนเรศวร,17.033621,100.197968,Nan Basin,Thailand,ThaiWater (HII),N.27A,RID,Phitsanulok,9,34.16,87.186,87.333
+1098852,บ้านสัมฤทธิ์,15.20926,102.392952,Mun Basin,Thailand,ThaiWater (HII),M.195,RID,Nakhon Ratchasima,5,150.8,310.843003,310.836003
+3154,บ้านเกาะคา,18.19154,99.396873,Wang Basin,Thailand,ThaiWater (HII),W.5A,RID,Lampang,7,212.595,438.03700100000003,437.978001
+1035516,บ้านบัว,15.18159,102.242737,Mun Basin,Thailand,ThaiWater (HII),M.188A,RID,Nakhon Ratchasima,5,158.88,162.599997,162.599997
+3247,บ้านแม่แต,19.00985,98.95974,Ping Basin,Thailand,ThaiWater (HII),P.67,RID,Chiang Mai,6,312.52,642.278993,642.1749930000001
+573,Nan 8,15.86923,100.26481,Nan Basin,Thailand,ThaiWater (HII),NAN008,HII,Nakhon Sawan,9,16.208,28.685,27.97
+2695,บ้านวังชมภู,14.64329,104.6595,Mun Basin,Thailand,ThaiWater (HII),M.66,RID,Si Sa Ket,5,141.46,295.371994,295.382994
+676,Nan 5,16.85502,100.66681,Nan Basin,Thailand,ThaiWater (HII),NAN005,HII,Phitsanulok,9,133.875,140.171,141.061
+505027,บ้านสาระเห็ด,12.80623,99.770569,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),B.9,RID,Phetchaburi,18,24.97,57.641001,56.685001
+2569,บ้านสองพี่น้อง,12.86361,99.678497,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),B.3A,RID,Phetchaburi,18,40.49,89.684,89.339
+505056,บ้านท่าข้าม,9.11322,99.223679,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.5C,RID,Surat Thani,19,0.0,2.5,2.5
+1121242,Khlong Tron Bridge,17.463362,100.23722,Nan Basin,Thailand,ThaiWater (HII),MOU383,FOP,Uttaradit,9,58.152,67.089,66.185
+1422372,สะพานเคียนซา (ปาล์มพาราวุ้ด) อ.เคียนซา (X.217),8.847581,99.198984,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD12,EGAT,Surat Thani,19,-7.874,9.943,9.879
+1113282,บ้านหาดสองแคว (N.60),17.418528,100.130819,Nan Basin,Thailand,ThaiWater (HII),SKD04,EGAT,Uttaradit,9,44.22,58.62,56.92
+262,Mun 5,15.33953,104.15237,Mun Basin,Thailand,ThaiWater (HII),MUN005,HII,Si Sa Ket,5,108.904,118.124,118.446
+1373278,"Managen Nam Nam Bridge, Ban Na Chong",14.546983,100.88976,Pasak Basin,Thailand,ThaiWater (HII),HDA012,HII,Saraburi,12,2.185,11.422,11.843
+3032,บ้านหนองวัวซอ,17.2659,102.59243,Northeast Khong Basin,Thailand,ThaiWater (HII),Kh.53,RID,Udon Thani,3,202.84,409.175003,409.185003
+2770,บ้านหาดทนง,15.41085,100.057068,Sakae Krang Basin,Thailand,ThaiWater (HII),Ct.2A,RID,Uthai Thani,11,11.3,21.359,21.402
+1066916,บ้านชะอม,14.10461,101.744179,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.34,RID,Prachin Buri,15,1.576,14.947000000000001,14.811
+2814,บ้านนิคม,15.80624,104.32795,Mun Basin,Thailand,ThaiWater (HII),M.157,RID,Yasothon,5,123.51,131.5,131.5
+850,Na Tawi,6.738124,100.69319,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),JNA002,HII,Songkhla,20,17.746,22.712,23.065
+2571,บ้านวังเย็น,13.93906,99.416252,Mae Klong Basin,Thailand,ThaiWater (HII),K.37,RID,Kanchanaburi,14,18.33,52.380999,52.031999
+2675,บ้านเขาฉกรรจ์,13.66804,102.0756,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.9,RID,Sa Kaeo,15,39.094,90.21600000000001,90.16499999999999
+12484,Tapi 6,8.537499,99.181015,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),TPI006,HII,Surat Thani,19,5.51,12.75,13.288
+236,Mun 12,14.633034,103.23046,Mun Basin,Thailand,ThaiWater (HII),MUN012,HII,Buri Ram,5,142.047,149.921,151.0
+1225528,Kyotada (Village),20.3913,99.68576,นอกประเทศไทย,Thailand,ThaiWater (HII),MYA001,FOP,Republic of the Union of Myanmar,88,511.7,514.4,514.4
+2832,บ้านท่างิ้ว,15.93539,99.976089,Ping Basin,Thailand,ThaiWater (HII),P.17,RID,Nakhon Sawan,6,30.63,38.707,38.869
+504708,บ้านสบแปะ,18.25341,98.641411,Ping Basin,Thailand,ThaiWater (HII),P.73A,RID,Chiang Mai,6,252.736,525.063013,525.076013
+218,Mun 3,15.28663,102.68459,Mun Basin,Thailand,ThaiWater (HII),MUN003,HII,Nakhon Ratchasima,5,139.977,147.568,148.676
+1098952,เขาลูกช้าง,12.81337,99.794022,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),B.18,RID,Phetchaburi,18,21.484,50.438,52.544
+3226,สะพานนวรัฐ,18.786961,99.005089,Ping Basin,Thailand,ThaiWater (HII),P.1,RID,Chiang Mai,6,299.25,608.356,608.288
+2953,สะพานสุพรรณกัลยา,16.80608,100.245827,Nan Basin,Thailand,ThaiWater (HII),N.5A,RID,Phitsanulok,9,31.13,80.178,80.684
+1113284,อ.น้ำปาด (N.33),17.718473,100.577058,Nan Basin,Thailand,ThaiWater (HII),SKD06,EGAT,Uttaradit,9,77.98,87.12,84.413
+693,Pa Sak 1,16.78151,101.2467,Pasak Basin,Thailand,ThaiWater (HII),PAS001,HII,Phetchabun,12,138.706,144.47,145.238
+2623,สถานีแพดับเพลิง,14.55752,100.924217,Pasak Basin,Thailand,ThaiWater (HII),S.32,RID,Saraburi,12,1.36,17.093,17.109
+1198301,Namko,17.636518,98.77956,Ping Basin,Thailand,ThaiWater (HII),PIN011,HII,Lamphun,6,257.6763,259.8008,261.6035
+156,Phanom Sarakham,13.72662,101.35298,Bang Pakong Basin,Thailand,ThaiWater (HII),BPK004,HII,Chachoengsao,15,-1.66,7.575,5.395
+58,Chao Phraya 8,14.5765,100.44852,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY008,HII,Ang Thong,10,-4.4,8.777,8.924
+740533,Huay Nam Huay Bridge,18.151169,102.17911,Northeast Khong Basin,Thailand,ThaiWater (HII),AIT003,HII,Nong Khai,3,167.0,175.357,177.572
+700589,บ้านวังเย็น (K.37),13.9382,99.41518,Mae Klong Basin,Thailand,ThaiWater (HII),MKVKD06,EGAT,Kanchanaburi,14,18.03,32.87,32.32
+740720,Klong Soi Wat Mae Muak,17.775057,99.46933,Yom Basin,Thailand,ThaiWater (HII),FOP019,FOP,Phrae,8,154.214,157.186,157.186
+2905,บ้านยาง,16.31431,101.875816,Chi Basin Basin,Thailand,ThaiWater (HII),E.93,RID,Chaiyaphum,4,225.935,458.894,458.803
+1139393,Kham Lamnam Choen Bridge (MitrPhol NongRuea),16.48883,102.41904,Chi Basin Basin,Thailand,ThaiWater (HII),MITP01,HII,Khon Kaen,4,177.76,182.86,185.36
+12479,Khlong Khanan,11.24042,99.43526,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),BSP002,HII,Prachuap Khiri Khan,18,10.959,16.475,16.765
+2651,คลองหาดส้มแป้น,9.95839,98.648537,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.209,RID,Ranong,22,7.009,14.375,14.201
+726653,บ้านเสาธง,8.2801,99.906487,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.167,RID,Nakhon Si Thammarat,19,6.409,14.14,14.139
+657,Nan 12,16.86469,100.24476,Nan Basin,Thailand,ThaiWater (HII),NAN012,HII,Phitsanulok,9,32.561,45.326,45.422
+1109490,Tha Nam Bridge,8.109219,98.905525,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ONE001,HII,Krabi,22,0.431,4.032,4.942
+700590,บ้านแม่น้ำน้อย,14.44497,98.80493,Mae Klong Basin,Thailand,ThaiWater (HII),MKVKD07,EGAT,Kanchanaburi,14,55.63,72.14,60.48
+2874,บ้านกุดกว้าง,16.356001,102.804291,Chi Basin Basin,Thailand,ThaiWater (HII),E.16A,RID,Khon Kaen,4,141.914,298.050997,297.52299700000003
+2795,ค่ายจิรประวัติ,15.67059,100.10936,Chao Phraya Basin,Thailand,ThaiWater (HII),C.2,RID,Nakhon Sawan,10,13.32,25.711,26.38
+3029,บ้านท่าสะแก,17.25317,100.628242,Nan Basin,Thailand,ThaiWater (HII),N.55,RID,Phitsanulok,9,183.03,373.95000200000004,373.85200199999997
+523,Nan 3,18.73796,100.75609,Nan Basin,Thailand,ThaiWater (HII),NAN003,HII,Nan,9,187.025,195.433,196.701
+2585,บ้านม่วงก็อง,6.79663,100.442337,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.173A,RID,Songkhla,20,3.748,16.955,16.944
+3157,บ้านแม่หล่าย,18.22003,100.20636,Yom Basin,Thailand,ThaiWater (HII),Y.34,RID,Phrae,8,157.55,324.766004,324.755004
+1422364,สะพานเชี่ยวไทร อ.พนม,8.822734,98.832075,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD04,EGAT,Surat Thani,19,9.366,17.5047,17.4732
+1225531,The First Friendship Bridge at Mae Sai River,20.44454,99.88048,North Khong Basin,Thailand,ThaiWater (HII),MYA004,FOP,Chiang Rai,2,392.717,397.591,397.591
+3219,หน้าสำนักงานป่าไม้,18.774879,100.779694,Nan Basin,Thailand,ThaiWater (HII),N.1,RID,Nan,9,188.9,396.42499699999996,396.351997
+2621,บ้านท่ามะปรางค์,14.51204,101.380348,Mun Basin,Thailand,ThaiWater (HII),M.43A,RID,Nakhon Ratchasima,5,371.83,747.439012,747.681012
+726686,บ้านท่านา,8.70251,98.409027,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.196,RID,Phangnga,22,11.98,19.931,19.913
+1106450,Lat Chit,14.44056,100.35738,Chao Phraya Basin,Thailand,ThaiWater (HII),TCP004,HII,Phra Nakhon Si Ayutthaya,10,0.0,5.0,5.0
+691,Pa Sak 2,16.44786,101.17017,Pasak Basin,Thailand,ThaiWater (HII),PAS002,HII,Phetchabun,12,108.607,117.179,117.127
+10,Krung Thep 5,13.69158,100.38127,Chao Phraya Basin,Thailand,ThaiWater (HII),BKK005,HII,Bangkok,10,-6.605,1.637,1.415
+832066,สะพานค่ายหลวง,13.80568,99.87159,Mae Klong Basin,Thailand,ThaiWater (HII),K.55A,RID,Ratchaburi,14,-0.48,11.307,10.397
+385582,Lam Pathia Bridge,14.617108,102.900345,Mun Basin,Thailand,ThaiWater (HII),TBW017,HII,Buri Ram,5,180.701,183.338,182.79
+118,Nong Bua,12.849195,101.301346,East Coast Gulf Basin,Thailand,ThaiWater (HII),RAY002,HII,Rayong,17,8.57,17.008,15.967
+1677418,Nam Ing Bridge (I.17),19.165922,99.9343,North Khong Basin,Thailand,ThaiWater (HII),PYO005,HII,Phayao,2,385.71,389.77,389.77
+3240,บ้านริมใต้,18.92746,98.939774,Ping Basin,Thailand,ThaiWater (HII),P.21,RID,Chiang Mai,6,318.87,644.6300120000001,644.677012
+542,Chaing Rai 2,19.68822,100.18758,North Khong Basin,Thailand,ThaiWater (HII),CHR002,HII,Chiang Rai,2,356.016,367.042,366.993
+2650,ถนนลูกเสือ,9.95473,99.08004,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.212,RID,Chumphon,19,-3.11,7.846,9.033
+2714,ศูนย์วิจัยและพัฒนาประมงน้ำจืดสุรินทร์,14.85738,103.476936,Mun Basin,Thailand,ThaiWater (HII),M.187,RID,Surin,5,136.6,140.400003,140.400003
+228,Mun 2,14.968,102.23782,Mun Basin,Thailand,ThaiWater (HII),MUN002,HII,Nakhon Ratchasima,5,160.876,167.825,169.871
+1119854,บ้านธวัชดินแดง,16.115801,103.846603,Chi Basin Basin,Thailand,ThaiWater (HII),E.95A,RID,Roi Et,4,122.04,257.824998,257.845998
+2780,บ้านท่าบอแบง,15.50421,104.966202,Mun Basin,Thailand,ThaiWater (HII),M.69,RID,Ubon Ratchathani,5,108.45,115.3,115.3
+3224,บ้านไฮ,18.785219,99.630409,Wang Basin,Thailand,ThaiWater (HII),W.16A,RID,Lampang,7,302.61,614.125,614.105
+1394793,Chi Bridge,16.15583,101.65372,Chi Basin Basin,Thailand,ThaiWater (HII),MOU226,FOP,Chaiyaphum,4,222.089,232.175,231.703
+472,Nan 11,17.61011,100.09943,Nan Basin,Thailand,ThaiWater (HII),NAN011,HII,Uttaradit,9,49.677,58.02,60.341
+2576,ต.ตาลเดี่ยว,16.78157,101.246689,Pasak Basin,Thailand,ThaiWater (HII),S.3,RID,Phetchabun,12,139.32,282.482005,282.302005
+3095,ต.ในเมือง,17.609871,100.099609,Nan Basin,Thailand,ThaiWater (HII),N.2B,RID,Uttaradit,9,48.65,113.91799900000001,115.260999
+2900,ต.ในเมือง,16.47772,99.517921,Ping Basin,Thailand,ThaiWater (HII),P.7A,RID,Kamphaeng Phet,6,69.69,149.720003,149.55100299999998
+1645475,Mae Ngao bridge,18.6275,100.04149,Yom Basin,Thailand,ThaiWater (HII),YOM017,HII,Lampang,8,226.778,231.489,231.048
+3529,แม่น้ำมูล อ.ราษีไศล (M.5),15.33716,104.15292,Mun Basin,Thailand,ThaiWater (HII),PMTS2,EGAT,Si Sa Ket,5,108.65,124.63,120.38
+333,Chi 6,16.3259,102.78601,Chi Basin Basin,Thailand,ThaiWater (HII),CHI006,HII,Khon Kaen,4,141.512,153.038,153.281
+1109509,Ban Tap Tao Gate,17.11483,104.53841,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE020,HII,Nakhon Phanom,3,140.902,149.522,149.365
+1373689,Pak Tae Canal Bridge Songkhla Lake community,7.779112,100.36791,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),PTTEP4,HII,Songkhla,20,-0.099,1.255,1.677
+1121266,Wang Tanot Canal Bridge,13.119586,101.954346,East Coast Gulf Basin,Thailand,ThaiWater (HII),MOU472,FOP,Chanthaburi,17,41.786,47.921,47.786
+1095872,บ้านท่าไม้ลาย,10.50334,98.964401,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.201A,RID,Chumphon,19,35.92,42.501,42.541
+653,Yom 6,17.2019,99.86388,Yom Basin,Thailand,ThaiWater (HII),YOM006,HII,Sukhothai,8,46.818,58.968,58.411
+2857,บ้านม่วงลาด,16.20825,103.527641,Chi Basin Basin,Thailand,ThaiWater (HII),E.66A,RID,Roi Et,4,126.8,268.437002,270.369002
+2668,บ้านซำฆ้อ,12.95677,101.672096,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.18,RID,Rayong,17,26.234,60.268,60.519999999999996
+1394808,Lam Takhong Nam Bridge,14.550208,101.459465,Mun Basin,Thailand,ThaiWater (HII),MOU246,FOP,Nakhon Ratchasima,5,344.186,349.854,348.399
+2723,บ้านบางพุทรา,14.89868,100.401863,Chao Phraya Basin,Thailand,ThaiWater (HII),C.3,RID,Sing Buri,10,-2.29,13.405,13.721
+1109501,Ban Na Khu Gate,16.961792,104.52589,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE012,HII,Nakhon Phanom,3,136.318,144.856,144.822
+632505,บ้านแก่งบัวคำ,17.12855,100.588066,Nan Basin,Thailand,ThaiWater (HII),N.81,RID,Phitsanulok,9,160.0,327.24699499999997,327.310995
+3152,บ้านวังพร้าว,18.14444,99.408463,Wang Basin,Thailand,ThaiWater (HII),W.22,RID,Lampang,7,213.321,436.375004,436.395004
+3217,บ้านหลวงเหนือ,18.76083,99.972557,Yom Basin,Thailand,ThaiWater (HII),Y.13A,RID,Lampang,8,268.28,543.218988,543.3349880000001
+3243,บ้านทุ่งหนอง,18.94628,100.258949,Yom Basin,Thailand,ThaiWater (HII),Y.31,RID,Phayao,8,256.71,524.386,524.2529999999999
+804,Takua Pa Market,8.829399,98.36931,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),MDC001,HII,Phangnga,22,-2.47,4.435,3.618
+710,Ratchaburi 1,13.63308,99.8164,Mae Klong Basin,Thailand,ThaiWater (HII),RAJ001,HII,Ratchaburi,14,-3.091,7.804,7.877
+13906,Trang 5,7.668987,99.45936,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),TNG005,HII,Trang,22,8.592,14.0,14.0
+611,Tor Thong Daeng1,16.49714,99.51958,Ping Basin,Thailand,ThaiWater (HII),DIV005,HII,Kamphaeng Phet,6,72.549,77.925,77.712
+812,Tapi 4,9.029423,98.969635,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),TPI004,HII,Surat Thani,19,0.432,12.221,11.62
+8,Klong Ladprao Klong 2 Sai Tai,13.93183,100.63952,Bang Pakong Basin,Thailand,ThaiWater (HII),BKK020,HII,Bangkok,15,-1.01,4.4571,4.6521
+1225529,Lawtawkhan (Village),20.44352,99.86226,นอกประเทศไทย,Thailand,ThaiWater (HII),MYA002,FOP,Republic of the Union of Myanmar,88,399.4,405.43,405.43
+700555,วัดหนองปรือ,14.609306,99.457694,Mae Klong Basin,Thailand,ThaiWater (HII),MKSND05,EGAT,Kanchanaburi,14,125.06,131.89,130.18
+2744,ท้ายเขื่อนเจ้าพระยา,15.16384,100.18792,Chao Phraya Basin,Thailand,ThaiWater (HII),C.13,RID,Chai Nat,10,2.08,17.524,18.2
+1198627,Khlong Sano,12.513374,102.50484,East Coast Gulf Basin,Thailand,ThaiWater (HII),TRD006,HII,Trat,17,5.5,17.119,15.719
+1197957,Huai Yang Canal,14.136408,101.857475,Bang Pakong Basin,Thailand,ThaiWater (HII),KIZ003,HII,Prachin Buri,15,27.419,37.683,37.394
+545,Chaing Rai 3,20.15754,99.85966,North Khong Basin,Thailand,ThaiWater (HII),CHR003,HII,Chiang Rai,2,408.003,412.008,412.404
+2725,บ้านด่านกะตา,14.96803,102.237831,Mun Basin,Thailand,ThaiWater (HII),M.2A,RID,Nakhon Ratchasima,5,159.45,330.015,330.023
+1098955,บ้านทุ่งแฝก,14.16131,101.883057,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.14A,RID,Prachin Buri,15,34.172,74.035,73.989
+505029,สะพานบ้านลาด,13.04917,99.918549,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),B.16,RID,Phetchaburi,18,1.61,10.951,11.563
+1117894,บ้านขนงพระเหนือ,14.60611,101.472778,Mun Basin,Thailand,ThaiWater (HII),M.199,RID,Nakhon Ratchasima,5,328.56,663.260988,663.583988
+1198298,Tha River,18.471687,98.95513,Ping Basin,Thailand,ThaiWater (HII),PIN008,HII,Lamphun,6,302.6263,305.711,307.1603
+3174,บ้านหล่ายแก้ว,18.366421,98.772102,Ping Basin,Thailand,ThaiWater (HII),P.85,RID,Lamphun,6,287.45,585.763995,585.583995
+714,Kanchanaburi 1,14.06047,99.48325,Mae Klong Basin,Thailand,ThaiWater (HII),KRN001,HII,Kanchanaburi,14,20.28,26.37,25.685
+1095882,บ้านรมณีย์,8.83334,98.458527,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.188A,RID,Phangnga,22,11.336,18.632,18.641
+2562,บ้านย่านตาขาว,7.37199,99.677269,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.236,RID,Trang,22,-1.588,7.441,7.433
+11648468,Khlong Da,17.38925,103.08734,Northeast Khong Basin,Thailand,ThaiWater (HII),UDN001,HII,Udon Thani,3,162.98,167.187,166.427
+2888,บ้านแก่งยาว,16.442511,104.030724,Chi Basin Basin,Thailand,ThaiWater (HII),E.54,RID,Roi Et,4,138.3,288.398003,288.404003
+1098957,บ้านแก่งดินสอ,14.06587,101.922638,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.15B,RID,Prachin Buri,15,12.806,32.586999999999996,33.394999999999996
+12477,Pran Buri 2,12.50849,99.84201,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),PRN002,HII,Prachuap Khiri Khan,18,27.5,32.162,31.776
+1422368,สะพานบ้านปากคู่(วัดนิลาราม)อ.คีรีรัฐนิคม ท. 220903,9.068123,98.98318,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD08,EGAT,Surat Thani,19,6.93,12.182,11.49
+667,Nan 6,16.58046,100.23858,Nan Basin,Thailand,ThaiWater (HII),NAN006,HII,Phitsanulok,9,29.14,39.856,40.151
+504679,สะพานวงแหวนรอบ 3,18.86651,98.978188,Ping Basin,Thailand,ThaiWater (HII),P.103,RID,Chiang Mai,6,300.25,614.2750149999999,613.485015
+2578,บ้านสบวิน,18.65423,98.685661,Ping Basin,Thailand,ThaiWater (HII),P.82,RID,Chiang Mai,6,399.56,807.700012,807.791012
+2860,หน้าวัดศรีภิรมย์,16.21414,99.722328,Ping Basin,Thailand,ThaiWater (HII),P.15,RID,Kamphaeng Phet,6,49.462,109.958999,109.335999
+2851,หน้าอำเภอโพทะเล,16.09481,100.259903,Yom Basin,Thailand,ThaiWater (HII),Y.5,RID,Phichit,8,24.19,54.795999,54.536999
+1095879,บ้านกลาง,7.64556,99.532204,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.228,RID,Trang,22,-0.19,12.164,12.207
+2672,บ้านขุนซ่อง,13.07735,101.945534,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.28,RID,Chanthaburi,17,33.078,72.50099800000001,71.66999799999999
+3304,บ้านแม่คำหลักเจ็ด,20.218361,99.856987,North Khong Basin,Thailand,ThaiWater (HII),Kh.72,RID,Chiang Rai,2,393.38,793.187994,793.1579939999999
+380,Yang Talad,16.411083,103.467125,Chi Basin Basin,Thailand,ThaiWater (HII),CHI013,HII,Kalasin,4,132.049,144.707,144.299
+832059,บ้านยางสูง,14.48943,99.469788,Mae Klong Basin,Thailand,ThaiWater (HII),K.49,RID,Kanchanaburi,14,99.17,204.36,204.66
+1113287,อ.วัดโบสถ์ (N.22A),16.998826,100.325921,Nan Basin,Thailand,ThaiWater (HII),SKD09,EGAT,Phitsanulok,9,39.371,49.315,49.487
+427,Civil Bridge,18.57391,98.86222,Ping Basin,Thailand,ThaiWater (HII),TB0006,HII,Chiang Mai,6,289.139,292.182,293.284
+12475,Trang 4,7.371991,99.677246,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),TNG004,HII,Trang,22,-0.766,5.407,4.699
+2583,บ้านท่าสาบ,6.552798,101.266294,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.40A,RID,Yala,21,10.49,16.5,16.5
+504997,บ้านท่าบุญมี,13.40472,101.281776,Bang Pakong Basin,Thailand,ThaiWater (HII),Kgt.19A,RID,Chon Buri,15,13.364,32.29,32.501999999999995
+2634,บ้านป่าหมาก,7.58883,99.576874,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.234,RID,Trang,22,-1.875,8.046,8.122
+1198760,Nong Chan Bridge,18.46601,100.151665,Yom Basin,Thailand,ThaiWater (HII),YOM014,HII,Phrae,8,169.0285,178.6455,178.4378
+9822342,Main low pressure water pumping plant (Mae Sai),20.444576,99.87177,North Khong Basin,Thailand,ThaiWater (HII),MYA005,HII,Chiang Rai,2,393.48,401.5,401.0
+1394937,Khlong Sonthi Bridge,15.511389,101.34012,Pasak Basin,Thailand,ThaiWater (HII),MOU419,FOP,Lop Buri,12,128.82,133.616,135.562
+504982,บ้านพูลทรัพย์,15.32743,101.212402,Pasak Basin,Thailand,ThaiWater (HII),S.43,RID,Lop Buri,12,36.74,51.908,51.947
+709863,สะพานท่าสาป อ.เมือง จ.ยะลา,6.552715,101.266197,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),BLGTD03,EGAT,Yala,21,10.09,17.29,19.69
+1422366,สะพานท่าขนอน (วัดปราการ)อ.คีรีรัฐนิคม (X.36),9.029581,98.969587,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD06,EGAT,Surat Thani,19,-3.069,12.096,12.108
+505069,บ้านปะเหลียนใน,7.32009,99.7957,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.139A,RID,Trang,22,18.121,26.326,25.936
+3168,สะพานเสตุวารี,18.29973,99.51123,Wang Basin,Thailand,ThaiWater (HII),W.1C,RID,Lampang,7,226.89,464.010003,464.598003
+3221,สะพานท่าลี่,18.548229,100.808617,Nan Basin,Thailand,ThaiWater (HII),N.75,RID,Nan,9,181.325,379.42900299999997,379.391003
+700585,บ้านหินดาด,14.59539,98.72946,Mae Klong Basin,Thailand,ThaiWater (HII),MKVKD02,EGAT,Kanchanaburi,14,64.01,71.29,73.29
+3303,บ้านหัวสะพาน,20.15753,99.859596,North Khong Basin,Thailand,ThaiWater (HII),Kh.89,RID,Chiang Rai,2,406.375,818.050015,818.090015
+505030,ข้างจวนผู้ว่าฯ,13.11125,99.948219,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),B.15,RID,Phetchaburi,18,-0.32,5.994,5.729
+165,Na Di,14.133605,101.72767,Bang Pakong Basin,Thailand,ThaiWater (HII),PRC003,HII,Prachin Buri,15,7.472,16.782,18.087
+12350,Trang 6,7.96409,99.59775,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),TNG006,HII,Trang,22,17.1,25.605,24.445
+3044,บ้านนาหลัก,17.31229,101.772461,Northeast Khong Basin,Thailand,ThaiWater (HII),Kh.28A,RID,Loei,3,237.16,494.380006,494.412006
+3271,บ้านเชียงดาว,19.369551,98.969101,Ping Basin,Thailand,ThaiWater (HII),P.20,RID,Chiang Mai,6,378.6,765.519994,766.619994
+2915,บ้านทานตะวัน,16.56912,100.891792,Nan Basin,Thailand,ThaiWater (HII),N.73,RID,Phetchabun,9,684.281,1377.588029,1377.550029
+2596,บ้านท่าจีน,7.55583,99.578438,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.47,RID,Trang,22,0.0,5.3,5.3
+68,Chao Phraya 7,14.79091,100.45184,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY007,HII,Sing Buri,10,-1.317,10.364,11.609
+1198082,Sa water,18.584002,100.600266,Nan Basin,Thailand,ThaiWater (HII),NAN016,HII,Nan,9,226.052,232.077,237.421
+740726,Bang Tai Pracha Borirak Bridge,9.282515,98.87693,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),FOP025,FOP,Surat Thani,19,42.5181,57.1681,55.4181
+717,Sai Yok,14.11265,99.14635,Mae Klong Basin,Thailand,ThaiWater (HII),KRN002,HII,Kanchanaburi,14,30.012,46.515,46.772
+1109529,Yom Sai Kao - Tambon Krai Nai Bridge,17.074213,100.00566,Yom Basin,Thailand,ThaiWater (HII),ONE040,HII,Sukhothai,8,39.669,47.601,47.918
+3127,บ้านวังชิ้น,17.90118,99.605652,Yom Basin,Thailand,ThaiWater (HII),Y.37,RID,Phrae,8,91.97,197.66999900000002,198.74699900000002
+3186,บ้านสบแม่สะป๊วด,18.43327,99.085129,Ping Basin,Thailand,ThaiWater (HII),P.77,RID,Lamphun,6,365.83,735.055012,739.1400120000001
+9930856,"Phrarajadamri Canal, Wat Khao Krailat",12.5175,99.97219,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),HHN003,HII,Prachuap Khiri Khan,18,-0.054,2.174,2.239
+3292,บ้านท่างาม,16.998871,100.32663,Nan Basin,Thailand,ThaiWater (HII),N.22A,RID,Phitsanulok,9,39.689,94.170001,94.76400100000001
+2568,บ้านศรีบัวทอง,12.4765,102.477867,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.10,RID,Trat,17,2.59,13.4,13.4
+3205,บ้านห้วยสัก,18.58613,100.151337,Yom Basin,Thailand,ThaiWater (HII),Y.20,RID,Phrae,8,179.16,374.51,374.63800000000003
+1140845,Chao Pho Phaya On Shrine,18.599714,100.1496,Yom Basin,Thailand,ThaiWater (HII),YOM013,HII,Phrae,8,180.1686,190.853,190.909
+505037,สะพานรถยนต์ ร.ร.อนุบาลบางสะพาน,11.20557,99.508499,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),Gt.20,RID,Prachuap Khiri Khan,18,-0.74,4.42,4.921
+638,Ping 2,16.78657,99.18398,Ping Basin,Thailand,ThaiWater (HII),PIN002,HII,Tak,6,98.699,103.725,101.325
+2589,บ้านบางศาลา,6.93124,100.439857,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.90,RID,Songkhla,20,-0.881,11.247,11.25
+489,Yom 10,18.13367,100.12458,Yom Basin,Thailand,ThaiWater (HII),YOM010,HII,Phrae,8,141.725,151.808,154.285
+3041,บ้านวังขอนไม้,17.302389,99.830307,Yom Basin,Thailand,ThaiWater (HII),Y.3A,RID,Sukhothai,8,50.1,113.314,114.703
+595,Sakae Krang 2,15.37086,100.04418,Sakae Krang Basin,Thailand,ThaiWater (HII),SKG002,HII,Uthai Thani,11,10.539,17.66,19.999
+852087,Asok,13.74325,100.562164,Chao Phraya Basin,Thailand,ThaiWater (HII),AIT001,HII,Bangkok,10,0.5,2.39,2.39
+700587,บ้านปากแซง (K.58),14.215,99.058,Mae Klong Basin,Thailand,ThaiWater (HII),MKVKD04,EGAT,Kanchanaburi,14,36.963,58.408,57.454
+2809,บ้านโนนเชือก,15.7325,101.830048,Chi Basin Basin,Thailand,ThaiWater (HII),E.5,RID,Chaiyaphum,4,184.0,382.009,381.703
+479238,Num Pung,16.996609,104.17364,Northeast Khong Basin,Thailand,ThaiWater (HII),TBW030,HII,Sakon Nakhon,3,167.025,175.894,175.646
+3059,บ้านแม่เชียงราย,17.36661,99.113007,Wang Basin,Thailand,ThaiWater (HII),W.23,RID,Lampang,7,140.28,291.41199300000005,290.792993
+860,Song Khla Lake 2,6.931234,100.43985,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),SLA002,HII,Songkhla,20,-1.013,9.339,11.211
+1556820,Mae Suai Bridge,19.72628,99.50745,North Khong Basin,Thailand,ThaiWater (HII),MOU167,FOP,Chiang Rai,2,498.936,514.486,515.155
+680,Yom 9,16.31077,100.27173,Yom Basin,Thailand,ThaiWater (HII),YOM009,HII,Phichit,8,26.165,34.787,36.235
+835,Chumphon 1,10.574472,99.145744,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),CMP001,HII,Chumphon,19,-0.075,8.569,8.242
+2663,บ้านฉมัน,12.74451,102.206421,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.14,RID,Chanthaburi,17,5.502,16.323999999999998,16.192999999999998
+9931008,Ban Krayom,15.82878,103.35448,Mun Basin,Thailand,ThaiWater (HII),LDD004,HII,Maha Sarakham,5,135.3813,137.5023,137.6983
+3220,บ้านป่าซาง,18.519119,98.942291,Ping Basin,Thailand,ThaiWater (HII),P.87,RID,Lamphun,6,287.39,582.944012,582.946012
+1105332,Ku Ti,14.412405,100.40116,Chao Phraya Basin,Thailand,ThaiWater (HII),TCP006,HII,Phra Nakhon Si Ayutthaya,10,0.5,7.0,7.0
+510,Nan 1,19.09611,100.80258,Nan Basin,Thailand,ThaiWater (HII),NAN001,HII,Nan,9,216.328,223.307,223.474
+2580,บ้านหนองผำ,19.71244,99.620811,North Khong Basin,Thailand,ThaiWater (HII),G.10,RID,Chiang Rai,2,432.24,872.380001,872.390001
+2847,บ้านแสนตอ,16.064671,99.860191,Ping Basin,Thailand,ThaiWater (HII),P.16,RID,Kamphaeng Phet,6,38.02,84.701999,84.62199899999999
+3285,บ้านสลวงนอก,19.015091,98.880836,Ping Basin,Thailand,ThaiWater (HII),P.93,RID,Chiang Mai,6,340.238,684.854996,684.697996
+3212,บ้านโป่ง,18.69521,99.078751,Ping Basin,Thailand,ThaiWater (HII),P.81,RID,Chiang Mai,6,290.15,586.769013,586.779013
+2563,บ้านท่าแค,7.56871,100.0485,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.68,RID,Phatthalung,20,12.053,18.339,18.585
+2881,ต.ในเมือง,16.42322,101.162079,Pasak Basin,Thailand,ThaiWater (HII),S.4B,RID,Phetchabun,12,109.41,223.372,223.559
+3523,ลำน้ำพอง (เหนือฝายหนองหวาย),16.724766,102.803416,Chi Basin Basin,Thailand,ThaiWater (HII),URTD01,EGAT,Khon Kaen,4,160.0759,168.4849,168.5369
+1373275,Pa Mok Bridge,14.498074,100.44962,Chao Phraya Basin,Thailand,ThaiWater (HII),HDA009,HII,Ang Thong,10,-1.31,8.013,7.972
+1677420,Mae Kalong Bridge (Phayao University),19.0328,99.92907,North Khong Basin,Thailand,ThaiWater (HII),PYO007,HII,Phayao,2,434.0,436.225,437.069
+562799,สะพานท้ายเขื่อนบางลาง อ.บันนังสตา จ.ยะลา,6.160477,101.276104,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),BLGTD01,EGAT,Yala,21,40.28,48.678,53.585
+1129758,Tha Lone Canal Weir,8.218343,99.71981,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),FOP072,FOP,Nakhon Si Thammarat,22,91.4,96.752,96.752
+1109511,Khlong Sam Bat Ban Kut Phiman,15.31065,101.74405,Mun Basin,Thailand,ThaiWater (HII),ONE022,HII,Nakhon Ratchasima,5,199.568,201.966,202.576
+89,Chao Phraya 5,15.10907,100.26785,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY005,HII,Chai Nat,10,3.011,15.277,15.3271
+758,Petch Buri 1,13.08562,99.94393,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),PCH001,HII,Phetchaburi,18,-0.371,6.554,6.0
+1422295,แม่น้ำปิงที่ อ.บ้านตาก,17.049092,99.066017,Ping Basin,Thailand,ThaiWater (HII),BBD02,EGAT,Tak,6,118.0,122.58,121.95
+2855,บ้านสามเรือน,16.181589,99.598358,Ping Basin,Thailand,ThaiWater (HII),P.78,RID,Kamphaeng Phet,6,65.227,136.507,137.11
+2655,บ้านวังครก,10.59451,99.141769,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.158,RID,Chumphon,19,0.77,14.499,14.455
+846,Sawi 2,10.203275,99.04355,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),SVI002,HII,Chumphon,19,-2.691,9.244,9.765
+71,Chao Phraya 6,15.00602,100.33088,Chao Phraya Basin,Thailand,ThaiWater (HII),CPY006,HII,Sing Buri,10,1.423,15.1,15.1
+1475118,Ngad Bridge,19.238968,99.18048,Ping Basin,Thailand,ThaiWater (HII),MOU301,FOP,Chiang Mai,6,397.511,401.024,401.7
+3283,บ้านกลาง,18.54735,98.862282,Ping Basin,Thailand,ThaiWater (HII),P.71A,RID,Chiang Mai,6,283.01,573.436009,573.4140090000001
+1113291,อ.เมืองน่าน (N.1),18.77485,100.77974,Nan Basin,Thailand,ThaiWater (HII),SKU03,EGAT,Nan,9,188.73,204.225,204.152
+1373272,Singburi 100th Anniversary Memorial Bridge (Luang Pho Phae 89 Bridge),14.870205,100.408585,Chao Phraya Basin,Thailand,ThaiWater (HII),HDA006,HII,Sing Buri,10,0.0,12.727,13.91
+1475106,Mae Klang Nam Bridge,18.507551,98.66203,Ping Basin,Thailand,ThaiWater (HII),MOU294,FOP,Chiang Mai,6,428.556,435.273,431.751
+1113292,อ.เวียงสา (N.13A) น้ำน่าน,18.549993,100.760637,Nan Basin,Thailand,ThaiWater (HII),SKU04,EGAT,Nan,9,173.903,190.325,192.595
+618,Maewong Bridge,15.90176,99.4704,Sakae Krang Basin,Thailand,ThaiWater (HII),SKG005,HII,Kamphaeng Phet,11,107.7,113.69,114.09
+1396860,Khlong Takhrai Bridge,14.321305,101.30604,Bang Pakong Basin,Thailand,ThaiWater (HII),MOU462,FOP,Nakhon Nayok,15,26.045,29.494,30.323
+478,Nan 10,17.79087,100.74902,Nan Basin,Thailand,ThaiWater (HII),NAN010,HII,Uttaradit,9,152.424,162.822,159.459
+3525,แม่น้ำชี บ้านหินกอง,16.250316,102.743923,Chi Basin Basin,Thailand,ThaiWater (HII),URTD05,EGAT,Khon Kaen,4,142.972,156.119,155.243
+700552,บ้านหนองบัว (K.35A),14.06024,99.44414,Mae Klong Basin,Thailand,ThaiWater (HII),MKSND02,EGAT,Kanchanaburi,14,21.765,27.03,29.4
+1422307,ห้วยแม่ตื่นที่ อ.อมก๋อย,17.387731,98.467658,Ping Basin,Thailand,ThaiWater (HII),BBU04,EGAT,Chiang Mai,6,419.84,423.61,426.246
+414,Chiang Mai 4,19.36728,98.96884,Ping Basin,Thailand,ThaiWater (HII),CHM004,HII,Chiang Mai,6,378.034,381.718,382.388
+1109524,Khlong Thepha Bridge,6.534085,100.963394,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ONE035,HII,Songkhla,20,12.34,19.703,19.753
+726684,บ้านบริดอ,6.82152,101.244888,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.275,RID,Pattani,21,0.0,2.0,2.0
+595072,Mae Ta Chang Bridge,18.771976,98.862595,Ping Basin,Thailand,ThaiWater (HII),MOU010,FOP,Chiang Mai,6,377.753,383.625,384.757
+3018,บ้านวังหมัน,17.20499,99.098122,Wang Basin,Thailand,ThaiWater (HII),W.4A,RID,Tak,7,129.46,267.308,265.821
+1481128,Building Bridge,17.586782,99.81109,Yom Basin,Thailand,ThaiWater (HII),MOU346,FOP,Sukhothai,8,81.175,85.869,88.105
+709,Ratchaburi 2,13.81866,99.86508,Mae Klong Basin,Thailand,ThaiWater (HII),RAJ002,HII,Ratchaburi,14,0.132,11.839,12.061
+3288,บ้านสันปู่เลย,19.133591,99.166328,Ping Basin,Thailand,ThaiWater (HII),P.91,RID,Chiang Mai,6,412.28,831.893006,831.942006
+609,Mueang Kamphaeng Phet (P7A),16.47816,99.51866,Ping Basin,Thailand,ThaiWater (HII),PIN006,HII,Kamphaeng Phet,6,70.252,78.634,78.165
+1095881,บ้านปันจอร์,6.77741,100.071487,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.279,RID,Satun,22,17.876,24.394,24.402
+358,Mueang Maha Sarakham,16.23231,103.27106,Chi Basin Basin,Thailand,ThaiWater (HII),CHI012,HII,Maha Sarakham,4,133.721,146.992,144.503
+700588,บ้านลุ่มสุ่ม (K.10),14.09336,99.17583,Mae Klong Basin,Thailand,ThaiWater (HII),MKVKD05,EGAT,Kanchanaburi,14,29.79,51.08,47.288
+12483,Nakhon Si Thammarat 3,8.391227,99.39519,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),NKO003,HII,Nakhon Si Thammarat,19,10.436,20.854,21.854
+1422305,แม่น้ำปิงที่ อ.ฮอด,18.178275,98.630519,Ping Basin,Thailand,ThaiWater (HII),BBU02,EGAT,Chiang Mai,6,254.01,261.91,263.11
+11648256,Mae Mok Canal,17.22242,99.70545,Yom Basin,Thailand,ThaiWater (HII),SKT002,HII,Sukhothai,8,55.993,60.79,61.007
+2636,บ้านท่าประดู่,7.77079,99.53743,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.56,RID,Trang,22,5.335,19.976,19.995
+658,Yom-Nan4,16.67167,100.24581,Yom Basin,Thailand,ThaiWater (HII),DIV004,HII,Phitsanulok,8,34.415,43.588,43.201
+1121199,Maenam Ngao bridge,20.030533,100.48944,North Khong Basin,Thailand,ThaiWater (HII),MOU171,FOP,Chiang Rai,2,380.604,385.462,383.752
+1116839,Bridge over the Lao River - Ban Pa Sak,19.301765,99.51751,North Khong Basin,Thailand,ThaiWater (HII),FOP065,FOP,Chiang Rai,2,542.984,547.502,548.18
+1483103,Phaya Athitraj Bridge,17.37028,98.48728,Ping Basin,Thailand,ThaiWater (HII),MOU370,FOP,Chiang Mai,6,406.995,412.521,414.13
+685650,Nam Wa (Ban Nam Wa),18.643177,101.010826,Nan Basin,Thailand,ThaiWater (HII),MOU045,FOP,Nan,9,241.341,255.594,253.246
+3253,บ้านช่อแล,19.14599,99.007332,Ping Basin,Thailand,ThaiWater (HII),P.75,RID,Chiang Mai,6,336.95,682.684006,682.709006
+1095878,บ้านปรีกี,6.715493,101.285399,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.283,RID,Pattani,21,2.077,11.255,11.214
+869,Trang 1,7.729391,99.55152,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),TNG001,HII,Trang,22,4.912,11.517,15.136
+2920,บ้านโนนหัน,16.590509,101.983223,Chi Basin Basin,Thailand,ThaiWater (HII),E.85,RID,Chaiyaphum,4,225.102,459.750003,459.65700300000003
+1109523,Huai Samo Bridge,17.208937,104.101845,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE034,HII,Sakon Nakhon,3,159.168,161.966,161.73
+1396858,Khlong Nang Rong Bridge,14.315195,101.312836,Bang Pakong Basin,Thailand,ThaiWater (HII),MOU461,FOP,Nakhon Nayok,15,22.71,27.968,26.49
+298,Chi 1,15.93316,101.69951,Chi Basin Basin,Thailand,ThaiWater (HII),CHI001,HII,Chaiyaphum,4,197.259,212.865,212.873
+12349,Khuan Kalong,6.928349,99.936035,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),STU004,HII,Satun,22,19.632,28.887,26.037
+493,Yom 4,18.0208,100.0588,Yom Basin,Thailand,ThaiWater (HII),YOM004,HII,Phrae,8,136.017,147.617,149.273
+1106451,BangKaeo,14.436604,100.37149,Chao Phraya Basin,Thailand,ThaiWater (HII),TCP005,HII,Phra Nakhon Si Ayutthaya,10,0.0,5.0,5.0
+1198761,Mother Ta,18.243488,99.97737,Yom Basin,Thailand,ThaiWater (HII),YOM015,HII,Phrae,8,180.8349,185.8563,187.2144
+740736,Khlong Wang Khian Bridge,7.954553,99.896324,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),FOP035,FOP,Nakhon Si Thammarat,19,8.4798,16.0958,16.0498
+3286,บ้านเมืองกึ๊ด,19.220449,98.847214,Ping Basin,Thailand,ThaiWater (HII),P.92,RID,Chiang Mai,6,440.225,888.065015,888.060015
+2957,บ้านดงสวรรค์,16.83222,103.369171,Chi Basin Basin,Thailand,ThaiWater (HII),E.88,RID,Kalasin,4,163.13,331.36699799999997,331.309998
+832056,บ้านด่านทับตะโก,13.69252,99.449738,Mae Klong Basin,Thailand,ThaiWater (HII),K.61,RID,Ratchaburi,14,64.74,136.317997,136.71999699999998
+1422301,แม่น้ำปิงที่ อ.คลองขลุง (P.15),16.21715,99.720608,Ping Basin,Thailand,ThaiWater (HII),BBD08,EGAT,Kamphaeng Phet,6,50.657,58.381,57.898
+2656,บ้านท่าแซะ,10.66562,99.171227,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.64,RID,Chumphon,19,6.51,19.245,18.884
+1109491,Krabi Yai 1 Bridge,8.187541,98.87916,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ONE002,HII,Krabi,22,22.532,26.159,26.738
+700586,บ้านลิ่นถิ่น (K.54),14.53566,98.78764,Mae Klong Basin,Thailand,ThaiWater (HII),MKVKD03,EGAT,Kanchanaburi,14,60.309,69.925,75.778
+1113280,บ้านผาจุก,17.668222,100.21413,Nan Basin,Thailand,ThaiWater (HII),SKD02,EGAT,Uttaradit,9,51.43,68.95,69.37
+1113295,อ.เวียงสา (N.75)  น้ำว้า,18.548273,100.808617,Nan Basin,Thailand,ThaiWater (HII),SKU07,EGAT,Nan,9,181.29,196.63,196.587
+670715,Ban Thung Yao Nuea Bridge,18.511826,99.07731,Ping Basin,Thailand,ThaiWater (HII),FOP016,FOP,Lamphun,6,315.483,323.925,324.802
+616,Ping 4,16.06475,99.8603,Ping Basin,Thailand,ThaiWater (HII),PIN004,HII,Kamphaeng Phet,6,38.988,45.331,46.707
+1225530,"U Thun Aung Bridge, Sopsai Ward",20.47149,99.95349,นอกประเทศไทย,Thailand,ThaiWater (HII),MYA003,FOP,Republic of the Union of Myanmar,88,393.3,402.07,402.07
+1099005,บ้านแลง,18.51882,99.629997,Wang Basin,Thailand,ThaiWater (HII),W.10B,RID,Lampang,7,257.311,527.274988,527.2099880000001
+832057,บ้านหนองไผ่,13.78092,99.420921,Mae Klong Basin,Thailand,ThaiWater (HII),K.62,RID,Kanchanaburi,14,48.65,103.88,104.094
+2764,บ้านเมืองคง,15.33969,104.15403,Mun Basin,Thailand,ThaiWater (HII),M.5,RID,Si Sa Ket,5,108.8,234.534,232.501
+829,Mueang Ranong,9.961575,98.644485,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),RNG001,HII,Ranong,22,7.368,10.752,14.568
+2740,บ้านหลุมดิน,15.14119,103.429359,Mun Basin,Thailand,ThaiWater (HII),M.159,RID,Surin,5,120.78,129.100002,129.100002
+1677419,Mae Tam Bridge,19.09763,99.91642,North Khong Basin,Thailand,ThaiWater (HII),PYO006,HII,Phayao,2,396.602,402.116,403.342
+2872,บ้านวังหิน,16.34078,103.577011,Chi Basin Basin,Thailand,ThaiWater (HII),E.87,RID,Kalasin,4,129.49,268.845994,268.880994
+1422365,สะพานพุมดวง (วัดตาขุน) อ.บ้านตาขุน,8.915783,98.885678,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD05,EGAT,Surat Thani,19,0.58,20.5235,21.6921
+3146,บ้านน้ำโค้ง,18.133909,100.124641,Yom Basin,Thailand,ThaiWater (HII),Y.1C,RID,Phrae,8,143.03,297.41200000000003,297.512
+1109522,Khlong Mong Bridge,17.166727,104.118996,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE033,HII,Sakon Nakhon,3,156.779,164.42,160.904
+2639,บ้านนาป่า,8.39629,99.920143,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.203,RID,Nakhon Si Thammarat,19,7.345,11.905,11.877
+2698,สำนักเทคโนโลยีชีวภัณฑ์สัตว์,14.69785,101.415154,Mun Basin,Thailand,ThaiWater (HII),M.89,RID,Nakhon Ratchasima,5,291.37,590.886994,590.882994
+2963,บ้านท่าแค,16.855261,99.124489,Ping Basin,Thailand,ThaiWater (HII),P.2A,RID,Tak,6,102.6,213.82999999999998,213.763
+2914,คลองวังเจ้า,16.63925,99.242813,Ping Basin,Thailand,ThaiWater (HII),P.50A,RID,Tak,6,104.783,214.090001,214.215001
+3107,บ้านหาดไผ่,17.73687,100.531586,Nan Basin,Thailand,ThaiWater (HII),N.12A,RID,Uttaradit,9,68.16,151.49599999999998,150.421
+726656,บ้านควนกลาง (1),8.555,99.569283,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.243,RID,Nakhon Si Thammarat,19,38.06,44.546,44.396
+3047,บ้านท่าไผ่,17.32165,99.077217,Wang Basin,Thailand,ThaiWater (HII),W.24,RID,Tak,7,135.881,280.42999299999997,280.654993
+348,Khong 1,17.312359,101.7726,Northeast Khong Basin,Thailand,ThaiWater (HII),KON001,HII,Loei,3,237.878,248.131,246.891
+2591,บ้านหาดใหญ่ใน,7.00218,100.456062,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.44,RID,Songkhla,20,-2.204,8.68,8.661
+1091551,Khao Wong,15.181689,100.41453,Chao Phraya Basin,Thailand,ThaiWater (HII),CHK002,HII,Nakhon Sawan,10,-0.281,17.719,17.719
+2671,ตลาดท่ายาง,12.97398,99.88784,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),B.10,RID,Phetchaburi,18,4.92,20.355,20.295
+2852,บ้านท่านางเลื่อน,16.096939,102.570023,Chi Basin Basin,Thailand,ThaiWater (HII),E.9,RID,Khon Kaen,4,149.29,318.014006,316.466006
+9931006,Ban Nam Phueng,15.95243,103.19807,Mun Basin,Thailand,ThaiWater (HII),LDD003,HII,Maha Sarakham,5,155.068,159.1583,159.5293
+1106448,Khlong Bang So,14.194874,100.13267,Tha Chin Basin,Thailand,ThaiWater (HII),TCP002,HII,Suphan Buri,13,0.0,4.4,4.4
+870,Khlong Na Thom,7.558824,99.98739,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),MDC005,HII,Phatthalung,20,16.28,29.28,29.28
+550,Chaing Rai 4,19.65265,99.5379,North Khong Basin,Thailand,ThaiWater (HII),CHR004,HII,Chiang Rai,2,450.309,453.954,454.543
+2665,บ้านโป่งโรงเซ็น,12.79196,102.254669,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.21,RID,Chanthaburi,17,20.904,49.933001000000004,49.896001
+2669,บ้านเขาวังไทร,12.85783,101.615738,East Coast Gulf Basin,Thailand,ThaiWater (HII),Z.11,RID,Rayong,17,3.172,11.364999999999998,11.739999999999998
+522,Nan 2,18.85971,100.8171,Nan Basin,Thailand,ThaiWater (HII),NAN002,HII,Nan,9,195.061,208.239,205.643
+434,Chiang Mai 2,18.17859,98.63017,Ping Basin,Thailand,ThaiWater (HII),CHM002,HII,Chiang Mai,6,254.507,260.959,260.835
+1109519,Diak Bridge,17.126015,104.140945,Northeast Khong Basin,Thailand,ThaiWater (HII),ONE030,HII,Sakon Nakhon,3,160.56,163.4,164.743
+479230,Kok1,19.92195,99.81826,North Khong Basin,Thailand,ThaiWater (HII),TBW022,HII,Chiang Rai,2,388.479,394.613,392.258
+1109534,Khlong Pak Mak Bridge,9.492312,98.91996,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ONE045,HII,Surat Thani,19,96.33,100.211,98.946
+1109536,Esia 4265 Bridge,9.598671,98.94901,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ONE047,HII,Surat Thani,19,88.203,91.913,91.982
+2584,บ้านฉลุงเหนือ,6.72662,100.062737,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.239,RID,Satun,22,12.861,17.022,17.009
+2567,บ้านวังไผ่,10.5072,99.117798,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.53A,RID,Chumphon,19,1.55,10.403,10.407
+562796,สะพานบ้าน กม.29 อ.เบตง จ.ยะลา,5.920578,101.182086,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),BLGTU02,EGAT,Yala,21,115.83,120.37,124.53
+1422304,แม่น้ำปิงที่ อ.จอมทอง,18.435266,98.740107,Ping Basin,Thailand,ThaiWater (HII),BBU01,EGAT,Chiang Mai,6,270.084,280.628,280.8
+1161514,บ้านน้ำจืด,10.40327,98.776932,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.207A,RID,Ranong,22,0.0,3.6,3.6
+2581,บ้านซากอ,6.22716,101.496948,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.184,RID,Narathiwat,21,20.255,34.314,34.319
+2644,บ้านท้า่ยนา,8.73097,99.746094,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.149,RID,Nakhon Si Thammarat,19,24.211,36.183,36.121
+342,Khong 2,17.509344,101.73663,Northeast Khong Basin,Thailand,ThaiWater (HII),KON002,HII,Loei,3,228.311,239.586,238.182
+2777,บ้านดอนใหญ่,15.45274,100.031891,Sakae Krang Basin,Thailand,ThaiWater (HII),Ct.19,RID,Uthai Thani,11,16.78,24.432,24.315
+1422361,สะพานคลองแสง อ.บ้านตาขุน,8.962559,98.814738,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD01,EGAT,Surat Thani,19,7.611,17.3901,28.0411
+2713,บ้านลาดบัวขาว,14.85019,101.616791,Mun Basin,Thailand,ThaiWater (HII),M.177,RID,Nakhon Ratchasima,5,237.58,480.649997,480.627997
+1126506,Ban Tha Wang Bridge,7.37654,100.10043,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),PLG001,HII,Phatthalung,20,13.757,22.209,22.672
+3134,บ้านฟากท่า,17.997021,100.879089,Nan Basin,Thailand,ThaiWater (HII),N.39,RID,Uttaradit,9,208.587,421.360003,423.02200300000004
+1120557,Ban Khiri Wong (Khlong Tha Di) Bridge,8.432906,99.782646,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),MOU494,FOP,Nakhon Si Thammarat,19,41.773,49.623,46.313
+1109516,Khlong Ka Poe Bridge,9.590022,98.63291,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ONE027,HII,Ranong,22,8.646,12.856,14.419
+3524,ลำน้ำพอง โรงเรียนลำน้ำพอง,16.571498,102.881228,Chi Basin Basin,Thailand,ThaiWater (HII),URTD02,EGAT,Khon Kaen,4,144.3632,157.6642,156.4112
+2797,บ้านค่าย,15.68176,102.009552,Chi Basin Basin,Thailand,ThaiWater (HII),E.23,RID,Chaiyaphum,4,177.51,364.80199700000003,363.206997
+2875,บ้านดอนขนวน,16.36607,102.949753,Chi Basin Basin,Thailand,ThaiWater (HII),E.91,RID,Maha Sarakham,4,137.75,290.303,290.231
+2688,บ้านบ้องตี้น้อย,14.27618,98.931068,Mae Klong Basin,Thailand,ThaiWater (HII),K.32A,RID,Kanchanaburi,14,84.311,173.801997,174.462997
+3245,บ้านน้ำยาว,18.99374,100.940102,Nan Basin,Thailand,ThaiWater (HII),N.49,RID,Nan,9,264.333,537.211011,539.256011
+1079844,บ้านโนนค่า,14.93225,101.867882,Mun Basin,Thailand,ThaiWater (HII),M.192,RID,Nakhon Ratchasima,5,199.93,203.90000600000002,203.90000600000002
+3156,สะพานท่าข้าม,18.20228,98.614441,Ping Basin,Thailand,ThaiWater (HII),P.14A,RID,Chiang Mai,6,260.586,530.077985,530.096985
+2632,บ้านป่า,14.62918,101.014427,Pasak Basin,Thailand,ThaiWater (HII),S.9,RID,Saraburi,12,5.38,24.907,24.927
+3215,บ้านหนองนาว,18.722269,99.567268,Wang Basin,Thailand,ThaiWater (HII),W.17,RID,Lampang,7,290.34,588.511,588.461
+3267,บ้านปางสา,19.23041,100.754089,Nan Basin,Thailand,ThaiWater (HII),N.65,RID,Nan,9,248.951,505.59299899999996,505.614999
+2700,บ้านโนนสะอาด,14.74504,102.211777,Mun Basin,Thailand,ThaiWater (HII),M.173,RID,Nakhon Ratchasima,5,175.54,350.134003,358.678003
+3102,บ้านดอนชัย,17.641491,99.23201,Wang Basin,Thailand,ThaiWater (HII),W.3A,RID,Lampang,7,159.1,330.115,330.081
+9930854,"Phrarajadamri Canal, Hua Hin Soi 10",12.6096,99.9453,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),HHN002,HII,Prachuap Khiri Khan,18,7.038,11.244,11.133
+1422371,สะพานอิปัน อ.พระแสง (X.37A),8.57104,99.25391,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),RPBD11,EGAT,Surat Thani,19,2.871,12.427,12.591
+1556822,Mae Ramat Bridge,16.983826,98.52675,Salawin Basin,Thailand,ThaiWater (HII),MOU172,FOP,Tak,1,172.586,175.2,176.116
+2760,บ้านสตึก,15.30003,103.292282,Mun Basin,Thailand,ThaiWater (HII),M.6A,RID,Surin,5,120.92,253.488,254.136
+1109492,I Pan Bridge,8.525791,98.88188,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ONE003,HII,Krabi,19,35.285,42.186,45.069
+1422297,แม่น้ำปิงที่ อ.เมืองตาก (P.2A),16.856702,99.125294,Ping Basin,Thailand,ThaiWater (HII),BBD04,EGAT,Tak,6,102.959,109.974,110.012
+630,Wang 1,17.26053,99.07797,Wang Basin,Thailand,ThaiWater (HII),WAN001,HII,Tak,7,129.883,142.028,141.227
+784,Pran Buri 1,12.38992,99.91119,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),PRN001,HII,Prachuap Khiri Khan,18,-2.097,6.933,9.617
+2763,บ้านพงสวาย,15.32958,103.68261,Mun Basin,Thailand,ThaiWater (HII),M.4,RID,Surin,5,115.66,245.767,246.273
+2579,บ้านร่องเคาะ,18.990931,99.621109,Wang Basin,Thailand,ThaiWater (HII),W.25,RID,Lampang,7,381.163,769.1319940000001,769.188994
+642753,Nam Khwang (Ban Rong Ngae) Bridge,19.175901,100.92981,Nan Basin,Thailand,ThaiWater (HII),MOU035,FOP,Nan,9,256.093,259.321,259.738
+508035,บ้านผานกเค้า,16.847639,101.94426,Chi Basin Basin,Thailand,ThaiWater (HII),E.29A,RID,Loei,4,227.926,469.225,469.249
+330,Chi 5,16.09691,102.56997,Chi Basin Basin,Thailand,ThaiWater (HII),CHI005,HII,Khon Kaen,4,149.464,162.379,161.583
+2620,บ้านโนนสาวเอ้,14.50134,101.768478,Mun Basin,Thailand,ThaiWater (HII),M.171,RID,Nakhon Ratchasima,5,272.15,277.000012,277.000012
+499,Yom 3,18.26591,100.17706,Yom Basin,Thailand,ThaiWater (HII),YOM003,HII,Phrae,8,152.582,159.635,159.637
+700584,อ.ทองผาภูมิ,14.73758,98.63576,Mae Klong Basin,Thailand,ThaiWater (HII),MKVKD01,EGAT,Kanchanaburi,14,74.22,92.74,98.42
+1121265,Khlong Chanthakloem Bridge,13.003336,102.04864,East Coast Gulf Basin,Thailand,ThaiWater (HII),MOU471,FOP,Chanthaburi,17,52.0,57.068,57.138
+560,Pai 1,19.36703,97.96665,Salawin Basin,Thailand,ThaiWater (HII),PAI001,HII,Mae Hong Son,1,199.763,205.974,208.06
+2686,บ้านทุ่งนานางหรอก,14.17522,99.434067,Mae Klong Basin,Thailand,ThaiWater (HII),K.12,RID,Kanchanaburi,14,39.43,88.358001,86.668001
+647,Yom 5,17.51715,99.75877,Yom Basin,Thailand,ThaiWater (HII),YOM005,HII,Sukhothai,8,58.411,71.932,72.072
+664,Yom 8,16.70818,100.17179,Yom Basin,Thailand,ThaiWater (HII),YOM008,HII,Phitsanulok,8,29.4,41.202,41.22
+319,Mueang Khon Kaen,16.528994,102.906006,Chi Basin Basin,Thailand,ThaiWater (HII),CHI015,HII,Khon Kaen,4,144.885,155.264,155.197
+628,Ping 1,17.04066,99.06628,Ping Basin,Thailand,ThaiWater (HII),PIN001,HII,Tak,6,117.722,121.603,122.568
+3171,บ้านท่าล้อ,18.310881,99.45784,Wang Basin,Thailand,ThaiWater (HII),W.20,RID,Lampang,7,228.052,468.439998,468.487998
+828,Tapi 7,9.206472,98.95253,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),TPI007,HII,Surat Thani,19,20.987,33.173,34.653
+2828,บ้านหนองอ้อ,15.9074,101.708229,Chi Basin Basin,Thailand,ThaiWater (HII),E.32A,RID,Chaiyaphum,4,197.31,210.8,210.8
+1121239,Nam Ngim Bridge,19.321678,100.456184,Yom Basin,Thailand,ThaiWater (HII),MOU352,FOP,Phayao,8,443.145,448.012,448.318
+3246,บ้านผาขวาง,19.015169,100.780212,Nan Basin,Thailand,ThaiWater (HII),N.64,RID,Nan,9,210.81,437.331994,434.985994
+3277,บ้านม่วงป๊อก,19.638411,98.635262,Ping Basin,Thailand,ThaiWater (HII),P.65,RID,Chiang Mai,6,741.166,1485.946973,1485.912973
+3025,บ้านย่านรี,17.23818,99.02626,Ping Basin,Thailand,ThaiWater (HII),P.12C,RID,Tak,6,127.58,265.325,267.119
+999405,วัดถลุงทอง อำเภอร่อนพิบูลย์,8.3062,99.859917,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.289,RID,Nakhon Si Thammarat,19,13.945,21.001,21.008
+12474,Manang,6.940811,99.872925,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),STU003,HII,Satun,22,4.144,12.884,13.184
+1101569,Ban Tai,8.178368,99.70351,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),FOP058,FOP,Nakhon Si Thammarat,22,59.019,62.746,63.279
+2863,บ้านดินดำ,16.231939,103.271019,Chi Basin Basin,Thailand,ThaiWater (HII),E.8A,RID,Maha Sarakham,4,135.734,282.158997,281.893997
+504945,บ้านโคกกรวด,14.93281,101.951889,Mun Basin,Thailand,ThaiWater (HII),M.191,RID,Nakhon Ratchasima,5,191.92,195.300003,195.300003
+430,Chiang Mai 1,19.00979,98.95975,Ping Basin,Thailand,ThaiWater (HII),CHM001,HII,Chiang Mai,6,313.105,322.636,321.268
+3213,บ้านโป่ง,18.709379,99.957626,Yom Basin,Thailand,ThaiWater (HII),Y.30,RID,Lampang,8,265.22,539.573005,539.496005
+685678,Mae Tuen Bridge,17.12535,98.6394,Ping Basin,Thailand,ThaiWater (HII),MOU073,FOP,Tak,6,297.019,304.508,305.13
+3298,บ้านดอนสลี,19.622379,99.476936,North Khong Basin,Thailand,ThaiWater (HII),G.11,RID,Chiang Rai,2,460.975,931.6849870000001,931.7299869999999
+802,Takua Pa 2,8.477331,98.52832,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),TKP002,HII,Phangnga,22,1.49,11.39,7.759
+1109494,Nong Chik - Wang Pla Bridge,10.112872,99.07568,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ONE005,HII,Chumphon,19,3.55,6.952,9.69
+3244,บ้านแม่หวาน,18.9643,99.237518,Ping Basin,Thailand,ThaiWater (HII),P.79,RID,Chiang Mai,6,441.93,891.297988,892.050988
+999395,บ้านหาดใน,10.6375,99.050163,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.248,RID,Chumphon,19,17.07,27.362,27.349
+1109512,Khlong ThaPhae Bridge,8.166437,99.704285,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ONE023,HII,Nakhon Si Thammarat,22,57.219,62.563,60.855
+537,Chaing Rai 1,19.82637,99.77892,North Khong Basin,Thailand,ThaiWater (HII),CHR001,HII,Chiang Rai,2,399.881,405.556,407.218
+547,Chaing Rai 5,20.2197,100.12121,North Khong Basin,Thailand,ThaiWater (HII),CHR005,HII,Chiang Rai,2,355.219,364.753,364.884
+1198081,Sa River,18.571873,100.74266,Nan Basin,Thailand,ThaiWater (HII),NAN015,HII,Nan,9,182.652,189.784,189.647
+2618,บ้านวังตะเคียนทอง,14.49406,101.684914,Mun Basin,Thailand,ThaiWater (HII),M.145,RID,Nakhon Ratchasima,5,385.48,390.4,390.4
+463,Wang 3,17.75171,99.23061,Wang Basin,Thailand,ThaiWater (HII),WAN003,HII,Lampang,7,168.964,178.681,178.49
+3112,บ้านหลวง,17.78546,98.372391,Ping Basin,Thailand,ThaiWater (HII),P.64,RID,Chiang Mai,6,787.025,1580.784976,1580.870976
+454,Wang 4,18.15915,99.38407,Wang Basin,Thailand,ThaiWater (HII),WAN004,HII,Lampang,7,209.304,214.45,214.772
+1116840,Lao River Slow Bridge - Ban Hong,19.173138,99.50559,North Khong Basin,Thailand,ThaiWater (HII),FOP066,FOP,Chiang Rai,2,587.0,590.427,589.244
+632511,ต.น้ำปาด,17.74103,100.679276,Nan Basin,Thailand,ThaiWater (HII),N.84,RID,Uttaradit,9,136.477,280.986997,281.534997
+2561,บ้านวังพระเคียน,6.94082,99.872917,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.150,RID,Satun,22,4.521,15.853,15.81
+1119916,บ้านบึงศาลา,17.1422,104.2901,Northeast Khong Basin,Thailand,ThaiWater (HII),Kh.9A,RID,Sakon Nakhon,3,150.13,309.483,309.45799999999997
+3299,บ้านกระเหรี่ยงทุ่งพร้าว,19.745991,99.500763,North Khong Basin,Thailand,ThaiWater (HII),G.9,RID,Chiang Rai,2,514.996,1036.269973,1036.264973
+3281,บ้านเมืองมาย,18.596041,99.622063,Wang Basin,Thailand,ThaiWater (HII),W.26,RID,Lampang,7,285.96,577.7030010000001,577.7420010000001
+855,Songkhla Lake 3,6.796687,100.44239,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),SLA003,HII,Songkhla,20,10.636,16.589,17.17
+2594,บ้านแม่ขรี,7.33842,100.109978,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.267,RID,Phatthalung,20,20.434,27.876,27.92
+2869,บ้านวังโป่ง,16.327471,100.801727,Nan Basin,Thailand,ThaiWater (HII),N.54,RID,Phetchabun,9,103.481,214.255998,214.49699800000002
+685637,Nam Kon (Ban Phaya Kaeo) Bridge,19.286142,100.90128,Nan Basin,Thailand,ThaiWater (HII),MOU032,FOP,Nan,9,265.837,268.327,269.152
+3509,น้ำพอง อ.สีชมพู,16.88054,102.145442,Chi Basin Basin,Thailand,ThaiWater (HII),URTU02,EGAT,Khon Kaen,4,190.355,202.174,201.42
+2682,บ้านหนองบัว,14.05861,99.445221,Mae Klong Basin,Thailand,ThaiWater (HII),K.35A,RID,Kanchanaburi,14,22.482,52.739999999999995,52.659
+3014,บ้านแก่งบง,17.13114,101.679489,Northeast Khong Basin,Thailand,ThaiWater (HII),Kh.61,RID,Loei,3,258.1,530.2729939999999,530.209994
+1475104,Mae Khan Bridge,18.7955,98.7307,Ping Basin,Thailand,ThaiWater (HII),MOU293,FOP,Chiang Mai,6,439.391,447.771,447.6
+3519,น้ำพอง บ้านผานกเค้า (E.29),16.847333,101.943603,Chi Basin Basin,Thailand,ThaiWater (HII),URTU07,EGAT,Loei,4,225.475,237.389,237.454
+1121229,"Mae Chaem River Bridge, Ban Pae",18.232069,98.439766,Ping Basin,Thailand,ThaiWater (HII),MOU299,FOP,Chiang Mai,6,331.1,337.698,338.517
+385586,Rap Ro - Hin Kaeo Bridge,10.607499,99.095345,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),TBW021,HII,Chumphon,19,6.483,15.671,16.701
+2808,บ้านแก่งโก,15.75292,102.252609,Chi Basin Basin,Thailand,ThaiWater (HII),E.21,RID,Chaiyaphum,4,165.411,340.13300000000004,340.048
+3149,บ้านแม่อีไฮ,18.14139,98.896606,Ping Basin,Thailand,ThaiWater (HII),P.76,RID,Lamphun,6,364.13,735.101995,735.130995
+2582,บ้านตันหยงมัส,6.33992,101.726959,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.73,RID,Narathiwat,21,10.108,18.823,18.813
+2638,บ้านเก็ตโฮ่,7.9034,98.349678,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.190A,RID,Phuket,22,13.967,17.54,17.656
+740729,Ban Pak Suat Community Bridge,8.889655,98.82028,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),FOP028,FOP,Surat Thani,19,30.6846,34.8526,35.6326
+772,Petch Buri 2,12.92212,99.81754,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),PCH002,HII,Phetchaburi,18,17.108,23.2,25.594
+1109535,Khlong Tha Chana Bridge,9.576583,99.12956,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ONE046,HII,Surat Thani,19,4.26,16.506,14.544
+1130124,Khlong Pong Bridge (Kiriwong),8.43379,99.78328,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),MOU493,FOP,Nakhon Si Thammarat,19,42.0,48.417,48.948
+1109531,Khlong Nam Kao Bridge,17.341522,99.85578,Yom Basin,Thailand,ThaiWater (HII),ONE042,HII,Sukhothai,8,53.242,61.915,62.123
+2976,บ้านท่างาม,16.952499,103.496674,Chi Basin Basin,Thailand,ThaiWater (HII),E.67,RID,Kalasin,4,159.35,331.507995,331.49699499999997
+706,Ratchaburi 3,13.56008,99.36224,Mae Klong Basin,Thailand,ThaiWater (HII),RAJ003,HII,Ratchaburi,14,94.218,104.088,102.751
+2645,บ้านหินดาน,8.77622,98.390472,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.187,RID,Phangnga,22,2.597,12.036,12.048
+2573,ตลิ่ง ณ สถานี K.31 บ้านน้ำโจน,14.43409,98.80909,Mae Klong Basin,Thailand,ThaiWater (HII),K.31,RID,Kanchanaburi,14,56.248,123.169001,123.538001
+1422302,แม่น้ำวังที่ อ.เถิน (W.3A),17.641503,99.232057,Wang Basin,Thailand,ThaiWater (HII),BBD09,EGAT,Lampang,7,158.97,169.115,169.081
+1422294,แม่น้ำปิงที่ อ.สามเงา (P.12C),17.238336,99.026296,Ping Basin,Thailand,ThaiWater (HII),BBD01,EGAT,Tak,6,127.476,136.812,136.991
+2565,บ้านบางตง,8.51336,98.503563,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.245,RID,Phangnga,22,6.48,16.605,17.619
+2836,บ้านตาดโตน,15.95536,102.03363,Chi Basin Basin,Thailand,ThaiWater (HII),E.6C,RID,Chaiyaphum,4,192.17,391.55499699999996,391.955997
+464,Wang 2,17.44521,99.12897,Wang Basin,Thailand,ThaiWater (HII),WAN002,HII,Lampang,7,144.593,154.891,155.346
+1121234,Nam Wang Bridge,19.232492,99.63247,Wang Basin,Thailand,ThaiWater (HII),MOU323,FOP,Lampang,7,442.323,446.489,445.225
+3269,บ้านสหกรณ์ร่มเกล้า,19.284189,99.186943,Ping Basin,Thailand,ThaiWater (HII),P.56A,RID,Chiang Mai,6,408.53,824.0999879999999,824.159988
+1113290,อ.ท่าวังผา (N.64),19.015332,100.780161,Nan Basin,Thailand,ThaiWater (HII),SKU02,EGAT,Nan,9,210.782,226.435,224.105
+3251,บ้านแม่แตง,19.122181,98.944412,Ping Basin,Thailand,ThaiWater (HII),P.4A,RID,Chiang Mai,6,332.317,673.9639999999999,673.912
+418,Chiang Mai 5,19.12207,98.94447,Ping Basin,Thailand,ThaiWater (HII),CHM005,HII,Chiang Mai,6,329.087,335.811,336.625
+3223,บ้านโห้ง,18.739611,99.218651,Ping Basin,Thailand,ThaiWater (HII),P.86,RID,Chiang Mai,6,340.185,686.667012,686.633012
+2918,บ้านหนองม่วง,16.581209,103.437111,Chi Basin Basin,Thailand,ThaiWater (HII),E.75,RID,Kalasin,4,137.31,287.24199999999996,287.312
+734,Tha Chin 3,14.83506,99.66543,Tha Chin Basin,Thailand,ThaiWater (HII),THA003,HII,Suphan Buri,13,60.998,70.36,70.856
+1101563,Huai Mae Chaem School,19.073114,98.30675,Ping Basin,Thailand,ThaiWater (HII),FOP052,FOP,Chiang Mai,6,949.6,952.345,953.117
+562802,อาคารสูบน้ำดิบ กปภ. อ.ยะหา จ.ยะลา,6.47481,101.139521,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),BLGTD04,EGAT,Yala,21,22.22,31.55,26.9
+238,Mun 14,15.299888,103.29234,Mun Basin,Thailand,ThaiWater (HII),MUN014,HII,Buri Ram,5,121.691,132.153,130.62
+296,Chi 3,15.68157,102.0095,Chi Basin Basin,Thailand,ThaiWater (HII),CHI003,HII,Chaiyaphum,4,177.016,185.725,185.524
+1476461,"Friendship Bridge, Tui River",18.474373,99.46628,Wang Basin,Thailand,ThaiWater (HII),MOU325,FOP,Lampang,7,265.183,274.326,272.958
+1097520,บ้านช้างแรก,11.06431,99.372253,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),Gt.11,RID,Prachuap Khiri Khan,18,37.72,84.70899800000001,84.344998
+1095875,บ้านทุ่งปราบ,6.63504,100.39341,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.113,RID,Songkhla,20,31.331,37.914,37.906
+577,Ping 5,15.85051,100.05206,Ping Basin,Thailand,ThaiWater (HII),PIN005,HII,Nakhon Sawan,6,26.293,31.533,32.821
+505072,ชุมชนประชาบำรุง,6.87577,99.782639,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),X.231A,RID,Satun,22,0.0,3.0,3.0
+1396856,Lam Phaya Than Bridge,14.26568,101.89133,Bang Pakong Basin,Thailand,ThaiWater (HII),MOU460,FOP,Prachin Buri,15,78.581,84.091,85.077
+3113,ห้วยแม่สิน,17.792339,99.787033,Yom Basin,Thailand,ThaiWater (HII),Y.21,RID,Sukhothai,8,114.044,235.82799899999998,236.208999
+922,Sai Buri 2,6.227293,101.49695,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),SAY002,HII,Narathiwat,21,22.49,35.04,35.03
+1109530,Yom Sai Kao - Wat Paknam Bridge,17.219545,99.8896,Yom Basin,Thailand,ThaiWater (HII),ONE041,HII,Sukhothai,8,52.717,55.453,55.316
+1121240,Namngoen Bridge,19.228998,100.326294,Yom Basin,Thailand,ThaiWater (HII),MOU353,FOP,Phayao,8,310.092,315.629,314.708
+3172,บ้านท่าเดื่อ,18.34301,99.537178,Wang Basin,Thailand,ThaiWater (HII),W.21,RID,Lampang,7,230.82,471.847,472.71500000000003
+3237,บ้านโป่งดิน,18.916401,99.235817,Ping Basin,Thailand,ThaiWater (HII),P.80,RID,Chiang Mai,6,455.066,916.9000060000001,916.8810060000001
+2964,บ้านโพน,16.86068,103.594856,Chi Basin Basin,Thailand,ThaiWater (HII),E.76A,RID,Kalasin,4,163.88,337.582994,337.53099399999996
+2712,ท้ายเขื่อนป่าสักชลสิทธิ์,14.83464,101.084297,Pasak Basin,Thailand,ThaiWater (HII),S.28,RID,Lop Buri,12,15.05,33.168,33.06
+1095876,บ้านเขาปู่,7.70724,99.841743,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.276,RID,Phatthalung,20,50.004,57.02,57.017
+1198300,Huai Mae Li,17.805399,98.953316,Ping Basin,Thailand,ThaiWater (HII),PIN010,HII,Lamphun,6,439.5131,445.5231,446.8354
+1422303,แม่น้ำวังที่ อ.สามเงา (W.4A),17.204904,99.098093,Wang Basin,Thailand,ThaiWater (HII),BBD10,EGAT,Tak,7,130.311,142.773,142.715
+648042,Ban SongKhwae Bridge,19.356688,100.706436,Nan Basin,Thailand,ThaiWater (HII),MOU027,FOP,Nan,9,278.874,283.225,286.026
+3222,บ้านพันตน,18.59133,98.796623,Ping Basin,Thailand,ThaiWater (HII),P.84,RID,Chiang Mai,6,303.11,612.31599,612.3119899999999
+558654,Ban Kut Lo,16.293755,101.904798,Chi Basin Basin,Thailand,ThaiWater (HII),URCD02,EGAT,Chaiyaphum,4,227.41,233.75,234.49
+562803,สะพานเมืองปัตตานี อ.เมือง จ.ปัตตานี,6.859914,101.251309,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),BLGTD05,EGAT,Pattani,21,0.0,1.15,1.35
+2948,เนินยางใต้,16.772221,103.648331,Chi Basin Basin,Thailand,ThaiWater (HII),E.90,RID,Kalasin,4,160.37,327.808006,327.756006
+740727,Khlong Phai Bridge,9.155624,98.895035,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),FOP026,FOP,Surat Thani,19,77.4938,82.2438,81.2538
+479232,Ing 1,20.19635,100.44173,North Khong Basin,Thailand,ThaiWater (HII),TBW024,HII,Chiang Rai,2,333.7,349.28,349.69
+610,Ping 3,16.6282,99.43257,Ping Basin,Thailand,ThaiWater (HII),PIN003,HII,Kamphaeng Phet,6,80.145,86.131,84.642
+245,Mun 9,14.875494,103.37887,Mun Basin,Thailand,ThaiWater (HII),MUN009,HII,Surin,5,128.12,137.971,137.326
+3163,บ้านแม่คำมีตำหนักธรรม,18.26643,100.237633,Yom Basin,Thailand,ThaiWater (HII),Y.38,RID,Phrae,8,170.0,350.226006,350.216006
+2924,บ้านท่าเม่า,16.65448,102.823486,Chi Basin Basin,Thailand,ThaiWater (HII),E.22B,RID,Khon Kaen,4,150.589,314.520994,314.622994
+1198628,Khao Rakam Canal,12.25058,102.475716,East Coast Gulf Basin,Thailand,ThaiWater (HII),TRD007,HII,Trat,17,1.563,4.714,4.689
+2925,บ้านหนองริวหนัง,16.665831,103.308609,Chi Basin Basin,Thailand,ThaiWater (HII),E.89,RID,Kalasin,4,171.943,347.029006,347.083006
+11648257,Khlong Mae Ramphan,17.03065,99.71174,Yom Basin,Thailand,ThaiWater (HII),SKT003,HII,Sukhothai,8,51.263,55.124,55.624
+726680,บ้านหูแร่,6.98306,100.328331,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),X.240,RID,Songkhla,20,16.869,25.099,25.076
+1422298,ห้วยแม่ท้อที่ อ.เมืองตาก,16.840886,99.068334,Ping Basin,Thailand,ThaiWater (HII),BBD05,EGAT,Tak,6,127.37,132.22,132.43
+2587,สะพานเดชานุชิต,6.866,101.252129,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),X.10A,RID,Pattani,21,0.0,1.15,1.15
+562800,สะพานหัวสะพาน อ.บันนังสตา จ.ยะลา,6.262132,101.268237,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),BLGTD02,EGAT,Yala,21,34.421,40.71,40.3
+1476456,Khlong Mae Soi Bridge,18.784391,99.56949,Wang Basin,Thailand,ThaiWater (HII),MOU322,FOP,Lampang,7,308.459,311.393,311.09
+12476,Lin Thin,14.53559,98.78764,Mae Klong Basin,Thailand,ThaiWater (HII),KRN004,HII,Kanchanaburi,14,59.85,70.524,72.886
+1106453,Thung PaMok,14.320748,100.017395,Tha Chin Basin,Thailand,ThaiWater (HII),TCP007,HII,Suphan Buri,13,-1.5,1.0,1.0
+1481146,Mae Chu Bridge,19.019968,100.264275,Yom Basin,Thailand,ThaiWater (HII),MOU355,FOP,Phayao,8,269.394,274.974,275.902
+795,Nakhon Si Thammarat 1,8.174942,99.67887,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),NKO001,HII,Nakhon Si Thammarat,22,50.573,55.203,55.685
+1035518,บ้านหินโคนเก่า,15.02688,102.805687,Mun Basin,Thailand,ThaiWater (HII),M.185A,RID,Buri Ram,5,149.91,156.59999399999998,156.59999399999998
+1101568,Ban Pradu,8.212035,99.703316,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),FOP057,FOP,Nakhon Si Thammarat,22,66.496,70.406,70.406
+1101574,Ban Khlong Mui 13,9.252886,98.85421,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),FOP063,FOP,Surat Thani,19,110.445,113.602,113.911
+11648255,Huai Mae Tha Phae,17.43854,99.6882,Yom Basin,Thailand,ThaiWater (HII),SKT001,HII,Sukhothai,8,70.284,74.873,74.586
+1481153,Mae Sin Nam Bridge,17.801989,99.849495,Yom Basin,Thailand,ThaiWater (HII),MOU359,FOP,Phrae,8,143.814,149.686,152.175
+849,Chana 1,6.916742,100.72962,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),JNA001,HII,Songkhla,20,2.688,4.754,6.351
+685643,Nam Sai Birgde,19.026337,100.73505,Nan Basin,Thailand,ThaiWater (HII),MOU038,FOP,Nan,9,263.6,266.157,266.701
+1483111,Khlong Mae Mon Bridge,18.810192,99.50328,Wang Basin,Thailand,ThaiWater (HII),MOU373,FOP,Lampang,7,353.1,355.996,355.976
+1481108,Mae Ka Bridge,19.337248,100.43124,Yom Basin,Thailand,ThaiWater (HII),MOU335,FOP,Phayao,8,424.4,432.211,430.288
+1109533,Khlong Chaiya Bridge,9.398603,99.16833,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ONE044,HII,Surat Thani,19,6.237,10.97,11.222
+1481122,Nam Ngao Bridge,18.889063,99.940125,Yom Basin,Thailand,ThaiWater (HII),MOU342,FOP,Lampang,8,332.248,335.881,333.483
+1116838,Huai Mae Ruam Bridge,18.919376,98.20057,Ping Basin,Thailand,ThaiWater (HII),FOP064,FOP,Chiang Mai,6,1183.6,1186.794,1187.344
+1121267,Khlong Sato Bridge,12.7065,102.415,East Coast Gulf Basin,Thailand,ThaiWater (HII),MOU473,FOP,Trat,17,94.746,101.537,98.208
+1101565,Maenam Lao Bridge,19.108244,99.45519,North Khong Basin,Thailand,ThaiWater (HII),FOP054,FOP,Chiang Rai,2,663.0,667.288,667.018
+740730,Ban Suan Prang Bridge,9.021284,99.633125,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),FOP029,FOP,Surat Thani,19,42.0158,49.3358,49.3538
+642750,Mae Nam Nan (Ban Piang Ko) Bridge,19.432049,101.15271,Nan Basin,Thailand,ThaiWater (HII),MOU025,FOP,Nan,9,620.813,629.054,628.894
+2641,บ้านวังไทร,8.40836,99.797852,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.200,RID,Nakhon Si Thammarat,19,31.314,36.974,37.086
+1475122,Ping River Bridge,19.507914,98.95879,Ping Basin,Thailand,ThaiWater (HII),MOU303,FOP,Chiang Mai,6,428.503,432.041,433.186
+9931002,Ban Hua Na Nong Chik,15.98427,103.14799,Mun Basin,Thailand,ThaiWater (HII),LDD001,HII,Maha Sarakham,5,162.8851,166.1831,165.8881
+516218,Ban Tong,18.846567,101.028946,Nan Basin,Thailand,ThaiWater (HII),FOP013,FOP,Nan,9,356.712,360.682,362.172
+740737,Huai Nam Sai Bridge,7.889575,99.87421,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),FOP036,FOP,Nakhon Si Thammarat,19,23.4573,35.3413,35.2913
+1035512,บ้านคลองหินลับ,14.72852,101.564293,Mun Basin,Thailand,ThaiWater (HII),M.183B,RID,Nakhon Ratchasima,5,295.0,300.899994,300.899994
+2781,บ้านบุ่งอ้ายเจี้ยม,15.51829,99.483528,Sakae Krang Basin,Thailand,ThaiWater (HII),Ct.9,RID,Uthai Thani,11,122.58,129.973,130.024
+740738,Kham Khlong Huai Kruat Bridge,7.8768,99.93328,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),FOP037,FOP,Nakhon Si Thammarat,20,13.1544,20.5944,20.5244
+685653,Ban Pa Hung Birdge,18.584373,100.50956,Nan Basin,Thailand,ThaiWater (HII),MOU048,FOP,Nan,9,290.05,295.872,295.685
+740731,Kham Khlong Wat Bridge,8.935923,99.60879,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),FOP030,FOP,Surat Thani,19,66.55,73.44,72.94
+595071,Mae Sa Bridge Bridge,18.885838,98.826904,Ping Basin,Thailand,ThaiWater (HII),MOU009,FOP,Chiang Mai,6,735.21,738.452,740.507
+1120554,Betong Canal (Gu Nung Ja Nong community),5.785312,101.058685,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),MOU454,FOP,Yala,21,281.647,286.432,286.599
+638734,Khlong Mae Ramphan 1,17.050436,99.664345,Yom Basin,Thailand,ThaiWater (HII),MOU074,FOP,Sukhothai,8,59.6628,62.8438,63.2848
+740746,Kham Maenam Pattani Bridge,6.411704,101.27776,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),FOP045,FOP,Yala,21,5.95,25.128,25.138
+1101566,Khlong Kang,17.71633,100.124115,Nan Basin,Thailand,ThaiWater (HII),FOP055,FOP,Uttaradit,9,69.264,75.746,73.219
+2666,บ้านโพรงเข้,12.81504,99.700867,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),B.8A,RID,Phetchaburi,18,39.338,84.200998,84.205998
+685658,Nam Muab (Ban Nam Muab) Birdge,18.484377,100.93808,Nan Basin,Thailand,ThaiWater (HII),MOU053,FOP,Nan,9,291.2,295.272,295.279
+2643,บ้านย่านดินแดง,8.57098,99.253868,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),X.37A,RID,Surat Thani,19,2.871,12.427,12.591
+1109493,Khlong Tako Bridge,10.077709,98.98693,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ONE004,HII,Chumphon,19,67.162,69.998,70.529
+3049,ห้วยแม่มอก,17.33189,99.461807,Yom Basin,Thailand,ThaiWater (HII),Y.26,RID,Lampang,8,101.76,207.079997,206.932997
+1121228,Mae Tom Bridge,17.799877,98.36419,Ping Basin,Thailand,ThaiWater (HII),MOU298,FOP,Chiang Mai,6,794.595,797.064,796.314
+3526,แม่น้ำชี ฝายมหาสารคาม(เหนือ),16.368304,102.946387,Chi Basin Basin,Thailand,ThaiWater (HII),URTD03,EGAT,Maha Sarakham,4,139.867,149.573,151.121
+1107582,Sena,14.327773,100.405464,Chao Phraya Basin,Thailand,ThaiWater (HII),TCP012,HII,Phra Nakhon Si Ayutthaya,10,0.0,3.0,3.0
+700591,สะพานมิตรภาพชุมพล,13.56012,99.36201,Mae Klong Basin,Thailand,ThaiWater (HII),MKVKD08,EGAT,Ratchaburi,14,96.85,100.37,104.7
+516213,Lamnam Kun,19.148926,100.94644,Nan Basin,Thailand,ThaiWater (HII),FOP008,FOP,Nan,9,296.909,299.443,298.736
+11688535,บ้านท่ามะนาว,15.474444,99.518583,Sakae Krang Basin,Thailand,ThaiWater (HII),ridhydro_TSK.7,RID,Uthai Thani,11,112.58,119.11,116.01
+11688705,บ้านหนองเป็ด,16.011084,101.649338,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.116,RID,Chaiyaphum,4,-1.99,218.86,217.42
+11688685,บ้านสุขสำราญ,17.95482,103.680739,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKS.116,RID,Sakon Nakhon,3,0.0,161.0,161.0
+11688622,ปากแม่น้ำบางปะกง,13.474833,100.98196,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt54,RID,Chachoengsao,15,-9.56,2.13,3.93
+11688609,แม่น้ำยม ปากคลองเข้า ปตร.บางพระ,16.9145,99.8438,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.55,RID,Sukhothai,8,38.73,47.29,47.32
+11688716,บุ่งเลิศ,16.432483,104.185458,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.128,RID,Roi Et,4,-1.51,174.95,174.4
+11688537,วัดผาลาดธาราราม,15.426389,99.728639,Sakae Krang Basin,Thailand,ThaiWater (HII),ridhydro_TSK.10,RID,Uthai Thani,11,67.41,72.02,72.34
+11688567,สถานีเขื่อนแม่งัดสมบูรณ์ชล,19.16155,99.03961,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TUP.16,RID,Chiang Mai,6,360.5,398.26,398.26
+11688845,บ้านสบสา,19.221192,98.422328,Salawin Basin,Thailand,ThaiWater (HII),ridhydro_TSW.13,RID,Mae Hong Son,1,444.47,451.26,450.89
+11688666,ห้วยลำอีซู,14.542453,99.378211,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.64,RID,Kanchanaburi,14,-0.11,147.73,148.27
+11688786,สถานี X.112,6.705239,100.433266,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_STN11,RID,Songkhla,20,19.9,25.05,25.05
+11688726,"Tฝายยางบ้านส้ม (U/S), (D/S)",15.021915,102.280485,Mun Basin,Thailand,ThaiWater (HII),"ridhydro_TM.200 (U/S), (D/S)",RID,Nakhon Ratchasima,5,0.0,164.81,165.14
+11688722,T สะพานบ้านหัน,14.73907,102.00011,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.193,RID,Nakhon Ratchasima,5,0.0,203.46,203.71
+2689,บ้านป่าขะ,14.28644,101.070473,Bang Pakong Basin,Thailand,ThaiWater (HII),Ny.3,RID,Nakhon Nayok,15,,11.36,11.36
+11688839,ห้วยแม่สอด,16.716882,98.558861,Salawin Basin,Thailand,ThaiWater (HII),ridhydro_TSW.03,RID,Tak,1,201.6,206.63,206.61
+11688769,บ้านสองพี่น้อง,8.301503,100.193082,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TPN02,RID,Nakhon Si Thammarat,19,-2.3,2.5,2.5
+11688700,ฝายมหาสารคาม (บ้านคุยเชือก),16.369066,102.947834,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.100,RID,Maha Sarakham,4,138.89,150.36,152.27
+11688545,คลองปู่เจ้า,16.146186,101.08415,Pasak Basin,Thailand,ThaiWater (HII),ridhydro_TS.16,RID,Phetchabun,12,92.13,96.56,96.27
+11688816,สถานีวัดสองพี่น้อง,8.847972,98.732583,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTP26,RID,Surat Thani,19,22.5,31.5,31.5
+11688544,วัดท่าแร่,16.744616,101.228165,Pasak Basin,Thailand,ThaiWater (HII),ridhydro_TS.15,RID,Phetchabun,12,136.9,141.3,141.22
+11688673,โรงเรียนบ้านลาดใหญ่สามัคคี,13.482,100.044,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.74,RID,Samut Songkhram,14,-2.54,1.22,1.19
+11688676,บ้านฟากเลย,17.299521,101.77633,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKL.28A,RID,Loei,3,238.79,254.78,254.81
+11688584,บ้านคลองสีนวล,16.343056,99.598389,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.107,RID,Kamphaeng Phet,6,63.23,67.85,67.83
+11688555,บ้านป่าย้าง,19.835882,99.808463,North Khong Basin,Thailand,ThaiWater (HII),ridhydro_TG06,RID,Chiang Rai,2,396.68,402.56,402.22
+11688533,T.ปตร.ผักไห่,14.43626,100.375495,Chao Phraya Basin,Thailand,ThaiWater (HII),ridhydro_T.PhakhaiRegulator,RID,Phra Nakhon Si Ayutthaya,10,-0.06,4.25,5.29
+11688530,TC.60,15.67,100.334167,Chao Phraya Basin,Thailand,ThaiWater (HII),ridhydro_TC.60,RID,Nakhon Sawan,10,0.0,26.75,26.43
+700551,เขื่อนท่าทุ่งนา,14.233779,99.235022,Mae Klong Basin,Thailand,ThaiWater (HII),MKSND01,EGAT,Kanchanaburi,14,0.0,0.0,0.0
+11688770,ปตร.บางไทร,8.262636,100.187114,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TPN03,RID,Nakhon Si Thammarat,19,-1.71,2.5,2.5
+11688588,วัดเขาแก้วสวรรค์,16.406278,99.349611,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.99,RID,Kamphaeng Phet,6,100.08,105.77,105.37
+11688820,เทศบาลเมืองปัตตานี,6.860409,101.251642,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tpat.2,RID,Pattani,21,-1.2,1.15,1.55
+11688624,เขื่อนทดน้ำบางปะกง,13.706797,101.136945,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt58,RID,Chachoengsao,15,-8.36,2.4,2.41
+11688778,ปตร.น้ำแบ่ง,6.331683,101.957297,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_BNR.02,RID,Narathiwat,21,0.0,4.5,4.5
+11688736,Tสบห้วยเหนือ+ห้วยสำราญ,14.889,104.133,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.198,RID,Si Sa Ket,5,0.0,134.01,133.25
+2658,บ้านหนองหญ้าปล้อง,11.40416,99.519218,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),Gt.10,RID,Prachuap Khiri Khan,18,,51.348,50.754999999999995
+11688761,ประตูระบายน้ำหัววัง,10.556349,99.177254,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TSN09,RID,Chumphon,19,-0.18,5.5,5.5
+11688552,วัดจอมเกษ,14.414349,100.55782,Chao Phraya Basin,Thailand,ThaiWater (HII),ridhydro_TS.25,RID,Phra Nakhon Si Ayutthaya,10,-2.42,3.42,3.87
+11688542,เพชรบูรณ์,16.365006,101.155818,Pasak Basin,Thailand,ThaiWater (HII),ridhydro_TS.4,RID,Phetchabun,12,105.15,111.8,111.32
+11688805,บ้านควนอินนอโม,7.345515,100.055831,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TX109,RID,Phatthalung,20,25.21,29.88,30.09
+11688830,บ้านลาแล,6.0832,102.0112,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tkol.20,RID,Narathiwat,21,0.0,6.8,6.7
+11688721,TM.145,14.49238,101.6835,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.145,RID,Nakhon Ratchasima,5,0.0,391.19,391.09
+11688574,บ้านปากร้อง,16.863934,99.11409,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.110,RID,Tak,6,105.25,109.55,109.08
+11688620,วัดคลองขุด,12.360417,102.549297,East Coast Gulf Basin,Thailand,ThaiWater (HII),ridhydro_TTR.08,RID,Trat,17,0.0,5.0,5.0
+11688847,ปางหมู,19.333435,97.950063,Salawin Basin,Thailand,ThaiWater (HII),ridhydro_TSW.15,RID,Mae Hong Son,1,192.63,200.09,200.03
+11688824,บ้านอาบอ,6.474093,101.146815,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tpat.17,RID,Yala,21,21.5,35.2,36.0
+11688661,บ้านท่ามะนาว,14.1647,99.2754,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.36,RID,Kanchanaburi,14,0.0,42.56,47.66
+11688551,คลองเพรียว,14.529712,100.931485,Pasak Basin,Thailand,ThaiWater (HII),ridhydro_TS.24,RID,Saraburi,12,7.4,15.33,15.33
+11688642,วัดปากแพรก,11.060013,99.457007,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPR.15,RID,Prachuap Khiri Khan,18,-1.13,5.48,2.94
+11688785,สถานีคลองรำใหญ่,6.761329,100.399158,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_STN10,RID,Songkhla,20,19.5,23.5,23.5
+11688665,ฝายทดน้ำลำเหย,14.4678,99.4973,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.65,RID,Kanchanaburi,14,0.17,98.99,99.06
+11688814,สถานีบ้านมอเก็ต,8.701588,99.267252,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTP24,RID,Surat Thani,19,2.0,8.5,8.5
+11688541,วัดเวฬุวนาราม,15.325393,100.070035,Sakae Krang Basin,Thailand,ThaiWater (HII),ridhydro_TSK.16,RID,Uthai Thani,11,11.8,19.48,19.85
+11688741,บ้านวังยาง,15.167267,104.716831,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TMN 08,RID,Ubon Ratchathani,5,-1.0,118.75,118.75
+11688644,เขื่อนแก่งกระจาน (เหนือน้ำ),12.914213,99.627686,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPB07,RID,Phetchaburi,18,0.0,102.0,102.0
+11688765,ฝายท่าดี,8.391047,99.864547,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TNB.07,RID,Nakhon Si Thammarat,19,16.5,26.5,26.5
+11688597,TW.35,17.479214,99.086247,Wang Basin,Thailand,ThaiWater (HII),ridhydro_TW.35,RID,Lampang,7,173.42,176.1,178.18
+11688554,สะพานน้ำลาว,19.651983,99.538711,North Khong Basin,Thailand,ThaiWater (HII),ridhydro_TG05,RID,Chiang Rai,2,449.89,454.28,454.21
+11688728,"Tเขื่อนพิมาย (U/S), (D/S)",15.22783,102.50134,Mun Basin,Thailand,ThaiWater (HII),"ridhydro_TM.202 (U/S), (D/S)",RID,Nakhon Ratchasima,5,0.0,154.2,152.5
+11688784,สถานีคลองหวะ,6.970027,100.515863,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_STN07,RID,Songkhla,20,13.42,16.52,16.5
+11688733,"Tฝายยางบ้านเขว้า  (U/S), (D/S)",15.41209,103.10189,Mun Basin,Thailand,ThaiWater (HII),"ridhydro_TM.205  (U/S), (D/S)",RID,Buri Ram,5,0.0,133.32,133.46
+11688632,บ้านตะเภาลาย,14.012733,101.265193,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt53,RID,Prachin Buri,15,-5.83,3.36,2.32
+11688699,สบแม่น้ำชีห้วยสามหมอ (บ.วังสามหมอ),15.983583,102.409225,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.113,RID,Khon Kaen,4,-3.07,167.16,166.21
+11688772,ปตร.เชียรใหญ่,8.171241,100.13797,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TPN06,RID,Nakhon Si Thammarat,19,-1.5,2.5,2.5
+11688547,คลองกองทูล,15.937227,101.094117,Pasak Basin,Thailand,ThaiWater (HII),ridhydro_TS.19,RID,Phetchabun,12,77.08,84.88,84.85
+11688708,หอทะหลา มเหศักดิ์,16.684656,104.082387,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.119,RID,Kalasin,4,-0.32,178.56,178.1
+11688748,บ้านอุใดใต้,6.928031,99.935987,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_LA04 (TX.334),RID,Satun,22,22.13,32.4,32.51
+11688571,สถานีน้ำแม่ปิง (P.90) บ้านทับเดื่อ,19.220478,98.972633,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.90,RID,Chiang Mai,6,349.82,355.35,355.07
+11688586,บ้านใหม่เสรีธรรม,16.533265,99.228801,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.96,RID,Tak,6,139.15,142.04,141.83
+11688587,อุทยานแห่งชาติคลองวังเจ้า,16.505556,99.169833,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.97,RID,Kamphaeng Phet,6,204.21,208.67,207.29
+11688590,TW.27,18.811476,99.575046,Wang Basin,Thailand,ThaiWater (HII),ridhydro_TW.27,RID,Lampang,7,317.88,321.27,320.73
+11688607,ปตร.บ้านวังสะตือ,16.87341,100.02551,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.57,RID,Phitsanulok,8,32.65,42.66,42.11
+11688576,บ้านเกาะตาล,16.135833,99.784167,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.113,RID,Kamphaeng Phet,6,44.53,51.76,51.03
+11688777,ปตร.บางนราตอนบน,6.41331,101.83414,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_BNR.01,RID,Narathiwat,21,0.0,1.5,1.5
+11688593,TW.30,18.241214,99.316761,Wang Basin,Thailand,ThaiWater (HII),ridhydro_TW.30,RID,Lampang,7,239.47,245.48,245.54
+11688730,"Tฝายชุมพวง (U/S), (D/S)",15.38652,102.71847,Mun Basin,Thailand,ThaiWater (HII),"ridhydro_TM.204 (U/S), (D/S)",RID,Nakhon Ratchasima,5,0.0,144.41,143.46
+11688819,ปากแม่น้ำปัตตานี,6.895837,101.251067,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tpat.1,RID,Pattani,21,-2.0,0.9,1.8
+11688580,บ้านโชคชัยพัฒนา-หินดาต,16.085972,99.420639,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.103,RID,Kamphaeng Phet,6,98.25,104.08,102.89
+11688569,สถานีคลองส่งน้ำแม่แตง,18.804512,98.959762,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TUP.19,RID,Chiang Mai,6,320.25,323.95,323.92
+11688670,วัดลิ่นถิ่น,14.5613,98.7925,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.77,RID,Kanchanaburi,14,0.0,79.25,79.25
+11688744,วัดนิกรวราราม (ย่านยาว),8.868464,98.348746,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TP1 (TX.185),RID,Phangnga,22,-1.63,6.11,5.58
+11688564,สถานีน้ำแม่งัดที่ท้ายเขื่อนแม่งัดสมบูรณ์ชล,19.156272,99.03173,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TUP.11,RID,Chiang Mai,6,340.83,346.79,346.56
+11688836,บ้านวังกระแพร่,12.971751,102.285409,Tonle Sap Basin,Thailand,ThaiWater (HII),ridhydro_TTL.07,RID,Chanthaburi,16,190.29,196.71,196.68
+11688760,คลองท่าแซะ,10.921667,99.218889,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TSN03,RID,Chumphon,19,35.65,47.5,47.5
+11688702,วัดเสมาท่าค้อ,15.840905,103.965174,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.115,RID,Roi Et,4,0.0,133.3,133.3
+11688751,บ้านวังปราง,8.025506,99.631517,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTr3,RID,Nakhon Si Thammarat,22,0.0,35.0,35.0
+11688613,ฝายบ้านน้ำขุ่น,12.905955,102.039688,East Coast Gulf Basin,Thailand,ThaiWater (HII),ridhydro_ST_02,RID,Chanthaburi,17,11.71,19.4,19.32
+11688578,บ้านโป่งน้ำร้อน,16.332056,99.316944,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.101,RID,Kamphaeng Phet,6,113.94,118.84,119.14
+11688654,วัดท่ากระบือ,13.662052,100.223332,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_TTC09,RID,Samut Sakhon,13,-2.0,2.0,2.0
+11688821,บ้านบาซาเอ,6.737495,101.273177,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tpat.4,RID,Pattani,21,0.0,7.2,7.15
+11688628,ศรีมหาโพธิ์,13.973075,101.512525,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt62,RID,Prachin Buri,15,-4.38,7.82,7.89
+11688758,บ้านเกาะเคี่ยม,7.336656,99.508572,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTr16,RID,Trang,22,-1.6,2.11,1.54
+11688614,ชลประทานวังกระแจะ,12.250492,102.530206,East Coast Gulf Basin,Thailand,ThaiWater (HII),ridhydro_TTR.01,RID,Trat,17,0.0,4.0,4.0
+11688828,บ้านกาวะ,6.0304,101.8956,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tkol.14,RID,Narathiwat,21,0.0,38.0,38.8
+11688660,วัดท่าขนุน,14.742605,98.635243,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.13,RID,Kanchanaburi,14,-1.34,94.85,96.11
+11688691,ศูนย์การเรียนรู้ อบต.เตาไห,17.638449,103.098806,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKH.121,RID,Udon Thani,3,0.0,171.55,171.78
+11688583,บ้านคลองน้ำไหลใต้,16.121722,99.372972,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.106,RID,Kamphaeng Phet,6,113.27,115.9,116.99
+11688582,สำนักสงฆ์มอหินเพลิง,16.151548,99.527517,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.105,RID,Kamphaeng Phet,6,79.24,83.79,82.46
+11688556,สะพานบ้านใหม่ริมฝาง,19.908478,99.22019,North Khong Basin,Thailand,ThaiWater (HII),ridhydro_TG08,RID,Chiang Mai,2,459.7,465.18,465.87
+11688653,โรงเรียนวัดบางปลา,13.983198,100.179057,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_TTC07,RID,Nakhon Pathom,13,-5.24,3.19,4.29
+11688795,ปตร.ท่าช้าง-บางกล่ำ,7.127928,100.433274,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL28,RID,Songkhla,20,-3.11,4.06,3.73
+11688755,ฝายคลองนางน้อย,7.549089,99.726822,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTr12,RID,Trang,22,0.0,38.0,36.0
+11688829,ปตร.ปลายคลองโต๊ะแดง,6.1586,102.0565,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tkol.19,RID,Narathiwat,21,-1.0,3.3,3.4
+11688640,อ่างเก็บน้ำโป่งสามสิบ,11.1831,99.3493,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPR.12,RID,Prachuap Khiri Khan,18,0.0,81.0,81.0
+11688585,บ้านหัวฝาย( P.26A เดิม),16.447694,99.427861,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.26A,RID,Kamphaeng Phet,6,83.45,86.99,89.26
+11688780,สะพานยะกัง,6.40016,101.82338,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_BNR.08,RID,Narathiwat,21,-3.0,3.15,2.2
+11688560,ท่าก่อบง,20.125752,100.030184,North Khong Basin,Thailand,ThaiWater (HII),ridhydro_TG16,RID,Chiang Rai,2,364.71,373.59,370.83
+11688739,TM.176 (วัดลือชัย),15.01284,104.6566,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.176,RID,Si Sa Ket,5,0.0,117.71,116.72
+11688835,บ้านทุ่งกร่าง,13.028848,102.268824,Tonle Sap Basin,Thailand,ThaiWater (HII),ridhydro_TTL.06,RID,Chanthaburi,16,182.91,188.0,188.02
+11688834,อ่างเก็บน้ำห้วยยาง,14.013375,102.644844,Tonle Sap Basin,Thailand,ThaiWater (HII),ridhydro_TTL.01,RID,Sa Kaeo,16,100.0,108.0,108.0
+11688681,บ้านโพธิ์ชัยทอง,17.600224,103.980975,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKS.112,RID,Sakon Nakhon,3,0.0,151.0,151.0
+11688704,วัดอัมพวันนาราม,15.2694,104.644782,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.106,RID,Ubon Ratchathani,4,-2.42,117.74,117.38
+11688782,สถานี X.181,7.060311,100.454271,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_STN02,RID,Songkhla,20,-0.4,2.75,2.5
+11688788,สถานีปากคลองระโนด,7.769627,100.302102,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL03,RID,Songkhla,20,0.0,5.0,5.0
+11688684,บ้านโป่งเปื่อย,18.314566,103.525551,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKS.120,RID,Bueng Kan,3,147.61,156.24,156.64
+11688796,คลองนาท่อม,7.636973,100.061156,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL32,RID,Phatthalung,20,3.94,8.47,8.49
+11688631,เขื่อนนายก,14.18205,101.162164,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TNy11,RID,Nakhon Nayok,15,-2.53,4.79,5.02
+11688559,บ้านสันกลาง,19.668681,99.541202,North Khong Basin,Thailand,ThaiWater (HII),ridhydro_TG15,RID,Chiang Rai,2,455.5,458.97,458.49
+11688711,วัดท่าประทาย,16.41384,102.91427,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.122,RID,Khon Kaen,4,0.0,149.23,149.63
+11688611,ห้วยแม่ลาน เทศบาลแม่ลานนา,18.06887,99.84226,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.50,RID,Phrae,8,120.67,125.27,124.99
+11688707,โรงเรียนบ้านหนองหอย,16.20698,103.137005,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.118,RID,Maha Sarakham,4,-10.0,147.0,147.0
+11688562,สถานีน้ำแม่แตง (ฝายแม่แตงเหนือน้ำ),19.157294,98.918808,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TUP.02,RID,Chiang Mai,6,340.6,348.16,348.42
+11688725,"T ขรน.กันผม (U/S), (D/S)",15.014,102.23379,Mun Basin,Thailand,ThaiWater (HII),"ridhydro_TM.195 (U/S), (D/S)",RID,Nakhon Ratchasima,5,0.0,167.83,167.73
+11688592,TW.29,18.368642,99.326625,Wang Basin,Thailand,ThaiWater (HII),ridhydro_TW.29,RID,Lampang,7,302.42,305.34,305.06
+11688793,ปตร.อู่ตะเภา,6.987824,100.462205,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL24,RID,Songkhla,20,-1.21,8.83,8.83
+11688801,คลองตงตอนบน,6.817693,100.553952,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL37,RID,Songkhla,20,37.52,45.16,45.36
+11688727,T ปตร.น้ำเค็ม (D/S),15.20617,102.50055,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.201 (D/S),RID,Nakhon Ratchasima,5,0.0,153.43,153.59
+11688639,บ้านห้วยมงคล,12.5435,99.8272,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPR.7,RID,Prachuap Khiri Khan,18,0.0,3.5,3.5
+11688619,วัดเทพนิมิต,12.433914,102.433072,East Coast Gulf Basin,Thailand,ThaiWater (HII),ridhydro_TTR.06,RID,Trat,17,0.0,14.0,14.0
+11688694,อ่างเก็บน้ำห้วยหลวง,17.375118,102.599133,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKH.130,RID,Udon Thani,3,0.0,203.72,203.72
+11688720,TM.50 (วัดแชะ),14.51989,102.2431,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.50,RID,Nakhon Ratchasima,5,0.0,201.32,201.8
+11688565,เขื่อนแม่กวงอุดมธารา,18.929542,99.127708,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TUP.12,RID,Chiang Mai,6,350.0,385.0,385.0
+11688604,อำเภอปง จ.พะเยา,19.150733,100.275249,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.47,RID,Phayao,8,287.87,294.83,294.63
+11688598,อำเภอโพธิ์ประทับช้าง จ.พิจิตร,16.310319,100.271461,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.42,RID,Phichit,8,-0.9,35.49,36.01
+11688679,บ้านเพีย,17.531059,101.834182,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKL.125,RID,Loei,3,0.0,282.24,282.29
+11688608,สะพานเขาโค้ง,16.925978,99.890301,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.56,RID,Sukhothai,8,38.05,45.84,44.93
+11688650,ปตร.ท่าโบสถ์,15.05395,100.01206,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_TTC02,RID,Chai Nat,13,6.85,16.51,16.47
+11688783,สถานีคลองต่ำ,6.975436,100.36767,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_STN05,RID,Songkhla,20,15.25,18.0,18.0
+11688568,สถานีโครงการชลประทานแม่ปิงเก่า,18.690973,98.987948,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TUP.18,RID,Chiang Mai,6,293.68,299.1,298.54
+11688719,สถานีเขื่อนลำปาว,16.604,103.46321,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_LP-06,RID,Kalasin,4,0.0,166.0,166.0
+562808,เขื่อนบางลาง อ.บันนังสตา จ.ยะลา,6.153667,101.273116,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),BLGTU05,EGAT,Yala,21,0.0,0.0,0.0
+11688572,บ้านแม่ปั๋ง,19.213798,99.184521,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.108,RID,Chiang Mai,6,398.39,401.0,402.11
+11688615,ชลประทานตราด,12.243311,102.506553,East Coast Gulf Basin,Thailand,ThaiWater (HII),ridhydro_TTR.02,RID,Trat,17,0.0,3.0,3.0
+562804,ฝายละแอ อ.บันนังสตา จ.ยะลา,6.143055,101.309167,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),BLGTU06,EGAT,Yala,21,0.0,0.0,0.0
+11688743,ฝายลำเซบก,15.427786,105.055485,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TMN 12,RID,Ubon Ratchathani,5,-1.0,119.75,119.87
+11688693,อบต. บ้านแมด,17.445194,102.854528,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKH.128,RID,Udon Thani,3,0.0,173.61,172.71
+11688667,วัดหนองไม้เอื้อย,14.547573,99.462599,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.69,RID,Kanchanaburi,14,0.69,116.15,116.76
+11688573,บ้านท้องฟ้า,17.04663,98.978991,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.109,RID,Tak,6,148.53,152.23,151.14
+11688591,TW.28,18.559259,99.466838,Wang Basin,Thailand,ThaiWater (HII),ridhydro_TW.28,RID,Lampang,7,290.07,293.26,293.7
+11688606,วัดท่าไม้,15.915063,100.247163,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.58,RID,Nakhon Sawan,8,19.09,26.61,28.43
+700559,หน่วยพิทักษ์ป่าเขาบันได,15.27736,99.15219,Mae Klong Basin,Thailand,ThaiWater (HII),MKSNU03,EGAT,Uthai Thani,14,0.0,0.0,0.0
+11688803,คลองหวะตอนบน,6.969362,100.558293,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL39,RID,Songkhla,20,18.24,25.15,25.21
+11688589,น้ำแม่สอย  W.17A,18.744577,99.568511,Wang Basin,Thailand,ThaiWater (HII),ridhydro_TW.17A,RID,Lampang,7,296.02,298.88,299.86
+11688767,บ้านปากพญา,8.483189,100.015408,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TNB.12,RID,Nakhon Si Thammarat,19,-0.86,5.0,4.0
+11688771,บ้านปากแพรก,8.219533,100.200906,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TPN04,RID,Nakhon Si Thammarat,19,-1.0,2.5,2.5
+11688672,วัดบางคนฑีใน,13.4913,99.9445,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.72,RID,Samut Songkhram,14,-0.88,1.88,1.5
+11688662,วัดยางเกาะ,13.901244,99.462219,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.37A,RID,Kanchanaburi,14,-1.01,26.05,25.68
+11688548,คลองท่าเสา,15.893215,101.09118,Pasak Basin,Thailand,ThaiWater (HII),ridhydro_TS.20,RID,Phetchabun,12,76.8,81.94,81.97
+11688595,TW.32,18.024292,99.218031,Wang Basin,Thailand,ThaiWater (HII),ridhydro_TW.32,RID,Lampang,7,241.7,247.21,246.89
+11688817,สถานีบ้านทุ่งกรวด,8.351444,99.274722,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTP27,RID,Surat Thani,19,13.5,21.5,21.5
+11688543,เหนือเขื่อนป่าสัก,14.848254,101.090205,Pasak Basin,Thailand,ThaiWater (HII),ridhydro_TS.10,RID,Lop Buri,12,29.0,46.0,46.0
+11688633,วัดสง่างาม,14.031635,101.42646,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt52,RID,Prachin Buri,15,-7.12,6.59,6.49
+11688756,บ้านท่าปาบ(X.230),7.565272,99.686577,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TX.230,RID,Trang,22,19.39,23.5,24.41
+11688558,บ้านใหม่กือนา,19.956851,99.93746,North Khong Basin,Thailand,ThaiWater (HII),ridhydro_TG13,RID,Chiang Rai,2,373.22,385.05,384.1
+11688746,บ้านเหล,8.771167,98.438414,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TP9 (TX.332),RID,Phangnga,22,11.98,17.19,17.18
+11688724,TM.1A (วัดใหม่อัมพร),14.90168,101.81711,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.1A,RID,Nakhon Ratchasima,5,0.0,210.85,210.52
+11688528,T.ปตร.มะขามเฒ่า,15.222455,100.062221,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_T.MakhamthaoRegulator,RID,Chai Nat,13,12.18,17.29,18.96
+11688529,T.ปตร.พลเทพ,15.214294,100.073325,Chao Phraya Basin,Thailand,ThaiWater (HII),ridhydro_T.PholarhepRegulator,RID,Chai Nat,10,10.35,17.23,17.27
+11688818,สถานีวัดบางเงิน,8.554306,98.908611,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTP28,RID,Krabi,19,30.0,41.5,41.5
+11688723,"T ขรน.มะเกลือใหม่ (U/S), (D/S)",14.88003,101.76168,Mun Basin,Thailand,ThaiWater (HII),"ridhydro_TM.194 (U/S), (D/S)",RID,Nakhon Ratchasima,5,0.0,220.13,220.89
+11688737,TM.182,15.134648,104.510023,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.182,RID,Si Sa Ket,5,106.24,117.1,119.62
+11688806,ฝายนาท่อม,7.59192,100.00982,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TX141,RID,Phatthalung,20,18.45,22.23,22.2
+11688838,อ่างเก็บน้ำห้วยแม่สอด,16.709245,98.61583,Salawin Basin,Thailand,ThaiWater (HII),ridhydro_TSW.01,RID,Tak,1,237.0,252.2,252.2
+11688570,สถานีฝายวังปาน,18.405082,98.702804,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TUP.22,RID,Chiang Mai,6,266.67,276.44,276.73
+11688798,คลองลำเบ็ดล่าง,7.590888,100.154019,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL34,RID,Phatthalung,20,-2.17,3.39,3.42
+2773,บ้านวังปลัด,15.43527,103.012627,Mun Basin,Thailand,ThaiWater (HII),M.104,RID,Buri Ram,5,,134.200003,134.200003
+11688713,บ้านนางใย,16.18648,103.3271,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.125,RID,Maha Sarakham,4,-0.71,142.61,142.92
+11688596,TW.34,17.553855,99.178195,Wang Basin,Thailand,ThaiWater (HII),ridhydro_TW.34,RID,Lampang,7,154.64,161.72,161.09
+1093312,บ้านเขาน้อย,12.38995,99.911247,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),Pr.1,RID,Prachuap Khiri Khan,18,,8.833,8.765
+11688575,บ้านวังชะโอน,16.703333,99.435278,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.111,RID,Kamphaeng Phet,6,88.41,93.88,95.94
+11688669,วัดศรีมงคล,14.0182,99.1592,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.67,RID,Kanchanaburi,14,-0.02,61.52,58.84
+11688549,ฝายคลองสุคต,14.863621,101.119957,Pasak Basin,Thailand,ThaiWater (HII),ridhydro_TS.22,RID,Saraburi,12,45.45,49.03,48.89
+11688808,บ้านพรุพร้อ,7.19253,100.221,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TX69,RID,Songkhla,20,24.32,31.22,31.2
+11688790,สถานีบ่อยาง,7.200311,100.587907,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL09,RID,Songkhla,20,-1.0,2.5,2.5
+11688682,บ้านพันนา,17.441923,103.570547,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKS.110,RID,Sakon Nakhon,3,0.0,165.0,165.0
+11688648,สถานีเขื่อนเพชร (ท้ายน้ำ),12.914265,99.854453,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPB17,RID,Phetchaburi,18,8.5,19.0,19.0
+11688752,บ้านปากมูด,7.978436,99.604113,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTr4,RID,Nakhon Si Thammarat,22,1.68,33.0,33.0
+11688812,วัดตาขุน (X.38A),8.915404,98.886323,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTP16,RID,Surat Thani,19,0.0,16.17,20.4
+11688762,ประตูระบายน้ำสามแก้ว,10.520002,99.183231,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TSN10,RID,Chumphon,19,0.5,6.5,6.5
+11688842,บ้านท่าสองแคว,18.339649,97.918308,Salawin Basin,Thailand,ThaiWater (HII),ridhydro_TSW.09,RID,Mae Hong Son,1,247.96,258.39,256.93
+11688668,สะพานข้ามลำภาชี,13.7521,99.4374,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.68,RID,Ratchaburi,14,-0.18,59.12,59.68
+11688710,วัดศรีแก้ว,16.871922,102.18107,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.121,RID,Nong Bua Lam Phu,4,0.0,198.52,197.94
+11688563,สถานีแม่น้ำปิงที่ฝายหนองสลีก,18.525197,98.902161,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TUP.10,RID,Lamphun,6,281.79,287.83,288.4
+11688753,บ้านนิคม,7.949661,99.529428,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTr6,RID,Nakhon Si Thammarat,22,0.0,25.0,25.0
+558661,วัดศิริมังคละเต่างอย,16.994,104.172,Northeast Khong Basin,Thailand,ThaiWater (HII),NPNPD02,EGAT,Sakon Nakhon,3,0.0,0.0,0.0
+11688740,ฝายราษีไศล,15.342538,104.09924,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TMN 05,RID,Si Sa Ket,5,-1.0,122.36,122.36
+11688646,บ้านแหลม,13.212777,99.982754,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPB15,RID,Phetchaburi,18,-2.0,2.16,2.16
+11688603,บ้านวังยาว จ.น่าน,18.843087,100.427468,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.46,RID,Nan,8,342.22,345.28,344.47
+11688757,วัดนาเมืองเพชร,7.547547,99.510137,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTr14,RID,Trang,22,0.0,6.85,7.14
+11688546,คลองน้ำจู,16.04515,101.122846,Pasak Basin,Thailand,ThaiWater (HII),ridhydro_TS.17,RID,Phetchabun,12,86.71,90.6,91.25
+11688678,บ้านไร่ม่วง,17.490452,101.687589,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKL.86,RID,Loei,3,-0.32,253.21,255.09
+11688792,เขาชัยสน,7.47076,100.138,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL17,RID,Phatthalung,20,1.25,7.3,6.25
+11688804,คลองหวะตอนล่าง,6.987312,100.474043,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL40,RID,Songkhla,20,0.69,8.5,8.39
+11688539,อบต.สว่างแจ้งสบายใจ,15.559001,99.864809,Sakae Krang Basin,Thailand,ThaiWater (HII),ridhydro_TSK.14,RID,Uthai Thani,11,30.53,35.81,35.82
+11688635,บ้านเนินหินกอง,13.782015,101.900566,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt48,RID,Prachin Buri,15,24.23,30.98,30.94
+11688579,คลองวังหิน,16.229583,99.696722,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.102,RID,Kamphaeng Phet,6,51.2,56.21,55.87
+11688600,ตำบลต้าผาหมอก จ.แพร่,18.158949,99.943271,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.44,RID,Phrae,8,152.38,159.13,159.12
+11688809,บ้านวังตลับ,8.398225,99.346551,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTP03,RID,Nakhon Si Thammarat,19,0.0,17.82,17.63
+11688618,เขาสมิง,12.348571,102.454615,East Coast Gulf Basin,Thailand,ThaiWater (HII),ridhydro_TTR.05,RID,Trat,17,0.0,4.0,4.0
+11688689,สะพานห้วยลม,17.323277,102.543788,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKH.119,RID,Udon Thani,3,0.0,146.0,146.0
+11688764,คลองนอกท่า,8.530108,99.819844,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TNA.04,RID,Nakhon Si Thammarat,19,18.8,25.5,25.5
+11688732,T ปตร.ลำสะแทด (D/S),15.41585,102.57328,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.197 (D/S),RID,Nakhon Ratchasima,5,0.0,148.59,148.83
+11688827,บ้านแว้ง,5.9266,101.8841,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tkol.11,RID,Narathiwat,21,0.0,20.5,20.7
+11688774,บ้านตูล,8.041068,99.981933,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TPN10,RID,Nakhon Si Thammarat,19,-1.46,2.5,2.5
+11688626,บางขนาก,13.874795,101.141647,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt60,RID,Chachoengsao,15,-9.88,0.99,2.75
+11688837,บ้านคลองตานี,12.896003,102.271006,Tonle Sap Basin,Thailand,ThaiWater (HII),ridhydro_TTL.09,RID,Chanthaburi,16,219.81,223.95,224.11
+11688781,สถานี ชป.คลองวาด,6.990953,100.38278,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_STN01,RID,Songkhla,20,0.0,15.0,15.0
+11688602,บ้านหลวงเหนือ จ.ลำปาง,18.757743,99.975154,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.13B,RID,Lampang,8,265.93,270.59,269.53
+11688659,วัดหนองปลิง,14.293831,99.807415,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_TTC18,RID,Kanchanaburi,13,2.22,7.67,7.82
+11688688,ปตร.ห้วยหลวง,18.016285,103.08178,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKH.118,RID,Nong Khai,3,0.0,214.0,214.0
+11688697,(บ้านโนนสมอ),15.821446,102.034489,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.103,RID,Chaiyaphum,4,-1.67,182.38,182.38
+11688791,ปตร.คลองท่าแนะ,7.72914,99.914,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL12,RID,Phatthalung,20,29.57,37.99,37.99
+11688759,บ้านปากแครง,7.314746,99.8254,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TX.139B,RID,Trang,22,0.0,36.0,36.0
+11688846,ห้วยน้ำของ,19.535209,98.113684,Salawin Basin,Thailand,ThaiWater (HII),ridhydro_TSW.14,RID,Mae Hong Son,1,334.36,340.09,340.15
+11688822,ท้ายเขื่อนบางลาง,6.160801,101.276081,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tpat.10,RID,Yala,21,39.0,50.8,51.2
+11688605,บ้านแฮะ จ.พะเยา,19.302907,100.390599,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.48,RID,Phayao,8,350.32,355.46,355.15
+11688687,บ้านป่งไฮ,18.023161,103.821339,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKS.121,RID,Bueng Kan,3,0.0,187.0,187.0
+11688627,หอทอง,13.960857,101.216475,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt61,RID,Prachin Buri,15,-9.29,2.1,2.03
+11688566,สถานีแม่น้ำปิงที่โครงการส่งน้ำและบำรุงรักษาแม่แฝก-แม่งัด,19.104841,98.954524,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TUP.14,RID,Chiang Mai,6,328.73,333.83,333.77
+11688594,TW.31,18.13277,99.620037,Wang Basin,Thailand,ThaiWater (HII),ridhydro_TW.31,RID,Lampang,7,250.54,255.74,255.78
+11688789,สถานีบ้านลำปำ,7.63292,100.153,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL04,RID,Phatthalung,20,-3.5,2.5,2.5
+11688692,สะพานห้วยน้ำขุ่น,17.550091,102.958432,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKH.124,RID,Udon Thani,3,0.0,172.1,172.1
+11688768,ปตร.อุทกวิภาชประสิทธิ,8.321786,100.206081,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TPN01,RID,Nakhon Si Thammarat,19,-1.29,2.5,2.5
+11688747,บ้านนาข่าเหนือ,6.914998,99.851331,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_LA03 (TX.333),RID,Satun,22,0.53,11.03,10.68
+11688651,ปตร.สามชุก,14.772463,100.088281,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_TTC03,RID,Suphan Buri,13,5.65,9.92,9.3
+11688652,วัดมณีวรรณ,14.3969,100.153,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_TTC05,RID,Suphan Buri,13,-3.47,3.37,4.3
+11688636,บ้านป่าเต็ง,12.584,99.5344,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPR.1,RID,Phetchaburi,18,0.0,5.0,5.0
+11688538,อบต.ศาลเจ้าไก่ต่อ,15.773471,99.667092,Sakae Krang Basin,Thailand,ThaiWater (HII),ridhydro_TSK.13,RID,Nakhon Sawan,11,68.2,71.52,71.63
+11688779,ปตร.บางนราตอนล่าง,6.24644,102.03023,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_BNR.03,RID,Narathiwat,21,0.0,3.2,3.2
+11688599,วัดวังเคียน จ.แพร่,18.044664,99.800807,Yom Basin,Thailand,ThaiWater (HII),ridhydro_TY.43,RID,Phrae,8,107.34,121.38,121.02
+11688794,ปตร.คลอง 1ซ-ร1,7.008409,100.442098,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL27,RID,Songkhla,20,-0.56,6.3,6.3
+11688831,ทรบ.คลองระบายสายที่ 13,6.20995,102.014432,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tkol.24,RID,Narathiwat,21,-0.5,1.8,1.8
+11688617,บ้านไร่ป่า,12.287519,102.524556,East Coast Gulf Basin,Thailand,ThaiWater (HII),ridhydro_TTR.04,RID,Trat,17,0.0,4.0,4.0
+11688553,สะพานฝายดินดำ,19.548038,99.473682,North Khong Basin,Thailand,ThaiWater (HII),ridhydro_TG03,RID,Chiang Rai,2,475.56,479.55,481.27
+11688799,คลองเหมืองตะกั่ว,7.26871,100.094388,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL35,RID,Phatthalung,20,36.33,41.54,41.56
+11688698,สบห้วยสามหมอแม่น้ำชี (บ.วังสามหมอ),16.003199,102.372186,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.112,RID,Khon Kaen,4,0.67,170.67,170.74
+11688643,บ้านห้วยกวางจริง,13.005179,99.74277,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPB06,RID,Phetchaburi,18,-10.93,44.0,44.0
+11688658,ไซฟอนกระเสียว,14.844778,100.015492,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_TTC15,RID,Suphan Buri,13,7.25,14.66,14.84
+11688641,อ่างเก็บน้ำยางชุม,12.084924,99.683435,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPR.13,RID,Prachuap Khiri Khan,18,-80.0,90.0,90.0
+11688832,บ้านหนองน้ำใส,13.85454,102.377483,Tonle Sap Basin,Thailand,ThaiWater (HII),ridhydro_TTL.02,RID,Sa Kaeo,16,64.02,68.67,68.63
+11688754,บ้านลำภูรา,7.675344,99.581903,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTr9,RID,Trang,22,0.0,20.0,20.0
+11688690,สะพานห้วยบ้าน,17.798357,103.030347,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKH.120,RID,Udon Thani,3,0.0,165.0,165.0
+11688621,วัดวุรุณดิตถาราม,12.282,102.615378,East Coast Gulf Basin,Thailand,ThaiWater (HII),ridhydro_TTR.10,RID,Trat,17,-1.0,5.0,5.0
+11688629,สมบูรณ์,13.970389,101.138699,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TNy9,RID,Nakhon Nayok,15,-7.33,1.93,2.26
+1094448,Wat Khok Pho Sathit School,8.40118,99.802,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),TADE01,HII,Nakhon Si Thammarat,19,,28.737,28.657
+11688712,ฝายพรม-เชิญ,16.539065,102.0318,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.123,RID,Khon Kaen,4,0.0,222.55,221.34
+11688807,ฝายท่าเชียด,7.361018,100.1085,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TX21A,RID,Phatthalung,20,19.0,26.7,26.69
+11688742,ฝายอำนาจเจริญ,15.360334,104.683904,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TMN 10,RID,Ubon Ratchathani,5,0.0,118.81,118.96
+11688540,วัดโคกหม้อ,15.534278,99.899083,Sakae Krang Basin,Thailand,ThaiWater (HII),ridhydro_TSK.15,RID,Uthai Thani,11,24.36,33.74,34.13
+11688625,ฝายท่าลาด,13.707719,101.401415,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt59,RID,Chachoengsao,15,0.41,10.11,10.09
+11688701,บ้านไผ่ล้อม,16.212109,103.736688,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.101,RID,Roi Et,4,-2.4,135.7,136.18
+2659,บ้านกลาง,11.49674,99.602303,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),Gt.9,RID,Prachuap Khiri Khan,18,,18.162,17.867
+11688637,เขื่อนปราณบุรี,12.457138,99.794328,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPR.4,RID,Prachuap Khiri Khan,18,0.0,69.0,69.0
+11688773,ฝายเสาธง,8.340558,99.828936,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TPN08,RID,Nakhon Si Thammarat,19,23.59,30.0,30.0
+11688706,บ้านโนนเขวา,16.35233,102.88133,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.117,RID,Khon Kaen,4,0.0,149.57,149.63
+11688656,บ้านผาทั่ง,15.1054,99.5358,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_TTC13,RID,Uthai Thani,13,131.63,135.06,134.09
+832084,บ้านทุ่งแฝก,12.09765,99.78846,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),Ky.3,RID,Prachuap Khiri Khan,18,,45.257999,44.745999
+3296,บ้านเจดีย์งาม,19.16588,99.934341,North Khong Basin,Thailand,ThaiWater (HII),I.17,RID,Phayao,2,,776.8399890000001,776.8449889999999
+11688683,เขื่อนน้ำอูน,17.308556,103.737882,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKS.107,RID,Sakon Nakhon,3,0.0,188.0,188.0
+11688557,เทศบาลแม่ยาว,19.934196,99.760241,North Khong Basin,Thailand,ThaiWater (HII),ridhydro_TG11,RID,Chiang Rai,2,394.1,397.65,399.04
+11688776,ปตร.แพรกเมือง,8.016916,100.30001,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TPN16,RID,Nakhon Si Thammarat,19,-1.13,2.5,2.5
+11688763,คลองวัดหญ้า,8.476777,99.924205,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TNA.02,RID,Nakhon Si Thammarat,19,0.0,8.5,8.5
+11688532,T.ปตร.ช่องแค,15.145483,100.411717,Chao Phraya Basin,Thailand,ThaiWater (HII),ridhydro_T.ChongKhaeRegulator,RID,Nakhon Sawan,10,9.76,15.52,15.11
+11688800,คลองห้วยเผยอ,7.277592,100.33808,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL36,RID,Phatthalung,20,-0.58,4.47,4.43
+558658,เขื่อนน้ำพุง บ้านคำเพิ่ม,16.97249,103.983376,Northeast Khong Basin,Thailand,ThaiWater (HII),NPNPU01,EGAT,Sakon Nakhon,3,0.0,0.0,0.0
+11688561,บ้านศรีวังมูล,19.8082,99.7567,North Khong Basin,Thailand,ThaiWater (HII),ridhydro_TG17,RID,Chiang Rai,2,402.88,406.82,407.94
+11688686,บ้านดงหนองบัว,17.692018,104.148535,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKS.118,RID,Nakhon Phanom,3,0.0,147.0,147.0
+11688680,บ้านโป่ง,17.710319,101.710897,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKL.126,RID,Loei,3,-10.08,231.38,229.66
+11688531,T.ปตร.บรมธาตุ,15.15713,100.152981,Chao Phraya Basin,Thailand,ThaiWater (HII),ridhydro_T.BorommathatRegulator,RID,Chai Nat,10,8.15,17.61,18.44
+11688647,สถานีเขื่อนเพชร (เหนือน้ำ),12.912,99.8546,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPB16,RID,Phetchaburi,18,9.5,22.0,22.0
+11688616,บ้านปลายคลอง,12.260545,102.46482,East Coast Gulf Basin,Thailand,ThaiWater (HII),ridhydro_TTR.03,RID,Trat,17,0.0,7.0,7.0
+11688655,วัดช่องลม,13.530641,100.265382,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_TTC10,RID,Samut Sakhon,13,0.0,3.0,3.0
+11688550,คลองส้ม,14.822028,101.014594,Pasak Basin,Thailand,ThaiWater (HII),ridhydro_TS.23,RID,Lop Buri,12,31.16,35.35,35.71
+11688802,คลองตงตอนล่าง,6.848806,100.471146,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL38,RID,Songkhla,20,8.97,16.16,16.18
+11688677,บ้านหนองบอน,17.41509,101.715413,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKL.123,RID,Loei,3,-0.5,247.64,247.94
+11688663,วัดท่าแย้,13.8126,99.4007,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.62A,RID,Kanchanaburi,14,-0.47,47.19,47.36
+11688657,บ้านด่านช้าง,14.8197,99.6941,Tha Chin Basin,Thailand,ThaiWater (HII),ridhydro_TTC14,RID,Suphan Buri,13,55.73,62.48,63.08
+11688840,บ้านแม่กึ๊ดสามท่า,16.835852,98.59166,Salawin Basin,Thailand,ThaiWater (HII),ridhydro_TSW.05,RID,Tak,1,180.26,190.33,190.29
+11688534,เขื่อนทับเสลา,15.543873,99.447679,Sakae Krang Basin,Thailand,ThaiWater (HII),ridhydro_TSK.6,RID,Uthai Thani,11,0.0,160.0,160.0
+11688775,บ้านการะเกด,8.085369,100.132404,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TPN13,RID,Nakhon Si Thammarat,19,-2.88,2.5,2.5
+11688577,ฝายคลองสวนหมาก,16.330917,99.26475,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.100,RID,Kamphaeng Phet,6,140.09,144.02,144.04
+11688674,สำนักงานประปา  อบต.ท่ากระดาน สาขาแก่งแคบ,14.365097,99.154023,Mae Klong Basin,Thailand,ThaiWater (HII),ridhydro_TK.81,RID,Kanchanaburi,14,-7.47,61.66,61.66
+11688634,ประจันตคาม,14.069966,101.518579,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt51,RID,Prachin Buri,15,-0.64,6.44,5.42
+11688695,สบลำกระจวนแม่น้ำชี,15.781595,101.754383,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.110,RID,Chaiyaphum,4,0.0,206.45,206.52
+11688675,บ้านเลยวังไสย์,17.056541,101.516053,Northeast Khong Basin,Thailand,ThaiWater (HII),ridhydro_TKL.122,RID,Loei,3,0.0,517.15,513.79
+11688709,กุดน้ำใส,16.73133,102.77117,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.120,RID,Khon Kaen,4,0.0,166.25,166.32
+11688645,เขื่อนแก่งกระจาน (ท้ายน้ำ),12.909761,99.641615,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPB08,RID,Phetchaburi,18,0.0,62.0,62.0
+11688815,สถานีบ้านบางน้ำเย็น,8.924333,98.840194,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTP25,RID,Surat Thani,19,0.0,21.0,21.0
+11688843,บ้านพะมอลอ,18.178425,97.924056,Salawin Basin,Thailand,ThaiWater (HII),ridhydro_TSW.10,RID,Mae Hong Son,1,202.27,209.16,208.93
+11688738,Tใต้ฝายห้วยขะยุง,14.680312,104.693597,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.199,RID,Si Sa Ket,5,-1.0,144.41,144.34
+11688717,ฝายบ้านดอนปอ,16.914654,102.382704,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.129,RID,Nong Bua Lam Phu,4,-2.04,182.27,182.17
+3294,บ้านท่าโป่งแดง,19.27033,97.945213,Salawin Basin,Thailand,ThaiWater (HII),Sw.5A,RID,Mae Hong Son,1,,359.634995,357.244995
+11688714,วัดโพธิ์ศรีท่าแห่,16.236934,103.429004,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.126,RID,Kalasin,4,-1.22,143.19,140.5
+11688623,บ้านโพธิ์,13.58335,101.070917,Bang Pakong Basin,Thailand,ThaiWater (HII),ridhydro_TKgt56,RID,Chachoengsao,15,-8.75,2.91,1.9
+11688630,คลองแม่น้ำใน(โพธิ์แทน),14.212921,100.942453,Chao Phraya Basin,Thailand,ThaiWater (HII),ridhydro_TNy10,RID,Nakhon Nayok,10,-1.17,3.94,3.94
+11688797,คลองลำเบ็ดบน,7.545644,99.960471,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL33,RID,Phatthalung,20,24.31,31.04,30.97
+11688696,ท้ายเขื่อนลำปะทาว,16.063514,102.040562,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.102,RID,Chaiyaphum,4,0.0,457.32,457.32
+11688735,"Tฝายยางบ้านตะลุง (U/S), (D/S)",15.29329,103.54115,Mun Basin,Thailand,ThaiWater (HII),"ridhydro_TM.206  (U/S), (D/S)",RID,Surin,5,0.0,124.76,124.55
+11688813,บ้านโพธิ์น้อย,9.137005,98.957233,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTP18,RID,Surat Thani,19,16.5,24.06,26.84
+11688703,ฝายยโสธร,15.732567,104.131608,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.107,RID,Roi Et,4,-4.52,128.0,128.0
+11688649,ปตร.พลเทพ,15.215885,100.073047,Chao Phraya Basin,Thailand,ThaiWater (HII),ridhydro_TTC01,RID,Chai Nat,10,0.0,23.0,23.0
+11688787,สถานีโรงสูบน้ำระโนด,7.793278,100.257958,Thale Sap Songkhla Basin,Thailand,ThaiWater (HII),ridhydro_TSL02,RID,Songkhla,20,-2.0,1.75,1.75
+11688766,บ้านโคกข่อย,8.435594,100.014428,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TNB.09,RID,Nakhon Si Thammarat,19,-1.47,3.5,3.5
+11688825,บ้านกูหมัง,6.226084,101.222579,Peninsula - Lower East Coast Basin,Thailand,ThaiWater (HII),ridhydro_Tpat.21,RID,Yala,21,54.56,62.44,61.61
+11688715,ฝายยางลำน้ำยัง,16.059906,104.031955,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_TE.127,RID,Roi Et,4,0.47,134.43,134.43
+11688729,T-MUN3 (ฝายโคกตอง),15.29435,102.6924,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.196,RID,Nakhon Ratchasima,5,0.0,148.06,148.55
+11688734,TM.4,15.367572,103.775118,Mun Basin,Thailand,ThaiWater (HII),ridhydro_TM.4,RID,Surin,5,0.0,124.32,123.31
+11688638,บ้านเขาน้ำตก,12.4672,99.8041,Phetchaburi - Prachuap Khiri Khan Basin,Thailand,ThaiWater (HII),ridhydro_TPR.5,RID,Prachuap Khiri Khan,18,0.0,4.0,2.0
+11688718,สถานีฝายกุมภวาปี,17.0762,103.0233,Chi Basin Basin,Thailand,ThaiWater (HII),ridhydro_LP-02,RID,Udon Thani,4,1.0,171.87,171.82
+11688844,บ้านแม่ตะควน,17.963728,97.926075,Salawin Basin,Thailand,ThaiWater (HII),ridhydro_TSW.11,RID,Mae Hong Son,1,117.98,125.51,123.09
+11688536,ฝายทับเสลา,15.407623,99.714458,Sakae Krang Basin,Thailand,ThaiWater (HII),ridhydro_TSK.9,RID,Uthai Thani,11,71.77,77.21,79.14
+11688841,บ้านวังผา,16.830552,98.539078,Salawin Basin,Thailand,ThaiWater (HII),ridhydro_TSW.06,RID,Tak,1,169.0,180.63,180.66
+11688810,บ้านนาสาร (X.81),8.807695,99.367472,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTP11,RID,Surat Thani,19,30.5,39.05,37.82
+11688833,บ้านฟากห้วย,13.684085,102.501103,Tonle Sap Basin,Thailand,ThaiWater (HII),ridhydro_TTL.04,RID,Sa Kaeo,16,38.5,43.99,43.97
+11688612,ฝายแม่ยม อ.สอง จ.แพร่,18.484167,100.161389,Yom Basin,Thailand,ThaiWater (HII),ridhydro_T.MaeyomWeir,RID,Phrae,8,171.81,181.16,177.83
+11688811,บ้านต้นสะท้อน,8.871568,99.382296,Peninsula - Upper East Coast Basin,Thailand,ThaiWater (HII),ridhydro_TTP13,RID,Surat Thani,19,34.49,40.5,40.5
+11688581,ศูนย์พัฒนาสังคมหน่วยที่ 4,16.120139,99.32775,Ping Basin,Thailand,ThaiWater (HII),ridhydro_TP.104,RID,Kamphaeng Phet,6,129.6,133.47,133.1
+11688750,บ้านผังปาล์ม 1,6.998849,99.911013,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_LA07 (TX.336),RID,Satun,22,12.81,20.61,20.61
+11688745,บ้านสะพานเสือ,8.748697,98.389237,Peninsula - West Coast Basin,Thailand,ThaiWater (HII),ridhydro_TP4 (TX.331),RID,Phangnga,22,11.74,15.5,15.5

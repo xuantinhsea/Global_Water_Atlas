@@ -1,0 +1,119 @@
+{
+ "result": "OK",
+ "data": [
+  {
+   "id": 310614473,
+   "rain_24h": 151.5,
+   "rain_1h": 2,
+   "rainfall_datetime": "2026-09-15 15:00",
+   "station_type": "rainfall_24h",
+   "agency": {
+    "agency_name": {
+     "th": "กรมทรัพยากรน้ำ",
+     "en": "Department of Water Resources",
+     "jp": ""
+    },
+    "agency_shortname": {
+     "th": "ทน.",
+     "en": "DWR",
+     "jp": ""
+    }
+   },
+   "geocode": {
+    "warning_zone": "07",
+    "area_code": "5",
+    "area_name": {
+     "th": "ภาคใต้",
+     "en": "South"
+    },
+    "amphoe_name": {
+     "th": "ทุ่งตะโก",
+     "en": "Thung Tako District"
+    },
+    "tumbon_name": {
+     "th": "ช่องไม้แก้ว",
+     "en": "Chong Mai Kaeo"
+    },
+    "province_code": "86",
+    "province_name": {
+     "th": "ชุมพร",
+     "en": "Chumphon"
+    }
+   },
+   "station": {
+    "id": 2005,
+    "tele_station_name": {
+     "th": "บ้านห้วยใหญ่"
+    },
+    "tele_station_lat": 10.116851,
+    "tele_station_long": 99.017516,
+    "tele_station_oldcode": "STN0726",
+    "tele_station_type": "rainfall_24h",
+    "sub_basin_id": "1903"
+   },
+   "basin": {
+    "id": 22,
+    "basin_code": 19,
+    "basin_name": {
+     "th": "ลุ่มน้ำภาคใต้ฝั่งตะวันออกตอนบน",
+     "en": "Peninsula - Upper East Coast Basin"
+    }
+   }
+  },
+  {
+   "id": 310614474,
+   "rain_24h": 0,
+   "rain_1h": 0,
+   "rainfall_datetime": "2026-09-15 15:00",
+   "station_type": "rainfall_24h",
+   "agency": {
+    "agency_name": {
+     "th": "กรมทรัพยากรน้ำ",
+     "en": "Department of Water Resources",
+     "jp": ""
+    },
+    "agency_shortname": {
+     "th": "ทน.",
+     "en": "DWR",
+     "jp": ""
+    }
+   },
+   "geocode": {
+    "warning_zone": "09",
+    "area_code": "5",
+    "area_name": {
+     "th": "ภาคใต้",
+     "en": "South"
+    },
+    "amphoe_name": {
+     "th": "เมืองสงขลา",
+     "en": "Mueang Songkhla District"
+    },
+    "tumbon_name": {
+     "th": "เกาะแต้ว",
+     "en": "Ko Taeo"
+    },
+    "province_code": "90",
+    "province_name": {
+     "th": "สงขลา",
+     "en": "Songkhla"
+    }
+   },
+   "station": {
+    "id": 2006,
+    "tele_station_name": {
+     "th": "บ้านเหล้า"
+    },
+    "tele_station_lat": 7.129909,
+    "tele_station_long": 100.625486,
+    "tele_station_oldcode": "STN0707",
+    "tele_station_type": "rainfall_24h",
+    "sub_basin_id": "2004"
+   },
+   "basin": {
+    "id": 0,
+    "basin_name": {}
+   }
+  }
+ ]
+}

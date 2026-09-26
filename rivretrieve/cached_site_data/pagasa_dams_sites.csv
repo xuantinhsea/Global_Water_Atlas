@@ -1,0 +1,10 @@
+gauge_id,station_name,latitude,longitude,river,country,source,station_type,normal_high_water_level,rule_curve_elevation
+angat,Angat Dam,14.91139,121.165,Angat,Philippines,PAGASA dam bulletin,reservoir,210.0,184.65
+ipo,Ipo Dam,14.875,121.06222,Angat,Philippines,PAGASA dam bulletin,reservoir,101.1,
+la_mesa,La Mesa Dam,14.71372,121.07316,Tullahan,Philippines,PAGASA dam bulletin,reservoir,80.15,
+ambuklao,Ambuklao Dam,16.46111,120.74389,Agno,Philippines,PAGASA dam bulletin,reservoir,752.0,745.0
+binga,Binga Dam,16.39611,120.72667,Agno,Philippines,PAGASA dam bulletin,reservoir,575.0,565.0
+san_roque,San Roque Dam,16.146,120.684,Agno,Philippines,PAGASA dam bulletin,reservoir,280.0,260.83
+pantabangan,Pantabangan Dam,15.81833,121.10944,Pampanga,Philippines,PAGASA dam bulletin,reservoir,218.5,214.33
+magat,Magat Dam,16.83333,121.45056,Magat,Philippines,PAGASA dam bulletin,reservoir,190.0,184.25
+caliraya,Caliraya Dam,14.2883,121.5014,Caliraya,Philippines,PAGASA dam bulletin,reservoir,,

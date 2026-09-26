@@ -1,0 +1,67 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "wlms.fid--7d220083_1a0a49b7368_6026",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.191932,
+     14.727913
+    ]
+   },
+   "geometry_name": "geom",
+   "properties": {
+    "station_id": 212,
+    "location": "WAWA",
+    "municipality": "WAWA",
+    "province": "Rizal",
+    "region": "4-A",
+    "full_location": "WAWA, WAWA, Rizal",
+    "latitude": 14.727913,
+    "longitude": 121.191932,
+    "type_id": 4,
+    "group_id": "wlms",
+    "date_installed": "2012-10-07Z",
+    "datetime_read": "2010-11-16T02:40:00Z"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "wlms.fid--7d220083_1a0a49b7368_6027",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121,
+     6.05669
+    ]
+   },
+   "geometry_name": "geom",
+   "properties": {
+    "station_id": 20,
+    "location": "PORT OF JOLO",
+    "municipality": "JOLO",
+    "province": "Sulu",
+    "region": "9",
+    "full_location": "PORT OF JOLO, JOLO, Sulu",
+    "latitude": 6.05669,
+    "longitude": 121,
+    "type_id": 4,
+    "group_id": "wlms",
+    "date_installed": "2012-12-31Z",
+    "datetime_read": "2010-12-31T15:50:36Z"
+   }
+  }
+ ],
+ "totalFeatures": 561,
+ "numberMatched": 561,
+ "numberReturned": 2,
+ "timeStamp": "2026-09-15T12:54:17.429Z",
+ "crs": {
+  "type": "name",
+  "properties": {
+   "name": "urn:ogc:def:crs:EPSG::4326"
+  }
+ }
+}

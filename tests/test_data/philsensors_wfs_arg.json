@@ -1,0 +1,67 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "arg.fid--7d220083_1a0a49b7368_6028",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     123.483333,
+     8.083333
+    ]
+   },
+   "geometry_name": "geom",
+   "properties": {
+    "station_id": 207,
+    "location": "BARANGAY SIMATA",
+    "municipality": "MOLAVE",
+    "province": "Zamboanga del Sur",
+    "region": "9",
+    "full_location": "BARANGAY SIMATA, MOLAVE, Zamboanga del Sur",
+    "latitude": 8.083333,
+    "longitude": 123.483333,
+    "type_id": 2,
+    "group_id": "arg",
+    "date_installed": "2013-01-13Z",
+    "datetime_read": "2013-02-01T01:30:10Z"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "arg.fid--7d220083_1a0a49b7368_6029",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     122.562106,
+     10.72015
+    ]
+   },
+   "geometry_name": "geom",
+   "properties": {
+    "station_id": 106,
+    "location": "DOST REGIONAL OFFICE VI",
+    "municipality": "LA PAZ",
+    "province": "Iloilo",
+    "region": "6",
+    "full_location": "DOST REGIONAL OFFICE VI, LA PAZ, Iloilo",
+    "latitude": 10.72015,
+    "longitude": 122.562106,
+    "type_id": 2,
+    "group_id": "arg",
+    "date_installed": "2011-08-10Z",
+    "datetime_read": "2013-04-05T07:22:22Z"
+   }
+  }
+ ],
+ "totalFeatures": 1131,
+ "numberMatched": 1131,
+ "numberReturned": 2,
+ "timeStamp": "2026-09-15T12:54:17.898Z",
+ "crs": {
+  "type": "name",
+  "properties": {
+   "name": "urn:ogc:def:crs:EPSG::4326"
+  }
+ }
+}

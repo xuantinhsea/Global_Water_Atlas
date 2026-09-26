@@ -1,0 +1,4 @@
+rivretrieve/cached_site_data/
+rivretrieve/data
+.venv/
+.vscode/

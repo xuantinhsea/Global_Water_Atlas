@@ -1,0 +1,169 @@
+{
+ "result": "OK",
+ "data": [
+  {
+   "rainfall_datetime": "2026-09-14 00:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 01:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 02:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 03:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 04:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 05:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 06:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 07:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 08:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 09:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 10:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 11:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 12:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 13:00",
+   "rainfall_value": 0
+  },
+  {
+   "rainfall_datetime": "2026-09-14 14:00",
+   "rainfall_value": 6
+  },
+  {
+   "rainfall_datetime": "2026-09-14 15:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-14 16:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-14 17:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-14 18:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-14 19:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-14 20:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-14 21:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-14 22:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-14 23:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 00:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 01:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 02:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 03:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 04:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 05:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 06:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 07:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 08:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 09:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 10:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 11:00",
+   "rainfall_value": 3
+  },
+  {
+   "rainfall_datetime": "2026-09-15 12:00",
+   "rainfall_value": 3.5
+  },
+  {
+   "rainfall_datetime": "2026-09-15 13:00",
+   "rainfall_value": 2
+  },
+  {
+   "rainfall_datetime": "2026-09-15 14:00",
+   "rainfall_value": 2
+  },
+  {
+   "rainfall_datetime": "2026-09-15 15:00",
+   "rainfall_value": 2
+  },
+  {
+   "rainfall_datetime": "2026-09-15 16:00",
+   "rainfall_value": null
+  }
+ ]
+}
