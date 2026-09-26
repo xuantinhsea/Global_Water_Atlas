@@ -139,10 +139,14 @@ print(water_level.head())
 
 ## Global Water Atlas (map app)
 
-`wateratlas/` is a local-first web app built on this library. It shows every
-station from all 25 providers on one map (rivers, rain gauges, reservoirs and
-coastal tide gauges), with filtering, box and lasso selection, series previews,
-and batch CSV download.
+`wateratlas/` is a web app built on this library. It shows every station from
+all 25 providers on one map (rivers, rain gauges, reservoirs and coastal tide
+gauges), with filtering, box and lasso selection, series previews, and batch
+CSV download.
+
+**Live: <https://global-water-atlas.vercel.app>** (hosted on Vercel; Canada and
+Poland are map-only there, see [wateratlas/README.md](wateratlas/README.md#hosting-on-vercel)).
+To run it locally:
 
 ```bash
 pip install -e ".[app]"

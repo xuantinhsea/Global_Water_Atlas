@@ -260,7 +260,8 @@ state.
 
 ## Hosting on Vercel
 
-The atlas also runs as a single Vercel Function; the repository is set up for it.
+Live at **<https://global-water-atlas.vercel.app>**. The atlas runs there as a
+single Vercel Function, and every push to `main` redeploys it.
 
 - `pyproject.toml` points Vercel at `wateratlas.main:app` and runs
   `scripts/vercel_build.py`, which builds the front end and the station catalog
