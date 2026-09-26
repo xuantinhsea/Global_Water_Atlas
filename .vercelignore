@@ -19,3 +19,5 @@ rivretrieve/data/
 *.tsbuildinfo
 *.png
 .venv/
+# Secrets stay local; the hosted app gets credentials from project settings.
+.env*

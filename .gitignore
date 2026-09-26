@@ -29,3 +29,5 @@ __pycache__/
 .DS_Store
 # Local Claude Code settings (per-machine permissions)
 .claude/
+.vercel
+.env*
