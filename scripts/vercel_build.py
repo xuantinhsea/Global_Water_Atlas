@@ -10,6 +10,7 @@ Run it locally the same way to check a deployment will build:
     python scripts/vercel_build.py
 """
 
+import os
 import shutil
 import subprocess
 import sys
@@ -17,6 +18,24 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 FRONTEND = ROOT / "wateratlas" / "frontend"
+
+#: Where Vercel's build creates the virtual environment it installs dependencies into.
+VERCEL_VENV_PYTHON = ROOT / ".vercel" / "python" / ".venv" / "bin" / "python"
+
+
+def ensure_dependencies() -> None:
+    """Re-runs this script with Vercel's virtual environment if the current Python lacks the dependencies.
+
+    The catalog build imports pandas and the fetchers, which Vercel installs into
+    its own virtual environment; the Build Command is not guaranteed to run there.
+    """
+    try:
+        import pandas  # noqa: F401
+    except ImportError:
+        if VERCEL_VENV_PYTHON.exists() and Path(sys.executable).resolve() != VERCEL_VENV_PYTHON.resolve():
+            print(f"Dependencies not importable from {sys.executable}; re-running with {VERCEL_VENV_PYTHON}", flush=True)
+            os.execv(str(VERCEL_VENV_PYTHON), [str(VERCEL_VENV_PYTHON), __file__, *sys.argv[1:]])
+        raise
 
 
 def run(*command: str, cwd: Path) -> None:
@@ -27,6 +46,8 @@ def run(*command: str, cwd: Path) -> None:
 
 
 def main() -> int:
+    ensure_dependencies()
+    print(f"Python {sys.version.split()[0]} at {sys.executable}", flush=True)
     run("npm", "ci", "--no-audit", "--no-fund", cwd=FRONTEND)
     run("npm", "run", "build", cwd=FRONTEND)
 
