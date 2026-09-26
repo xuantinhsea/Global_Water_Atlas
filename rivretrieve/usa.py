@@ -1,6 +1,7 @@
 """Fetcher for USA river gauge data from USGS NWIS."""
 
 import logging
+import time
 from typing import Optional
 
 import pandas as pd
@@ -9,6 +10,16 @@ from dataretrieval import nwis
 from . import base, constants, utils
 
 logger = logging.getLogger(__name__)
+
+#: NWIS answers some requests with HTTP 503, especially from shared cloud
+#: addresses: the hosted atlas saw about one request in three fail on
+#: 2026-09-26 while the same request succeeded from a desktop. dataretrieval
+#: marks such errors ``retryable`` (429, 5xx, dropped connections), so those
+#: get a few more attempts before the fetcher reports no data.
+MAX_ATTEMPTS = 3
+RETRY_BACKOFF_SECONDS = 2.0
+#: A server's Retry-After is honoured, but never longer than this.
+MAX_RETRY_WAIT_SECONDS = 10.0
 
 
 class USAFetcher(base.RiverDataFetcher):
@@ -73,27 +84,37 @@ class USAFetcher(base.RiverDataFetcher):
             return param_code
 
     def _download_data(self, gauge_id: str, variable: str, start_date: str, end_date: str) -> pd.DataFrame:
-        """Downloads data using the dataretrieval package."""
+        """Downloads data using the dataretrieval package, retrying transient NWIS errors."""
         param_code = self._get_param_code(variable)
-        try:
-            if constants.DAILY in variable:
-                df, meta = nwis.get_dv(
-                    sites=gauge_id,
-                    startDT=start_date,
-                    endDT=end_date,
-                    parameterCd=[param_code],
-                )
-            elif constants.INSTANTANEOUS in variable:
-                df, meta = nwis.get_iv(
-                    sites=gauge_id,
-                    startDT=start_date,
-                    endDT=end_date,
-                    parameterCd=[param_code],
-                )
-            return df
-        except Exception as e:
-            logger.error(f"Error fetching NWIS data for site {gauge_id}, param {param_code}: {e}")
-            return pd.DataFrame()
+        for attempt in range(1, MAX_ATTEMPTS + 1):
+            try:
+                if constants.DAILY in variable:
+                    df, meta = nwis.get_dv(
+                        sites=gauge_id,
+                        startDT=start_date,
+                        endDT=end_date,
+                        parameterCd=[param_code],
+                    )
+                elif constants.INSTANTANEOUS in variable:
+                    df, meta = nwis.get_iv(
+                        sites=gauge_id,
+                        startDT=start_date,
+                        endDT=end_date,
+                        parameterCd=[param_code],
+                    )
+                return df
+            except Exception as e:
+                if getattr(e, "retryable", False) and attempt < MAX_ATTEMPTS:
+                    suggested = getattr(e, "retry_after", None) or RETRY_BACKOFF_SECONDS * attempt
+                    wait = min(suggested, MAX_RETRY_WAIT_SECONDS)
+                    logger.warning(
+                        f"NWIS error for site {gauge_id} ({e}); retrying in {wait:.1f} s "
+                        f"(attempt {attempt + 1} of {MAX_ATTEMPTS})"
+                    )
+                    time.sleep(wait)
+                    continue
+                logger.error(f"Error fetching NWIS data for site {gauge_id}, param {param_code}: {e}")
+                return pd.DataFrame()
 
     def _parse_data(self, gauge_id: str, raw_data: pd.DataFrame, variable: str) -> pd.DataFrame:
         """Parses the DataFrame from dataretrieval."""
