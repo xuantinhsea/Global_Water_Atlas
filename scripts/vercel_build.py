@@ -33,7 +33,7 @@ def ensure_dependencies() -> None:
         import pandas  # noqa: F401
     except ImportError:
         if VERCEL_VENV_PYTHON.exists() and Path(sys.executable).resolve() != VERCEL_VENV_PYTHON.resolve():
-            print(f"Dependencies not importable from {sys.executable}; re-running with {VERCEL_VENV_PYTHON}", flush=True)
+            print(f"No dependencies in {sys.executable}; re-running with {VERCEL_VENV_PYTHON}", flush=True)
             os.execv(str(VERCEL_VENV_PYTHON), [str(VERCEL_VENV_PYTHON), __file__, *sys.argv[1:]])
         raise
 
