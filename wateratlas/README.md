@@ -265,8 +265,10 @@ The atlas also runs as a single Vercel Function; the repository is set up for it
 - `pyproject.toml` points Vercel at `wateratlas.main:app` and runs
   `scripts/vercel_build.py`, which builds the front end and the station catalog
   (neither is in git).
-- `requirements.txt` is exactly what the function installs. Development and docs
-  tools live in `requirements-dev.txt`.
+- The `[project]` dependencies in `pyproject.toml` are exactly what the function
+  installs; development and docs tools are the `dev` extra
+  (`pip install -e ".[dev]"`). `[tool.uv] package = false` stops Vercel
+  installing a copy of the project that would shadow the built catalog.
 - `vercel.json` allows 5 minutes per request (the Hobby maximum) and keeps
   tests, docs and `node_modules` out of the bundle.
 

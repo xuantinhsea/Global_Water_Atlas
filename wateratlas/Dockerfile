@@ -6,7 +6,7 @@
 #         -v atlas-state:/data \
 #         -v atlas-bulk:/app/rivretrieve/data \
 #         --env-file rivretrieve/.env \
-#         gauge-atlas
+#         global-water-atlas
 #
 # Before running this anywhere shared, read each provider's terms of use. A
 # hosted instance concentrates every user's requests on one IP address, and
@@ -33,12 +33,12 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-COPY requirements.txt setup.py README.md ./
+COPY pyproject.toml README.md LICENSE ./
 COPY rivretrieve/ ./rivretrieve/
 COPY wateratlas/ ./wateratlas/
 COPY scripts/ ./scripts/
 
-RUN pip install --no-cache-dir -e ".[app]"
+RUN pip install --no-cache-dir -e .
 
 COPY --from=frontend /build/dist ./wateratlas/frontend/dist
 

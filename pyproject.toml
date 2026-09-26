@@ -1,3 +1,79 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rivretrieve"
+# Keep in step with rivretrieve/__about__.py.
+version = "0.2.0"
+description = "Unified access to observed water data worldwide, with the Global Water Atlas map app."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "RivRetrieve Python Contributors", email = "f.kratzert@gmail.com" }]
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Hydrology",
+]
+# Runtime dependencies of the library and the atlas server. Vercel installs
+# exactly these for the hosted atlas, so development tools go in `dev` below.
+dependencies = [
+    "pandas>=1.3.0",
+    "requests>=2.25.0",
+    "urllib3>=1.26.0",
+    "beautifulsoup4>=4.10.0",
+    "lxml>=4.8.0",
+    "dataretrieval>=1.0.0",
+    "xarray",
+    "zarr>=3.0.7",
+    "python-dotenv",
+    "pyproj>=3.7.1",
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
+    "pyarrow>=14.0",
+]
+
+[project.optional-dependencies]
+# Kept so `pip install -e ".[app]"` from older instructions still works; the
+# server dependencies are now part of the main set.
+app = ["fastapi>=0.110", "uvicorn>=0.27", "pyarrow>=14.0"]
+dev = [
+    "httpx",
+    "parameterized",
+    "pytest",
+    "ruff",
+    "matplotlib>=3.5.0",
+    "tqdm",
+    "sphinx>=8.0.0",
+    "sphinx-rtd-theme>=3.0.0",
+    "myst-parser>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/xuantinhsea/Global_Water_Atlas"
+Upstream = "https://github.com/kratzert/RivRetrieve-Python"
+
+[project.scripts]
+wateratlas = "wateratlas.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["rivretrieve*", "wateratlas*"]
+
+[tool.setuptools.package-data]
+rivretrieve = ["cached_site_data/*.csv"]
+# The front end is built by Vite before packaging; the catalog is generated at
+# first run and never shipped.
+wateratlas = ["frontend/dist/*", "frontend/dist/assets/*"]
+
+[tool.uv]
+# Vercel installs dependencies with uv. The atlas runs from the checkout, where
+# the build step writes the catalog and front end, so never install the project
+# itself: a copy in site-packages would shadow them.
+package = false
+
 [tool.vercel]
 # The hosted Global Water Atlas: the FastAPI app runs as one Vercel Function.
 entrypoint = "wateratlas.main:app"

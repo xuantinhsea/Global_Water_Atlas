@@ -1,7 +1,7 @@
 """Vercel build step for the hosted Global Water Atlas.
 
-Vercel installs requirements.txt and then runs this script (see
-``[tool.vercel.scripts]`` in pyproject.toml). It builds the two things the
+Vercel installs the dependencies listed in pyproject.toml and then runs this
+script (see ``[tool.vercel.scripts]`` there). It builds the two things the
 function needs that are deliberately not in git: the front-end bundle and the
 station catalog.
 

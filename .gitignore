@@ -27,3 +27,5 @@ node_modules/
 .ipynb_checkpoints/
 __pycache__/
 .DS_Store
+# Local Claude Code settings (per-machine permissions)
+.claude/
