@@ -310,6 +310,83 @@ class RiverAppAPITest(unittest.TestCase):
         response = self.client.get("/api/downloads/nonexistent/archive")
         self.assertEqual(response.status_code, 404)
 
+    # -- per-station CSV (the hosted atlas builds archives from these) -----------
+
+    def test_station_data_streams_csv_with_row_count_headers(self):
+        def fake_get_data(self_, gauge_id, variable, start_date=None, end_date=None):
+            return _series(5, variable)
+
+        with patch.object(registry.get_provider("usa").fetcher_class(), "get_data", fake_get_data):
+            response = self.client.get(
+                "/api/station/data",
+                params={"key": "usa:02479500", "variable": "discharge_daily_mean"},
+            )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.headers["content-type"].startswith("text/csv"))
+        self.assertEqual(response.headers["x-atlas-rows"], "5")
+        self.assertEqual(response.headers["x-atlas-first-date"], "2023-01-01")
+        self.assertEqual(response.headers["x-atlas-last-date"], "2023-01-05")
+        lines = response.text.strip().splitlines()
+        self.assertEqual(lines[0], "time,discharge_daily_mean")
+        self.assertEqual(len(lines), 6)
+
+    def test_station_data_reports_an_empty_series_as_json(self):
+        def fake_get_data(self_, gauge_id, variable, start_date=None, end_date=None):
+            return pd.DataFrame(columns=["time", variable]).set_index("time")
+
+        with patch.object(registry.get_provider("usa").fetcher_class(), "get_data", fake_get_data):
+            response = self.client.get(
+                "/api/station/data",
+                params={"key": "usa:07374000", "variable": "discharge_daily_mean"},
+            )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["status"], "empty")
+
+    def test_station_data_rejects_a_variable_the_provider_does_not_publish(self):
+        response = self.client.get(
+            "/api/station/data",
+            params={"key": "usa:02479500", "variable": "water-temperature_daily_mean"},
+        )
+        self.assertEqual(response.status_code, 422)
+        self.assertEqual(response.json()["status"], "unsupported")
+
+    def test_selection_stations_resolves_keys_and_reports_unknown_ones(self):
+        payload = self.client.post(
+            "/api/selection/stations",
+            json={"station_keys": ["czech:0-203-1-200500", "portugal:04K/04A", "usa:nope"]},
+        ).json()
+        by_key = {row["station_key"]: row for row in payload["stations"]}
+        self.assertEqual(by_key["czech:0-203-1-200500"]["station_name"], "Průhonice")
+        self.assertEqual(by_key["portugal:04K/04A"]["gauge_id"], "04K/04A")
+        # A missing name is null, never the string "nan".
+        self.assertIsNone(by_key["portugal:04K/04A"]["station_name"])
+        self.assertEqual(payload["unknown_keys"], ["usa:nope"])
+
+    # -- hosted (Vercel) mode ----------------------------------------------------
+
+    def test_hosted_mode_blocks_bulk_cache_providers_and_server_jobs(self):
+        with patch.object(paths, "HOSTED", True):
+            providers = {p["key"]: p for p in self.client.get("/api/providers").json()["providers"]}
+            self.assertIn("several GB", providers["canada"]["blocked_reason"])
+            self.assertFalse(providers["canada"]["usable"])
+            self.assertIsNone(providers["usa"]["blocked_reason"])
+            self.assertTrue(self.client.get("/api/providers").json()["hosted"])
+
+            job = self.client.post(
+                "/api/downloads",
+                json={"station_keys": ["usa:02479500"], "variable": "discharge_daily_mean"},
+            )
+            self.assertEqual(job.status_code, 409)
+
+            estimate = self.client.post(
+                "/api/selection/estimate",
+                json={"station_keys": ["usa:02479500"], "variable": "discharge_daily_mean"},
+            ).json()
+            self.assertEqual(estimate["blocked"], 0)
+
+        self.assertFalse(self.client.get("/api/providers").json()["hosted"])
+
     # -- report ----------------------------------------------------------------
 
     def test_catalog_report_accounts_for_every_row(self):

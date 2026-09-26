@@ -55,6 +55,58 @@ def safe_filename(text: str) -> str:
     return "".join(character if character.isalnum() or character in "-_." else "_" for character in text)
 
 
+@dataclass
+class FetchOutcome:
+    """What one station's download produced: ``DONE``, ``EMPTY`` or ``FAILED``."""
+
+    state: str
+    frame: Optional[pd.DataFrame] = None
+    rows: int = 0
+    first_date: Optional[str] = None
+    last_date: Optional[str] = None
+    message: Optional[str] = None
+
+
+def fetch_station(
+    fetcher: Any,
+    station_key: str,
+    gauge_id: str,
+    variable: str,
+    start_date: Optional[str],
+    end_date: Optional[str],
+) -> FetchOutcome:
+    """Downloads one station's series and records what it taught us about availability.
+
+    Shared by server-side jobs and the hosted atlas's per-station CSV endpoint,
+    so both classify a result the same way.
+    """
+    try:
+        frame = fetcher.get_data(gauge_id=gauge_id, variable=variable, start_date=start_date, end_date=end_date)
+    except Exception as exc:
+        message = str(exc)[:400]
+        availability.record(station_key, variable, availability.FAILED, note=message)
+        return FetchOutcome(FAILED, message=message)
+
+    if frame is None or frame.empty:
+        availability.record(station_key, variable, availability.ABSENT)
+        return FetchOutcome(EMPTY, message="The provider returned no rows for this range.")
+
+    outcome = FetchOutcome(DONE, frame=frame, rows=len(frame))
+    index = pd.to_datetime(frame.index, errors="coerce")
+    if index.notna().any():
+        outcome.first_date = str(index.min().date())
+        outcome.last_date = str(index.max().date())
+    availability.record(
+        station_key,
+        variable,
+        availability.CONFIRMED,
+        rows=outcome.rows,
+        first_date=outcome.first_date,
+        last_date=outcome.last_date,
+    )
+    return outcome
+
+
 def _optional_text(value: Any) -> Optional[str]:
     """Catalog cells are NaN, not None, for the 48,397 stations that have no name."""
     if value is None or (isinstance(value, float) and pd.isna(value)):
@@ -287,11 +339,11 @@ class JobManager:
     def _run_provider(self, job: Job, country: str, tasks: list[StationTask]) -> None:
         provider = registry.get_provider(country)
 
-        missing = provider.missing_credentials()
-        if missing:
+        reason = provider.blocked_reason()
+        if reason:
             for task in tasks:
                 task.state = BLOCKED
-                task.message = f"{provider.label} needs {' and '.join(missing)} in your .env file."
+                task.message = reason
                 job.emit("station.finished", **asdict(task), progress=job.progress())
             return
 
@@ -344,39 +396,17 @@ class JobManager:
         job.emit("station.started", station_key=task.station_key, country=task.country)
         started = time.monotonic()
 
-        try:
-            frame = fetcher.get_data(
-                gauge_id=task.gauge_id,
-                variable=job.variable,
-                start_date=job.start_date,
-                end_date=job.end_date,
-            )
-        except Exception as exc:
-            task.state = FAILED
-            task.message = str(exc)[:400]
-            availability.record(task.station_key, job.variable, availability.FAILED, note=task.message)
-        else:
-            if frame is None or frame.empty:
-                task.state = EMPTY
-                task.message = "The provider returned no rows for this range."
-                availability.record(task.station_key, job.variable, availability.ABSENT)
-            else:
-                path = self._write_station_csv(job, task, frame)
-                task.state = DONE
-                task.rows = len(frame)
-                task.path = str(path.relative_to(job.csv_dir)).replace("\\", "/")
-                index = pd.to_datetime(frame.index, errors="coerce")
-                if index.notna().any():
-                    task.first_date = str(index.min().date())
-                    task.last_date = str(index.max().date())
-                availability.record(
-                    task.station_key,
-                    job.variable,
-                    availability.CONFIRMED,
-                    rows=task.rows,
-                    first_date=task.first_date,
-                    last_date=task.last_date,
-                )
+        outcome = fetch_station(
+            fetcher, task.station_key, task.gauge_id, job.variable, job.start_date, job.end_date
+        )
+        task.state = outcome.state
+        task.message = outcome.message
+        if outcome.state == DONE:
+            path = self._write_station_csv(job, task, outcome.frame)
+            task.rows = outcome.rows
+            task.path = str(path.relative_to(job.csv_dir)).replace("\\", "/")
+            task.first_date = outcome.first_date
+            task.last_date = outcome.last_date
 
         task.seconds = round(time.monotonic() - started, 2)
         job.emit("station.finished", **asdict(task), progress=job.progress())
@@ -506,9 +536,10 @@ def estimate(station_keys: Iterable[str], variable: str) -> dict[str, Any]:
             continue
         supported = variable in provider.declared_variables()
         missing = provider.missing_credentials()
+        reason = provider.blocked_reason()
         if not supported:
             unsupported += count
-        elif missing:
+        elif reason:
             blocked += count
         else:
             workers = LOCAL_CACHE_CONCURRENCY if provider.cache_glob else DEFAULT_CONCURRENCY
@@ -520,6 +551,7 @@ def estimate(station_keys: Iterable[str], variable: str) -> dict[str, Any]:
                 "stations": count,
                 "supported": supported,
                 "missing_credentials": missing,
+                "blocked_reason": reason,
                 "bulk_first_use": provider.bulk_first_use if not provider.cache_is_warm() else None,
                 "throttle_note": provider.throttle_note,
             }

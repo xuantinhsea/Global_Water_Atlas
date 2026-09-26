@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "wateratlas/main.py": {
+      "maxDuration": 300,
+      "excludeFiles": "{tests/**,docs/**,examples/**,wateratlas/frontend/node_modules/**,wateratlas/frontend/src/**,wateratlas/state/**,**/__pycache__/**}"
+    }
+  }
+}

@@ -1,3 +1,11 @@
+[tool.vercel]
+# The hosted Global Water Atlas: the FastAPI app runs as one Vercel Function.
+entrypoint = "wateratlas.main:app"
+
+[tool.vercel.scripts]
+# Builds the front end and the station catalog, neither of which is in git.
+build = "python scripts/vercel_build.py"
+
 [tool.ruff]
 line-length = 120
 extend-exclude = [

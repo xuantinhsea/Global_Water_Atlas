@@ -44,6 +44,8 @@ export interface Provider {
   per_station_availability: boolean;
   needs_credentials: string[];
   missing_credentials: string[];
+  /** Why downloads from this provider can't succeed right now, or null if they can. */
+  blocked_reason: string | null;
   usable: boolean;
   bulk_first_use: string | null;
   cache_warm: boolean | null;
@@ -53,6 +55,8 @@ export interface Provider {
 
 export interface ProvidersResponse {
   catalog_built: boolean;
+  /** True on Vercel: downloads are assembled in the browser, not by a server job. */
+  hosted: boolean;
   totals: { stations: number; mappable: number; off_map: number; named: number };
   variables: string[];
   providers: Provider[];
@@ -78,6 +82,7 @@ export interface StationDetail {
     country_name: string;
     source_url: string;
     missing_credentials: string[];
+    blocked_reason: string | null;
     bulk_first_use: string | null;
     cache_warm: boolean | null;
     throttle_note: string | null;
@@ -114,6 +119,7 @@ export interface EstimateBreakdown {
   stations: number;
   supported: boolean;
   missing_credentials: string[];
+  blocked_reason: string | null;
   bulk_first_use: string | null;
   throttle_note: string | null;
 }

@@ -6,7 +6,26 @@ import type {
   Preview,
   ProvidersResponse,
   StationDetail,
+  TaskState,
 } from "./types";
+
+/** One station's CSV, or why there isn't one. */
+export type StationDataResult =
+  | {
+      status: "done";
+      csv: Uint8Array<ArrayBuffer>;
+      rows: number;
+      firstDate: string | null;
+      lastDate: string | null;
+    }
+  | { status: Exclude<TaskState, "done" | "queued" | "running">; message: string };
+
+export interface SelectedStation {
+  station_key: string;
+  country: string;
+  gauge_id: string;
+  station_name: string | null;
+}
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(path, {
@@ -78,6 +97,51 @@ export const api = {
     request<{ country: string; state: string }>(`/api/providers/${country}/warm`, {
       method: "POST",
     }),
+
+  selectionStations: (stationKeys: string[]) =>
+    request<{ stations: SelectedStation[]; unknown_keys: string[] }>("/api/selection/stations", {
+      method: "POST",
+      body: JSON.stringify({ station_keys: stationKeys }),
+    }),
+
+  /** Fetches one station's series as CSV. Used by the hosted atlas to build archives in the browser. */
+  stationData: async (
+    key: string,
+    variable: string,
+    startDate: string | null,
+    endDate: string | null,
+    signal?: AbortSignal,
+  ): Promise<StationDataResult> => {
+    const params = new URLSearchParams({ key, variable });
+    if (startDate) params.set("start_date", startDate);
+    if (endDate) params.set("end_date", endDate);
+    const response = await fetch(`/api/station/data?${params}`, { signal });
+    const type = response.headers.get("content-type") ?? "";
+
+    if (response.ok && type.startsWith("text/csv")) {
+      return {
+        status: "done",
+        csv: new Uint8Array(await response.arrayBuffer()),
+        rows: Number(response.headers.get("x-atlas-rows") ?? 0),
+        firstDate: response.headers.get("x-atlas-first-date") || null,
+        lastDate: response.headers.get("x-atlas-last-date") || null,
+      };
+    }
+    if (type.includes("application/json")) {
+      const body = await response.json().catch(() => null);
+      if (body?.status) return { status: body.status, message: body.message ?? "" };
+      if (body?.detail) return { status: "failed", message: String(body.detail) };
+    }
+    if (response.status === 504) {
+      return {
+        status: "failed",
+        message:
+          "The provider took longer than the hosted atlas allows for one station (5 minutes). " +
+          "Try a shorter date range, or use the local app.",
+      };
+    }
+    return { status: "failed", message: `${response.status} ${response.statusText}` };
+  },
 };
 
 /**

@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { api, subscribeToJob } from "../lib/api";
+import { archiveName, runBrowserJob, type BrowserJobHandle } from "../lib/browserDownload";
 import { formatCount, formatDuration, variableLabel } from "../lib/palette";
-import type { Estimate, Job, JobTask } from "../lib/types";
+import type { Estimate, Job, JobTask, Provider } from "../lib/types";
 
 interface Props {
   selection: Set<string>;
@@ -10,9 +11,18 @@ interface Props {
   startDate: string;
   endDate: string;
   onDatesChange: (start: string, end: string) => void;
+  /** Hosted on Vercel: run downloads in the browser instead of as a server job. */
+  hosted: boolean;
+  providers: Provider[];
 }
 
 const TERMINAL = new Set(["done", "cancelled"]);
+
+/** Detail of the `atlas:download-request` event the station panel sends when hosted. */
+export interface DownloadRequestDetail {
+  keys: string[];
+  variable: string;
+}
 
 export function CartPanel({
   selection,
@@ -21,6 +31,8 @@ export function CartPanel({
   startDate,
   endDate,
   onDatesChange,
+  hosted,
+  providers,
 }: Props) {
   const keys = useMemo(() => Array.from(selection), [selection]);
   const [variableOptions, setVariableOptions] = useState<
@@ -31,6 +43,34 @@ export function CartPanel({
   const [job, setJob] = useState<Job | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [open, setOpen] = useState(true);
+  // Hosted only: the running browser job, and the object URL of its finished archive.
+  const browserJob = useRef<BrowserJobHandle | null>(null);
+  const [archiveUrl, setArchiveUrl] = useState<string | null>(null);
+
+  // Object URLs pin the whole archive in memory until revoked.
+  useEffect(() => () => {
+    if (archiveUrl) URL.revokeObjectURL(archiveUrl);
+  }, [archiveUrl]);
+
+  const startBrowserJob = useCallback(
+    (jobKeys: string[], jobVariable: string) => {
+      setError(null);
+      setArchiveUrl(null);
+      browserJob.current?.cancel();
+      browserJob.current = runBrowserJob({
+        keys: jobKeys,
+        variable: jobVariable,
+        startDate: startDate || null,
+        endDate: endDate || null,
+        providers,
+        onUpdate: (next, archive) => {
+          setJob(next);
+          if (archive) setArchiveUrl(URL.createObjectURL(archive));
+        },
+      });
+    },
+    [startDate, endDate, providers],
+  );
 
   // Which variables make sense for this selection.
   useEffect(() => {
@@ -105,8 +145,23 @@ export function CartPanel({
     return () => window.removeEventListener("atlas:job-created", onCreated);
   }, [watchJob]);
 
+  // Hosted, the detail panel asks for a one-station download instead of creating a job.
+  useEffect(() => {
+    const onRequest = (event: Event) => {
+      const detail = (event as CustomEvent<DownloadRequestDetail>).detail;
+      setOpen(true);
+      startBrowserJob(detail.keys, detail.variable);
+    };
+    window.addEventListener("atlas:download-request", onRequest);
+    return () => window.removeEventListener("atlas:download-request", onRequest);
+  }, [startBrowserJob]);
+
   const start = async () => {
     if (!variable || !keys.length) return;
+    if (hosted) {
+      startBrowserJob(keys, variable);
+      return;
+    }
     setError(null);
     try {
       const created = await api.createDownload(keys, variable, startDate || null, endDate || null);
@@ -118,6 +173,10 @@ export function CartPanel({
 
   const cancel = async () => {
     if (!job) return;
+    if (hosted) {
+      browserJob.current?.cancel();
+      return;
+    }
     try {
       setJob(await api.cancelJob(job.id));
     } catch (exc) {
@@ -203,7 +262,11 @@ export function CartPanel({
                       <> · {formatCount(estimate.unsupported)} do not publish this variable</>
                     )}
                     {estimate.blocked > 0 && (
-                      <> · {formatCount(estimate.blocked)} blocked by missing credentials</>
+                      <>
+                        {" "}
+                        · {formatCount(estimate.blocked)}{" "}
+                        {hosted ? "unavailable on the hosted atlas" : "blocked by missing credentials"}
+                      </>
                     )}
                   </p>
                   <p className="riv-muted riv-small">
@@ -220,7 +283,14 @@ export function CartPanel({
                         {row.missing_credentials.length > 0 && (
                           <em className="riv-warn">needs {row.missing_credentials.join(", ")}</em>
                         )}
-                        {row.bulk_first_use && <em className="riv-warn">bulk download first</em>}
+                        {row.blocked_reason && row.missing_credentials.length === 0 && (
+                          <em className="riv-warn" title={row.blocked_reason}>
+                            local app only
+                          </em>
+                        )}
+                        {row.bulk_first_use && !row.blocked_reason && (
+                          <em className="riv-warn">bulk download first</em>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -279,6 +349,12 @@ export function CartPanel({
                   <button type="button" className="riv-button riv-button-ghost" onClick={cancel}>
                     Cancel
                   </button>
+                ) : hosted ? (
+                  archiveUrl && (
+                    <a className="riv-button riv-button-primary" href={archiveUrl} download={archiveName(job)}>
+                      Download ZIP
+                    </a>
+                  )
                 ) : (
                   job.has_archive && (
                     <a className="riv-button riv-button-primary" href={api.archiveUrl(job.id)}>

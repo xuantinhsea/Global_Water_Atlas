@@ -12,6 +12,11 @@ from pathlib import Path
 PACKAGE_DIR = Path(__file__).resolve().parent
 REPO_ROOT = PACKAGE_DIR.parent
 
+#: True when running as a Vercel Function. The deployment is read-only except
+#: for /tmp, and no process lives long enough to run a background download job,
+#: so a few features change shape there (see ``registry.Provider.blocked_reason``).
+HOSTED = bool(os.environ.get("VERCEL"))
+
 # Where rivretrieve keeps its own lazily-downloaded bulk caches (HYDAT, poland.zarr).
 RIVRETRIEVE_DIR = REPO_ROOT / "rivretrieve"
 RIVRETRIEVE_DATA_DIR = RIVRETRIEVE_DIR / "data"
@@ -26,7 +31,9 @@ STATIONS_JSON = CATALOG_DIR / "stations.json"
 CATALOG_REPORT_JSON = CATALOG_DIR / "catalog_report.json"
 
 # Runtime state: learned variable availability, download jobs, series cache.
-STATE_DIR = Path(os.environ.get("WATERATLAS_STATE_DIR", PACKAGE_DIR / "state"))
+# Hosted, /tmp is the only writable place, and it lasts only as long as the instance.
+_DEFAULT_STATE_DIR = Path("/tmp/wateratlas/state") if HOSTED else PACKAGE_DIR / "state"
+STATE_DIR = Path(os.environ.get("WATERATLAS_STATE_DIR", _DEFAULT_STATE_DIR))
 AVAILABILITY_DB = STATE_DIR / "availability.sqlite3"
 JOBS_DIR = STATE_DIR / "jobs"
 PREVIEW_CACHE_DIR = STATE_DIR / "preview_cache"
@@ -37,6 +44,11 @@ FRONTEND_DIST = FRONTEND_DIR / "dist"
 
 
 def ensure_dirs() -> None:
-    """Creates every directory the app writes to."""
+    """Creates every directory the app writes to.
+
+    Existing directories are left alone rather than re-created: hosted, the
+    catalog directory ships inside a read-only bundle.
+    """
     for directory in (CATALOG_DIR, STATE_DIR, JOBS_DIR, PREVIEW_CACHE_DIR):
-        directory.mkdir(parents=True, exist_ok=True)
+        if not directory.exists():
+            directory.mkdir(parents=True, exist_ok=True)

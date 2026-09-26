@@ -221,9 +221,16 @@ export function Sidebar({
                         needs {provider.missing_credentials.join(", ")}
                       </p>
                     )}
-                    {provider.bulk_first_use && provider.cache_warm === false && (
-                      <p className="riv-provider-note">one-time bulk download on first use</p>
+                    {provider.blocked_reason && provider.missing_credentials.length === 0 && (
+                      <p className="riv-provider-note riv-warn" title={provider.blocked_reason}>
+                        map only here; download with the local app
+                      </p>
                     )}
+                    {provider.bulk_first_use &&
+                      provider.cache_warm === false &&
+                      !provider.blocked_reason && (
+                        <p className="riv-provider-note">one-time bulk download on first use</p>
+                      )}
                   </li>
                 );
               })}

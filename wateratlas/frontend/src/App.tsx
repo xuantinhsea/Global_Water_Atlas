@@ -215,6 +215,7 @@ export default function App() {
           onClose={() => setActive(null)}
           defaultStart={startDate}
           defaultEnd={endDate}
+          hosted={providers?.hosted ?? false}
         />
       )}
 
@@ -228,6 +229,8 @@ export default function App() {
           setStartDate(start);
           setEndDate(end);
         }}
+        hosted={providers?.hosted ?? false}
+        providers={providers?.providers ?? []}
       />
     </div>
   );

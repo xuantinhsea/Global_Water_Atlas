@@ -1,0 +1,11 @@
+# Not needed to build or run the hosted Global Water Atlas.
+tests/
+docs/
+examples/
+.github/
+# Generated locally; the Vercel build makes its own.
+wateratlas/state/
+wateratlas/catalog_data/
+wateratlas/frontend/node_modules/
+wateratlas/frontend/dist/
+rivretrieve/data/

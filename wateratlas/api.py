@@ -11,7 +11,7 @@ from typing import Any, Optional
 import numpy as np
 import pandas as pd
 from fastapi import APIRouter, HTTPException, Query
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
 from . import availability, catalog_build, jobs, paths, preview, registry
@@ -20,6 +20,19 @@ from .catalog import CatalogNotBuilt, StationQuery, catalog, to_geojson
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api")
+
+#: CSV bodies go out in pieces this size. A streamed response is not held to
+#: Vercel's 4.5 MB body limit, and a decade of 6-minute data runs to ~25 MB.
+CSV_CHUNK_BYTES = 1 << 20
+
+
+def _require_local(feature: str) -> None:
+    """Rejects features that need a long-lived server, when running hosted."""
+    if paths.HOSTED:
+        raise HTTPException(
+            status_code=409,
+            detail=f"{feature} needs the local app. On the hosted atlas, downloads run in your browser.",
+        )
 
 
 def _json_safe(value: Any) -> Any:
@@ -95,7 +108,8 @@ def list_providers() -> dict[str, Any]:
                 "per_station_availability": provider.availability_columns,
                 "needs_credentials": list(provider.credentials),
                 "missing_credentials": missing,
-                "usable": not missing,
+                "blocked_reason": provider.blocked_reason(),
+                "usable": provider.is_usable(),
                 "bulk_first_use": provider.bulk_first_use,
                 "cache_warm": provider.cache_is_warm(),
                 "throttle_note": provider.throttle_note,
@@ -105,6 +119,8 @@ def list_providers() -> dict[str, Any]:
 
     return {
         "catalog_built": built,
+        # Tells the front end to build download archives itself (see /api/station/data).
+        "hosted": paths.HOSTED,
         "totals": totals,
         "variables": list(registry.all_variables()),
         "providers": providers,
@@ -124,6 +140,7 @@ def catalog_report() -> dict[str, Any]:
 @router.post("/catalog/rebuild")
 def rebuild_catalog() -> dict[str, Any]:
     """Rebuilds from the cached CSVs and reloads the in-memory catalog."""
+    _require_local("Rebuilding the catalog")
     summary = catalog_build.build_catalog(verbose=False)
     catalog.reload()
     return summary
@@ -218,6 +235,72 @@ def station_preview(
     return preview.get_preview(key, variable, start_date, end_date, use_cache=not refresh)
 
 
+@router.get("/station/data", response_model=None)
+def station_data(
+    key: str = Query(..., description="station_key, e.g. usa:02479500"),
+    variable: str = Query(...),
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+) -> StreamingResponse | JSONResponse:
+    """One station's series as CSV, fetched from the provider on request.
+
+    The hosted atlas builds its download archives in the browser from these,
+    one station at a time, because no hosted process lives long enough to run a
+    batch job. Anything other than data comes back as JSON with a ``status``:
+    ``blocked`` (409), ``unsupported`` (422), ``empty`` (200) or ``failed`` (502).
+    """
+    try:
+        record = catalog.get(key)
+    except CatalogNotBuilt as exc:
+        raise HTTPException(status_code=503, detail=str(exc))
+    if record is None:
+        raise HTTPException(status_code=404, detail=f"Unknown station {key}")
+
+    country, gauge_id = registry.split_station_key(key)
+    provider = registry.get_provider(country)
+
+    def status(code: int, state: str, message: Optional[str]) -> JSONResponse:
+        return JSONResponse(
+            status_code=code,
+            content={"station_key": key, "variable": variable, "status": state, "message": message},
+        )
+
+    reason = provider.blocked_reason()
+    if reason:
+        return status(409, jobs.BLOCKED, reason)
+    if variable not in provider.declared_variables():
+        return status(422, jobs.UNSUPPORTED, f"{provider.label} does not publish {variable}.")
+
+    try:
+        fetcher = jobs.manager.fetcher(country)
+    except Exception as exc:
+        return status(502, jobs.FAILED, f"Could not start the {provider.label} fetcher: {exc}"[:400])
+
+    outcome = jobs.fetch_station(fetcher, key, gauge_id, variable, start_date, end_date)
+    if outcome.state == jobs.FAILED:
+        return status(502, jobs.FAILED, outcome.message)
+    if outcome.state == jobs.EMPTY:
+        return status(200, jobs.EMPTY, outcome.message)
+
+    text = outcome.frame.to_csv()
+
+    def chunks():
+        for offset in range(0, len(text), CSV_CHUNK_BYTES):
+            yield text[offset : offset + CSV_CHUNK_BYTES]
+
+    return StreamingResponse(
+        chunks(),
+        media_type="text/csv; charset=utf-8",
+        headers={
+            "Content-Disposition": f'attachment; filename="{jobs.safe_filename(gauge_id)}_{variable}.csv"',
+            "X-Atlas-Rows": str(outcome.rows),
+            "X-Atlas-First-Date": outcome.first_date or "",
+            "X-Atlas-Last-Date": outcome.last_date or "",
+            "Cache-Control": "no-store",
+        },
+    )
+
+
 @router.get("/station")
 def get_station(key: str = Query(..., description="station_key, e.g. usa:02479500")) -> dict[str, Any]:
     """Full metadata for one station, including every provider-specific column.
@@ -242,6 +325,7 @@ def get_station(key: str = Query(..., description="station_key, e.g. usa:0247950
             "country_name": provider.country_name,
             "source_url": provider.source_url,
             "missing_credentials": provider.missing_credentials(),
+            "blocked_reason": provider.blocked_reason(),
             "bulk_first_use": provider.bulk_first_use,
             "cache_warm": provider.cache_is_warm(),
             "throttle_note": provider.throttle_note,
@@ -272,6 +356,30 @@ def selection_estimate(request: SelectionRequest) -> dict[str, Any]:
     return jobs.estimate(request.station_keys, request.variable)
 
 
+@router.post("/selection/stations")
+def selection_stations(request: SelectionRequest) -> dict[str, Any]:
+    """Provider, gauge ID and name for each selected key, plus any not in the catalog.
+
+    The hosted atlas uses these to name the files and write the manifest of an
+    archive it builds in the browser.
+    """
+    try:
+        rows = catalog.rows_for_keys(request.station_keys)
+    except CatalogNotBuilt as exc:
+        raise HTTPException(status_code=503, detail=str(exc))
+    stations = [
+        {
+            "station_key": row[registry.STATION_KEY],
+            "country": row[registry.COUNTRY],
+            "gauge_id": row[registry.GAUGE_ID],
+            "station_name": _json_safe(row[registry.STATION_NAME]),
+        }
+        for row in rows.to_dict(orient="records")
+    ]
+    found = {station["station_key"] for station in stations}
+    return {"stations": stations, "unknown_keys": [key for key in request.station_keys if key not in found]}
+
+
 # --------------------------------------------------------------------------------------
 # Downloads
 # --------------------------------------------------------------------------------------
@@ -280,6 +388,7 @@ def selection_estimate(request: SelectionRequest) -> dict[str, Any]:
 @router.post("/downloads")
 def create_download(request: DownloadRequest) -> dict[str, Any]:
     """Starts a download job. Returns immediately; progress arrives over SSE."""
+    _require_local("A server-side download job")
     try:
         job = jobs.manager.create(
             request.station_keys, request.variable, request.start_date, request.end_date
@@ -378,6 +487,7 @@ def warm_provider(country: str) -> dict[str, Any]:
     lazily inside ``get_data()``. Doing that behind a user's first map click
     would look like a hang, so it gets its own visible step.
     """
+    _require_local("Warming a bulk cache")
     try:
         provider = registry.get_provider(country)
     except KeyError as exc:

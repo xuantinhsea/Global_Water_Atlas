@@ -88,13 +88,13 @@ def get_preview(
     country, gauge_id = registry.split_station_key(station_key)
     provider = registry.get_provider(country)
 
-    missing = provider.missing_credentials()
-    if missing:
+    reason = provider.blocked_reason()
+    if reason:
         return {
             "station_key": station_key,
             "variable": variable,
             "status": "blocked",
-            "message": f"{provider.label} needs {' and '.join(missing)} in your .env file.",
+            "message": reason,
             "series": {"t": [], "mean": [], "min": [], "max": []},
         }
     if variable not in provider.declared_variables():

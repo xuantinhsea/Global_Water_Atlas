@@ -1,0 +1,11 @@
+# Everything for development: tests, linting, docs and the example scripts.
+-r requirements.txt
+httpx
+parameterized
+pytest
+ruff
+matplotlib>=3.5.0
+tqdm
+sphinx>=8.0.0
+sphinx-rtd-theme>=3.0.0
+myst-parser>=4.0.0

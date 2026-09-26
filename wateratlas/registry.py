@@ -140,9 +140,23 @@ class Provider:
             return None
         return any(paths.RIVRETRIEVE_DATA_DIR.glob(self.cache_glob))
 
+    def blocked_reason(self) -> Optional[str]:
+        """Why a download from this provider cannot succeed right now, or None if it can."""
+        missing = self.missing_credentials()
+        if missing:
+            return f"{self.label} needs {' and '.join(missing)} in your .env file."
+        if paths.HOSTED and self.bulk_first_use:
+            # HYDAT alone is 1.2 GB; a hosted function has neither the disk nor
+            # the time to build it, and nothing would keep it between requests.
+            return (
+                f"{self.label} needs a one-time bulk download of several GB, which the hosted "
+                "atlas cannot store. Use the local app for these stations."
+            )
+        return None
+
     def is_usable(self) -> bool:
         """Whether a download request to this provider can succeed right now."""
-        return not self.missing_credentials()
+        return self.blocked_reason() is None
 
 
 # --------------------------------------------------------------------------------------

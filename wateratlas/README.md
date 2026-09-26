@@ -258,6 +258,37 @@ Two environment variables move the app's files elsewhere:
 `WATERATLAS_CATALOG_DIR` for the catalog and `WATERATLAS_STATE_DIR` for this
 state.
 
+## Hosting on Vercel
+
+The atlas also runs as a single Vercel Function; the repository is set up for it.
+
+- `pyproject.toml` points Vercel at `wateratlas.main:app` and runs
+  `scripts/vercel_build.py`, which builds the front end and the station catalog
+  (neither is in git).
+- `requirements.txt` is exactly what the function installs. Development and docs
+  tools live in `requirements-dev.txt`.
+- `vercel.json` allows 5 minutes per request (the Hobby maximum) and keeps
+  tests, docs and `node_modules` out of the bundle.
+
+Run `python scripts/vercel_build.py` locally to check that a deployment will build.
+
+A hosted function has no long-lived process and only `/tmp` to write to, so
+three things work differently there (the app detects Vercel via `VERCEL=1`):
+
+- **Downloads run in your browser.** Instead of a server job, the page fetches
+  each station's CSV from `GET /api/station/data`, one station at a time per
+  provider, and builds the same ZIP (CSVs, `manifest.csv`, `ATTRIBUTION.md`)
+  itself. Keep the tab open until it finishes.
+- **Canada (HYDAT) and Poland (IMGW) are map-only.** Their fetchers first build a
+  multi-GB local archive, which a function cannot store. Download them with the
+  local app.
+- **One station must finish within 5 minutes.** Long ranges of 6-minute data or
+  slow scraped providers can exceed that; the manifest then says so, and a
+  shorter date range fixes it.
+
+Learned availability and preview caches live in `/tmp` and reset whenever
+Vercel starts a new instance.
+
 ## Data rights
 
 All data rights remain with the original providers. The MIT licence of this
