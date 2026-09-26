@@ -9,3 +9,13 @@ wateratlas/catalog_data/
 wateratlas/frontend/node_modules/
 wateratlas/frontend/dist/
 rivretrieve/data/
+# Local tooling, caches and scratch output. `vercel deploy` from a working copy
+# would otherwise upload them, since this file replaces .gitignore for the CLI.
+.claude/
+.pytest_cache/
+.ruff_cache/
+**/__pycache__/
+*.egg-info/
+*.tsbuildinfo
+*.png
+.venv/
