@@ -1,0 +1,181 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.97152,
+     14.58214
+    ]
+   },
+   "properties": {
+    "name": "Manila",
+    "timezone_name": "Asia/Manila",
+    "uhslc_id": 370,
+    "uhslc_code": "mani",
+    "ssc_id": "mani",
+    "gloss_id": 73,
+    "country": "Philippines",
+    "country_code": "608",
+    "country_code_alpha": "PH",
+    "fd_span": {
+     "oldest": "1984-01-01",
+     "latest": "2026-07-31"
+    },
+    "rq_span": {
+     "oldest": "1984-01-01",
+     "latest": "2024-12-31"
+    },
+    "rq_basin": "pacific",
+    "rq_versions": {
+     "a": {
+      "begin": "1984-01-01",
+      "end": "2024-12-31",
+      "coordinates": [
+       120.97152,
+       14.58214
+      ]
+     }
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     107.07107,
+     10.34021
+    ]
+   },
+   "properties": {
+    "name": "Vung Tau",
+    "timezone_name": "Asia/Saigon",
+    "uhslc_id": 383,
+    "uhslc_code": "vung",
+    "ssc_id": "vung",
+    "gloss_id": 0,
+    "country": "Viet Nam",
+    "country_code": "704",
+    "country_code_alpha": "VN",
+    "fd_span": {
+     "oldest": "2007-10-16",
+     "latest": "2026-07-31"
+    },
+    "rq_span": {
+     "oldest": "1986-01-01",
+     "latest": "2024-12-31"
+    },
+    "rq_basin": "pacific",
+    "rq_versions": {
+     "a": {
+      "begin": "1986-01-01",
+      "end": "2002-12-31",
+      "coordinates": [
+       107.0717,
+       10.34
+      ]
+     },
+     "b": {
+      "begin": "2007-10-15",
+      "end": "2024-12-31",
+      "coordinates": [
+       107.07107,
+       10.34021
+      ]
+     }
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     103.8533,
+     1.2617
+    ]
+   },
+   "properties": {
+    "name": "Tanjong Pagar",
+    "timezone_name": "Asia/Singapore",
+    "uhslc_id": 699,
+    "uhslc_code": "tanjo",
+    "ssc_id": "tanjo",
+    "gloss_id": 44,
+    "country": "Singapore",
+    "country_code": "702",
+    "country_code_alpha": "SG",
+    "fd_span": {
+     "oldest": "1984-01-01",
+     "latest": "2023-12-31"
+    },
+    "rq_span": {
+     "oldest": "1984-01-01",
+     "latest": "2023-12-31"
+    },
+    "rq_basin": "pacific",
+    "rq_versions": {
+     "a": {
+      "begin": "1984-01-01",
+      "end": "2023-12-31",
+      "coordinates": [
+       103.8533,
+       1.2617
+      ]
+     }
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     269.71447,
+     -0.43656
+    ]
+   },
+   "properties": {
+    "name": "Baltra",
+    "timezone_name": "Pacific/Galapagos",
+    "uhslc_id": 3,
+    "uhslc_code": "balt",
+    "ssc_id": "balt",
+    "gloss_id": 169,
+    "country": "Ecuador",
+    "country_code": "218",
+    "country_code_alpha": "EC",
+    "fd_span": {
+     "oldest": "1985-03-26",
+     "latest": "2026-07-31"
+    },
+    "rq_span": {
+     "oldest": "1968-06-01",
+     "latest": "2024-12-31"
+    },
+    "rq_basin": "pacific",
+    "rq_versions": {
+     "a": {
+      "begin": "1968-06-01",
+      "end": "1977-12-31",
+      "coordinates": [
+       269.71500000000003,
+       -0.435
+      ]
+     },
+     "b": {
+      "begin": "1985-03-25",
+      "end": "2024-12-31",
+      "coordinates": [
+       269.71447,
+       -0.43656
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

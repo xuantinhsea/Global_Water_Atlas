@@ -233,6 +233,19 @@ PROVIDERS: tuple[Provider, ...] = (
         seconds_per_station=3.0,
     ),
     Provider(
+        key="ioc_sealevel",
+        fetcher="IOCSeaLevelFetcher",
+        label="IOC Sea Level Monitoring",
+        country_name="Worldwide coastal tide gauges",
+        source_url="https://www.ioc-sealevelmonitoring.org/",
+        throttle_note=(
+            "Raw real-time tide gauge readings, about one a minute, unchecked and relative to each "
+            "sensor's own zero. Each request covers only the last 92 days of the range, fetched in "
+            "30-day windows one second apart; use UHSLC for long, quality-controlled records."
+        ),
+        seconds_per_station=20.0,
+    ),
+    Provider(
         key="japan",
         fetcher="JapanFetcher",
         label="MLIT Water Information System",
@@ -352,6 +365,19 @@ PROVIDERS: tuple[Provider, ...] = (
         seconds_per_station=4.0,
     ),
     Provider(
+        key="singapore_rain",
+        fetcher="SingaporeRainFetcher",
+        label="NEA rain gauges (data.gov.sg)",
+        country_name="Singapore",
+        source_url="https://data.gov.sg/",
+        throttle_note=(
+            "Five-minute rainfall, served one whole day at a time for every gauge, back to "
+            "December 2016. Each request covers only the last 92 days of the range; days already "
+            "downloaded are reused for the other gauges."
+        ),
+        seconds_per_station=30.0,
+    ),
+    Provider(
         key="slovenia",
         fetcher="SloveniaFetcher",
         label="ARSO",
@@ -403,6 +429,20 @@ PROVIDERS: tuple[Provider, ...] = (
             "the last 41 hours. Requests for earlier periods return nothing."
         ),
         seconds_per_station=1.5,
+    ),
+    Provider(
+        key="uhslc",
+        fetcher="UHSLCFetcher",
+        label="UHSLC tide gauges",
+        country_name="Worldwide coastal tide gauges",
+        source_url="https://uhslc.soest.hawaii.edu/",
+        throttle_note=(
+            "Quality-controlled hourly and daily sea level, some records reaching back to the "
+            "1800s. Research quality data runs to the end of the year before last and fast delivery "
+            "data to one or two months ago, so the latest weeks are not here yet; IOC Sea Level "
+            "Monitoring has them raw. Heights are relative to each station's UHSLC zero."
+        ),
+        seconds_per_station=4.0,
     ),
     Provider(
         key="uk_ea",

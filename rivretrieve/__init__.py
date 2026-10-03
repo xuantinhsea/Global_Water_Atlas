@@ -8,6 +8,7 @@ from .chile import ChileFetcher
 from .czech import CzechFetcher
 from .france import FranceFetcher
 from .germany_berlin import GermanyBerlinFetcher
+from .ioc_sealevel import IOCSeaLevelFetcher
 from .japan import JapanFetcher
 from .lithuania import LithuaniaFetcher
 from .mrc import MRCFetcher
@@ -17,10 +18,12 @@ from .pagasa import PagasaDamFetcher, PagasaStationFetcher
 from .philippines import PhilippinesFetcher
 from .poland import PolandFetcher
 from .portugal import PortugalFetcher
+from .singapore import SingaporeRainFetcher
 from .slovenia import SloveniaFetcher
 from .southafrica import SouthAfricaFetcher
 from .spain import SpainFetcher
 from .thailand import ThailandFetcher, ThailandRainFetcher
+from .uhslc import UHSLCFetcher
 from .uk_ea import UKEAFetcher
 from .uk_nrfa import UKNRFAFetcher
 from .usa import USAFetcher

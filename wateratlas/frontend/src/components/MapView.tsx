@@ -34,6 +34,11 @@ const BASEMAPS = {
 type BasemapKey = keyof typeof BASEMAPS;
 type SelectMode = "none" | "box" | "lasso";
 
+/** Southeast Asia, from the Andaman Sea to Papua and from the Luzon Strait to Timor. */
+const SEA_BOUNDS = L.latLngBounds([-11.5, 92], [24.5, 142]);
+/** `#sea` in the address opens the map on Southeast Asia, so the view can be shared as a link. */
+const SEA_HASH = "#sea";
+
 interface Props {
   client: ClusterClient | null;
   filtersVersion: number;
@@ -83,6 +88,7 @@ export function MapView({
     // Top right: the selection cart sits bottom right and would cover it there.
     L.control.zoom({ position: "topright" }).addTo(map);
     L.control.scale({ position: "bottomleft", imperial: false }).addTo(map);
+    if (window.location.hash === SEA_HASH) map.fitBounds(SEA_BOUNDS);
     mapRef.current = map;
 
     // Opening the station panel narrows the map column. Leaflet caches its own
@@ -320,6 +326,20 @@ export function MapView({
     return () => window.removeEventListener("keydown", onKey);
   }, [selectMode]);
 
+  const showRegion = (region: "world" | "sea") => {
+    const map = mapRef.current;
+    if (!map) return;
+    if (region === "sea") {
+      map.fitBounds(SEA_BOUNDS);
+      window.history.replaceState(null, "", SEA_HASH);
+    } else {
+      map.setView([24, 6], 2);
+      if (window.location.hash === SEA_HASH) {
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    }
+  };
+
   const selectVisible = async () => {
     const map = mapRef.current;
     if (!map || !client) return;
@@ -342,6 +362,19 @@ export function MapView({
       <div ref={containerRef} className="riv-map" />
 
       <div className="riv-map-toolbar">
+        <div className="riv-segmented" role="group" aria-label="Region">
+          <button type="button" onClick={() => showRegion("world")} title="Show the whole world">
+            World
+          </button>
+          <button
+            type="button"
+            onClick={() => showRegion("sea")}
+            title="Zoom to Southeast Asia (shareable as #sea)"
+          >
+            SE Asia
+          </button>
+        </div>
+
         <div className="riv-segmented" role="group" aria-label="Basemap">
           {(Object.keys(BASEMAPS) as BasemapKey[]).map((key) => (
             <button

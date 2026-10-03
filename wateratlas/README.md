@@ -1,9 +1,9 @@
 # Global Water Atlas
 
 A local-first map of observed water data from around the world, built on the
-RivRetrieve library. It puts every station from all 25 providers on a Leaflet
+RivRetrieve library. It puts every station from all 28 providers on a Leaflet
 basemap: river gauges, rain gauges, reservoirs, and coastal and Great Lakes tide
-gauges. You can filter and select stations, preview a series, and download
+gauges worldwide. You can filter and select stations, preview a series, and download
 discharge, water level, water temperature and rainfall as CSV.
 
 `wateratlas` is a *consumer* of `rivretrieve`. It never modifies the library:
@@ -38,14 +38,14 @@ cd wateratlas/frontend && npm run dev   # UI on :5173, proxies /api to :8000
 
 ## What's on the map
 
-**84,278 stations from 25 providers**, of which 84,086 are mappable.
+**86,378 stations from 28 providers**, of which 86,186 are mappable.
 
 | Data | Examples |
 | --- | --- |
 | River discharge | USGS, ECCC HYDAT, Environment Agency, BoM, Hub'Eau, ANA, … |
-| Water level | River stage almost everywhere; reservoir levels (PAGASA dams); coastal, estuarine and Great Lakes levels (NOAA Tides & Currents) |
+| Water level | River stage almost everywhere; reservoir levels (PAGASA dams); coastal, estuarine and Great Lakes levels (NOAA Tides & Currents); sea level at tide gauges worldwide (IOC, UHSLC) |
 | Water temperature | NOAA, NVE, CHMI, IMGW, Wasserportal Berlin |
-| Rainfall | ThaiWater, MRC, PhilSensors, PAGASA; catchment averages from NRFA |
+| Rainfall | ThaiWater, MRC, PhilSensors, PAGASA, NEA Singapore; catchment averages from NRFA |
 
 Units are SI throughout: discharge in m³/s, water level in m, water temperature
 in °C, rainfall in mm. River stage is a height above each gauge's own zero;
@@ -70,21 +70,24 @@ reconciles them into one index and reports every row it repaired or dropped:
 | Portugal writes `-` for a missing coordinate | Treated as null, station kept but flagged off-map |
 | `uk_ea_sites.csv` embeds 15 MB of JSON blobs | Excluded from the shipped metadata |
 
-Current result: **84,278 stations, 84,086 mappable, 192 without coordinates.**
+Current result: **86,378 stations, 86,186 mappable, 192 without coordinates.**
 48,399 still have no station name, because several providers' cached CSVs carry
 only `gauge_id, latitude, longitude`. Those show their gauge ID on the map.
 
 ## Southeast Asia
 
-Six providers cover the region: 8,025 stations, all geolocated. Refresh any of
-their station lists with:
+Nine providers cover the region: 8,317 stations, all geolocated, including 180
+tide gauge entries from the two worldwide networks (many gauges appear in both). The **SE Asia** button on the map toolbar frames the region, and
+<https://global-water-atlas.vercel.app/#sea> opens the atlas there, which is the
+link to share. Refresh the station lists with:
 
 ```bash
-python scripts/refresh_sea_sites.py              # all six
+python scripts/refresh_sea_sites.py              # the national networks
 python scripts/refresh_sea_sites.py mrc          # or just one
+python scripts/refresh_sealevel_sites.py         # the two worldwide tide gauge networks
 ```
 
-| Provider | Stations | Data | History |
+| Provider | Stations in the region | Data | History |
 | --- | --- | --- | --- |
 | `thailand` | 1,121 | stage, discharge | hourly, from ~2020 |
 | `thailand_rain` | 4,485 | rainfall | **none**: rolling ~41 h |
@@ -92,6 +95,27 @@ python scripts/refresh_sea_sites.py mrc          # or just one
 | `philippines` | 2,132 | stage, rainfall | needs a DOST-ASTI token |
 | `pagasa_dams` | 9 | reservoir level, outflow | **none**: today's and yesterday's bulletin |
 | `pagasa_stations` | 199 | inventory only | readings are sold, not published |
+| `singapore_rain` | 112 | rainfall, 5-minute | from Dec 2016; last 92 days per request |
+| `ioc_sealevel` | 101 of 1,390 | sea level, about 1-minute, raw | real time; last 92 days per request |
+| `uhslc` | 79 of 598 | sea level, hourly and daily, checked | decades; to one or two months ago |
+
+The tide gauges run from Sittwe and Moulmein in Myanmar through Ko Lak, Ko
+Taphao Noi and Ko Miang in Thailand, Langkawi, Penang and Kudat in Malaysia,
+Tanjong Pagar in Singapore and Vung Tau and Qui Nhon in Viet Nam, to Manila,
+Legaspi, Davao and Subic Bay in the Philippines and Sabang, Sibolga, Padang,
+Benoa, Bitung and Ambon in Indonesia.
+
+### Networks without open access
+
+The survey for this region also checked these, and none can be added yet:
+
+| Network | What blocks it |
+| --- | --- |
+| Malaysia, JPS Public InfoBanjir | Rainfall tables are public but carry no station coordinates and only the last six days; the water level tables come back empty. |
+| Viet Nam, VNDMS (vndms.gov.vn) | No documented data service, and none found in the monitoring map's scripts. |
+| Indonesia, PUPR SIHKA | Answers 403 to automated requests. |
+| Jakarta, Dinas SDA flood gauges | Server-rendered pages only, with no data service. |
+| Indonesia, BIG tide gauges | No data service of its own, but most of its gauges reach the IOC facility and are mapped through `ioc_sealevel`. |
 
 ### Mekong River Commission
 
@@ -133,6 +157,41 @@ Two things to know before relying on the ThaiWater providers:
   date parameters and ignores them, always returning a rolling window of about
   the last 41 hours. `ThailandRainFetcher` returns an empty frame for anything
   older rather than handing back recent data under the wrong dates.
+
+## Sea level at tide gauges worldwide
+
+Two open networks add tide gauges on every coast, and they complement each other:
+
+| | `ioc_sealevel` | `uhslc` |
+| --- | --- | --- |
+| Operator | IOC Sea Level Station Monitoring Facility (VLIZ for UNESCO-IOC) | University of Hawaii Sea Level Center |
+| Stations | 1,390 | 598 |
+| Variables | `stage_instantaneous`, `stage_hourly_mean`, `stage_daily_mean` | `stage_hourly_mean`, `stage_daily_mean` |
+| Checked? | No: raw transmissions, spikes and all | Yes: research quality, then fast delivery |
+| Latest data | minutes ago | one to two months ago |
+| History per request | the last 92 days of the range | the whole range, back to the 1800s at some stations |
+| Heights relative to | each sensor's own zero | each station's UHSLC zero |
+
+Use IOC for an event that is happening or just happened, and UHSLC for anything
+longer or anything you will publish. Neither network's heights are tied to a
+common datum, so compare a station only with itself.
+
+Things to know:
+
+- **IOC stations often carry several sensors.** The fetcher uses one per
+  request, radar first, and says which in `frame.attrs["sensor"]`. Battery and
+  switch channels are dropped, and so are DART tsunameters, which measure the
+  deep-ocean water column rather than a coastal level. The handful of stations
+  that report in feet are converted to metres.
+- **IOC data is fetched in 30-day windows one second apart**, because the
+  service truncates longer requests and is a shared monitoring facility.
+- **UHSLC's latest weeks are not there yet.** Its fast delivery product runs to
+  one or two months ago; research quality data to the end of the year before
+  last. A series uses research quality wherever it exists, and
+  `frame.attrs["sources"]` says which products contributed.
+- **Cite them.** IOC asks for "Flanders Marine Institute (VLIZ); Intergovernmental
+  Oceanographic Commission (IOC): Sea level station monitoring facility"; UHSLC
+  for Caldwell, Merrifield and Thompson (2015), NOAA NCEI.
 
 ## NOAA Tides & Currents
 

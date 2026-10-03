@@ -1,0 +1,113 @@
+gauge_id,station_name,latitude,longitude,country,source,first_seen,last_seen
+S06,Paya Lebar Meteorological Station,1.357,103.904,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S07,Macritchie Reservoir,1.3418,103.8339,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S08,Lower Peirce Reservoir,1.37,103.8271,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S100,Sungei Kadut Street 3,1.4172,103.74855,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S101,Corporation Road,1.35053,103.7134,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2017-01-15
+S102,Semakau Island,1.1902,103.7657,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S104,Woodlands Avenue 9,1.4439,103.7854,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S105,Admiralty Road West,1.45817,103.79525,Singapore,National Environment Agency (data.gov.sg),2019-01-15,2019-01-15
+S106,Jalan Noordin (Pulau Ubin),1.4168,103.9673,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S107,East Coast Park,1.3133,103.962,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S108,Marina Barrage,1.2799,103.8703,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S109,Ang Mo Kio Avenue 5,1.3793,103.85,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S11,Choa Chu Kang Road,1.3746,103.6938,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2021-01-15
+S110,Serangoon North Avenue 4,1.36061,103.8697,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2017-01-15
+S111,Scotts Road,1.3106,103.8365,Singapore,National Environment Agency (data.gov.sg),2018-01-15,2026-10-03
+S112,Lim Chu Kang Road,1.4388,103.7017,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S113,Marine Parade Road,1.305,103.9112,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S114,Choa Chu Kang Avenue 4,1.3821,103.7381,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S115,Tuas South Avenue 3,1.2938,103.6184,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S116,Pasir Panjang Terminal,1.2824,103.7545,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S117,Banyan Road (Jurong Island),1.2542,103.6741,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S118,Handy Road,1.2994,103.8461,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2023-01-15
+S119,Nicoll Highway,1.295,103.8622,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S120,Botanic Garden,1.3087,103.818,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S121,Old Choa Chu Kang Road,1.3738,103.7217,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S122,Sembawang Road,1.41731,103.8249,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2020-01-15
+S123,Towner Road,1.3214,103.8577,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S127,Kallang Practice Track,1.30574,103.87817,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S129,Bedok Stadium,1.32575,103.93969,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S132,Jurong West Stadium,1.33786,103.69538,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S148,Pasir Ris Walk,1.3715,103.9642,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S180,Taman Jurong Greens,1.33701,103.71828,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S184,Sengkang East Avenue,1.38256,103.89852,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S187,Coronation Road,1.32251,103.80139,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S201,Sunset Way,1.32319,103.76714,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S202,S202,1.30968,103.7578,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2023-01-15
+S203,Pasir Panjang,1.29164,103.7702,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-01-15
+S204,S204,1.40081,103.88217,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2023-01-15
+S205,S205,1.38829,103.9116,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2023-01-15
+S207,Bedok Road,1.32485,103.95836,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2025-01-15
+S208,Changi East Close,1.31363,104.00317,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S209,Yishun Ring Road,1.42111,103.84472,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S210,Woodlands Centre Road,1.44003,103.76904,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S211,Kranji Road,1.42918,103.75711,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S212,S212,1.31835,103.93574,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2024-01-15
+S213,Coronation Walk,1.32427,103.8097,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S214,Tanjong Rhu,1.29911,103.88289,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S215,Geylang East Central,1.31944,103.88194,Singapore,National Environment Agency (data.gov.sg),2019-01-15,2026-10-03
+S216,Ang Mo Kio Avenue 10,1.36019,103.85335,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S217,Bishan Street 13,1.35028,103.855,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S218,Bukit Batok Street 34,1.36491,103.75065,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S219,Yio Chu Kang Road,1.37998,103.87639,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S220,Compassvale Lane,1.38666,103.89797,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S221,Hougang Avenue 1,1.35691,103.89088,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S222,Henderson Road,1.28987,103.82364,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S223,Margaret Drive,1.29984,103.80264,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S224,Airport Boulevard,1.34394,103.98386,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S226,Malan Road,1.27472,103.80389,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S227,Woodlands Drive 62,1.43944,103.80389,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S228,Jurong West Street 73,1.34703,103.70073,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S229,Jurong West Street 42,1.35167,103.72195,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S23,Tengah Meteorological Station,1.3858,103.7119,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S230,West Coast Road,1.30167,103.76444,Singapore,National Environment Agency (data.gov.sg),2021-01-15,2026-10-03
+S24,Changi Meteorological Station,1.3678,103.9823,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S24B,Upper Changi Road North,1.3678,103.998,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2017-01-15
+S29,Pasir Ris Drive 12,1.387,103.935,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2025-01-15
+S300,Bedok Reservoir,1.34301,103.91971,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S301,Neo Tiew Lane 2,1.41532,103.72871,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S302,Tengeh Reservoir,1.33813,103.66303,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S303,Ponyan Reservoir,1.38375,103.65817,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S305,Sarimbum Reservoir,1.4216,103.68127,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S306,Murnane Service Reservoir,1.35085,103.78596,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S307,Pulau Tekong Reservoir,1.41076,104.04156,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S308,Seletar Reservoir,1.40158,103.80814,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S33,Jurong Pier Road,1.3082,103.71,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S35,Old Toh Tuck Road,1.3325,103.755,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S36,Upper Serangoon Road,1.3382,103.8657,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2023-01-15
+S40,Mandai Lake Road,1.4067,103.7832,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S43,Kim Chuan Road,1.3406,103.8882,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S44,Nanyang Avenue,1.3458,103.6817,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S46,Sime Road,1.3416,103.8106,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2020-01-15
+S50,Clementi Road,1.3318,103.7762,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S55,Buangkok Green,1.3837,103.886,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2019-01-15
+S60,Artillery Avenue (Sentosa),1.2504,103.8275,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S61,Chai Chee Street,1.323,103.9217,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2023-01-15
+S63,International Road,1.3275,103.7042,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2017-01-15
+S64,Bukit Panjang Road,1.3823,103.7607,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S66,Kranji Reservoir,1.4387,103.736,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S69,Upper Peirce Reservoir Park,1.3704,103.8046,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S71,Kent Ridge Road,1.2923,103.7815,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S77,Alexandra Road,1.2937,103.8127,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S78,Poole Road,1.307,103.8907,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S79,Somerset Road,1.3003,103.8372,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S80,Sembawang Meteorological Station,1.4247,103.8201,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S81,Punggol Central,1.4028,103.9095,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S82,Tuas West Road,1.3247,103.6351,Singapore,National Environment Agency (data.gov.sg),2018-01-15,2022-01-15
+S84,Tampines Avenue 5,1.3443,103.9441,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S88,Toa Payoh North,1.3417,103.8515,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S89,Tuas Road,1.31985,103.66162,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2025-01-15
+S90,Bukit Timah Road,1.3191,103.8193,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S900,Seletar Meteorological Station,1.4114,103.8627,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S902,Yishun Walk,1.41457,103.83106,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S903,Lorong Kismis,1.33742,103.76699,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S904,Holland Grove Road,1.31622,103.7837,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S905,Hillcrest Road,1.3308,103.8045,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S907,Rivervale Drive,1.39316,103.87412,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S908,Fernvale Lane,1.39027,103.87412,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S909,Seraya Road,1.30568,103.90093,Singapore,National Environment Agency (data.gov.sg),2026-10-03,2026-10-03
+S91,Yishun Avenue 5,1.4301,103.8308,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2021-01-15
+S92,South Buona Vista Road,1.2841,103.7888,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S94,Pasir Ris Street 51,1.3679,103.9489,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2026-10-03
+S96,Tanah Merah Coast Road,1.3175,104.0307,Singapore,National Environment Agency (data.gov.sg),2017-01-15,2017-01-15

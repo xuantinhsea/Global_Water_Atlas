@@ -35,6 +35,10 @@ export const COUNTRY_COLORS: Record<string, string> = {
   philippines: "#b0478f",
   pagasa_dams: "#7b5ea8",
   pagasa_stations: "#3f7fbf",
+  // Sea level: a navy and a deep violet, kept apart from the river providers' teals.
+  ioc_sealevel: "#0b4f9c",
+  uhslc: "#5e3c99",
+  singapore_rain: "#c23b5a",
 };
 
 const FALLBACK = "#6b7f88";

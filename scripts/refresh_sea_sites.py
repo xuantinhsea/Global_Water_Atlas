@@ -9,9 +9,11 @@ Writes into ``rivretrieve/cached_site_data/``:
 ``thailand_rain_sites.csv``  ThaiWater rain gauges
 ``mrc_sites.csv``            Mekong River Commission telemetry network
 ``philippines_sites.csv``    DOST-ASTI PhilSensors, all four station groups
+``singapore_rain_sites.csv`` NEA rain gauges, Singapore
 
 None of these needs credentials: every station catalogue used here is open,
-even where the readings behind it are not.
+even where the readings behind it are not. The tide gauges, which cover the
+region too, are refreshed by ``scripts/refresh_sealevel_sites.py``.
 """
 
 import logging
@@ -25,6 +27,7 @@ from rivretrieve import (  # noqa: E402
     PagasaDamFetcher,
     PagasaStationFetcher,
     PhilippinesFetcher,
+    SingaporeRainFetcher,
     ThailandFetcher,
     ThailandRainFetcher,
     constants,
@@ -39,6 +42,7 @@ TARGETS = {
     "philippines": (PhilippinesFetcher, "philippines_sites.csv"),
     "pagasa_dams": (PagasaDamFetcher, "pagasa_dams_sites.csv"),
     "pagasa_stations": (PagasaStationFetcher, "pagasa_stations_sites.csv"),
+    "singapore_rain": (SingaporeRainFetcher, "singapore_rain_sites.csv"),
 }
 
 

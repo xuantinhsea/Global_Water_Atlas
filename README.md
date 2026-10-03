@@ -14,7 +14,7 @@ Welcome to RivRetrieve-Python! We're actively developing this library to make gl
 
 ## Data coverage
 
-25 providers and about 84,000 stations. Every fetcher returns the same shape (a
+28 providers and about 86,000 stations. Every fetcher returns the same shape (a
 DataFrame indexed by `time`, one column named after the variable) in SI units:
 discharge in m³/s, water level in m, water temperature in °C and rainfall in mm.
 
@@ -27,6 +27,7 @@ discharge in m³/s, water level in m, water temperature in °C and rainfall in m
 | CHMI Open Data | `CzechFetcher` | Czechia | 826 | discharge, water level, water temperature |
 | Hub'Eau | `FranceFetcher` | France | 5,678 | discharge, water level |
 | Wasserportal Berlin | `GermanyBerlinFetcher` | Germany (Berlin) | 189 | discharge, water level, water temperature |
+| IOC Sea Level Monitoring | `IOCSeaLevelFetcher` | Worldwide coastal tide gauges (101 in SE Asia) | 1,390 | sea level, raw, real time |
 | MLIT Water Information System | `JapanFetcher` | Japan | 1,029 | discharge, water level |
 | Meteo.lt | `LithuaniaFetcher` | Lithuania | 97 | discharge, water level |
 | Mekong River Commission | `MRCFetcher` | Mekong basin (LA, KH, VN, TH, CN) | 79 | water level, rainfall |
@@ -37,11 +38,13 @@ discharge in m³/s, water level in m, water temperature in °C and rainfall in m
 | DOST-ASTI PhilSensors ¹ | `PhilippinesFetcher` | Philippines | 2,132 | water level, rainfall |
 | IMGW Public Data | `PolandFetcher` | Poland | 1,301 | discharge, water level, water temperature |
 | SNIRH | `PortugalFetcher` | Portugal | 721 | discharge, water level |
+| NEA rain gauges (data.gov.sg) | `SingaporeRainFetcher` | Singapore | 112 | rainfall |
 | ARSO | `SloveniaFetcher` | Slovenia | 739 | discharge, water level |
 | DWS Hydrology Services | `SouthAfricaFetcher` | South Africa | 1,294 | discharge, water level |
 | MITECO Anuario de Aforos | `SpainFetcher` | Spain | 1,491 | discharge |
 | ThaiWater (HII) | `ThailandFetcher` | Thailand | 1,121 | discharge, water level |
 | ThaiWater rain gauges (HII) | `ThailandRainFetcher` | Thailand | 4,485 | rainfall |
+| UHSLC | `UHSLCFetcher` | Worldwide coastal tide gauges (79 in SE Asia) | 598 | sea level, quality-controlled |
 | Environment Agency Hydrology | `UKEAFetcher` | England | 9,194 | discharge, water level |
 | NRFA | `UKNRFAFetcher` | United Kingdom | 1,601 | discharge, catchment rainfall |
 | USGS NWIS | `USAFetcher` | United States | 24,527 | discharge, water level |
@@ -54,10 +57,15 @@ Things worth knowing before comparing stations:
 - **Water level means different things at different stations.** River stage is
   a height above each gauge's own zero. NOAA's coastal and Great Lakes levels
   are heights above a tidal or lake datum (MLLW, IGLD 1985 or the station
-  datum), reported in `frame.attrs["datum"]`.
+  datum), reported in `frame.attrs["datum"]`. IOC sea levels are raw heights
+  above each sensor's own zero, and UHSLC's are above each station's UHSLC zero.
 - **Some providers have no history.** The MRC, ThaiWater rain gauges and the
   PAGASA dam bulletin only publish a rolling recent window; their fetchers
   return nothing for older dates rather than recent data under the wrong ones.
+- **Two providers fetch only recent data per call.** IOC sea level and Singapore
+  rainfall cover at most the last 92 days of a requested range, because their
+  services hand out raw five-minute or one-minute data in bulk. For long tide
+  gauge records use UHSLC.
 
 Each fetcher's docstring (and the [API docs](https://rivretrieve-python.readthedocs.io/en/latest/))
 lists its variables, time steps and caveats.
@@ -140,7 +148,7 @@ print(water_level.head())
 ## Global Water Atlas (map app)
 
 `wateratlas/` is a web app built on this library. It shows every station from
-all 25 providers on one map (rivers, rain gauges, reservoirs and coastal tide
+all 28 providers on one map (rivers, rain gauges, reservoirs and coastal tide
 gauges), with filtering, box and lasso selection, series previews, and batch
 CSV download.
 
