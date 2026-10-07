@@ -14,6 +14,7 @@ export const COUNTRY_COLORS: Record<string, string> = {
   brazil: "#2e8b57",
   australia: "#e08a1e",
   france: "#7a5fb0",
+  grdc: "#8b4a1c",
   uk_ea: "#c2437f",
   uk_nrfa: "#8a6d3b",
   norway: "#3b8fd4",

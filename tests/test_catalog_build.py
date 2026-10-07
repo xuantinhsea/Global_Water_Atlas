@@ -156,7 +156,7 @@ class TestBuildProvider(unittest.TestCase):
         self.assertEqual(list(core[registry.HAS_COORDS]), [True, False, False])
 
     def test_norway_availability_is_per_station(self):
-        """Norway is the one provider whose CSV knows which series each gauge has."""
+        """Norway's CSV knows which series each gauge has."""
         provider = registry.get_provider("norway")
         self.assertTrue(provider.availability_columns)
 

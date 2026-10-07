@@ -99,7 +99,7 @@ class Provider:
     """Provider-specific column renames applied on top of ``COMMON_ALIASES``."""
 
     availability_columns: bool = False
-    """True when the CSV carries one boolean column per variable (Norway only)."""
+    """True when the CSV carries one boolean column per variable."""
 
     throttle_note: Optional[str] = None
     """Why bulk downloads from this provider are slow. Shown before a job starts."""
@@ -221,6 +221,19 @@ PROVIDERS: tuple[Provider, ...] = (
         country_name="France",
         source_url="https://hubeau.eaufrance.fr/",
         seconds_per_station=2.0,
+    ),
+    Provider(
+        key="grdc",
+        fetcher="GRDCFetcher",
+        label="GRDC Data Portal",
+        country_name="Worldwide river discharge stations",
+        source_url="https://portal.grdc.bafg.de/applications/public.html?publicuser=PublicUser#dataDownload/Stations",
+        availability_columns=True,
+        throttle_note=(
+            "Station metadata is open and mapped, but GRDC time-series downloads are currently "
+            "served through an interactive export workflow rather than a stable per-station API."
+        ),
+        seconds_per_station=1.0,
     ),
     Provider(
         key="germany_berlin",

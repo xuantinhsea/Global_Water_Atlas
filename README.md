@@ -14,7 +14,7 @@ Welcome to RivRetrieve-Python! We're actively developing this library to make gl
 
 ## Data coverage
 
-28 providers and about 86,000 stations. Every fetcher returns the same shape (a
+29 providers and about 98,000 stations. Every fetcher returns the same shape (a
 DataFrame indexed by `time`, one column named after the variable) in SI units:
 discharge in m³/s, water level in m, water temperature in °C and rainfall in mm.
 
@@ -26,6 +26,7 @@ discharge in m³/s, water level in m, water temperature in °C and rainfall in m
 | CR2 Explorador | `ChileFetcher` | Chile | 548 | discharge |
 | CHMI Open Data | `CzechFetcher` | Czechia | 826 | discharge, water level, water temperature |
 | Hub'Eau | `FranceFetcher` | France | 5,678 | discharge, water level |
+| GRDC Data Portal | `GRDCFetcher` | Worldwide river discharge stations | 11,910 | station catalogue only (daily/monthly availability flags) |
 | Wasserportal Berlin | `GermanyBerlinFetcher` | Germany (Berlin) | 189 | discharge, water level, water temperature |
 | IOC Sea Level Monitoring | `IOCSeaLevelFetcher` | Worldwide coastal tide gauges (101 in SE Asia) | 1,390 | sea level, raw, real time |
 | MLIT Water Information System | `JapanFetcher` | Japan | 1,029 | discharge, water level |
@@ -62,6 +63,9 @@ Things worth knowing before comparing stations:
 - **Some providers have no history.** The MRC, ThaiWater rain gauges and the
   PAGASA dam bulletin only publish a rolling recent window; their fetchers
   return nothing for older dates rather than recent data under the wrong ones.
+- **One provider is metadata-only for now.** `GRDCFetcher` maps the global GRDC
+  station catalogue and per-station daily/monthly availability flags; GRDC's
+  automated station downloads are not yet wired into RivRetrieve.
 - **Two providers fetch only recent data per call.** IOC sea level and Singapore
   rainfall cover at most the last 92 days of a requested range, because their
   services hand out raw five-minute or one-minute data in bulk. For long tide
@@ -148,7 +152,7 @@ print(water_level.head())
 ## Global Water Atlas (map app)
 
 `wateratlas/` is a web app built on this library. It shows every station from
-all 28 providers on one map (rivers, rain gauges, reservoirs and coastal tide
+all 29 providers on one map (rivers, rain gauges, reservoirs and coastal tide
 gauges), with filtering, box and lasso selection, series previews, and batch
 CSV download.
 

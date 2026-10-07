@@ -8,6 +8,7 @@ from .chile import ChileFetcher
 from .czech import CzechFetcher
 from .france import FranceFetcher
 from .germany_berlin import GermanyBerlinFetcher
+from .grdc import GRDCFetcher
 from .ioc_sealevel import IOCSeaLevelFetcher
 from .japan import JapanFetcher
 from .lithuania import LithuaniaFetcher
@@ -29,4 +30,3 @@ from .uk_nrfa import UKNRFAFetcher
 from .usa import USAFetcher
 
 __version__ = "0.1.0"
-

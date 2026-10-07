@@ -1,7 +1,7 @@
 # Global Water Atlas
 
 A local-first map of observed water data from around the world, built on the
-RivRetrieve library. It puts every station from all 28 providers on a Leaflet
+RivRetrieve library. It puts every station from all 29 providers on a Leaflet
 basemap: river gauges, rain gauges, reservoirs, and coastal and Great Lakes tide
 gauges worldwide. You can filter and select stations, preview a series, and download
 discharge, water level, water temperature and rainfall as CSV.
@@ -38,7 +38,7 @@ cd wateratlas/frontend && npm run dev   # UI on :5173, proxies /api to :8000
 
 ## What's on the map
 
-**86,378 stations from 28 providers**, of which 86,186 are mappable.
+**98,288 stations from 29 providers**, of which 98,096 are mappable.
 
 | Data | Examples |
 | --- | --- |
@@ -70,13 +70,13 @@ reconciles them into one index and reports every row it repaired or dropped:
 | Portugal writes `-` for a missing coordinate | Treated as null, station kept but flagged off-map |
 | `uk_ea_sites.csv` embeds 15 MB of JSON blobs | Excluded from the shipped metadata |
 
-Current result: **86,378 stations, 86,186 mappable, 192 without coordinates.**
+Current result: **98,288 stations, 98,096 mappable, 192 without coordinates.**
 48,399 still have no station name, because several providers' cached CSVs carry
 only `gauge_id, latitude, longitude`. Those show their gauge ID on the map.
 
 ## Southeast Asia
 
-Nine providers cover the region: 8,317 stations, all geolocated, including 180
+Nine dedicated providers cover the region: 8,317 stations, all geolocated, including 180
 tide gauge entries from the two worldwide networks (many gauges appear in both). The **SE Asia** button on the map toolbar frames the region, and
 <https://global-water-atlas.vercel.app/#sea> opens the atlas there, which is the
 link to share. Refresh the station lists with:
@@ -234,7 +234,7 @@ The build writes these to `wateratlas/catalog_data/` (gitignored):
 
 - `stations.parquet`: normalised core columns, what the API queries
 - `stations_extra.parquet`: every provider-specific column as JSON, read only for the detail panel
-- `stations.json`: compact positional-array payload for the map (~4.7 MB, ~1.4 MB gzipped)
+- `stations.json`: compact positional-array payload for the map (~5.4 MB, ~1.6 MB gzipped)
 - `catalog_report.json`: rows in, rows out, and why each row was dropped
 
 ## Credentials
@@ -262,7 +262,7 @@ wateratlas warm                      # both
 wateratlas warm --provider canada    # just one
 ```
 
-## How the map handles 84,000 points
+## How the map handles 98,000 points
 
 Leaflet markers are one DOM node each, and Leaflet.markercluster struggles well
 below this count. Instead:
@@ -302,9 +302,9 @@ IDs contain slashes (`portugal:04K/04A`).
 ## Learned availability
 
 `get_available_variables()` is static per fetcher, so for most providers the
-catalog can only say a station *may* publish stage. Four providers know better
+catalog can only say a station *may* publish stage. Five providers know better
 and carry a boolean per variable per station in their cached CSV: Norway,
-PhilSensors, the PAGASA station inventory, and NOAA Tides & Currents.
+GRDC, PhilSensors, the PAGASA station inventory, and NOAA Tides & Currents.
 
 Every download and preview therefore records what it found in
 `wateratlas/state/availability.sqlite3`: `confirmed` (rows came back), `absent`

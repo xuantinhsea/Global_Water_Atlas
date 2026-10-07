@@ -148,10 +148,10 @@ def _reproject(frame: pd.DataFrame, provider: Provider) -> tuple[pd.Series, pd.S
 def _station_variables(row: pd.Series, provider: Provider, declared: tuple[str, ...]) -> list[str]:
     """Variables for one station.
 
-    Norway's cached CSV carries one boolean column per variable, so it is the one
-    provider where availability is known per station rather than per provider.
-    Everywhere else, the provider's declared set is the best we have until a
-    download confirms otherwise.
+    Some cached CSVs carry one boolean column per variable, so availability can
+    be known per station rather than assumed per provider. Everywhere else, the
+    provider's declared set is the best we have until a download confirms
+    otherwise.
     """
     if not provider.availability_columns:
         return list(declared)
