@@ -73,8 +73,9 @@ export class ClusterClient {
     });
   }
 
-  load(filters: Filters) {
-    this.worker.postMessage({ type: "load", filters });
+  /** `version` is the catalog_version from /api/providers; it makes the payload cacheable. */
+  load(filters: Filters, version: string | null = null) {
+    this.worker.postMessage({ type: "load", filters, version });
     return this.ready;
   }
 

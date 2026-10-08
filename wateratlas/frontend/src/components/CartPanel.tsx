@@ -261,13 +261,7 @@ export function CartPanel({
                     {estimate.unsupported > 0 && (
                       <> · {formatCount(estimate.unsupported)} do not publish this variable</>
                     )}
-                    {estimate.blocked > 0 && (
-                      <>
-                        {" "}
-                        · {formatCount(estimate.blocked)}{" "}
-                        {hosted ? "unavailable on the hosted atlas" : "blocked by missing credentials"}
-                      </>
-                    )}
+                    {estimate.blocked > 0 && <> · {formatCount(estimate.blocked)} unavailable</>}
                   </p>
                   <p className="riv-muted riv-small">
                     Roughly {formatDuration(estimate.estimated_seconds)} across{" "}
@@ -280,12 +274,21 @@ export function CartPanel({
                         <span className="riv-estimate-provider">{row.provider}</span>
                         <span className="riv-mono riv-tabular">{formatCount(row.stations)}</span>
                         {!row.supported && <em className="riv-warn">no {variable}</em>}
-                        {row.missing_credentials.length > 0 && (
-                          <em className="riv-warn">needs {row.missing_credentials.join(", ")}</em>
+                        {row.supported && row.blocked_kind && (
+                          <em className="riv-warn" title={row.blocked_reason ?? undefined}>
+                            {row.blocked_kind === "credentials"
+                              ? hosted
+                                ? "needs an API key"
+                                : `needs ${row.missing_credentials.join(", ")}`
+                              : "local app only"}
+                          </em>
                         )}
-                        {row.blocked_reason && row.missing_credentials.length === 0 && (
-                          <em className="riv-warn" title={row.blocked_reason}>
-                            local app only
+                        {row.supported && !row.blocked_kind && row.unavailable_stations > 0 && (
+                          <em
+                            className="riv-warn"
+                            title="No national service publishes these GRDC stations; request them from the GRDC Data Portal."
+                          >
+                            {formatCount(row.unavailable_stations)} via GRDC portal only
                           </em>
                         )}
                         {row.bulk_first_use && !row.blocked_reason && (

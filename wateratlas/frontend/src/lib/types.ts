@@ -34,6 +34,9 @@ export interface Station {
   variables: string[];
 }
 
+/** Why a provider's downloads are blocked: a missing secret, or a bulk cache the hosted atlas cannot keep. */
+export type BlockedKind = "credentials" | "hosted";
+
 export interface Provider {
   key: string;
   label: string;
@@ -46,6 +49,7 @@ export interface Provider {
   missing_credentials: string[];
   /** Why downloads from this provider can't succeed right now, or null if they can. */
   blocked_reason: string | null;
+  blocked_kind: BlockedKind | null;
   usable: boolean;
   bulk_first_use: string | null;
   cache_warm: boolean | null;
@@ -55,6 +59,8 @@ export interface Provider {
 
 export interface ProvidersResponse {
   catalog_built: boolean;
+  /** Hash of the map payload; asking for `/api/stations/map?v=<this>` makes it cacheable. */
+  catalog_version: string | null;
   /** True on Vercel: downloads are assembled in the browser, not by a server job. */
   hosted: boolean;
   totals: { stations: number; mappable: number; off_map: number; named: number };
@@ -83,6 +89,7 @@ export interface StationDetail {
     source_url: string;
     missing_credentials: string[];
     blocked_reason: string | null;
+    blocked_kind: BlockedKind | null;
     bulk_first_use: string | null;
     cache_warm: boolean | null;
     throttle_note: string | null;
@@ -91,6 +98,15 @@ export interface StationDetail {
     string,
     { state: string; rows: number; first_date: string | null; last_date: string | null }
   >;
+  /** Why this one station cannot be downloaded although its provider can (GRDC). */
+  download_note: string | null;
+  /** Where a delegating provider (GRDC) reads this station from. */
+  national_source: {
+    provider_key: string | null;
+    provider_label: string;
+    gauge_id: string;
+    station_key: string | null;
+  } | null;
 }
 
 export interface PreviewSeries {
@@ -120,6 +136,9 @@ export interface EstimateBreakdown {
   supported: boolean;
   missing_credentials: string[];
   blocked_reason: string | null;
+  blocked_kind: BlockedKind | null;
+  /** Stations this provider cannot serve one by one (GRDC stations with no national source). */
+  unavailable_stations: number;
   bulk_first_use: string | null;
   throttle_note: string | null;
 }

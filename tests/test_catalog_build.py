@@ -291,7 +291,7 @@ class TestRegistry(unittest.TestCase):
         self.assertEqual(
             needing,
             {
-                "brazil": ("ANA_USERNAME", "ANA_PASSWORD"),
+                # Brazil's credentials are optional: without them it uses ANA's public service.
                 "norway": ("NVE_API_KEY",),
                 # Station metadata is open; only the readings need a token.
                 "philippines": ("PHILSENSORS_TOKEN",),

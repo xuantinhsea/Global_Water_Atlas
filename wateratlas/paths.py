@@ -17,6 +17,10 @@ REPO_ROOT = PACKAGE_DIR.parent
 #: so a few features change shape there (see ``registry.Provider.blocked_reason``).
 HOSTED = bool(os.environ.get("VERCEL"))
 
+#: For responses whose URL names one exact version (hashed assets, the versioned
+#: map payload). ``s-maxage`` is what lets Vercel's CDN keep a function's response.
+IMMUTABLE_CACHE = "public, max-age=31536000, s-maxage=31536000, immutable"
+
 # Where rivretrieve keeps its own lazily-downloaded bulk caches (HYDAT, poland.zarr).
 RIVRETRIEVE_DIR = REPO_ROOT / "rivretrieve"
 RIVRETRIEVE_DATA_DIR = RIVRETRIEVE_DIR / "data"

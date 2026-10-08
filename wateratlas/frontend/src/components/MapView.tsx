@@ -46,6 +46,10 @@ interface Props {
   onPickStation: (station: Station) => void;
   onSelectKeys: (keys: string[], mode: "add" | "replace") => void;
   onSelectionTruncated: (limit: number) => void;
+  /** Stations still loading into the worker: how many, or null once they are on the map. */
+  loadingCount: number | null;
+  /** Why the station catalog could not load, if it could not. */
+  loadError: string | null;
 }
 
 export function MapView({
@@ -55,6 +59,8 @@ export function MapView({
   onPickStation,
   onSelectKeys,
   onSelectionTruncated,
+  loadingCount,
+  loadError,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -419,6 +425,22 @@ export function MapView({
       )}
 
       {busy && <div className="riv-map-busy">Selecting…</div>}
+
+      {loadError ? (
+        <div className="riv-map-loading riv-map-loading-error" role="alert">
+          <strong>The stations could not load</strong>
+          <span>{loadError}</span>
+        </div>
+      ) : (
+        loadingCount !== null && (
+          <div className="riv-map-loading" role="status" aria-live="polite">
+            <strong>
+              Loading {loadingCount > 0 ? loadingCount.toLocaleString() : ""} stations…
+            </strong>
+            <span className="riv-loading-bar" aria-hidden="true" />
+          </div>
+        )
+      )}
 
       {hovered && (
         <div className="riv-map-readout">

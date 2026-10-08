@@ -11,6 +11,7 @@ built front end is served from ``wateratlas/frontend/dist``.
 from __future__ import annotations
 
 import logging
+import mimetypes
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -25,8 +26,25 @@ from .catalog import catalog
 
 logger = logging.getLogger(__name__)
 
+# Not in every platform's MIME table; browsers want this type for the web app manifest.
+mimetypes.add_type("application/manifest+json", ".webmanifest")
+
 # The Vite dev server. Only these origins may call the API in development.
 DEV_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173"]
+
+
+class ImmutableStaticFiles(StaticFiles):
+    """Vite's ``/assets`` files carry a content hash in their names, so they never change.
+
+    Without this every visit re-validated them through the (hosted: Python)
+    server; with it, browsers and Vercel's CDN keep them for a year.
+    """
+
+    async def get_response(self, path, scope):
+        response = await super().get_response(path, scope)
+        if response.status_code == 200:
+            response.headers["Cache-Control"] = paths.IMMUTABLE_CACHE
+        return response
 
 
 @asynccontextmanager
@@ -79,7 +97,7 @@ def create_app() -> FastAPI:
     if paths.FRONTEND_DIST.exists():
         app.mount(
             "/assets",
-            StaticFiles(directory=paths.FRONTEND_DIST / "assets"),
+            ImmutableStaticFiles(directory=paths.FRONTEND_DIST / "assets"),
             name="assets",
         )
 
@@ -89,8 +107,10 @@ def create_app() -> FastAPI:
             candidate = (paths.FRONTEND_DIST / full_path).resolve()
             dist = paths.FRONTEND_DIST.resolve()
             if full_path and candidate.is_file() and candidate.is_relative_to(dist):
-                return FileResponse(candidate)
-            return FileResponse(dist / "index.html")
+                # Icons and the web manifest: unhashed names, so a day at most.
+                return FileResponse(candidate, headers={"Cache-Control": "public, max-age=86400"})
+            # index.html names the current hashed bundles, so it is always re-checked.
+            return FileResponse(dist / "index.html", headers={"Cache-Control": "no-cache"})
     else:
 
         @app.get("/")

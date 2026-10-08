@@ -48,6 +48,102 @@ export function colorForCountry(country: string): string {
   return COUNTRY_COLORS[country] ?? FALLBACK;
 }
 
+/** Where each provider's stations are, so the long provider list can be read by region. */
+export const PROVIDER_REGIONS: { label: string; keys: string[] }[] = [
+  { label: "Worldwide", keys: ["grdc", "ioc_sealevel", "uhslc"] },
+  { label: "Americas", keys: ["usa", "noaa_tides", "canada", "brazil", "chile"] },
+  {
+    label: "Europe",
+    keys: [
+      "uk_ea",
+      "uk_nrfa",
+      "france",
+      "spain",
+      "portugal",
+      "germany_berlin",
+      "czech",
+      "poland",
+      "slovenia",
+      "lithuania",
+      "norway",
+    ],
+  },
+  {
+    label: "Asia & Oceania",
+    keys: [
+      "japan",
+      "thailand",
+      "thailand_rain",
+      "mrc",
+      "singapore_rain",
+      "philippines",
+      "pagasa_dams",
+      "pagasa_stations",
+      "australia",
+    ],
+  },
+  { label: "Africa", keys: ["southafrica"] },
+];
+
+/** Measured quantities in the order the variable filter lists them. */
+const QUANTITIES: Record<string, string> = {
+  discharge: "Discharge",
+  stage: "Water level",
+  precipitation: "Rainfall",
+  "catchment-precipitation": "Catchment rainfall",
+  "water-temperature": "Water temperature",
+};
+
+/** Resolutions, shortest interval first. */
+const RESOLUTIONS: Record<string, string> = {
+  instantaneous: "instant",
+  hourly_mean: "hourly",
+  hourly_sum: "hourly",
+  daily_mean: "daily",
+  daily_sum: "daily",
+  daily_max: "daily max",
+  daily_min: "daily min",
+  monthly_mean: "monthly",
+};
+
+export interface VariableGroup {
+  quantity: string;
+  label: string;
+  items: { variable: string; label: string }[];
+}
+
+/** `discharge_daily_mean`, `discharge_instantaneous`… as one "Discharge" row of resolutions. */
+export function groupVariables(variables: string[]): VariableGroup[] {
+  const groups = new Map<string, VariableGroup>();
+  for (const variable of variables) {
+    const [quantity, ...rest] = variable.split("_");
+    const resolution = rest.join("_");
+    const group = groups.get(quantity) ?? {
+      quantity,
+      label: QUANTITIES[quantity] ?? variableLabel(quantity),
+      items: [],
+    };
+    group.items.push({ variable, label: RESOLUTIONS[resolution] ?? resolution.replace(/_/g, " ") });
+    groups.set(quantity, group);
+  }
+  const quantityOrder = Object.keys(QUANTITIES);
+  const resolutionOrder = Object.keys(RESOLUTIONS);
+  const rank = (list: string[], value: string) => {
+    const position = list.indexOf(value);
+    return position < 0 ? list.length : position;
+  };
+  return [...groups.values()]
+    .sort((a, b) => rank(quantityOrder, a.quantity) - rank(quantityOrder, b.quantity))
+    .map((group) => ({
+      ...group,
+      items: group.items.sort(
+        (a, b) =>
+          rank(resolutionOrder, a.variable.slice(group.quantity.length + 1)) -
+          rank(resolutionOrder, b.variable.slice(group.quantity.length + 1)),
+      ),
+    }));
+}
+
 /** `discharge_daily_mean` -> `Discharge · daily mean`. */
 export function variableLabel(variable: string): string {
   const parts = variable.split("_");

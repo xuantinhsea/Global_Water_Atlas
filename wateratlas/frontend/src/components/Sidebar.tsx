@@ -1,13 +1,23 @@
 import { useMemo, useState } from "react";
 import { AUTHOR, COPYRIGHT_YEAR } from "../lib/about";
-import { colorForCountry, formatCount, variableLabel } from "../lib/palette";
+import {
+  PROVIDER_REGIONS,
+  colorForCountry,
+  formatCount,
+  groupVariables,
+  variableLabel,
+} from "../lib/palette";
 import type { Filters, Provider, Station } from "../lib/types";
 
 interface Props {
   providers: Provider[];
   variables: string[];
+  /** Hosted on Vercel: credentials are the site's, not the visitor's to set. */
+  hosted: boolean;
   filters: Filters;
   onFiltersChange: (next: Filters) => void;
+  /** The station catalog is still loading into the worker. */
+  loading: boolean;
   matched: number;
   total: number;
   offMap: number;
@@ -19,6 +29,9 @@ interface Props {
   onSelectAllFiltered: () => void;
   onLoadMore: () => void;
   onOpenAbout: () => void;
+  /** Phones only: the sidebar folds down to its header so the map gets the screen. */
+  collapsed: boolean;
+  onToggleCollapsed: () => void;
 }
 
 function InfoIcon() {
@@ -31,11 +44,29 @@ function InfoIcon() {
   );
 }
 
+/** One short line under a provider saying why, or how, its downloads are limited. */
+function providerNote(provider: Provider, hosted: boolean): { text: string; warn: boolean } | null {
+  switch (provider.blocked_kind) {
+    case "credentials":
+      return hosted
+        ? { text: "needs an API key, not set up on this site", warn: true }
+        : { text: `needs ${provider.missing_credentials.join(", ")} in .env`, warn: true };
+    case "hosted":
+      return { text: "map only here; download with the local app", warn: true };
+  }
+  if (provider.bulk_first_use && provider.cache_warm === false) {
+    return { text: "one-time bulk download on first use", warn: false };
+  }
+  return null;
+}
+
 export function Sidebar({
   providers,
   variables,
+  hosted,
   filters,
   onFiltersChange,
+  loading,
   matched,
   total,
   offMap,
@@ -47,28 +78,52 @@ export function Sidebar({
   onSelectAllFiltered,
   onLoadMore,
   onOpenAbout,
+  collapsed,
+  onToggleCollapsed,
 }: Props) {
   const [tab, setTab] = useState<"filters" | "results">("filters");
 
-  const blockedProviders = useMemo(
-    () => providers.filter((provider) => provider.missing_credentials.length > 0),
-    [providers],
-  );
+  const variableGroups = useMemo(() => groupVariables(variables), [variables]);
+
+  const regions = useMemo(() => {
+    const byKey = new Map(providers.map((provider) => [provider.key, provider]));
+    const placed = new Set<string>();
+    const groups = PROVIDER_REGIONS.map((region) => {
+      const members = region.keys.flatMap((key) => {
+        const provider = byKey.get(key);
+        if (!provider) return [];
+        placed.add(key);
+        return [provider];
+      });
+      return { label: region.label, providers: members };
+    });
+    const others = providers.filter((provider) => !placed.has(provider.key));
+    if (others.length) groups.push({ label: "Other", providers: others });
+    return groups.filter((group) => group.providers.length > 0);
+  }, [providers]);
 
   const toggle = (list: string[], value: string) =>
     list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
 
-  const isFiltered =
-    filters.countries.length > 0 ||
-    filters.variables.length > 0 ||
-    filters.text.length > 0 ||
-    filters.minArea !== null ||
-    filters.maxArea !== null;
+  /** Selects every value in `values`, or clears them all if they were all selected. */
+  const toggleAll = (list: string[], values: string[]) =>
+    values.every((value) => list.includes(value))
+      ? list.filter((item) => !values.includes(item))
+      : [...list, ...values.filter((value) => !list.includes(value))];
+
+  const activeFilterCount =
+    filters.countries.length +
+    filters.variables.length +
+    (filters.text ? 1 : 0) +
+    (filters.minArea !== null || filters.maxArea !== null ? 1 : 0);
+
+  const credentialBlocked = providers.filter((provider) => provider.blocked_kind === "credentials");
 
   return (
     <aside className="riv-panel riv-sidebar">
       <header className="riv-sidebar-head">
         <div className="riv-sidebar-title">
+          <img className="riv-brand-mark" src="/favicon.svg" width="30" height="30" alt="" />
           <h1>Global Water Atlas</h1>
           <button
             type="button"
@@ -79,13 +134,31 @@ export function Sidebar({
           >
             <InfoIcon />
           </button>
+          <button
+            type="button"
+            className="riv-button riv-collapse-toggle"
+            aria-expanded={!collapsed}
+            onClick={onToggleCollapsed}
+          >
+            {collapsed ? "Filters" : "Map"}
+            {collapsed && activeFilterCount > 0 && (
+              <span className="riv-count-badge">{activeFilterCount}</span>
+            )}
+          </button>
         </div>
-        <p className="riv-muted riv-small">
-          <strong>{formatCount(matched)}</strong> of {formatCount(total)} stations
-          {offMap > 0 && (
+        <p className="riv-muted riv-small riv-sidebar-summary">
+          {loading ? (
+            <>Loading {total > 0 ? formatCount(total) : ""} stations…</>
+          ) : (
             <>
-              {" "}
-              · {offMap} have no coordinates and are not on the map
+              <strong>{formatCount(matched)}</strong> of {formatCount(total)} stations from{" "}
+              {providers.length} providers
+              {offMap > 0 && (
+                <span title={`${offMap} stations have no coordinates and are not on the map`}>
+                  {" "}
+                  · {formatCount(offMap)} unmapped
+                </span>
+              )}
             </>
           )}
         </p>
@@ -99,7 +172,7 @@ export function Sidebar({
           className={tab === "filters" ? "is-active" : ""}
           onClick={() => setTab("filters")}
         >
-          Filters
+          Filters{activeFilterCount > 0 && ` · ${activeFilterCount}`}
         </button>
         <button
           type="button"
@@ -108,7 +181,7 @@ export function Sidebar({
           className={tab === "results" ? "is-active" : ""}
           onClick={() => setTab("results")}
         >
-          Stations ({formatCount(resultsTotal)})
+          Stations{loading ? "" : ` (${formatCount(resultsTotal)})`}
         </button>
       </div>
 
@@ -127,23 +200,43 @@ export function Sidebar({
 
           <section className="riv-filter-section">
             <h3>Variable</h3>
-            <p className="riv-muted riv-small">Stations declaring any of these.</p>
-            <div className="riv-checks">
-              {variables.map((variable) => (
-                <label key={variable} className="riv-check">
-                  <input
-                    type="checkbox"
-                    checked={filters.variables.includes(variable)}
-                    onChange={() =>
-                      onFiltersChange({
-                        ...filters,
-                        variables: toggle(filters.variables, variable),
-                      })
-                    }
-                  />
-                  <span>{variableLabel(variable)}</span>
-                </label>
-              ))}
+            <p className="riv-muted riv-small">Stations declaring any of the chosen series.</p>
+            <div className="riv-variable-groups">
+              {variableGroups.map((group) => {
+                const groupVariables = group.items.map((item) => item.variable);
+                const allOn = groupVariables.every((variable) => filters.variables.includes(variable));
+                return (
+                  <div key={group.quantity} className="riv-variable-group">
+                    <button
+                      type="button"
+                      className="riv-group-label"
+                      aria-pressed={allOn}
+                      title={allOn ? `Clear every ${group.label.toLowerCase()} series` : `Any ${group.label.toLowerCase()} series`}
+                      onClick={() =>
+                        onFiltersChange({ ...filters, variables: toggleAll(filters.variables, groupVariables) })
+                      }
+                    >
+                      {group.label}
+                    </button>
+                    <div className="riv-chips">
+                      {group.items.map((item) => (
+                        <button
+                          key={item.variable}
+                          type="button"
+                          className="riv-chip-toggle"
+                          aria-pressed={filters.variables.includes(item.variable)}
+                          title={variableLabel(item.variable)}
+                          onClick={() =>
+                            onFiltersChange({ ...filters, variables: toggle(filters.variables, item.variable) })
+                          }
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </section>
 
@@ -187,65 +280,77 @@ export function Sidebar({
 
           <section className="riv-filter-section">
             <h3>Provider</h3>
-            <ul className="riv-provider-list">
-              {providers.map((provider) => {
-                const active = filters.countries.includes(provider.key);
-                return (
-                  <li key={provider.key}>
-                    <label className="riv-check riv-provider-row">
-                      <input
-                        type="checkbox"
-                        checked={active}
-                        onChange={() =>
-                          onFiltersChange({
-                            ...filters,
-                            countries: toggle(filters.countries, provider.key),
-                          })
-                        }
-                      />
-                      <span
-                        className="riv-country-dot"
-                        style={{ background: colorForCountry(provider.key) }}
-                        aria-hidden="true"
-                      />
-                      <span className="riv-provider-name">
-                        {provider.country_name}
-                        <em>{provider.label}</em>
-                      </span>
-                      <span className="riv-mono riv-muted riv-tabular">
-                        {formatCount(provider.stations)}
-                      </span>
-                    </label>
-                    {provider.missing_credentials.length > 0 && (
-                      <p className="riv-provider-note riv-warn">
-                        needs {provider.missing_credentials.join(", ")}
-                      </p>
-                    )}
-                    {provider.blocked_reason && provider.missing_credentials.length === 0 && (
-                      <p className="riv-provider-note riv-warn" title={provider.blocked_reason}>
-                        map only here; download with the local app
-                      </p>
-                    )}
-                    {provider.bulk_first_use &&
-                      provider.cache_warm === false &&
-                      !provider.blocked_reason && (
-                        <p className="riv-provider-note">one-time bulk download on first use</p>
-                      )}
-                  </li>
-                );
-              })}
-            </ul>
+            {regions.map((region) => {
+              const keys = region.providers.map((provider) => provider.key);
+              const allOn = keys.every((key) => filters.countries.includes(key));
+              return (
+                <div key={region.label} className="riv-region">
+                  <button
+                    type="button"
+                    className="riv-region-label"
+                    aria-pressed={allOn}
+                    title={allOn ? `Clear the ${region.label} providers` : `Filter to every ${region.label} provider`}
+                    onClick={() =>
+                      onFiltersChange({ ...filters, countries: toggleAll(filters.countries, keys) })
+                    }
+                  >
+                    {region.label}
+                  </button>
+                  <ul className="riv-provider-list">
+                    {region.providers.map((provider) => {
+                      const note = providerNote(provider, hosted);
+                      return (
+                        <li key={provider.key}>
+                          <label className="riv-check riv-provider-row">
+                            <input
+                              type="checkbox"
+                              checked={filters.countries.includes(provider.key)}
+                              onChange={() =>
+                                onFiltersChange({
+                                  ...filters,
+                                  countries: toggle(filters.countries, provider.key),
+                                })
+                              }
+                            />
+                            <span
+                              className="riv-country-dot"
+                              style={{ background: colorForCountry(provider.key) }}
+                              aria-hidden="true"
+                            />
+                            <span className="riv-provider-name">
+                              {provider.country_name}
+                              <em>{provider.label}</em>
+                            </span>
+                            <span className="riv-mono riv-muted riv-tabular">
+                              {formatCount(provider.stations)}
+                            </span>
+                          </label>
+                          {note && (
+                            <p
+                              className={note.warn ? "riv-provider-note riv-warn" : "riv-provider-note"}
+                              title={provider.blocked_reason ?? provider.bulk_first_use ?? undefined}
+                            >
+                              {note.text}
+                            </p>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
           </section>
 
-          {blockedProviders.length > 0 && (
+          {!hosted && credentialBlocked.length > 0 && (
             <p className="riv-alert riv-alert-warn riv-small">
-              {blockedProviders.length} provider
-              {blockedProviders.length > 1 ? "s are" : " is"} unavailable until their credentials
+              {credentialBlocked.length} provider
+              {credentialBlocked.length > 1 ? "s are" : " is"} unavailable until their credentials
               are set in <code>rivretrieve/.env</code>. Their stations still appear on the map.
             </p>
           )}
 
-          {isFiltered && (
+          {activeFilterCount > 0 && (
             <button
               type="button"
               className="riv-button riv-button-ghost riv-full"
@@ -270,7 +375,7 @@ export function Sidebar({
               type="button"
               className="riv-button riv-button-ghost"
               onClick={onSelectAllFiltered}
-              disabled={resultsTotal === 0}
+              disabled={loading || resultsTotal === 0}
             >
               Select all {formatCount(Math.min(resultsTotal, 5000))}
             </button>
@@ -316,7 +421,8 @@ export function Sidebar({
               Show more ({formatCount(resultsTotal - results.length)} left)
             </button>
           )}
-          {resultsTotal === 0 && (
+          {loading && <p className="riv-muted riv-small">Loading stations…</p>}
+          {!loading && resultsTotal === 0 && (
             <p className="riv-muted riv-small">No stations match these filters.</p>
           )}
         </div>

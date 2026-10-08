@@ -107,6 +107,15 @@ def get_preview(
         }
 
     fetcher = manager.fetcher(country)
+    note = registry.station_download_note(fetcher, gauge_id)
+    if note:
+        return {
+            "station_key": station_key,
+            "variable": variable,
+            "status": "blocked",
+            "message": note,
+            "series": {"t": [], "mean": [], "min": [], "max": []},
+        }
     try:
         frame = fetcher.get_data(
             gauge_id=gauge_id, variable=variable, start_date=start_date, end_date=end_date

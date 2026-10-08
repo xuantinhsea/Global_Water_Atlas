@@ -22,6 +22,8 @@ node_modules/
 
 **/*.pyc
 **/*.png
+# The atlas's icons and share card are source files, not screenshots.
+!wateratlas/frontend/public/*.png
 **/*.env
 
 .ipynb_checkpoints/

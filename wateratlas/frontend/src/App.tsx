@@ -20,12 +20,21 @@ function defaultRange(): { start: string; end: string } {
   return { start: iso(start), end: iso(end) };
 }
 
+/** Phones get the map first; the filters open from the header. */
+const PHONE_QUERY = "(max-width: 760px)";
+
 export default function App() {
   const clientRef = useRef<ClusterClient | null>(null);
   const [client, setClient] = useState<ClusterClient | null>(null);
   const [boot, setBoot] = useState<{ state: "loading" | "ready" | "error"; message?: string }>({
     state: "loading",
   });
+  // The app shell renders as soon as the provider list arrives; the station
+  // catalog keeps loading and indexing in the worker behind it.
+  const [stationsError, setStationsError] = useState<string | null>(null);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(
+    () => window.matchMedia?.(PHONE_QUERY).matches ?? false,
+  );
 
   const [providers, setProviders] = useState<ProvidersResponse | null>(null);
   const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS);
@@ -50,20 +59,35 @@ export default function App() {
   // -- boot --------------------------------------------------------------------
 
   useEffect(() => {
+    // Created first so the worker script downloads while the provider list is on its way.
     const worker = new ClusterClient();
     clientRef.current = worker;
     worker.onMatchedChange = setMatched;
+    let cancelled = false;
 
-    Promise.all([worker.load(EMPTY_FILTERS), api.providers()])
-      .then(([info, providerList]) => {
-        setCatalogInfo({ total: info.total, offMap: info.offMap });
+    api
+      .providers()
+      .then((providerList) => {
+        if (cancelled) return;
+        if (!providerList.catalog_built) {
+          setBoot({ state: "error", message: "No station catalog has been built yet." });
+          return;
+        }
         setProviders(providerList);
-        setClient(worker);
         setBoot({ state: "ready" });
+        return worker.load(EMPTY_FILTERS, providerList.catalog_version).then(
+          (info) => {
+            if (cancelled) return;
+            setCatalogInfo({ total: info.total, offMap: info.offMap });
+            setClient(worker);
+          },
+          (exc: Error) => !cancelled && setStationsError(exc.message),
+        );
       })
-      .catch((exc: Error) => setBoot({ state: "error", message: exc.message }));
+      .catch((exc: Error) => !cancelled && setBoot({ state: "error", message: exc.message }));
 
     return () => {
+      cancelled = true;
       worker.dispose();
       clientRef.current = null;
     };
@@ -154,24 +178,35 @@ export default function App() {
   if (boot.state === "loading") {
     return (
       <div className="riv-boot">
-        <div>
+        <div className="riv-boot-card">
+          <img className="riv-boot-mark" src="/favicon.svg" width="56" height="56" alt="" />
           <h1>Global Water Atlas</h1>
-          <p className="riv-muted">Loading the station catalog…</p>
+          <p className="riv-muted">Connecting to the atlas…</p>
         </div>
       </div>
     );
   }
 
+  const appClass = [
+    "riv-app",
+    active ? "has-panel" : "",
+    sidebarCollapsed ? "sidebar-collapsed" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div className={active ? "riv-app has-panel" : "riv-app"}>
+    <div className={appClass}>
       <Sidebar
         providers={providers?.providers ?? []}
         variables={providers?.variables ?? []}
+        hosted={providers?.hosted ?? false}
         filters={filters}
         onFiltersChange={applyFilters}
+        loading={!client}
         matched={matched}
-        total={catalogInfo?.total ?? 0}
-        offMap={catalogInfo?.offMap ?? 0}
+        total={catalogInfo?.total ?? providers?.totals.mappable ?? 0}
+        offMap={catalogInfo?.offMap ?? providers?.totals.off_map ?? 0}
         results={results}
         resultsTotal={resultsTotal}
         selection={selection}
@@ -180,6 +215,8 @@ export default function App() {
         onSelectAllFiltered={selectAllFiltered}
         onLoadMore={() => setPage((current) => current + 1)}
         onOpenAbout={() => setAboutOpen(true)}
+        collapsed={sidebarCollapsed}
+        onToggleCollapsed={() => setSidebarCollapsed((current) => !current)}
       />
 
       <AboutDialog
@@ -203,6 +240,8 @@ export default function App() {
           onPickStation={setActive}
           onSelectKeys={selectKeys}
           onSelectionTruncated={onSelectionTruncated}
+          loadingCount={client ? null : (providers?.totals.mappable ?? 0)}
+          loadError={stationsError}
         />
         {notice && <div className="riv-toast">{notice}</div>}
       </main>

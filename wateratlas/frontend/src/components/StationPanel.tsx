@@ -15,6 +15,19 @@ interface Props {
   hosted: boolean;
 }
 
+/** Text with its web addresses turned into links that open in a new tab. */
+function linkify(text: string) {
+  return text.split(/(https?:\/\/\S+)/).map((part, index) =>
+    /^https?:\/\//.test(part) ? (
+      <a key={index} href={part} target="_blank" rel="noreferrer noopener">
+        {part.includes("grdc") ? "GRDC Data Portal" : part}
+      </a>
+    ) : (
+      part
+    ),
+  );
+}
+
 /** Provider-specific columns worth showing; the rest stay behind a disclosure. */
 const PRIMARY_EXTRA = new Set([
   "stationTypeName",
@@ -93,9 +106,12 @@ export function StationPanel({
 
   const provider = detail?.provider;
   const blocked = provider?.missing_credentials?.length ? provider.missing_credentials : null;
-  // Blocked for a reason other than credentials: a bulk-cache provider on the hosted atlas.
-  const hostedOnlyBlock = !blocked && provider?.blocked_reason ? provider.blocked_reason : null;
-  const unavailable = Boolean(blocked || hostedOnlyBlock);
+  // Blocked for another reason: a bulk cache the hosted atlas can't keep.
+  const otherBlock = !blocked && provider?.blocked_reason ? provider.blocked_reason : null;
+  // This one station cannot be served although its provider can (GRDC without a national source).
+  const stationNote = !blocked && !otherBlock ? (detail?.download_note ?? null) : null;
+  const unavailable = Boolean(blocked || otherBlock || stationNote);
+  const nationalSource = detail?.national_source ?? null;
   const extras = Object.entries(detail?.extra ?? {}).filter(
     ([key]) => !["gauge_id", "latitude", "longitude", "station_name", "river"].includes(key),
   );
@@ -189,14 +205,28 @@ export function StationPanel({
         </div>
       </section>
 
-      {blocked && (
-        <p className="riv-alert riv-alert-warn">
-          {provider?.label} needs {blocked.join(" and ")} in <code>rivretrieve/.env</code> before
-          anything can be downloaded.
+      {blocked &&
+        (hosted ? (
+          <p className="riv-alert riv-alert-warn">
+            {provider?.label} needs an API key ({blocked.join(", ")}), which this site does not
+            have. Run the atlas locally with your own key to download these stations.
+          </p>
+        ) : (
+          <p className="riv-alert riv-alert-warn">
+            {provider?.label} needs {blocked.join(" and ")} in <code>rivretrieve/.env</code> before
+            anything can be downloaded.
+          </p>
+        ))}
+      {otherBlock && <p className="riv-alert riv-alert-warn">{otherBlock}</p>}
+      {stationNote && <p className="riv-alert riv-alert-warn">{linkify(stationNote)}</p>}
+      {nationalSource && !unavailable && (
+        <p className="riv-alert riv-alert-info">
+          Downloads come from <strong>{nationalSource.provider_label}</strong>, which runs this
+          gauge (national station <code>{nationalSource.gauge_id}</code>). GRDC's own copy is
+          released only on request through its Data Portal.
         </p>
       )}
-      {hostedOnlyBlock && <p className="riv-alert riv-alert-warn">{hostedOnlyBlock}</p>}
-      {provider?.bulk_first_use && provider.cache_warm === false && !hostedOnlyBlock && (
+      {provider?.bulk_first_use && provider.cache_warm === false && !otherBlock && (
         <p className="riv-alert riv-alert-warn">{provider.bulk_first_use}</p>
       )}
       {provider?.throttle_note && !unavailable && (

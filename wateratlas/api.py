@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import json
 import logging
 import math
+from functools import lru_cache
 from typing import Any, Optional
+from urllib.parse import quote
 
 import numpy as np
 import pandas as pd
@@ -109,16 +112,18 @@ def list_providers() -> dict[str, Any]:
                 "needs_credentials": list(provider.credentials),
                 "missing_credentials": missing,
                 "blocked_reason": provider.blocked_reason(),
+                "blocked_kind": provider.blocked_kind(),
                 "usable": provider.is_usable(),
-                "bulk_first_use": provider.bulk_first_use,
+                "bulk_first_use": provider.bulk_note,
                 "cache_warm": provider.cache_is_warm(),
                 "throttle_note": provider.throttle_note,
-                "seconds_per_station": provider.seconds_per_station,
+                "seconds_per_station": provider.station_seconds(),
             }
         )
 
     return {
         "catalog_built": built,
+        "catalog_version": catalog_version(),
         # Tells the front end to build download archives itself (see /api/station/data).
         "hosted": paths.HOSTED,
         "totals": totals,
@@ -151,19 +156,37 @@ def rebuild_catalog() -> dict[str, Any]:
 # --------------------------------------------------------------------------------------
 
 
+@lru_cache(maxsize=4)
+def _catalog_version(size: int, mtime_ns: int) -> str:
+    """A short hash of the map payload, keyed on its size and mtime so a rebuild is noticed."""
+    return hashlib.sha1(paths.STATIONS_JSON.read_bytes()).hexdigest()[:12]
+
+
+def catalog_version() -> Optional[str]:
+    """Identifies the current map payload; the front end asks for ``/stations/map?v=<this>``."""
+    try:
+        stat = paths.STATIONS_JSON.stat()
+    except FileNotFoundError:
+        return None
+    return _catalog_version(stat.st_size, stat.st_mtime_ns)
+
+
 @router.get("/stations/map")
-def stations_map_payload() -> FileResponse:
+def stations_map_payload(v: Optional[str] = Query(None, description="catalog_version from /providers")) -> FileResponse:
     """The compact payload the map layer loads once.
 
     Served as a file so the ASGI server can handle conditional requests and
-    compression rather than re-serialising 73k rows on every reload.
+    compression rather than re-serialising 98k rows on every reload. Asked for
+    with the current ``catalog_version``, the URL names one exact payload, so
+    browsers and Vercel's CDN may keep it for good; a rebuilt catalog gets a new URL.
     """
     if not paths.STATIONS_JSON.exists():
         raise HTTPException(status_code=404, detail="No catalog. Run scripts/build_catalog.py.")
+    versioned = v is not None and v == catalog_version()
     return FileResponse(
         paths.STATIONS_JSON,
         media_type="application/json",
-        headers={"Cache-Control": "no-cache"},
+        headers={"Cache-Control": paths.IMMUTABLE_CACHE if versioned else "no-cache"},
     )
 
 
@@ -277,6 +300,8 @@ def station_data(
         return status(502, jobs.FAILED, f"Could not start the {provider.label} fetcher: {exc}"[:400])
 
     outcome = jobs.fetch_station(fetcher, key, gauge_id, variable, start_date, end_date)
+    if outcome.state == jobs.BLOCKED:
+        return status(409, jobs.BLOCKED, outcome.message)
     if outcome.state == jobs.FAILED:
         return status(502, jobs.FAILED, outcome.message)
     if outcome.state == jobs.EMPTY:
@@ -296,6 +321,9 @@ def station_data(
             "X-Atlas-Rows": str(outcome.rows),
             "X-Atlas-First-Date": outcome.first_date or "",
             "X-Atlas-Last-Date": outcome.last_date or "",
+            # Where the data came from, when not the station's own provider. Percent-encoded:
+            # header values must be Latin-1.
+            "X-Atlas-Note": quote(outcome.message or "", safe=" ,.:;()'/-"),
             "Cache-Control": "no-store",
         },
     )
@@ -326,7 +354,8 @@ def get_station(key: str = Query(..., description="station_key, e.g. usa:0247950
             "source_url": provider.source_url,
             "missing_credentials": provider.missing_credentials(),
             "blocked_reason": provider.blocked_reason(),
-            "bulk_first_use": provider.bulk_first_use,
+            "blocked_kind": provider.blocked_kind(),
+            "bulk_first_use": provider.bulk_note,
             "cache_warm": provider.cache_is_warm(),
             "throttle_note": provider.throttle_note,
         }
@@ -334,6 +363,12 @@ def get_station(key: str = Query(..., description="station_key, e.g. usa:0247950
         else None
     )
     record["observed"] = availability.for_station(station_key)
+
+    # Per-station download routing: GRDC stations come from their national service, or not at all.
+    fetcher_class = provider.fetcher_class() if provider else None
+    gauge_id = registry.split_station_key(station_key)[1]
+    record["download_note"] = registry.station_download_note(fetcher_class, gauge_id) if fetcher_class else None
+    record["national_source"] = registry.national_source(fetcher_class, gauge_id) if fetcher_class else None
     return record
 
 

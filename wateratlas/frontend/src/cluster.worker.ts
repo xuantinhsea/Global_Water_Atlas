@@ -19,6 +19,8 @@ let payload: MapPayload | null = null;
 let allPoints: Point[] = [];
 let index: Supercluster<{ i: number }> | null = null;
 let filteredIndices: Int32Array = new Int32Array(0);
+/** Filters set while the catalog was still loading; applied once it arrives. */
+let pendingFilters: Filters | null = null;
 
 /** Bit positions must match `registry.all_variables()` on the server. */
 function variableMaskFor(variables: string[]): number {
@@ -67,7 +69,10 @@ function buildIndex(filters: Filters) {
     // (512 by default), while Leaflet paints 256 px tiles. So one Leaflet pixel
     // is two units here, and 120 gives the ~60 px grouping the map wants.
     radius: 120,
-    maxZoom: 13,
+    // Every zoom level costs a pass over all stations, and building the index
+    // is most of the atlas's start-up time. From zoom 12 (about 40 km across a
+    // screen) stations are drawn individually, which the canvas layer handles.
+    maxZoom: 11,
     minPoints: 3,
   });
   index.load(kept as never);
@@ -130,7 +135,9 @@ self.onmessage = async (event: MessageEvent) => {
 
   switch (message.type) {
     case "load": {
-      const response = await fetch("/api/stations/map");
+      // A versioned URL names one exact payload, so the browser and CDN may keep it.
+      const query = message.version ? `?v=${encodeURIComponent(message.version)}` : "";
+      const response = await fetch(`/api/stations/map${query}`);
       if (!response.ok) {
         (self as unknown as Worker).postMessage({
           type: "error",
@@ -144,7 +151,8 @@ self.onmessage = async (event: MessageEvent) => {
         properties: { i },
         geometry: { type: "Point" as const, coordinates: [row[2], row[1]] },
       }));
-      buildIndex(message.filters);
+      buildIndex(pendingFilters ?? message.filters);
+      pendingFilters = null;
       (self as unknown as Worker).postMessage({
         type: "ready",
         countries: payload.countries,
@@ -158,6 +166,10 @@ self.onmessage = async (event: MessageEvent) => {
     }
 
     case "filter": {
+      if (!payload) {
+        pendingFilters = message.filters;
+        return;
+      }
       buildIndex(message.filters);
       (self as unknown as Worker).postMessage({
         type: "filtered",

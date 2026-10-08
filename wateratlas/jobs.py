@@ -57,7 +57,11 @@ def safe_filename(text: str) -> str:
 
 @dataclass
 class FetchOutcome:
-    """What one station's download produced: ``DONE``, ``EMPTY`` or ``FAILED``."""
+    """What one station's download produced: ``DONE``, ``EMPTY``, ``FAILED`` or ``BLOCKED``.
+
+    A ``DONE`` outcome's message notes where the data came from when that is not
+    the station's own provider (GRDC stations come from national services).
+    """
 
     state: str
     frame: Optional[pd.DataFrame] = None
@@ -80,6 +84,10 @@ def fetch_station(
     Shared by server-side jobs and the hosted atlas's per-station CSV endpoint,
     so both classify a result the same way.
     """
+    note = registry.station_download_note(fetcher, gauge_id)
+    if note:
+        return FetchOutcome(BLOCKED, message=note)
+
     try:
         frame = fetcher.get_data(gauge_id=gauge_id, variable=variable, start_date=start_date, end_date=end_date)
     except Exception as exc:
@@ -92,6 +100,11 @@ def fetch_station(
         return FetchOutcome(EMPTY, message="The provider returned no rows for this range.")
 
     outcome = FetchOutcome(DONE, frame=frame, rows=len(frame))
+    source = frame.attrs.get("national_source")
+    if source:
+        provider = registry.provider_for_fetcher(source.get("fetcher", ""))
+        label = provider.label if provider else source.get("fetcher")
+        outcome.message = f"Downloaded from {label}, national station {source.get('gauge_id')}."
     index = pd.to_datetime(frame.index, errors="coerce")
     if index.notna().any():
         outcome.first_date = str(index.min().date())
@@ -363,7 +376,7 @@ class JobManager:
                 job.emit("station.finished", **asdict(task), progress=job.progress())
             return
 
-        if provider.bulk_first_use and not provider.cache_is_warm():
+        if provider.bulk_note and not provider.cache_is_warm():
             job.emit(
                 "job.notice",
                 message=(
@@ -487,6 +500,13 @@ class JobManager:
                 f"- **{provider.label}** ({provider.country_name}) — "
                 f"{count} station(s) — {provider.source_url}"
             )
+        if "grdc" in used:
+            lines += [
+                "",
+                "GRDC stations were downloaded from the national service that runs each of them,",
+                "whose terms apply to that data; the `message` column of `manifest.csv` names the",
+                "service and its station ID.",
+            ]
         lines += [
             "",
             "Units are SI throughout: discharge in m³/s, stage in m, water temperature in °C,",
@@ -537,13 +557,21 @@ def estimate(station_keys: Iterable[str], variable: str) -> dict[str, Any]:
         supported = variable in provider.declared_variables()
         missing = provider.missing_credentials()
         reason = provider.blocked_reason()
+        # Providers that serve only some of their stations (GRDC) are counted station by station.
+        station_blocked = 0
+        if supported and not reason and hasattr(provider.fetcher_class(), "unavailable_reason"):
+            gauges = rows.loc[rows[COUNTRY] == country, GAUGE_ID]
+            station_blocked = sum(
+                1 for gauge in gauges if registry.station_download_note(provider.fetcher_class(), gauge)
+            )
         if not supported:
             unsupported += count
         elif reason:
             blocked += count
         else:
-            workers = LOCAL_CACHE_CONCURRENCY if provider.cache_glob else DEFAULT_CONCURRENCY
-            slowest = max(slowest, count * provider.seconds_per_station / workers)
+            blocked += station_blocked
+            workers = LOCAL_CACHE_CONCURRENCY if provider.uses_bulk_cache() else DEFAULT_CONCURRENCY
+            slowest = max(slowest, (count - station_blocked) * provider.station_seconds() / workers)
         breakdown.append(
             {
                 "country": country,
@@ -552,7 +580,9 @@ def estimate(station_keys: Iterable[str], variable: str) -> dict[str, Any]:
                 "supported": supported,
                 "missing_credentials": missing,
                 "blocked_reason": reason,
-                "bulk_first_use": provider.bulk_first_use if not provider.cache_is_warm() else None,
+                "blocked_kind": provider.blocked_kind(),
+                "unavailable_stations": station_blocked,
+                "bulk_first_use": provider.bulk_note if not provider.cache_is_warm() else None,
                 "throttle_note": provider.throttle_note,
             }
         )

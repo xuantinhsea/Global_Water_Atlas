@@ -139,10 +139,13 @@ class RiverAppAPITest(unittest.TestCase):
         self.assertEqual(by_key["usa"]["stations"], 2)
         self.assertEqual(by_key["usa"]["label"], "USGS NWIS")
         self.assertTrue(by_key["norway"]["per_station_availability"])
-        # Norway and Brazil are the only providers that need secrets.
+        # Brazil falls back to ANA's public service, so it needs no secrets.
         self.assertEqual(by_key["norway"]["needs_credentials"], ["NVE_API_KEY"])
-        self.assertIn("ANA_USERNAME", by_key["brazil"]["needs_credentials"])
+        self.assertEqual(by_key["norway"]["blocked_kind"], "credentials")
+        self.assertEqual(by_key["brazil"]["needs_credentials"], [])
         self.assertIsNotNone(by_key["canada"]["bulk_first_use"])
+        # GRDC downloads route station by station to national services.
+        self.assertIsNone(by_key["grdc"]["blocked_kind"])
 
     def test_bbox_query_returns_geojson(self):
         response = self.client.get("/api/stations", params={"bbox": "-89,30,-88,31"})
@@ -194,6 +197,18 @@ class RiverAppAPITest(unittest.TestCase):
         )
         self.assertEqual(len(payload["countries"]), len(registry.PROVIDERS))
         self.assertEqual(payload["station_count"], len(payload["stations"]))
+
+    def test_map_payload_is_cacheable_only_at_its_current_version(self):
+        version = self.client.get("/api/providers").json()["catalog_version"]
+        self.assertRegex(version, r"^[0-9a-f]{12}$")
+
+        current = self.client.get("/api/stations/map", params={"v": version})
+        self.assertIn("immutable", current.headers["cache-control"])
+        self.assertIn("s-maxage", current.headers["cache-control"])
+
+        for params in ({"v": "000000000000"}, {}):
+            response = self.client.get("/api/stations/map", params=params)
+            self.assertEqual(response.headers["cache-control"], "no-cache")
 
     # -- selection -------------------------------------------------------------
 
@@ -365,11 +380,17 @@ class RiverAppAPITest(unittest.TestCase):
 
     # -- hosted (Vercel) mode ----------------------------------------------------
 
-    def test_hosted_mode_blocks_bulk_cache_providers_and_server_jobs(self):
+    def test_hosted_mode_reads_bulk_cache_providers_per_station_and_blocks_server_jobs(self):
         with patch.object(paths, "HOSTED", True):
             providers = {p["key"]: p for p in self.client.get("/api/providers").json()["providers"]}
-            self.assertIn("several GB", providers["canada"]["blocked_reason"])
-            self.assertFalse(providers["canada"]["usable"])
+            # Canada and Poland skip their bulk caches hosted and read one station at a time.
+            for key in ("canada", "poland"):
+                self.assertIsNone(providers[key]["blocked_reason"], key)
+                self.assertTrue(providers[key]["usable"], key)
+                self.assertIsNone(providers[key]["bulk_first_use"], key)
+                self.assertIsNone(providers[key]["cache_warm"], key)
+            self.assertEqual(registry.get_provider("canada").build_fetcher().source, "api")
+            self.assertEqual(registry.get_provider("poland").build_fetcher().source, "direct")
             self.assertIsNone(providers["usa"]["blocked_reason"])
             self.assertTrue(self.client.get("/api/providers").json()["hosted"])
 

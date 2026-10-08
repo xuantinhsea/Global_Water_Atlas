@@ -101,6 +101,14 @@ function attribution(job: Job, tasks: JobTask[], providers: Map<string, Provider
       `- **${provider.label}** (${provider.country_name}) — ${count} station(s) — ${provider.source_url}`,
     );
   }
+  if (used.includes("grdc")) {
+    lines.push(
+      "",
+      "GRDC stations were downloaded from the national service that runs each of them,",
+      "whose terms apply to that data; the `message` column of `manifest.csv` names the",
+      "service and its station ID.",
+    );
+  }
   lines.push(
     "",
     "Units are SI throughout: discharge in m³/s, stage in m, water temperature in °C,",
@@ -162,6 +170,7 @@ export function runBrowserJob(options: BrowserJobOptions): BrowserJobHandle {
         task.rows = result.rows;
         task.first_date = result.firstDate;
         task.last_date = result.lastDate;
+        task.message = result.note;
         task.state = "done";
       } else {
         task.state = result.status;

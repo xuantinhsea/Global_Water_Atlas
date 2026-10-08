@@ -17,6 +17,8 @@ export type StationDataResult =
       rows: number;
       firstDate: string | null;
       lastDate: string | null;
+      /** Where the data came from, when not the station's own provider (GRDC). */
+      note: string | null;
     }
   | { status: Exclude<TaskState, "done" | "queued" | "running">; message: string };
 
@@ -25,6 +27,16 @@ export interface SelectedStation {
   country: string;
   gauge_id: string;
   station_name: string | null;
+}
+
+/** The percent-encoded `X-Atlas-Note` header, decoded. */
+function decodeNote(header: string | null): string | null {
+  if (!header) return null;
+  try {
+    return decodeURIComponent(header);
+  } catch {
+    return header;
+  }
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
@@ -125,6 +137,7 @@ export const api = {
         rows: Number(response.headers.get("x-atlas-rows") ?? 0),
         firstDate: response.headers.get("x-atlas-first-date") || null,
         lastDate: response.headers.get("x-atlas-last-date") || null,
+        note: decodeNote(response.headers.get("x-atlas-note")),
       };
     }
     if (type.includes("application/json")) {

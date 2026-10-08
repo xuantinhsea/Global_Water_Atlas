@@ -18,6 +18,8 @@ rivretrieve/data/
 *.egg-info/
 *.tsbuildinfo
 *.png
+# ...except the atlas's icons and share card, which the build copies into dist/.
+!wateratlas/frontend/public/*.png
 .venv/
 # Secrets stay local; the hosted app gets credentials from project settings.
 .env*

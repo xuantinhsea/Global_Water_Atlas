@@ -107,6 +107,16 @@ class Provider:
     seconds_per_station: float = 2.0
     """Rough wall-clock cost of one get_data() call, used for job estimates."""
 
+    hosted_fetcher_kwargs: dict[str, object] = field(default_factory=dict)
+    """Constructor arguments for the hosted atlas, which cannot keep a bulk cache.
+
+    Set for the bulk-cache providers whose fetcher can instead read one station
+    at a time, e.g. ``{"source": "api"}``. Their stations then download hosted too.
+    """
+
+    hosted_seconds_per_station: Optional[float] = None
+    """``seconds_per_station`` when built with ``hosted_fetcher_kwargs``."""
+
     # -- derived -------------------------------------------------------------------
 
     def fetcher_class(self):
@@ -117,10 +127,26 @@ class Provider:
     def build_fetcher(self):
         """Instantiates the fetcher.
 
-        Brazil and Norway read their credentials from ``rivretrieve/.env`` at
-        construction time, so a fetcher built without them will refuse to fetch.
+        Norway reads its credentials from ``rivretrieve/.env`` at construction
+        time, so a fetcher built without them will refuse to fetch.
         """
-        return self.fetcher_class()()
+        kwargs = self.hosted_fetcher_kwargs if paths.HOSTED else {}
+        return self.fetcher_class()(**kwargs)
+
+    def uses_bulk_cache(self) -> bool:
+        """Whether downloads here go through the provider's one-time bulk download."""
+        return bool(self.bulk_first_use) and not (paths.HOSTED and self.hosted_fetcher_kwargs)
+
+    @property
+    def bulk_note(self) -> Optional[str]:
+        """``bulk_first_use``, but only where this deployment actually does the bulk download."""
+        return self.bulk_first_use if self.uses_bulk_cache() else None
+
+    def station_seconds(self) -> float:
+        """Rough cost of one station in this deployment, for job estimates."""
+        if paths.HOSTED and self.hosted_fetcher_kwargs and self.hosted_seconds_per_station is not None:
+            return self.hosted_seconds_per_station
+        return self.seconds_per_station
 
     def declared_variables(self) -> tuple[str, ...]:
         """Variables this provider says it supports, via ``get_available_variables()``."""
@@ -136,16 +162,24 @@ class Provider:
 
     def cache_is_warm(self) -> Optional[bool]:
         """True/False for providers with a bulk cache, None for those without one."""
-        if self.cache_glob is None:
+        if self.cache_glob is None or not self.uses_bulk_cache():
             return None
         return any(paths.RIVRETRIEVE_DATA_DIR.glob(self.cache_glob))
 
+    def blocked_kind(self) -> Optional[str]:
+        """Why downloads are blocked, as a code the UI words: credentials or hosted."""
+        if self.missing_credentials():
+            return "credentials"
+        if paths.HOSTED and self.uses_bulk_cache():
+            return "hosted"
+        return None
+
     def blocked_reason(self) -> Optional[str]:
         """Why a download from this provider cannot succeed right now, or None if it can."""
-        missing = self.missing_credentials()
-        if missing:
-            return f"{self.label} needs {' and '.join(missing)} in your .env file."
-        if paths.HOSTED and self.bulk_first_use:
+        kind = self.blocked_kind()
+        if kind == "credentials":
+            return f"{self.label} needs {' and '.join(self.missing_credentials())} in your .env file."
+        if kind == "hosted":
             # HYDAT alone is 1.2 GB; a hosted function has neither the disk nor
             # the time to build it, and nothing would keep it between requests.
             return (
@@ -178,9 +212,13 @@ PROVIDERS: tuple[Provider, ...] = (
         label="ANA Hidroweb",
         country_name="Brazil",
         source_url="https://www.ana.gov.br/hidroweb/",
-        credentials=("ANA_USERNAME", "ANA_PASSWORD"),
-        throttle_note="Sleeps 0.1–0.2 s between requests and paginates by month.",
-        seconds_per_station=8.0,
+        # ANA_USERNAME / ANA_PASSWORD are optional: without them the fetcher
+        # uses ANA's public HidroSerieHistorica service.
+        throttle_note=(
+            "Daily series from ANA's public HidroSerieHistorica service. Where ANA has published "
+            "both raw and consisted (quality-controlled) values for a month, the consisted ones are used."
+        ),
+        seconds_per_station=4.0,
     ),
     Provider(
         key="canada",
@@ -195,6 +233,9 @@ PROVIDERS: tuple[Provider, ...] = (
         cache_glob="Hydat*.sqlite3",
         # Reads from a local SQLite file once warm, so it is by far the fastest provider.
         seconds_per_station=0.2,
+        # Hosted, the same HYDAT daily means come from ECCC's GeoMet API, a station at a time.
+        hosted_fetcher_kwargs={"source": "api"},
+        hosted_seconds_per_station=3.0,
     ),
     Provider(
         key="chile",
@@ -202,7 +243,7 @@ PROVIDERS: tuple[Provider, ...] = (
         label="CR2 Explorador",
         country_name="Chile",
         source_url="https://explorador.cr2.cl/",
-        throttle_note="Sleeps 0.3 s between requests.",
+        throttle_note="CR2's compiled daily discharge archive, which ends in mid-2020.",
         seconds_per_station=4.0,
     ),
     Provider(
@@ -211,7 +252,10 @@ PROVIDERS: tuple[Provider, ...] = (
         label="CHMI Open Data",
         country_name="Czechia",
         source_url="https://opendata.chmi.cz/",
-        throttle_note="One request per station per year of record.",
+        throttle_note=(
+            "One request per station per year of record. CHMI's archive runs to the end of last "
+            "year; the current year is published only as the latest reading."
+        ),
         seconds_per_station=6.0,
     ),
     Provider(
@@ -230,10 +274,12 @@ PROVIDERS: tuple[Provider, ...] = (
         source_url="https://portal.grdc.bafg.de/applications/public.html?publicuser=PublicUser#dataDownload/Stations",
         availability_columns=True,
         throttle_note=(
-            "Station metadata is open and mapped, but GRDC time-series downloads are currently "
-            "served through an interactive export workflow rather than a stable per-station API."
+            "GRDC releases its own copies of these series only through its Data Portal (a request "
+            "form; the link arrives by e-mail). Where the national service that runs a station "
+            "publishes it too — about 5,500 stations in 16 countries — the series is downloaded "
+            "from that service instead, and the download names it."
         ),
-        seconds_per_station=1.0,
+        seconds_per_station=3.0,
     ),
     Provider(
         key="germany_berlin",
@@ -368,6 +414,10 @@ PROVIDERS: tuple[Provider, ...] = (
         cache_glob="poland.zarr",
         # Served from the local Zarr store once warm.
         seconds_per_station=0.2,
+        # Hosted, only the archives covering the range are downloaded (about 2 MB a year),
+        # and kept in /tmp for the next station while the instance lives.
+        hosted_fetcher_kwargs={"source": "direct"},
+        hosted_seconds_per_station=20.0,
     ),
     Provider(
         key="portugal",
@@ -375,6 +425,11 @@ PROVIDERS: tuple[Provider, ...] = (
         label="SNIRH",
         country_name="Portugal",
         source_url="https://snirh.apambiente.pt/",
+        throttle_note=(
+            "In October 2026 SNIRH refused every request from the atlas — hosted in the US and "
+            "tested from Japan — with HTTP 403 Forbidden, which looks like a block on foreign "
+            "networks. Downloads fail until that changes; SNIRH's own site is the fallback."
+        ),
         seconds_per_station=4.0,
     ),
     Provider(
@@ -404,7 +459,11 @@ PROVIDERS: tuple[Provider, ...] = (
         label="DWS Hydrology Services",
         country_name="South Africa",
         source_url="https://www.dws.gov.za/Hydrology/",
-        throttle_note="Scrapes one HTML page per station per year.",
+        throttle_note=(
+            "Scrapes one HTML page per station per year. In October 2026 the DWS site refused "
+            "every request from the atlas — hosted in the US and tested from Japan — with HTTP 403 "
+            "Forbidden, so downloads fail until that changes."
+        ),
         seconds_per_station=12.0,
     ),
     Provider(
@@ -416,7 +475,12 @@ PROVIDERS: tuple[Provider, ...] = (
         # The cached CSV carries no latitude/longitude at all — only UTM 30N / ETRS89.
         source_crs="EPSG:25830",
         coord_columns=("COORD_UTMX_H30_ETRS89", "COORD_UTMY_H30_ETRS89"),
-        seconds_per_station=4.0,
+        throttle_note=(
+            "From the Anuario de Aforos yearbook, which ends with its latest hydrological year "
+            "(30 September 2022 for the 2021-22 edition). Each request downloads the station's "
+            "river-basin table, 4–18 MB."
+        ),
+        seconds_per_station=6.0,
     ),
     Provider(
         key="thailand",
@@ -492,6 +556,39 @@ def get_provider(key: str) -> Provider:
         return PROVIDERS_BY_KEY[key]
     except KeyError:
         raise KeyError(f"Unknown provider {key!r}. Known providers: {', '.join(PROVIDERS_BY_KEY)}")
+
+
+def provider_for_fetcher(fetcher_name: str) -> Optional[Provider]:
+    """The provider served by a fetcher class, e.g. ``"USAFetcher"`` -> USGS NWIS."""
+    return next((provider for provider in PROVIDERS if provider.fetcher == fetcher_name), None)
+
+
+def station_download_note(fetcher, gauge_id: str) -> Optional[str]:
+    """Why this one station cannot be downloaded although its provider can, if it cannot.
+
+    Fetchers that serve some stations only (GRDC) say so through ``unavailable_reason``.
+    """
+    explain = getattr(fetcher, "unavailable_reason", None)
+    return explain(gauge_id) if explain is not None else None
+
+
+def national_source(fetcher, gauge_id: str) -> Optional[dict]:
+    """The national provider and station a fetcher reads this station from, if it delegates.
+
+    GRDC stations are downloaded from the national service that runs them.
+    """
+    find = getattr(fetcher, "national_source", None)
+    match = find(gauge_id) if find is not None else None
+    if not match:
+        return None
+    fetcher_name, national_id = match
+    provider = provider_for_fetcher(fetcher_name)
+    return {
+        "provider_key": provider.key if provider else None,
+        "provider_label": provider.label if provider else fetcher_name,
+        "gauge_id": national_id,
+        "station_key": station_key(provider.key, national_id) if provider else None,
+    }
 
 
 def station_key(country: str, gauge_id: str) -> str:

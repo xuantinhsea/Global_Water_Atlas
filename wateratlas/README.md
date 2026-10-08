@@ -239,17 +239,22 @@ The build writes these to `wateratlas/catalog_data/` (gitignored):
 
 ## Credentials
 
-Three providers need secrets, set in `rivretrieve/.env`:
+Two providers need secrets, set in `rivretrieve/.env`:
 
 ```
-ANA_USERNAME=...        # Brazil, ANA Hidroweb
-ANA_PASSWORD=...
 NVE_API_KEY=...         # Norway, NVE HydAPI
 PHILSENSORS_TOKEN=...   # Philippines, DOST-ASTI PhilSensors
 ```
 
 Without them those providers are marked unavailable in the UI and their jobs
-report `blocked` rather than silently returning an empty series.
+report `blocked` rather than silently returning an empty series. Brazil needs
+none: without `ANA_USERNAME` / `ANA_PASSWORD` it reads ANA's public
+HidroSerieHistorica service, and with them the Hidroweb API v2.
+
+GRDC stations download from the national service that runs them (USGS, ECCC,
+BoM and so on) where RivRetrieve supports it: 5,516 of 11,910. GRDC releases its
+own copies only through its Data Portal, so the others say that, with a link,
+instead of downloading.
 
 ## Bulk caches
 
@@ -335,15 +340,21 @@ single Vercel Function, and every push to `main` redeploys it.
 Run `python scripts/vercel_build.py` locally to check that a deployment will build.
 
 A hosted function has no long-lived process and only `/tmp` to write to, so
-three things work differently there (the app detects Vercel via `VERCEL=1`):
+a few things work differently there (the app detects Vercel via `VERCEL=1`):
 
 - **Downloads run in your browser.** Instead of a server job, the page fetches
   each station's CSV from `GET /api/station/data`, one station at a time per
   provider, and builds the same ZIP (CSVs, `manifest.csv`, `ATTRIBUTION.md`)
   itself. Keep the tab open until it finishes.
-- **Canada (HYDAT) and Poland (IMGW) are map-only.** Their fetchers first build a
-  multi-GB local archive, which a function cannot store. Download them with the
-  local app.
+- **Canada (HYDAT) and Poland (IMGW) read one station at a time.** Locally their
+  fetchers build a multi-GB archive once, which a function cannot store, so the
+  hosted atlas uses `CanadaFetcher(source="api")` (ECCC's GeoMet OGC API, same
+  HYDAT daily means) and `PolandFetcher(source="direct")` (only the IMGW
+  archives covering the range, about 2 MB a year, kept in `/tmp`).
+- **The station catalog is cached at the edge.** `/api/providers` reports a
+  `catalog_version` hash; the page asks for `/api/stations/map?v=<hash>`, which
+  browsers and Vercel's CDN keep for a year because a rebuilt catalog gets a new
+  hash. Vite's hashed `/assets/*` files are cached the same way.
 - **One station must finish within 5 minutes.** Long ranges of 6-minute data or
   slow scraped providers can exceed that; the manifest then says so, and a
   shorter date range fixes it.

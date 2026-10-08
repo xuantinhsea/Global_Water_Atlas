@@ -1,9 +1,8 @@
 /* Global Water Atlas — a hydrology working surface.
    Palette: deep gauge-blue accent, silt ochre for warnings, moss for confirmed
    data, on neutrals biased slightly toward cyan so the map never looks pasted
-   onto a grey page. */
-
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+   onto a grey page. The IBM Plex fonts are linked from index.html, so they
+   download in parallel with this file instead of after it. */
 
 :root {
   --paper: #f2f5f4;
@@ -157,6 +156,24 @@ code,
   font-size: 28px;
   margin-bottom: 10px;
 }
+.riv-boot-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.riv-boot-mark {
+  margin-bottom: 14px;
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+  animation: riv-breathe 1.6s ease-in-out infinite;
+}
+@keyframes riv-breathe {
+  50% {
+    transform: scale(0.94);
+    opacity: 0.8;
+  }
+}
 .riv-boot pre {
   background: var(--sunk);
   border: 1px solid var(--rule);
@@ -177,18 +194,43 @@ code,
 }
 
 .riv-sidebar-head {
-  padding: 18px 18px 12px;
+  padding: 16px 18px 12px;
   border-bottom: 1px solid var(--rule-soft);
 }
 .riv-sidebar-head h1 {
   font-size: 21px;
-  margin-bottom: 3px;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.15;
 }
 .riv-sidebar-title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
+}
+.riv-brand-mark {
+  flex: none;
+  border-radius: 7px;
+}
+.riv-sidebar-summary {
+  margin: 8px 0 0;
+}
+.riv-button.riv-collapse-toggle {
+  display: none;
+  padding: 5px 10px;
+  font-size: 12.5px;
+}
+.riv-count-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--mono);
+  font-size: 10.5px;
 }
 .riv-info-button {
   display: inline-grid;
@@ -313,9 +355,87 @@ input[type="number"] {
   width: 88px;
 }
 
+/* Variables: one row per measured quantity, its resolutions as toggle chips. */
+.riv-variable-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 10px;
+}
+.riv-variable-group {
+  display: grid;
+  grid-template-columns: 122px 1fr;
+  align-items: start;
+  gap: 8px;
+}
+.riv-group-label,
+.riv-region-label {
+  border: 0;
+  background: transparent;
+  padding: 3px 0;
+  text-align: left;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.riv-group-label:hover,
+.riv-region-label:hover {
+  color: var(--accent);
+}
+.riv-group-label {
+  white-space: nowrap;
+}
+.riv-group-label[aria-pressed="true"] {
+  color: var(--accent);
+}
+.riv-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.riv-chip-toggle {
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink-2);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.riv-chip-toggle:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+.riv-chip-toggle[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Providers, grouped by region. */
+.riv-region + .riv-region {
+  margin-top: 12px;
+}
+.riv-region-label {
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.riv-region-label[aria-pressed="true"] {
+  color: var(--accent);
+}
+
 .riv-provider-list {
   list-style: none;
-  margin: 8px 0 0;
+  margin: 4px 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -431,10 +551,70 @@ input[type="number"] {
   position: absolute;
   top: 12px;
   left: 12px;
+  /* Wraps before it can run under the zoom buttons in the top-right corner. */
+  right: 60px;
   z-index: 620;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  pointer-events: none;
+}
+.riv-map-toolbar > * {
+  pointer-events: auto;
+}
+
+/* Shown over the map while the worker loads and indexes the station catalog. */
+.riv-map-loading {
+  position: absolute;
+  left: 50%;
+  bottom: 44px;
+  transform: translateX(-50%);
+  z-index: 640;
+  min-width: 240px;
+  max-width: calc(100% - 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 14px 12px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 13px;
+}
+.riv-map-loading strong {
+  font-weight: 600;
+}
+.riv-map-loading-error {
+  border-left: 3px solid var(--danger);
+}
+.riv-map-loading-error span {
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+.riv-loading-bar {
+  position: relative;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--sunk);
+  overflow: hidden;
+}
+.riv-loading-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 35%;
+  border-radius: 2px;
+  background: var(--accent);
+  animation: riv-slide 1.2s ease-in-out infinite;
+}
+@keyframes riv-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(290%);
+  }
 }
 
 .riv-segmented {
@@ -1003,6 +1183,11 @@ input[type="number"] {
   border-left-color: var(--danger);
   color: var(--ink);
 }
+.riv-alert-info {
+  background: var(--accent-soft);
+  border-left-color: var(--accent);
+  color: var(--ink);
+}
 .riv-station-panel .riv-alert,
 .riv-station-panel .riv-muted.riv-small {
   margin-left: 18px;
@@ -1084,6 +1269,10 @@ input[type="number"] {
 /* ---------- narrow screens ---------- */
 
 @media (max-width: 1100px) {
+  /* The station panel floats over the map here, so it needs no column of its own. */
+  .riv-app.has-panel {
+    grid-template-columns: var(--sidebar-width) 1fr;
+  }
   .riv-station-panel {
     position: fixed;
     inset: 0 0 0 auto;
@@ -1094,9 +1283,36 @@ input[type="number"] {
 }
 
 @media (max-width: 760px) {
-  .riv-app {
+  .riv-app,
+  .riv-app.has-panel {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 46%) 1fr;
+    grid-template-rows: minmax(0, 62%) 1fr;
+  }
+  /* Folded: just the header, and the map takes the rest of the screen. */
+  .riv-app.sidebar-collapsed {
+    grid-template-rows: auto 1fr;
+  }
+  .riv-app.sidebar-collapsed .riv-sidebar > :not(.riv-sidebar-head) {
+    display: none;
+  }
+  .riv-app.sidebar-collapsed .riv-sidebar-head {
+    border-bottom: 0;
+  }
+  .riv-sidebar-head {
+    padding: 10px 12px 8px;
+  }
+  .riv-sidebar-head h1 {
+    font-size: 18px;
+  }
+  .riv-brand-mark {
+    width: 26px;
+    height: 26px;
+  }
+  .riv-sidebar-summary {
+    margin-top: 4px;
+  }
+  .riv-button.riv-collapse-toggle {
+    display: inline-flex;
   }
   .riv-sidebar {
     border-right: 0;
@@ -1106,9 +1322,14 @@ input[type="number"] {
     left: 12px;
     right: 12px;
     width: auto;
+    max-height: 70vh;
   }
   .riv-map-toolbar {
-    max-width: calc(100% - 24px);
+    top: 10px;
+    left: 10px;
+  }
+  .riv-segmented button {
+    padding: 6px 9px;
   }
 }
 
