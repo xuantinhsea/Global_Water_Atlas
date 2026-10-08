@@ -334,16 +334,24 @@ class GRDCFetcher(base.RiverDataFetcher):
         in GRDC-Caravan, or GRDC-Caravan has nothing in the range (it ends in 2023).
         """
         gauge_id = str(gauge_id).strip()
+        coverage = None
         if self.in_caravan(gauge_id):
-            daily = _caravan_daily(gauge_id)
-            daily = daily[(daily.index >= pd.Timestamp(start_date)) & (daily.index <= pd.Timestamp(end_date))]
+            record = _caravan_daily(gauge_id)
+            daily = record[(record.index >= pd.Timestamp(start_date)) & (record.index <= pd.Timestamp(end_date))]
             if not daily.empty:
                 logger.info(f"GRDC station {gauge_id}: read from GRDC-Caravan")
                 return daily, {"grdc_caravan": GRDC_CARAVAN_DOI}
+            if not record.empty:
+                # GRDC's catalogue often runs years past its open snapshot; say what there is.
+                coverage = (
+                    f"GRDC-Caravan has this station from {record.index.min().date()} to "
+                    f"{record.index.max().date()}; later years are released only on request "
+                    "through the GRDC Data Portal."
+                )
 
         match = self.national_source(gauge_id)
         if match is None:
-            return None
+            return None if coverage is None else (None, {"coverage_note": coverage})
         fetcher_name, national_id = match
         fetcher = self._national_fetcher(fetcher_name)
         logger.info(f"GRDC station {gauge_id}: reading national station {national_id} with {fetcher_name}")
@@ -365,6 +373,11 @@ class GRDCFetcher(base.RiverDataFetcher):
         if raw_data is None:
             return _empty(variable)
         series, source = raw_data
+        if series is None:
+            # Nothing in range; ``attrs["coverage_note"]`` says what the station does have.
+            empty = _empty(variable)
+            empty.attrs.update(source)
+            return empty
         series = series.dropna().sort_index()
 
         if variable == constants.DISCHARGE_MONTHLY_MEAN:

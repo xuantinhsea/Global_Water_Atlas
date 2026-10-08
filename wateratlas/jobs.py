@@ -97,7 +97,9 @@ def fetch_station(
 
     if frame is None or frame.empty:
         availability.record(station_key, variable, availability.ABSENT)
-        return FetchOutcome(EMPTY, message="The provider returned no rows for this range.")
+        # A fetcher may say what the station does have (GRDC: its GRDC-Caravan years).
+        note = frame.attrs.get("coverage_note") if frame is not None else None
+        return FetchOutcome(EMPTY, message=note or "The provider returned no rows for this range.")
 
     outcome = FetchOutcome(DONE, frame=frame, rows=len(frame), message=registry.source_note(frame))
     index = pd.to_datetime(frame.index, errors="coerce")

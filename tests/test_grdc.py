@@ -213,6 +213,14 @@ class TestGRDCCaravan(unittest.TestCase):
         read.assert_called_once()
         self.assertEqual(len(monthly), 1)
 
+    def test_an_empty_range_says_what_the_dataset_has(self):
+        # GRDC's catalogue often runs past its open snapshot; the empty result says so.
+        reply = _caravan_csv({"2010-01-01": 1.0, "2012-12-31": 2.0})
+        with patch("rivretrieve.grdc.utils.read_zip_member", return_value=reply):
+            frame = self.fetcher.get_data(self.GERMAN, constants.DISCHARGE_DAILY_MEAN, "2024-01-01", "2024-12-31")
+        self.assertTrue(frame.empty)
+        self.assertIn("from 2010-01-01 to 2012-12-31", frame.attrs["coverage_note"])
+
     def test_years_after_the_dataset_come_from_the_national_service(self):
         # GRDC 4101200 (USGS 15747000) is in GRDC-Caravan, which ends in 2023.
         reply = _caravan_csv({"2020-01-01": 1.0})

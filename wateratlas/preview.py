@@ -137,7 +137,8 @@ def get_preview(
             "station_key": station_key,
             "variable": variable,
             "status": "empty",
-            "message": "The provider returned no rows for this range.",
+            "message": (frame.attrs.get("coverage_note") if frame is not None else None)
+            or "The provider returned no rows for this range.",
             "series": {"t": [], "mean": [], "min": [], "max": []},
         }
         cache_file.write_text(json.dumps(payload), encoding="utf-8")
