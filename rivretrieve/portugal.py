@@ -7,6 +7,7 @@ from io import StringIO
 from typing import Optional
 
 import pandas as pd
+import requests
 
 from . import base, constants, utils
 
@@ -805,6 +806,12 @@ class PortugalFetcher(base.RiverDataFetcher):
             r = s.get(url, headers=headers)
             r.raise_for_status()
             tables = pd.read_html(StringIO(r.text))
+        except requests.exceptions.HTTPError as e:
+            if e.response is not None and e.response.status_code == 403:
+                # SNIRH turns whole networks away; that is not a station without data.
+                raise
+            logger.error(f"Failed to retrieve data for {gauge_id}, param {param_id}: {e}")
+            return None
         except Exception as e:
             logger.error(f"Failed to retrieve data for {gauge_id}, param {param_id}: {e}")
             return None
@@ -890,6 +897,8 @@ class PortugalFetcher(base.RiverDataFetcher):
             start_date_dt = pd.to_datetime(start_date)
             end_date_dt = pd.to_datetime(end_date)
             df = df[(df.index >= start_date_dt) & (df.index <= end_date_dt)]
+        except requests.exceptions.HTTPError:
+            raise
         except Exception as e:
             logger.error(f"Failed to get data for site {gauge_id}, variable {variable}: {e}")
             return pd.DataFrame(columns=[constants.TIME_INDEX, variable])

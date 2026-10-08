@@ -104,7 +104,8 @@ class TestIOCData(unittest.TestCase):
         counts = readings.groupby(readings.index.floor("1h")).count()
         self.assertEqual(set(result.index), set(counts[counts >= 30].index))
         hour = result.index[0]
-        self.assertAlmostEqual(float(result.loc[hour].iloc[0]), float(readings[readings.index.floor("1h") == hour].mean()), places=6)
+        expected = readings[readings.index.floor("1h") == hour].mean()
+        self.assertAlmostEqual(float(result.loc[hour].iloc[0]), float(expected), places=6)
 
     def test_feet_are_converted_to_metres(self):
         patcher, _ = mock_session(self.payload)

@@ -21,6 +21,9 @@ RETRY_BACKOFF_SECONDS = 2.0
 #: A server's Retry-After is honoured, but never longer than this.
 MAX_RETRY_WAIT_SECONDS = 10.0
 
+#: NWIS's "no value" sentinel, in the original units (ft³/s or ft).
+NWIS_NO_VALUE = -999999
+
 
 class USAFetcher(base.RiverDataFetcher):
     """Fetches river gauge data from the US Geological Survey (USGS) National Water Information System (NWIS).
@@ -140,7 +143,11 @@ class USAFetcher(base.RiverDataFetcher):
             mult = 0.3048
         elif variable.startswith(constants.DISCHARGE):  # cfs to m3/s
             mult = 0.0283168466
-        df[variable] = pd.to_numeric(df[value_col], errors="coerce") * mult
+        values = pd.to_numeric(df[value_col], errors="coerce")
+        # NWIS writes -999999 where a value exists in its tables but cannot be given
+        # (equipment failure, ice, a value still being worked up). It is not a measurement.
+        values = values.mask(values == NWIS_NO_VALUE)
+        df[variable] = values * mult
 
         return df[[constants.TIME_INDEX, variable]].dropna().set_index(constants.TIME_INDEX)
 

@@ -3,8 +3,9 @@
 import logging
 import os
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
+from xml.etree import ElementTree
 
 import pandas as pd
 import requests
@@ -25,10 +26,17 @@ PASSWORD = os.environ.get("ANA_PASSWORD")
 class BrazilFetcher(base.RiverDataFetcher):
     """Fetches river gauge data from Brazil's National Water and Sanitation Agency (ANA).
 
-    Data Source: ANA Hidroweb API v2 (https://www.ana.gov.br/hidroweb/)
-    Requires credentials (username/password) which can be set in a ``.env`` file
-    in the ``rivretrieve`` directory or passed to the constructor.
-    Keys in ``.env``: ``ANA_USERNAME``, ``ANA_PASSWORD``
+    Data Source: ANA Hidroweb (https://www.ana.gov.br/hidroweb/), through one of two services:
+
+    - With credentials, the Hidroweb API v2. Set ``ANA_USERNAME`` and
+      ``ANA_PASSWORD`` in a ``.env`` file in the ``rivretrieve`` directory, or
+      pass them to the constructor.
+    - Without them, ANA's public ``HidroSerieHistorica`` web service
+      (https://telemetriaws1.ana.gov.br/ServiceANA.asmx), which serves the same
+      daily series and needs no account. Where ANA has published both raw and
+      consisted (quality-controlled) values for a month, the consisted ones are used.
+
+    Station metadata (``get_metadata``) still needs credentials.
 
     Supported Variables:
         - ``constants.DISCHARGE_DAILY_MEAN`` (m³/s)
@@ -37,6 +45,9 @@ class BrazilFetcher(base.RiverDataFetcher):
 
     BASE_URL = "https://www.ana.gov.br/hidrowebservice/EstacoesTelemetricas"
     AUTH_URL = f"{BASE_URL}/OAUth/v1"
+    PUBLIC_SERIES_URL = "https://telemetriaws1.ana.gov.br/ServiceANA.asmx/HidroSerieHistorica"
+    #: Years per request to the public service, which answers with one XML document.
+    PUBLIC_CHUNK_YEARS = 20
 
     def __init__(self, username: Optional[str] = None, password: Optional[str] = None):
         super().__init__()
@@ -46,9 +57,9 @@ class BrazilFetcher(base.RiverDataFetcher):
         self._token_expiry = 0
 
         if not self.username or not self.password:
-            logger.error(
-                "ANA Username or Password not provided. Please set ANA_USERNAME and ANA_PASSWORD in ,"
-                "your .env file or pass them to the constructor."
+            logger.info(
+                "No ANA_USERNAME/ANA_PASSWORD set; daily series will come from ANA's public "
+                "HidroSerieHistorica service."
             )
 
     @staticmethod
@@ -318,6 +329,74 @@ class BrazilFetcher(base.RiverDataFetcher):
             logger.error(f"Error parsing CSV data for site {gauge_id}: {e}")
             return pd.DataFrame(columns=[constants.TIME_INDEX, variable])
 
+    def _download_public(self, gauge_id: str, variable: str, start_date: str, end_date: str) -> List[Dict[str, Any]]:
+        """Downloads monthly rows from the public HidroSerieHistorica service, no account needed."""
+        kind = {constants.DISCHARGE_DAILY_MEAN: "3", constants.STAGE_DAILY_MEAN: "1"}[variable]
+        start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+        end_dt = datetime.strptime(end_date, "%Y-%m-%d")
+        s = utils.requests_retry_session()
+
+        rows: List[Dict[str, Any]] = []
+        chunk_start = start_dt
+        while chunk_start <= end_dt:
+            chunk_end = min(end_dt, datetime(chunk_start.year + self.PUBLIC_CHUNK_YEARS - 1, 12, 31))
+            params = {
+                "codEstacao": gauge_id,
+                "dataInicio": chunk_start.strftime("%d/%m/%Y"),
+                "dataFim": chunk_end.strftime("%d/%m/%Y"),
+                "tipoDados": kind,
+                "nivelConsistencia": "",
+            }
+            response = s.get(self.PUBLIC_SERIES_URL, params=params, timeout=120)
+            response.raise_for_status()
+            root = ElementTree.fromstring(response.content)
+            for element in root.iter():
+                if element.tag.rsplit("}", 1)[-1] == "SerieHistorica":
+                    rows.append({child.tag.rsplit("}", 1)[-1]: child.text for child in element})
+            chunk_start = chunk_end + timedelta(days=1)
+            time.sleep(0.2)  # Be nice to the API
+        return rows
+
+    def _parse_public(self, gauge_id: str, rows: List[Dict[str, Any]], variable: str) -> pd.DataFrame:
+        """One value per day from the service's month rows.
+
+        Each month can come several times: raw (``NivelConsistencia`` 1) and
+        consisted (2) versions, and for stage also the individual 07:00 and
+        17:00 readings (``MediaDiaria`` 0). Daily means win, then consisted data.
+        """
+        prefix, scale = {
+            constants.DISCHARGE_DAILY_MEAN: ("Vazao", 1.0),
+            constants.STAGE_DAILY_MEAN: ("Cota", 0.01),  # cm to m
+        }[variable]
+
+        best: Dict[tuple, Dict[str, Any]] = {}
+        for row in rows:
+            if row.get("MediaDiaria") not in (None, "1"):
+                continue
+            stamp = (row.get("DataHora") or "")[:7]
+            if len(stamp) != 7:
+                continue
+            month = (int(stamp[:4]), int(stamp[5:7]))
+            level = int(row.get("NivelConsistencia") or 0)
+            if month not in best or level > int(best[month].get("NivelConsistencia") or 0):
+                best[month] = row
+
+        records = []
+        for (year, month), row in best.items():
+            for day in range(1, 32):
+                value = pd.to_numeric(row.get(f"{prefix}{day:02d}"), errors="coerce")
+                if pd.isna(value):
+                    continue
+                try:
+                    records.append((datetime(year, month, day), value * scale))
+                except ValueError:  # e.g. 30 February
+                    continue
+
+        if not records:
+            return pd.DataFrame(columns=[constants.TIME_INDEX, variable])
+        df = pd.DataFrame(records, columns=[constants.TIME_INDEX, variable])
+        return df.sort_values(constants.TIME_INDEX).set_index(constants.TIME_INDEX)
+
     def get_data(
         self,
         gauge_id: str,
@@ -350,14 +429,19 @@ class BrazilFetcher(base.RiverDataFetcher):
             requests.exceptions.RequestException: If a network error occurs during data download.
             Exception: For other unexpected errors during data fetching or parsing.
         """
-        if not self.username or not self.password:
-            logger.error("ANA Username or Password not provided. Check your .env file or constructor arguments.")
-            return pd.DataFrame(columns=[constants.TIME_INDEX, variable])
-
         start_date = utils.format_start_date(start_date)
         end_date = utils.format_end_date(end_date)
         if variable not in self.get_available_variables():
             raise ValueError(f"Unsupported variable: {variable}")
+
+        if not self.username or not self.password:
+            # No account: the public service. Its HTTP errors propagate, so a
+            # caller can tell an outage from a station without data.
+            rows = self._download_public(gauge_id, variable, start_date, end_date)
+            df = self._parse_public(gauge_id, rows, variable)
+            if df.empty:
+                return df
+            return df[(df.index >= pd.to_datetime(start_date)) & (df.index <= pd.to_datetime(end_date))]
 
         try:
             raw_data = self._download_data(gauge_id, variable, start_date, end_date)

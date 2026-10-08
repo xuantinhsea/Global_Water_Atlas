@@ -6,6 +6,7 @@ import os
 import re
 import tempfile
 import zipfile
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from pathlib import Path
 from typing import List, Optional
@@ -23,8 +24,17 @@ class PolandFetcher(base.RiverDataFetcher):
     """Fetches river gauge data from Poland's Institute of Meteorology and Water Management (IMGW).
 
     Data Source: IMGW Public Data (https://danepubliczne.imgw.pl/)
-    This fetcher downloads all historical data and caches it in a Zarr store
-    in ``rivretrieve/data/poland.zarr`` on first use.
+
+    IMGW publishes daily data as ZIP archives covering every station: one per
+    month until 2022, one per hydrological year (November to October) since.
+    Two ways to read them, chosen with ``source``:
+
+    - ``"cache"`` (default): downloads all historical data on first use and
+      caches it in a Zarr store in ``rivretrieve/data/poland.zarr``.
+    - ``"direct"``: downloads only the archives that cover the requested range
+      and keeps this station's rows. Archives are kept in the system temporary
+      directory, so further stations over the same range reuse them. No bulk
+      download, so it suits short-lived or read-only environments.
 
     Supported Variables:
         - ``constants.DISCHARGE_DAILY_MEAN`` (m³/s)
@@ -34,6 +44,19 @@ class PolandFetcher(base.RiverDataFetcher):
 
     BASE_URL = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_hydrologiczne/"
     CACHE_FILE = Path(os.path.dirname(__file__)) / "data" / "poland.zarr"
+    #: Where ``source="direct"`` keeps downloaded archives.
+    ARCHIVE_DIR = Path(tempfile.gettempdir()) / "rivretrieve" / "imgw"
+    #: Monthly archives until 2022 (``codz_2022_01.zip``), one per year since (``codz_2023.zip``).
+    ARCHIVE_LINK = re.compile(r'href="(codz_\d{4}(?:_\d{2})?\.zip)"')
+    FIRST_YEAR = 1951
+    SOURCES = ("cache", "direct")
+
+    def __init__(self, source: str = "cache"):
+        super().__init__()
+        if source not in self.SOURCES:
+            raise ValueError(f"source must be one of {self.SOURCES}, not {source!r}")
+        self.source = source
+        self._meta_headers: Optional[List[str]] = None
     METADATA_URL = (
         "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_hydrologiczne/lista_stacji_hydro.csv"
     )
@@ -96,19 +119,26 @@ class PolandFetcher(base.RiverDataFetcher):
     def get_available_variables() -> tuple[str, ...]:
         return (constants.DISCHARGE_DAILY_MEAN, constants.STAGE_DAILY_MEAN, constants.WATER_TEMPERATURE_DAILY_MEAN)
 
+    #: The field list of the daily tables. IMGW replaced ``codz_info.txt`` in 2026.
+    HEADER_FILES = ("dobowe/CODZ_publiczne_format.txt", "dobowe/codz_info.txt")
+
     def _get_metadata_headers(self):
         """Fetches and cleans metadata headers."""
-        try:
-            address_meta1 = self.BASE_URL + "dobowe/codz_info.txt"
-            response1 = utils.requests_retry_session().get(address_meta1)
-            response1.raise_for_status()
-            content1 = response1.content.decode("cp1250", errors="ignore")
-            lines1 = content1.splitlines()[2:12]  # Daily data has 10 header lines
-            cleaned1 = [re.sub(r"\s+", " ", re.sub(r"[?'^]", "", line)).strip() for line in lines1]
-            return cleaned1
-        except requests.exceptions.RequestException as e:
-            logger.error(f"Error fetching metadata headers: {e}")
-            raise
+        s = utils.requests_retry_session()
+        error: Optional[Exception] = None
+        for name in self.HEADER_FILES:
+            try:
+                response = s.get(self.BASE_URL + name)
+                response.raise_for_status()
+            except requests.exceptions.RequestException as e:
+                error = e
+                continue
+            lines = response.content.decode("cp1250", errors="ignore").splitlines()[2:12]  # 10 fields
+            cleaned = [re.sub(r"\s+", " ", re.sub(r"[?'^]", "", line)).strip() for line in lines]
+            # The current file prefixes each name with its database field: "PSKDSZS - Kod stacji".
+            return [re.sub(r"^[A-Z]+ - ", "", line) for line in cleaned]
+        logger.error(f"Error fetching metadata headers: {error}")
+        raise error
 
     def _download_all_data(self, start_year: int, end_year: int) -> List[pd.DataFrame]:
         """Downloads raw data from IMGW for the specified year range."""
@@ -121,35 +151,14 @@ class PolandFetcher(base.RiverDataFetcher):
             try:
                 response = s.get(year_url)
                 response.raise_for_status()
-                html = response.text
-                zip_files = re.findall(r'href="(codz_\d{4}_\d{2}\.zip)"', html)
+                zip_files = self.ARCHIVE_LINK.findall(response.text)
                 logger.info(f"Found {len(zip_files)} zip files for year {year}")
 
                 for i, fname in enumerate(zip_files):
                     logger.info(f"Downloading and processing {fname} ({i + 1}/{len(zip_files)})")
-                    file_url = f"{year_url}{fname}"
-                    resp = s.get(file_url)
+                    resp = s.get(f"{year_url}{fname}")
                     resp.raise_for_status()
-
-                    with tempfile.TemporaryDirectory() as tmpdir:
-                        zip_path = os.path.join(tmpdir, fname)
-                        with open(zip_path, "wb") as f:
-                            f.write(resp.content)
-                        with zipfile.ZipFile(zip_path, "r") as zf:
-                            for member in zf.namelist():
-                                with zf.open(member) as f:
-                                    df = _imgw_read(f)
-                                    if not df.empty:
-                                        if df.shape[1] == len(meta_headers):
-                                            df.columns = meta_headers
-                                            all_data.append(df)
-                                        elif df.shape[1] == 9:  # Special case for current year format
-                                            df["flow"] = None
-                                            df = df.iloc[:, list(range(7)) + [9, 7, 8]]
-                                            df.columns = meta_headers
-                                            all_data.append(df)
-                                        else:
-                                            logger.warning(f"Column mismatch in {fname}")
+                    all_data.extend(self._read_archive(resp.content, meta_headers, fname))
 
             except requests.exceptions.RequestException as e:
                 logger.error(f"Error fetching data for year {year}: {e}")
@@ -157,6 +166,91 @@ class PolandFetcher(base.RiverDataFetcher):
                 logger.error(f"Error processing data for year {year}: {e}")
 
         return all_data
+
+    @staticmethod
+    def _read_archive(content: bytes, meta_headers: List[str], fname: str) -> List[pd.DataFrame]:
+        """The CSV tables in one downloaded archive, with IMGW's column names."""
+        frames = []
+        with zipfile.ZipFile(io.BytesIO(content)) as zf:
+            for member in zf.namelist():
+                df = _imgw_read(zf.read(member))
+                if df.empty:
+                    continue
+                if df.shape[1] == len(meta_headers):
+                    df.columns = meta_headers
+                    frames.append(df)
+                elif df.shape[1] == 9:  # Special case for current year format
+                    df["flow"] = None
+                    df = df.iloc[:, list(range(7)) + [9, 7, 8]]
+                    df.columns = meta_headers
+                    frames.append(df)
+                else:
+                    logger.warning(f"Column mismatch in {fname}")
+        return frames
+
+    def _archive_urls(self, first_year: int, last_year: int) -> List[tuple]:
+        """``(url, cache name)`` for every daily archive of these hydrological years."""
+        s = utils.requests_retry_session()
+        found = []
+        for year in range(first_year, last_year + 1):
+            year_url = f"{self.BASE_URL}dobowe/{year}/"
+            response = s.get(year_url, timeout=60)
+            if response.status_code == 404:  # A hydrological year not published yet.
+                continue
+            response.raise_for_status()
+            for match in self.ARCHIVE_LINK.finditer(response.text):
+                fname = match.group(1)
+                # IMGW revises the latest yearly archive in place, so the listing's
+                # modification time is part of the cache name.
+                modified = re.search(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}", response.text[match.end() : match.end() + 200])
+                stamp = re.sub(r"\D", "", modified.group(0)) if modified else "undated"
+                found.append((f"{year_url}{fname}", f"{fname[:-4]}_{stamp}.zip"))
+        return found
+
+    def _fetch_archive(self, url: str, cache_name: str) -> bytes:
+        path = self.ARCHIVE_DIR / cache_name
+        if path.exists():
+            return path.read_bytes()
+        response = utils.requests_retry_session().get(url, timeout=120)
+        response.raise_for_status()
+        try:
+            self.ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+            partial = path.with_suffix(".part")
+            partial.write_bytes(response.content)
+            partial.replace(path)
+        except OSError as e:  # A read-only disk only costs the reuse.
+            logger.warning(f"Could not keep {cache_name}: {e}")
+        return response.content
+
+    def _get_direct_data(self, gauge_id: str, variable: str, start_date: str, end_date: str) -> pd.DataFrame:
+        """Reads one station from just the archives covering the range. HTTP errors propagate."""
+        start, end = pd.Timestamp(start_date), pd.Timestamp(end_date)
+        # Hydrological year N runs from November of N-1 to October of N.
+        first_year = max(self.FIRST_YEAR, start.year + (1 if start.month >= 11 else 0))
+        last_year = min(datetime.now().year + 1, end.year + (1 if end.month >= 11 else 0))
+
+        if self._meta_headers is None:
+            self._meta_headers = self._get_metadata_headers()
+        meta_headers = self._meta_headers
+        archives = self._archive_urls(first_year, last_year)
+        logger.info(f"Reading {gauge_id} from {len(archives)} IMGW archives, {first_year}-{last_year}")
+
+        frames = []
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            contents = pool.map(lambda item: (item[1], self._fetch_archive(*item)), archives)
+            for name, content in contents:
+                for df in self._read_archive(content, meta_headers, name):
+                    station = df.iloc[:, 0].astype(str).str.strip()
+                    picked = df[station == str(gauge_id).strip()]
+                    if not picked.empty:
+                        frames.append(picked)
+
+        parsed = self._parse_all_data(frames)
+        if parsed.empty or variable not in parsed.columns:
+            return pd.DataFrame(columns=[constants.TIME_INDEX, variable])
+        series = parsed.set_index(constants.TIME_INDEX)[[variable]].dropna().sort_index()
+        series = series[~series.index.duplicated(keep="last")]
+        return series[(series.index >= start) & (series.index <= end)].astype(float)
 
     def _parse_all_data(self, raw_data_list: List[pd.DataFrame]) -> pd.DataFrame:
         """Parses the raw dataframes into a single standardized format."""
@@ -281,6 +375,9 @@ class PolandFetcher(base.RiverDataFetcher):
         if variable not in self.get_available_variables():
             raise ValueError(f"Unsupported variable: {variable}")
 
+        if self.source == "direct":
+            return self._get_direct_data(gauge_id, variable, start_date, end_date)
+
         if not self.CACHE_FILE.exists():
             self._create_cache()
 
@@ -314,29 +411,31 @@ class PolandFetcher(base.RiverDataFetcher):
         raise NotImplementedError("This method is not used in PolandFetcher.")
 
 
-def _imgw_read(fpath: str) -> pd.DataFrame:
-    """Helper function to read IMGW CSV files with various encodings and separators."""
+def _imgw_read(raw: bytes) -> pd.DataFrame:
+    """Reads one IMGW CSV file, whatever its encoding, separator or quoting.
+
+    Files since 2023 wrap each whole line in quotes and double the quotes
+    inside it, e.g. ``"149180020,CHAŁUPKI,Odra (1),""2024"",""01"",..."``,
+    which a CSV reader sees as a single column.
+    """
     try:
-        data = pd.read_csv(fpath, header=None, sep=",", encoding="cp1250", low_memory=False)
-    except Exception:
-        try:
-            data = pd.read_csv(fpath, header=None, sep=";", low_memory=False)
-        except Exception:
-            data = pd.DataFrame()
+        text = raw.decode("cp1250")
+    except UnicodeDecodeError:
+        text = raw.decode("utf-8", errors="replace")
 
-    if data.empty or data.shape[1] == 1:
+    def parse(body: str, sep: str) -> pd.DataFrame:
         try:
-            data = pd.read_csv(fpath, header=None, sep=";", encoding="utf-8", low_memory=False)
+            return pd.read_csv(io.StringIO(body), header=None, sep=sep, low_memory=False)
         except Exception:
-            try:
-                data = pd.read_csv(fpath, header=None, sep=";", low_memory=False)
-            except Exception:
-                data = pd.DataFrame()
+            return pd.DataFrame()
 
-    if data.empty or data.shape[1] == 1:
-        try:
-            data = pd.read_csv(fpath, header=None, sep=",", encoding="cp1250", low_memory=False)
-        except Exception:
-            pass
-
+    data = parse(text, ",")
+    if data.shape[1] <= 1:
+        unwrapped = "\n".join(
+            line[1:-1].replace('""', '"') if len(line) > 1 and line[0] == line[-1] == '"' else line
+            for line in text.splitlines()
+        )
+        data = parse(unwrapped, ",")
+    if data.shape[1] <= 1:
+        data = parse(text, ";")
     return data

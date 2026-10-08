@@ -49,7 +49,9 @@ class TestAustraliaFetcher(unittest.TestCase):
         }
         expected_df = pd.DataFrame(expected_data).set_index(constants.TIME_INDEX)
 
-        assert_frame_equal(result_df, expected_df)
+        # Timestamp precision (s, us, ns) varies with the pandas version; the values must not.
+        self.assertIsInstance(result_df.index, pd.DatetimeIndex)
+        assert_frame_equal(result_df, expected_df, check_index_type=False)
         self.assertEqual(mock_make_bom_request.call_count, 2)
 
 

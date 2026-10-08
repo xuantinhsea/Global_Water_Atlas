@@ -55,6 +55,16 @@ class TestChileFetcher(unittest.TestCase):
         assert_frame_equal(result_df, expected_df)
         self.assertEqual(mock_get.call_count, 2)
 
+    def test_export_url_from_json_reply(self):
+        # Since 2026 the explorer answers with JSON naming a path relative to the site.
+        body = '{"errors": [], "export": {"series": {"url": "tmp/map_9v7P72/EC_series.csv"}}}'
+        self.assertEqual(
+            ChileFetcher._export_url(body), "https://explorador.cr2.cl/tmp/map_9v7P72/EC_series.csv"
+        )
+
+    def test_export_url_missing(self):
+        self.assertIsNone(ChileFetcher._export_url('{"errors": ["no data"], "export": {}}'))
+
 
 if __name__ == "__main__":
     unittest.main()

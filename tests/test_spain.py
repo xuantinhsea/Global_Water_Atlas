@@ -1,5 +1,7 @@
+import io
 import os
 import unittest
+import zipfile
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
@@ -15,11 +17,6 @@ class TestSpainFetcher(unittest.TestCase):
         self.fetcher = SpainFetcher()
         self.test_data_dir = Path(os.path.dirname(__file__)) / "test_data"
         self.sample_metadata_zip = self.test_data_dir / "spain-listado-estaciones-aforo-sample.zip"
-        self.sample_data_html = self.test_data_dir / "spain_sample_data.html"
-
-    def load_sample_html(self):
-        with open(self.sample_data_html, "r", encoding="utf-8") as f:
-            return f.read()
 
     def load_sample_zip_content(self):
         with open(self.sample_metadata_zip, "rb") as f:
@@ -100,34 +97,101 @@ class TestSpainFetcher(unittest.TestCase):
 
     @patch("rivretrieve.utils.requests_retry_session")
     def test_get_data_discharge(self, mock_requests_session):
-        mock_session = MagicMock()
-        mock_requests_session.return_value = mock_session
+        archive = _anuario_zip(
+            {
+                "CANTABRICO/estaf.csv": "indroea;lugar\n1080;ANDOAIN\n1081;OTRA\n",
+                "CANTABRICO/afliq.csv": (
+                    "indroea;fecha;altura;caudal\n"
+                    "1080;31/12/2020;1.70;1.49\n"
+                    "1080;01/01/2021;1.78;1.56\n"
+                    "1080;02/01/2021;1.79;1.57\n"
+                    "1080;03/01/2021;1.80;\n"
+                    "10800;01/01/2021;9.99;99.9\n"
+                    "1081;01/01/2021;0.50;0.25\n"
+                ),
+                "EBRO/estaf.csv": "indroea;lugar\n9001;ZARAGOZA\n",
+                "EBRO/afliq.csv": "indroea;fecha;altura;caudal\n9001;01/01/2021;2.00;500\n",
+            }
+        )
+        session = _RangeSession(archive)
+        mock_requests_session.return_value = session
 
-        mock_response = MagicMock()
-        mock_response.text = self.load_sample_html()
-        mock_response.apparent_encoding = "utf-8"
-        mock_response.raise_for_status = MagicMock()
-        mock_session.get.return_value = mock_response
+        result_df = self.fetcher.get_data("1080", constants.DISCHARGE_DAILY_MEAN, "2021-01-01", "2021-01-03")
 
-        gauge_id = "1080"
-        variable = constants.DISCHARGE_DAILY_MEAN
-        start_date = "2021-01-01"
-        end_date = "2021-01-02"
+        expected_df = pd.DataFrame(
+            {
+                constants.TIME_INDEX: pd.to_datetime(["2021-01-01", "2021-01-02"]),
+                constants.DISCHARGE_DAILY_MEAN: [1.56, 1.57],
+            }
+        ).set_index(constants.TIME_INDEX)
+        assert_frame_equal(result_df, expected_df, check_dtype=False, check_index_type=False)
 
-        result_df = self.fetcher.get_data(gauge_id, variable, start_date, end_date)
+        # Every archive read was a ranged request, and the other basin's table was never fetched.
+        self.assertTrue(session.ranges)
+        self.assertNotIn("EBRO/afliq.csv", session.members_read(archive))
 
-        expected_dates = pd.to_datetime(["2021-01-01", "2021-01-02"])
-        expected_values = [1.56, 1.57]  # 156/100, 157/100
-        expected_data = {
-            constants.TIME_INDEX: expected_dates,
-            constants.DISCHARGE_DAILY_MEAN: expected_values,
-        }
-        expected_df = pd.DataFrame(expected_data).set_index(constants.TIME_INDEX)
+    @patch("rivretrieve.utils.requests_retry_session")
+    def test_unknown_station_returns_empty(self, mock_requests_session):
+        archive = _anuario_zip({"EBRO/estaf.csv": "indroea;lugar\n9001;ZARAGOZA\n", "EBRO/afliq.csv": "x\n"})
+        mock_requests_session.return_value = _RangeSession(archive)
 
-        assert_frame_equal(result_df, expected_df, check_dtype=False)
-        mock_session.get.assert_called_once()
-        mock_args, mock_kwargs = mock_session.get.call_args
-        self.assertIn(f"valores={gauge_id}|2021|2021", mock_args[0])
+        result_df = self.fetcher.get_data("1080", constants.DISCHARGE_DAILY_MEAN, "2021-01-01", "2021-01-03")
+        self.assertTrue(result_df.empty)
+
+    def tearDown(self):
+        # The archive directory and station map are cached on the class.
+        SpainFetcher._remote_archive = None
+        SpainFetcher._basins = None
+
+
+def _anuario_zip(members: dict) -> bytes:
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for name, text in members.items():
+            archive.writestr(name, text.encode("latin-1"))
+    return buffer.getvalue()
+
+
+class _RangeResponse:
+    def __init__(self, status_code: int, content: bytes = b"", text: str = "", headers=None):
+        self.status_code = status_code
+        self.content = content
+        self.text = text
+        self.headers = headers or {}
+
+    def raise_for_status(self):
+        pass
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+
+class _RangeSession:
+    """Serves one ZIP archive the way a web server honouring Range requests would."""
+
+    PAGE = '<a href="/content/dam/x/Anuario-21-22-csv.zip">CSV</a>'
+
+    def __init__(self, archive: bytes):
+        self.archive = archive
+        self.ranges: list[tuple[int, int]] = []
+
+    def head(self, url, **kwargs):
+        return _RangeResponse(200, headers={"Content-Length": str(len(self.archive))})
+
+    def get(self, url, headers=None, **kwargs):
+        if url.endswith(".html"):
+            return _RangeResponse(200, text=self.PAGE)
+        first, last = (int(part) for part in headers["Range"].removeprefix("bytes=").split("-"))
+        self.ranges.append((first, last))
+        return _RangeResponse(206, content=self.archive[first : last + 1])
+
+    def members_read(self, archive: bytes) -> set:
+        with zipfile.ZipFile(io.BytesIO(archive)) as zf:
+            starts = {info.header_offset: info.filename for info in zf.infolist()}
+        return {starts[first] for first, _ in self.ranges if first in starts}
 
 
 if __name__ == "__main__":

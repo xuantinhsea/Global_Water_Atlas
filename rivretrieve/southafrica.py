@@ -144,6 +144,11 @@ class SouthAfricaFetcher(base.RiverDataFetcher):
                 else:
                     logger.warning(f"No <pre> tag found for site {gauge_id} at {endpoint}")
 
+            except requests.exceptions.HTTPError as e:
+                if e.response is not None and e.response.status_code == 403:
+                    # DWS turns whole networks away; that is not a station without data.
+                    raise
+                logger.error(f"Error fetching data for site {gauge_id}: {e}")
             except requests.exceptions.RequestException as e:
                 logger.error(f"Error fetching data for site {gauge_id}: {e}")
             except Exception as e:
@@ -225,6 +230,8 @@ class SouthAfricaFetcher(base.RiverDataFetcher):
             raw_data_list = self._download_data(gauge_id, variable, start_date, end_date)
             df = self._parse_data(gauge_id, raw_data_list, variable)
             return df
+        except requests.exceptions.HTTPError:
+            raise
         except Exception as e:
             logger.error(f"Failed to get data for site {gauge_id}, variable {variable}: {e}")
             return pd.DataFrame(columns=[constants.TIME_INDEX, variable])

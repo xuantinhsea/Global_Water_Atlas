@@ -1,7 +1,7 @@
 import os
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import pandas as pd
 from pandas.testing import assert_frame_equal
@@ -65,6 +65,46 @@ class TestCanadaFetcher(unittest.TestCase):
         expected_df = pd.DataFrame(expected_data).set_index(constants.TIME_INDEX)
 
         assert_frame_equal(result_df, expected_df)
+
+
+class TestCanadaApiSource(unittest.TestCase):
+    """``source="api"`` reads GeoMet's OGC API instead of a local HYDAT copy."""
+
+    @staticmethod
+    def _page(rows):
+        response = MagicMock()
+        response.json.return_value = {
+            "features": [{"properties": {"DATE": date, "LEVEL": value}} for date, value in rows]
+        }
+        return response
+
+    @patch("rivretrieve.utils.requests_retry_session")
+    def test_pages_until_a_short_page(self, mock_session):
+        get = mock_session.return_value.get
+        get.side_effect = [
+            self._page([("2020-01-01", 1.0), ("2020-01-02", None)]),
+            self._page([("2020-01-03", 1.2)]),
+        ]
+        fetcher = CanadaFetcher(source="api")
+
+        with (
+            patch.object(CanadaFetcher, "GEOMET_PAGE", 2),
+            patch.object(CanadaFetcher, "_get_hydat_connection") as hydat,
+        ):
+            result = fetcher.get_data("01AD003", constants.STAGE_DAILY_MEAN, "2020-01-01", "2020-01-03")
+
+        hydat.assert_not_called()
+        expected = pd.DataFrame(
+            {constants.TIME_INDEX: pd.to_datetime(["2020-01-01", "2020-01-03"]), constants.STAGE_DAILY_MEAN: [1.0, 1.2]}
+        ).set_index(constants.TIME_INDEX)
+        assert_frame_equal(result, expected, check_index_type=False)
+        offsets = [call.kwargs["params"]["offset"] for call in get.call_args_list]
+        self.assertEqual(offsets, [0, 2])
+        self.assertEqual(get.call_args_list[0].kwargs["params"]["datetime"], "2020-01-01/2020-01-03")
+
+    def test_rejects_unknown_source(self):
+        with self.assertRaises(ValueError):
+            CanadaFetcher(source="ftp")
 
 
 if __name__ == "__main__":

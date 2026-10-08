@@ -58,6 +58,15 @@ CHUNK_DAYS = 183
 ARCHIVE_START = "2020-01-01"
 
 
+def _now() -> pd.Timestamp:
+    """The current time, as a single seam the tests can pin.
+
+    The rainfall service only serves a rolling recent window, so whether a
+    request can be answered depends on when it is made.
+    """
+    return pd.Timestamp.now()
+
+
 #: Blank cells still mean "missing", but the literal text "NaN" does not.
 #: A Thai Meteorological Department rain gauge in Nan province is romanised
 #: "NaN" upstream (Thai น่าน = Nan, and the provider's own province field says
@@ -538,7 +547,7 @@ class ThailandRainFetcher(base.RiverDataFetcher):
         end_date = utils.format_end_date(end_date)
 
         # Fail fast rather than spend a request on a range the provider cannot serve.
-        window_start = pd.Timestamp.now().normalize() - pd.Timedelta(hours=self.WINDOW_HOURS)
+        window_start = _now().normalize() - pd.Timedelta(hours=self.WINDOW_HOURS)
         if pd.Timestamp(end_date) < window_start:
             logger.info(
                 "ThaiWater publishes no rainfall before roughly %s; "

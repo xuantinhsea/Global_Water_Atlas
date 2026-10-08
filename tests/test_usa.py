@@ -53,13 +53,29 @@ class TestUSAFetcher(unittest.TestCase):
         }
         expected_df = pd.DataFrame(expected_data).set_index(constants.TIME_INDEX)
 
-        assert_frame_equal(result_df, expected_df, check_dtype=False)
+        # Timestamp precision (s, us, ns) varies with the pandas version; the values must not.
+        self.assertIsInstance(result_df.index, pd.DatetimeIndex)
+        assert_frame_equal(result_df, expected_df, check_dtype=False, check_index_type=False)
         mock_get_dv.assert_called_once()
         mock_args, mock_kwargs = mock_get_dv.call_args
         self.assertEqual(mock_kwargs["sites"], gauge_id)
         self.assertEqual(mock_kwargs["startDT"], start_date)
         self.assertEqual(mock_kwargs["endDT"], end_date)
         self.assertEqual(mock_kwargs["parameterCd"], ["00060"])
+
+    @patch("dataretrieval.nwis.get_dv")
+    def test_no_value_sentinel_is_dropped_not_converted(self, mock_get_dv):
+        # NWIS writes -999999 for days it cannot give a value (equipment, ice).
+        sample_df = self.load_sample_data()
+        value_column = self.fetcher._get_column_name(constants.DISCHARGE_DAILY_MEAN)
+        sample_df.loc[sample_df.index[1], value_column] = -999999
+        mock_get_dv.return_value = (sample_df, MagicMock())
+
+        result_df = self.fetcher.get_data("07374000", constants.DISCHARGE_DAILY_MEAN, "2023-01-01", "2023-01-05")
+
+        self.assertEqual(len(result_df), 4)
+        self.assertNotIn(pd.Timestamp("2023-01-02"), result_df.index)
+        self.assertTrue((result_df[constants.DISCHARGE_DAILY_MEAN] > 0).all())
 
     @patch("rivretrieve.usa.time.sleep")
     @patch("dataretrieval.nwis.get_dv")

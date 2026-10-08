@@ -1,10 +1,12 @@
 """Fetcher for Chilean river gauge data."""
 
 import io
+import json
 import logging
 import re
 import time
 from typing import Optional
+from urllib.parse import urljoin
 
 import pandas as pd
 import requests
@@ -35,9 +37,29 @@ class ChileFetcher(base.RiverDataFetcher):
         """
         return utils.load_cached_metadata_csv("chile")
 
+    BASE_URL = "https://explorador.cr2.cl/"
+    REQUEST_URL = BASE_URL + "request.php"
+
     @staticmethod
     def get_available_variables() -> tuple[str, ...]:
         return (constants.DISCHARGE_DAILY_MEAN,)
+
+    @classmethod
+    def _export_url(cls, body: str) -> Optional[str]:
+        """Finds the exported CSV's address in the explorer's reply.
+
+        The explorer used to embed an absolute URL in its reply; since 2026 it
+        answers with JSON naming a path relative to the site,
+        ``{"export": {"series": {"url": "tmp/map_xxxx/EC_series.csv"}}}``.
+        """
+        try:
+            relative = json.loads(body)["export"]["series"]["url"]
+            if relative:
+                return urljoin(cls.BASE_URL, relative)
+        except (ValueError, KeyError, TypeError):
+            pass
+        match = re.search(r"https://(?:www\.)?explorador\.cr2\.cl/tmp/[^/]+/[^\"]+\.csv", body)
+        return match.group(0) if match else None
 
     def _download_data(
         self,
@@ -50,25 +72,67 @@ class ChileFetcher(base.RiverDataFetcher):
             logger.warning(f"ChileFetcher only supports variable='{constants.DISCHARGE_DAILY_MEAN}'")
             return None
 
-        # This long URL was extracted from the R code
-        original = "https://explorador.cr2.cl/request.php?options={%22variable%22:{%22id%22:%22qflxDaily%22,%22var%22:%22caudal%22,%22intv%22:%22daily%22,%22season%22:%22year%22,%22stat%22:%22mean%22,%22minFrac%22:80},%22time%22:{%22start%22:-946771200,%22end%22:1727827200,%22months%22:%22A%C3%B1o%20completo%22},%22anomaly%22:{%22enabled%22:false,%22type%22:%22dif%22,%22rank%22:%22no%22,%22start_year%22:1980,%22end_year%22:2010,%22minFrac%22:70},%22map%22:{%22stat%22:%22mean%22,%22minFrac%22:10,%22borderColor%22:%227F7F7F%22,%22colorRamp%22:%22Jet%22,%22showNaN%22:false,%22limits%22:{%22range%22:[5,95],%22size%22:[4,12],%22type%22:%22prc%22}},%22series%22:{%22sites%22:[%22"
-        ending = "%22],%22start%22:null,%22end%22:null},%22export%22:{%22map%22:%22Shapefile%22,%22series%22:%22CSV%22,%22view%22:{%22frame%22:%22Vista%20Actual%22,%22map%22:%22roadmap%22,%22clat%22:-18.0036,%22clon%22:-69.6331,%22zoom%22:5,%22width%22:461,%22height%22:2207}},%22action%22:[%22export_series%22]}"
-        request_url = f"{original}{gauge_id}{ending}"
+        # The request the explorer's own "export series" button sends, as first
+        # extracted from the R package. The time window always spans the whole
+        # record; get_data() clips it afterwards.
+        options = {
+            "variable": {
+                "id": "qflxDaily",
+                "var": "caudal",
+                "intv": "daily",
+                "season": "year",
+                "stat": "mean",
+                "minFrac": 80,
+            },
+            "time": {"start": -946771200, "end": int(time.time()), "months": "Año completo"},
+            "anomaly": {
+                "enabled": False,
+                "type": "dif",
+                "rank": "no",
+                "start_year": 1980,
+                "end_year": 2010,
+                "minFrac": 70,
+            },
+            "map": {
+                "stat": "mean",
+                "minFrac": 10,
+                "borderColor": "7F7F7F",
+                "colorRamp": "Jet",
+                "showNaN": False,
+                "limits": {"range": [5, 95], "size": [4, 12], "type": "prc"},
+            },
+            "series": {"sites": [gauge_id], "start": None, "end": None},
+            "export": {
+                "map": "Shapefile",
+                "series": "CSV",
+                "view": {
+                    "frame": "Vista Actual",
+                    "map": "roadmap",
+                    "clat": -18.0036,
+                    "clon": -69.6331,
+                    "zoom": 5,
+                    "width": 461,
+                    "height": 2207,
+                },
+            },
+            "action": ["export_series"],
+        }
 
         s = utils.requests_retry_session()
         headers = {"User-Agent": "Mozilla/5.0"}
         try:
             time.sleep(0.3)  # Be nice to the server
-            response = s.get(request_url, headers=headers)
+            response = s.get(
+                self.REQUEST_URL,
+                params={"options": json.dumps(options, separators=(",", ":"))},
+                headers=headers,
+            )
             response.raise_for_status()
 
-            # The response body contains the URL to the CSV file
-            match = re.search(r"https://www\.explorador\.cr2\.cl/tmp/[^/]+/[^\"]+\.csv", response.text)
-            if not match:
+            csv_url = self._export_url(response.text)
+            if not csv_url:
                 logger.error(f"Could not find download link in response for site {gauge_id}")
                 return None
-
-            csv_url = match.group(0)
             logger.info(f"Found CSV URL: {csv_url}")
 
             time.sleep(0.3)
@@ -167,6 +231,8 @@ class ChileFetcher(base.RiverDataFetcher):
         try:
             raw_data = self._download_data(gauge_id, variable, start_date, end_date)
             df = self._parse_data(gauge_id, raw_data, variable)
+            if df.empty:
+                return df
 
             # Filter by date range
             start_date_dt = pd.to_datetime(start_date)

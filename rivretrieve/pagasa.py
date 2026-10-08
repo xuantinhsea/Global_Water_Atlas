@@ -396,7 +396,8 @@ class PagasaDamFetcher(base.RiverDataFetcher):
         start_date = utils.format_start_date(start_date)
         end_date = utils.format_end_date(end_date)
 
-        window_start = pd.Timestamp.now().normalize() - pd.Timedelta(days=WINDOW_DAYS)
+        # The same "today" the bulletin's dates are resolved against.
+        window_start = pd.Timestamp(_today()) - pd.Timedelta(days=WINDOW_DAYS)
         if pd.Timestamp(end_date) < window_start:
             logger.info(
                 "The PAGASA dam bulletin only covers today and yesterday (from %s); "

@@ -263,7 +263,9 @@ class TestNorwayFetcher(unittest.TestCase):
         expected_df.index.name = constants.TIME_INDEX
 
         result_df = self.fetcher.get_data(gauge_id, variable, start_date, end_date)
-        pd.testing.assert_frame_equal(result_df, expected_df, check_dtype=False)
+        # Timestamp precision (s, us, ns) varies with the pandas version; the values must not.
+        self.assertIsInstance(result_df.index, pd.DatetimeIndex)
+        pd.testing.assert_frame_equal(result_df, expected_df, check_dtype=False, check_index_type=False)
 
 
 def _load_sample_json(filename):

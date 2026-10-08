@@ -21,12 +21,12 @@ discharge in m³/s, water level in m, water temperature in °C and rainfall in m
 | Provider | Fetcher | Coverage | Stations | Data |
 | --- | --- | --- | ---: | --- |
 | BoM Water Data Online | `AustraliaFetcher` | Australia | 6,646 | discharge, water level |
-| ANA Hidroweb ¹ | `BrazilFetcher` | Brazil | 4,610 | discharge, water level |
+| ANA Hidroweb | `BrazilFetcher` | Brazil | 4,610 | discharge, water level |
 | ECCC HYDAT | `CanadaFetcher` | Canada | 7,954 | discharge, water level |
 | CR2 Explorador | `ChileFetcher` | Chile | 548 | discharge |
 | CHMI Open Data | `CzechFetcher` | Czechia | 826 | discharge, water level, water temperature |
 | Hub'Eau | `FranceFetcher` | France | 5,678 | discharge, water level |
-| GRDC Data Portal | `GRDCFetcher` | Worldwide river discharge stations | 11,910 | station catalogue only (daily/monthly availability flags) |
+| GRDC Data Portal | `GRDCFetcher` | Worldwide river discharge stations | 11,910 | station catalogue; discharge for the 5,516 also published by a national service below |
 | Wasserportal Berlin | `GermanyBerlinFetcher` | Germany (Berlin) | 189 | discharge, water level, water temperature |
 | IOC Sea Level Monitoring | `IOCSeaLevelFetcher` | Worldwide coastal tide gauges (101 in SE Asia) | 1,390 | sea level, raw, real time |
 | MLIT Water Information System | `JapanFetcher` | Japan | 1,029 | discharge, water level |
@@ -50,8 +50,10 @@ discharge in m³/s, water level in m, water temperature in °C and rainfall in m
 | NRFA | `UKNRFAFetcher` | United Kingdom | 1,601 | discharge, catchment rainfall |
 | USGS NWIS | `USAFetcher` | United States | 24,527 | discharge, water level |
 
-¹ Needs credentials in `rivretrieve/.env`: `ANA_USERNAME` and `ANA_PASSWORD`
-(Brazil), `NVE_API_KEY` (Norway), `PHILSENSORS_TOKEN` (Philippines).
+¹ Needs credentials in `rivretrieve/.env`: `NVE_API_KEY` (Norway),
+`PHILSENSORS_TOKEN` (Philippines). Brazil works without an account through
+ANA's public web service; with `ANA_USERNAME` and `ANA_PASSWORD` set it uses
+the Hidroweb API v2 instead.
 
 Things worth knowing before comparing stations:
 
@@ -63,9 +65,12 @@ Things worth knowing before comparing stations:
 - **Some providers have no history.** The MRC, ThaiWater rain gauges and the
   PAGASA dam bulletin only publish a rolling recent window; their fetchers
   return nothing for older dates rather than recent data under the wrong ones.
-- **One provider is metadata-only for now.** `GRDCFetcher` maps the global GRDC
-  station catalogue and per-station daily/monthly availability flags; GRDC's
-  automated station downloads are not yet wired into RivRetrieve.
+- **GRDC has no download API, by design.** It releases its copies only through
+  its Data Portal (a request form; the link arrives by e-mail), and RivRetrieve
+  does not automate that. `GRDCFetcher` maps the whole catalogue, and for the
+  5,516 stations that a national service in this table also publishes, it
+  downloads the series from that service instead (`frame.attrs["national_source"]`
+  names it). For the rest, `GRDCFetcher.unavailable_reason()` says so.
 - **Two providers fetch only recent data per call.** IOC sea level and Singapore
   rainfall cover at most the last 92 days of a requested range, because their
   services hand out raw five-minute or one-minute data in bulk. For long tide
@@ -156,8 +161,8 @@ all 29 providers on one map (rivers, rain gauges, reservoirs and coastal tide
 gauges), with filtering, box and lasso selection, series previews, and batch
 CSV download.
 
-**Live: <https://global-water-atlas.vercel.app>** (hosted on Vercel; Canada and
-Poland are map-only there, see [wateratlas/README.md](wateratlas/README.md#hosting-on-vercel)).
+**Live: <https://global-water-atlas.vercel.app>** (hosted on Vercel; see
+[wateratlas/README.md](wateratlas/README.md#hosting-on-vercel) for what differs there).
 To run it locally:
 
 ```bash

@@ -13,8 +13,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-from rivretrieve import SingaporeRainFetcher, constants
-from rivretrieve import singapore
+from rivretrieve import SingaporeRainFetcher, constants, singapore
 from rivretrieve.singapore import ARCHIVE_START, MAX_DAYS, MIN_READINGS_PER_DAY
 
 TEST_DATA_DIR = Path(os.path.dirname(__file__)) / "test_data"
@@ -101,7 +100,11 @@ class TestSingaporeRain(unittest.TestCase):
 
     def test_long_ranges_are_capped_and_start_at_the_archive(self):
         days = []
-        with patch.object(SingaporeRainFetcher, "_day", side_effect=lambda d: days.append(d) or {"stations": [], "readings": []}):
+        def no_rain(day):
+            days.append(day)
+            return {"stations": [], "readings": []}
+
+        with patch.object(SingaporeRainFetcher, "_day", side_effect=no_rain):
             self.fetcher.get_data(WET, constants.PRECIPITATION_DAILY_SUM, "2010-01-01", "2017-01-05")
             self.assertEqual(days[0].isoformat(), ARCHIVE_START)
             days.clear()

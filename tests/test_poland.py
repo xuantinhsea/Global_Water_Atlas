@@ -48,7 +48,9 @@ class TestPolandFetcher(unittest.TestCase):
             }
             expected_df = pd.DataFrame(expected_data).set_index(constants.TIME_INDEX)
 
-            assert_frame_equal(result_df, expected_df)
+            # Timestamp precision (s, us, ns) varies with the pandas version; the values must not.
+            self.assertIsInstance(result_df.index, pd.DatetimeIndex)
+            assert_frame_equal(result_df, expected_df, check_index_type=False)
             mock_create_cache.assert_not_called()  # Cache should not be recreated
 
     @patch("rivretrieve.poland.PolandFetcher._create_cache")  # Mock cache creation
@@ -69,7 +71,8 @@ class TestPolandFetcher(unittest.TestCase):
             }
             expected_df = pd.DataFrame(expected_data).set_index(constants.TIME_INDEX)
 
-            assert_frame_equal(result_df, expected_df)
+            self.assertIsInstance(result_df.index, pd.DatetimeIndex)
+            assert_frame_equal(result_df, expected_df, check_index_type=False)
             mock_create_cache.assert_not_called()
 
     @patch("rivretrieve.utils.requests_retry_session")
@@ -160,6 +163,53 @@ class TestPolandFetcher(unittest.TestCase):
         expected_df = pd.DataFrame(expected_data).set_index(constants.GAUGE_ID)
 
         assert_frame_equal(metadata_df, expected_df)
+
+    @patch("rivretrieve.utils.requests_retry_session")
+    def test_metadata_headers_from_current_format_file(self, mock_requests_session):
+        text = (
+            "Pole      Zawartość pola\n\n"
+            "PSKDSZS - Kod stacji                             \n"
+            "PSNZWP  - Nazwa stacji                          \n"
+            "KDNRZK  - Nazwa rzeki/jeziora\n"
+            "COROKH  - Rok hydrologiczny                     \n"
+            "COMSCH  - Wskaźnik miesiąca w roku hydrologicznym   \n"
+            "CODZIEN - Dzień                                    \n"
+            "COSTAN  - Stan wody [cm]                           \n"
+            "COPRZP  - Przepływ [m^3/s] \n"
+            "COPTMP  - Temperatura wody [st. C]\n"
+            "COMSCK  - Miesiąc kalendarzowy\n\n"
+            "Stan wody 9999 albo NULL oznacza brak danych w bazie.\n"
+        )
+        mock_requests_session.return_value.get.return_value = MagicMock(content=text.encode("cp1250"))
+
+        headers = self.fetcher._get_metadata_headers()
+
+        self.assertEqual(headers[0], "Kod stacji")
+        self.assertEqual(headers[7], "Przepływ [m3/s]")
+        self.assertEqual(headers[-1], "Miesiąc kalendarzowy")
+        self.assertIn("CODZ_publiczne_format.txt", mock_requests_session.return_value.get.call_args.args[0])
+
+    def test_reads_whole_line_quoted_files(self):
+        # Since 2023 IMGW wraps each line in quotes and doubles the quotes inside.
+        raw = (
+            '"149180020,CHAŁUPKI,Odra (1),""2024"",""01"",""01"",113,25.400,,""11"""\r\n'
+            '"149180020,CHAŁUPKI,Odra (1),""2024"",""01"",""02"",109,23.300,,""11"""\r\n'
+        ).encode("cp1250")
+
+        from rivretrieve.poland import _imgw_read
+
+        table = _imgw_read(raw)
+        self.assertEqual(table.shape, (2, 10))
+        self.assertEqual(str(table.iloc[0, 0]), "149180020")
+        self.assertEqual(table.iloc[1, 7], 23.3)
+
+    def test_archive_links_include_yearly_files(self):
+        listing = '<a href="codz_2022_12.zip">x</a> <a href="codz_2023.zip">x</a> <a href="zjaw_2023.zip">x</a>'
+        self.assertEqual(PolandFetcher.ARCHIVE_LINK.findall(listing), ["codz_2022_12.zip", "codz_2023.zip"])
+
+    def test_rejects_unknown_source(self):
+        with self.assertRaises(ValueError):
+            PolandFetcher(source="zarr")
 
 
 if __name__ == "__main__":

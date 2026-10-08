@@ -42,7 +42,9 @@ MIN_READINGS_PER_DAY = 276
 MIN_REQUEST_INTERVAL = 0.5
 
 #: Past days are cached here; today's partial day never is.
-CACHE_DIR = Path(os.environ.get("RIVRETRIEVE_SINGAPORE_CACHE", Path(tempfile.gettempdir()) / "rivretrieve_singapore_rain"))
+CACHE_DIR = Path(
+    os.environ.get("RIVRETRIEVE_SINGAPORE_CACHE", Path(tempfile.gettempdir()) / "rivretrieve_singapore_rain")
+)
 
 _pace_lock = threading.Lock()
 _last_request = 0.0
@@ -284,7 +286,9 @@ class SingaporeRainFetcher(base.RiverDataFetcher):
             (datetime.date.fromisoformat(end_date) - datetime.timedelta(days=MAX_DAYS - 1)).isoformat(),
         )
         if start_date < earliest:
-            logger.info("Singapore rainfall: fetching %s to %s (at most the last %d days).", earliest, end_date, MAX_DAYS)
+            logger.info(
+                "Singapore rainfall: fetching %s to %s (at most the last %d days).", earliest, end_date, MAX_DAYS
+            )
             start_date = earliest
         if start_date > end_date:
             return _empty(variable)

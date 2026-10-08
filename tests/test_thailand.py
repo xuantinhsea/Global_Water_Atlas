@@ -238,8 +238,10 @@ class TestThailandRainFetcher(unittest.TestCase):
         stamps = [p["rainfall_datetime"] for p in payload["data"]]
         start, end = stamps[0][:10], stamps[-1][:10]
 
+        # The service only answers for its rolling recent window, so pin "now" to
+        # when the fixture was captured: its last reading.
         patcher, session = mock_session(payload)
-        with patcher:
+        with patcher, patch("rivretrieve.thailand._now", return_value=pd.Timestamp(stamps[-1])):
             result = self.fetcher.get_data("2005", constants.PRECIPITATION_HOURLY_SUM, start, end)
 
         self.assertFalse(result.empty)

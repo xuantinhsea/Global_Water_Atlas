@@ -23,7 +23,16 @@ class CanadaFetcher(base.RiverDataFetcher):
     """Fetches river gauge data from Canada's National Hydrometric Program (HYDAT).
 
     Data Source: HYDAT Database (https://collaboration.cmc.ec.gc.ca/cmc/hydrometrics/www/)
-    This fetcher downloads the entire HYDAT SQLite database on first use.
+
+    Two ways to read it, chosen with ``source``:
+
+    - ``"hydat"`` (default): downloads the entire HYDAT SQLite database (over
+      1 GB) on first use and queries it locally. By far the fastest for many
+      stations.
+    - ``"api"``: asks ECCC's GeoMet OGC API
+      (https://api.weather.gc.ca/collections/hydrometric-daily-mean), which
+      serves the same HYDAT daily means one station at a time. No bulk
+      download, so it suits short-lived or read-only environments.
 
     Supported Variables:
         - ``constants.DISCHARGE_DAILY_MEAN`` (m³/s)
@@ -33,6 +42,16 @@ class CanadaFetcher(base.RiverDataFetcher):
     HYDAT_URL = "https://collaboration.cmc.ec.gc.ca/cmc/hydrometrics/www/"
     DATA_DIR = Path(os.path.dirname(__file__)) / "data"
     HYDAT_PATH = DATA_DIR / "Hydat.sqlite3"
+    GEOMET_URL = "https://api.weather.gc.ca/collections/hydrometric-daily-mean/items"
+    #: The most features GeoMet returns per page.
+    GEOMET_PAGE = 10000
+    SOURCES = ("hydat", "api")
+
+    def __init__(self, source: str = "hydat"):
+        super().__init__()
+        if source not in self.SOURCES:
+            raise ValueError(f"source must be one of {self.SOURCES}, not {source!r}")
+        self.source = source
 
     @staticmethod
     def get_cached_metadata() -> pd.DataFrame:
@@ -168,6 +187,9 @@ class CanadaFetcher(base.RiverDataFetcher):
         if variable not in self.get_available_variables():
             raise ValueError(f"Unsupported variable: {variable}")
 
+        if self.source == "api":
+            return self._get_api_data(gauge_id, variable, start_date, end_date)
+
         var_map = {
             constants.DISCHARGE_DAILY_MEAN: {"table": "DLY_FLOWS", "prefix": "FLOW"},
             constants.STAGE_DAILY_MEAN: {"table": "DLY_LEVELS", "prefix": "LEVEL"},
@@ -231,6 +253,42 @@ class CanadaFetcher(base.RiverDataFetcher):
         except Exception as e:
             logger.error(f"Error querying or processing HYDAT for site {gauge_id}, variable {variable}: {e}")
             return pd.DataFrame(columns=[constants.TIME_INDEX, variable])
+
+    def _get_api_data(self, gauge_id: str, variable: str, start_date: str, end_date: str) -> pd.DataFrame:
+        """Reads HYDAT daily means for one station from the GeoMet OGC API.
+
+        HTTP errors propagate, so a caller can tell an outage from a station without data.
+        """
+        field = {constants.DISCHARGE_DAILY_MEAN: "DISCHARGE", constants.STAGE_DAILY_MEAN: "LEVEL"}[variable]
+        s = utils.requests_retry_session()
+        records = []
+        offset = 0
+        while True:
+            params = {
+                "STATION_NUMBER": gauge_id,
+                "datetime": f"{start_date}/{end_date}",
+                "properties": f"DATE,{field}",
+                "skipGeometry": "true",
+                # A stable order keeps offset paging from skipping or repeating rows.
+                "sortby": "DATE",
+                "limit": self.GEOMET_PAGE,
+                "offset": offset,
+                "f": "json",
+            }
+            response = s.get(self.GEOMET_URL, params=params, timeout=120)
+            response.raise_for_status()
+            features = response.json().get("features", [])
+            records.extend(
+                (feature["properties"].get("DATE"), feature["properties"].get(field)) for feature in features
+            )
+            if len(features) < self.GEOMET_PAGE:
+                break
+            offset += self.GEOMET_PAGE
+
+        df = pd.DataFrame(records, columns=[constants.TIME_INDEX, variable])
+        df[constants.TIME_INDEX] = pd.to_datetime(df[constants.TIME_INDEX], errors="coerce")
+        df[variable] = pd.to_numeric(df[variable], errors="coerce")
+        return df.dropna().sort_values(by=constants.TIME_INDEX).set_index(constants.TIME_INDEX)
 
     # These are not used for Canada as data is local
     def _download_data(self, gauge_id: str, variable: str, start_date: str, end_date: str) -> Any:
