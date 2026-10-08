@@ -251,10 +251,12 @@ report `blocked` rather than silently returning an empty series. Brazil needs
 none: without `ANA_USERNAME` / `ANA_PASSWORD` it reads ANA's public
 HidroSerieHistorica service, and with them the Hidroweb API v2.
 
-GRDC stations download from the national service that runs them (USGS, ECCC,
-BoM and so on) where RivRetrieve supports it: 5,516 of 11,910. GRDC releases its
-own copies only through its Data Portal, so the others say that, with a link,
-instead of downloading.
+GRDC stations download from GRDC-Caravan, GRDC's own open dataset (CC BY 4.0,
+1950-2023), or else from the national service that runs them (USGS, ECCC, BoM
+and so on): 6,916 of 11,910. GRDC releases the others only on request through
+its Data Portal, so those say that, with a link, instead of downloading.
+`scripts/refresh_grdc_caravan_index.py` rebuilds the index of where each
+station sits in the GRDC-Caravan archive.
 
 ## Bulk caches
 

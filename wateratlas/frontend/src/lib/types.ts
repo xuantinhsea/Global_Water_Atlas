@@ -100,13 +100,11 @@ export interface StationDetail {
   >;
   /** Why this one station cannot be downloaded although its provider can (GRDC). */
   download_note: string | null;
-  /** Where a delegating provider (GRDC) reads this station from. */
-  national_source: {
-    provider_key: string | null;
-    provider_label: string;
-    gauge_id: string;
-    station_key: string | null;
-  } | null;
+  /** Where a provider that picks a source per station (GRDC) reads this one from. */
+  download_source:
+    | { kind: "grdc_caravan"; label: string; url: string }
+    | { kind: "national"; label: string; gauge_id: string; station_key: string | null }
+    | null;
 }
 
 export interface PreviewSeries {

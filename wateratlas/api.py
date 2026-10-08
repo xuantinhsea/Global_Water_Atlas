@@ -364,11 +364,11 @@ def get_station(key: str = Query(..., description="station_key, e.g. usa:0247950
     )
     record["observed"] = availability.for_station(station_key)
 
-    # Per-station download routing: GRDC stations come from their national service, or not at all.
+    # Per-station download routing: GRDC stations come from GRDC-Caravan or a national service.
     fetcher_class = provider.fetcher_class() if provider else None
     gauge_id = registry.split_station_key(station_key)[1]
     record["download_note"] = registry.station_download_note(fetcher_class, gauge_id) if fetcher_class else None
-    record["national_source"] = registry.national_source(fetcher_class, gauge_id) if fetcher_class else None
+    record["download_source"] = registry.download_source(fetcher_class, gauge_id) if fetcher_class else None
     return record
 
 

@@ -3,9 +3,7 @@
 import io
 import logging
 import re
-import struct
 import zipfile
-import zlib
 from typing import Optional
 from urllib.parse import urljoin
 
@@ -17,86 +15,6 @@ from . import base, constants, utils
 logger = logging.getLogger(__name__)
 
 _HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; RivRetrieve)"}
-
-
-class _TailFile(io.RawIOBase):
-    """A read-only view of a remote file of which only the last bytes were downloaded.
-
-    Enough for :mod:`zipfile` to read an archive's central directory, which sits
-    at the end of the file.
-    """
-
-    def __init__(self, tail: bytes, start: int, size: int):
-        self._tail = tail
-        self._start = start
-        self._size = size
-        self._pos = 0
-
-    def readable(self) -> bool:
-        return True
-
-    def seekable(self) -> bool:
-        return True
-
-    def tell(self) -> int:
-        return self._pos
-
-    def seek(self, offset: int, whence: int = io.SEEK_SET) -> int:
-        base = {io.SEEK_SET: 0, io.SEEK_CUR: self._pos, io.SEEK_END: self._size}[whence]
-        self._pos = base + offset
-        return self._pos
-
-    def readinto(self, buffer) -> int:
-        if self._pos < self._start:
-            raise OSError("Read before the downloaded tail of the archive")
-        chunk = self._tail[self._pos - self._start : self._pos - self._start + len(buffer)]
-        buffer[: len(chunk)] = chunk
-        self._pos += len(chunk)
-        return len(chunk)
-
-
-class _RemoteZip:
-    """Reads single members of a ZIP archive on a server that honours HTTP Range requests."""
-
-    #: The archive's central directory has to fit in this many trailing bytes.
-    TAIL_BYTES = 1 << 18
-
-    def __init__(self, url: str, session: requests.Session):
-        self.url = url
-        self.session = session
-        head = session.head(url, headers=_HEADERS, allow_redirects=True, timeout=60)
-        head.raise_for_status()
-        self.size = int(head.headers["Content-Length"])
-        tail_start = max(0, self.size - self.TAIL_BYTES)
-        tail = self._get(tail_start, self.size - 1)
-        with zipfile.ZipFile(_TailFile(tail, tail_start, self.size)) as archive:
-            self.members = {info.filename: info for info in archive.infolist()}
-
-    def _get(self, first: int, last: int) -> bytes:
-        headers = {**_HEADERS, "Range": f"bytes={first}-{last}"}
-        with self.session.get(self.url, headers=headers, stream=True, timeout=300) as response:
-            response.raise_for_status()
-            if response.status_code != 206:
-                # Never fall back to downloading the whole archive by accident.
-                raise IOError(f"{self.url} ignored the Range header (HTTP {response.status_code})")
-            return response.content
-
-    def read(self, name: str) -> bytes:
-        """Downloads and decompresses one member, in a single request."""
-        info = self.members[name]
-        # The local header repeats the name and may carry a different extra field,
-        # so read a little past it rather than trusting the central directory's lengths.
-        blob = self._get(info.header_offset, info.header_offset + 30 + 1024 + info.compress_size - 1)
-        if blob[:4] != b"PK\x03\x04":
-            raise IOError(f"No local file header for {name} in {self.url}")
-        name_length, extra_length = struct.unpack("<HH", blob[26:30])
-        start = 30 + name_length + extra_length
-        raw = blob[start : start + info.compress_size]
-        if info.compress_type == zipfile.ZIP_STORED:
-            return raw
-        if info.compress_type == zipfile.ZIP_DEFLATED:
-            return zlib.decompress(raw, -zlib.MAX_WBITS)
-        raise IOError(f"Unsupported compression {info.compress_type} for {name}")
 
 
 class SpainFetcher(base.RiverDataFetcher):
@@ -122,7 +40,7 @@ class SpainFetcher(base.RiverDataFetcher):
     ANUARIO_CSV_URL = "https://www.miteco.gob.es/content/dam/miteco/es/agua/temas/evaluacion-de-los-recursos-hidricos/sistema-informacion-anuario-aforos/Anuario-21-22-csv.zip"
 
     # Shared by every instance: the archive's directory and the station -> basin map.
-    _remote_archive: Optional[_RemoteZip] = None
+    _remote_archive: Optional[utils.RemoteZip] = None
     _basins: Optional[dict] = None
 
     @staticmethod
@@ -205,7 +123,7 @@ class SpainFetcher(base.RiverDataFetcher):
             raise
 
     @classmethod
-    def _archive(cls) -> "_RemoteZip":
+    def _archive(cls) -> utils.RemoteZip:
         """The Anuario's CSV archive, opened once per process.
 
         MITECO renames the file for each new edition of the yearbook
@@ -223,7 +141,7 @@ class SpainFetcher(base.RiverDataFetcher):
                     url = urljoin(cls.ANUARIO_PAGE_URL, max(links))
             except requests.exceptions.RequestException as e:
                 logger.warning(f"Could not read the Anuario page, using {url}: {e}")
-            cls._remote_archive = _RemoteZip(url, session)
+            cls._remote_archive = utils.RemoteZip(url, session)
         return cls._remote_archive
 
     @classmethod

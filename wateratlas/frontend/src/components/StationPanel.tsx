@@ -111,7 +111,7 @@ export function StationPanel({
   // This one station cannot be served although its provider can (GRDC without a national source).
   const stationNote = !blocked && !otherBlock ? (detail?.download_note ?? null) : null;
   const unavailable = Boolean(blocked || otherBlock || stationNote);
-  const nationalSource = detail?.national_source ?? null;
+  const downloadSource = detail?.download_source ?? null;
   const extras = Object.entries(detail?.extra ?? {}).filter(
     ([key]) => !["gauge_id", "latitude", "longitude", "station_name", "river"].includes(key),
   );
@@ -219,11 +219,21 @@ export function StationPanel({
         ))}
       {otherBlock && <p className="riv-alert riv-alert-warn">{otherBlock}</p>}
       {stationNote && <p className="riv-alert riv-alert-warn">{linkify(stationNote)}</p>}
-      {nationalSource && !unavailable && (
+      {downloadSource?.kind === "grdc_caravan" && !unavailable && (
         <p className="riv-alert riv-alert-info">
-          Downloads come from <strong>{nationalSource.provider_label}</strong>, which runs this
-          gauge (national station <code>{nationalSource.gauge_id}</code>). GRDC's own copy is
-          released only on request through its Data Portal.
+          Downloads come from{" "}
+          <a href={downloadSource.url} target="_blank" rel="noreferrer noopener">
+            {downloadSource.label}
+          </a>
+          , daily from 1950 to 2023; please cite it. Later years, where there are any, come from the
+          national service that runs the gauge.
+        </p>
+      )}
+      {downloadSource?.kind === "national" && !unavailable && (
+        <p className="riv-alert riv-alert-info">
+          Downloads come from <strong>{downloadSource.label}</strong>, which runs this gauge
+          (national station <code>{downloadSource.gauge_id}</code>). GRDC's own copy is released
+          only on request through its Data Portal.
         </p>
       )}
       {provider?.bulk_first_use && provider.cache_warm === false && !otherBlock && (

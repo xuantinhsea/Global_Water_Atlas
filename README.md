@@ -26,7 +26,7 @@ discharge in m³/s, water level in m, water temperature in °C and rainfall in m
 | CR2 Explorador | `ChileFetcher` | Chile | 548 | discharge |
 | CHMI Open Data | `CzechFetcher` | Czechia | 826 | discharge, water level, water temperature |
 | Hub'Eau | `FranceFetcher` | France | 5,678 | discharge, water level |
-| GRDC Data Portal | `GRDCFetcher` | Worldwide river discharge stations | 11,910 | station catalogue; discharge for the 5,516 also published by a national service below |
+| GRDC Data Portal | `GRDCFetcher` | Worldwide river discharge stations | 11,910 | station catalogue; discharge for 6,916 (GRDC-Caravan, or a national service below) |
 | Wasserportal Berlin | `GermanyBerlinFetcher` | Germany (Berlin) | 189 | discharge, water level, water temperature |
 | IOC Sea Level Monitoring | `IOCSeaLevelFetcher` | Worldwide coastal tide gauges (101 in SE Asia) | 1,390 | sea level, raw, real time |
 | MLIT Water Information System | `JapanFetcher` | Japan | 1,029 | discharge, water level |
@@ -65,12 +65,15 @@ Things worth knowing before comparing stations:
 - **Some providers have no history.** The MRC, ThaiWater rain gauges and the
   PAGASA dam bulletin only publish a rolling recent window; their fetchers
   return nothing for older dates rather than recent data under the wrong ones.
-- **GRDC has no download API, by design.** It releases its copies only through
-  its Data Portal (a request form; the link arrives by e-mail), and RivRetrieve
-  does not automate that. `GRDCFetcher` maps the whole catalogue, and for the
-  5,516 stations that a national service in this table also publishes, it
-  downloads the series from that service instead (`frame.attrs["national_source"]`
-  names it). For the rest, `GRDCFetcher.unavailable_reason()` says so.
+- **GRDC has no download API, by design.** Most of its series are released only
+  through its Data Portal (a request form; the link arrives by e-mail), and
+  RivRetrieve does not automate that. `GRDCFetcher` maps the whole catalogue
+  and downloads 6,916 stations: 5,335 from
+  [GRDC-Caravan](https://doi.org/10.5281/zenodo.15349031), GRDC's own open
+  dataset (daily, 1950-2023, CC BY 4.0, read one station at a time out of its
+  Zenodo archive), and the rest, or later years, from the national service in
+  this table that runs the station. `frame.attrs` names the source; for the
+  other 4,994, `GRDCFetcher.unavailable_reason()` says why.
 - **Two providers fetch only recent data per call.** IOC sea level and Singapore
   rainfall cover at most the last 92 days of a requested range, because their
   services hand out raw five-minute or one-minute data in bulk. For long tide

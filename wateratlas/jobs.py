@@ -99,12 +99,7 @@ def fetch_station(
         availability.record(station_key, variable, availability.ABSENT)
         return FetchOutcome(EMPTY, message="The provider returned no rows for this range.")
 
-    outcome = FetchOutcome(DONE, frame=frame, rows=len(frame))
-    source = frame.attrs.get("national_source")
-    if source:
-        provider = registry.provider_for_fetcher(source.get("fetcher", ""))
-        label = provider.label if provider else source.get("fetcher")
-        outcome.message = f"Downloaded from {label}, national station {source.get('gauge_id')}."
+    outcome = FetchOutcome(DONE, frame=frame, rows=len(frame), message=registry.source_note(frame))
     index = pd.to_datetime(frame.index, errors="coerce")
     if index.notna().any():
         outcome.first_date = str(index.min().date())
@@ -503,9 +498,10 @@ class JobManager:
         if "grdc" in used:
             lines += [
                 "",
-                "GRDC stations were downloaded from the national service that runs each of them,",
-                "whose terms apply to that data; the `message` column of `manifest.csv` names the",
-                "service and its station ID.",
+                "GRDC stations come from GRDC-Caravan, GRDC's open dataset (Global Runoff Data",
+                "Centre, 2025, https://doi.org/10.5281/zenodo.15349031, CC BY 4.0: cite it when you",
+                "use these series), or else from the national service that runs the station, whose",
+                "terms apply. The `message` column of `manifest.csv` says which for each station.",
             ]
         lines += [
             "",

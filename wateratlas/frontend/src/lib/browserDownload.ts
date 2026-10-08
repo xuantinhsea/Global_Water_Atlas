@@ -104,9 +104,10 @@ function attribution(job: Job, tasks: JobTask[], providers: Map<string, Provider
   if (used.includes("grdc")) {
     lines.push(
       "",
-      "GRDC stations were downloaded from the national service that runs each of them,",
-      "whose terms apply to that data; the `message` column of `manifest.csv` names the",
-      "service and its station ID.",
+      "GRDC stations come from GRDC-Caravan, GRDC's open dataset (Global Runoff Data",
+      "Centre, 2025, https://doi.org/10.5281/zenodo.15349031, CC BY 4.0: cite it when you",
+      "use these series), or else from the national service that runs the station, whose",
+      "terms apply. The `message` column of `manifest.csv` says which for each station.",
     );
   }
   lines.push(

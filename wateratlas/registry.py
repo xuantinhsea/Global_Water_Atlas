@@ -274,12 +274,12 @@ PROVIDERS: tuple[Provider, ...] = (
         source_url="https://portal.grdc.bafg.de/applications/public.html?publicuser=PublicUser#dataDownload/Stations",
         availability_columns=True,
         throttle_note=(
-            "GRDC releases its own copies of these series only through its Data Portal (a request "
-            "form; the link arrives by e-mail). Where the national service that runs a station "
-            "publishes it too — about 5,500 stations in 16 countries — the series is downloaded "
-            "from that service instead, and the download names it."
+            "6,916 of these stations download: 5,335 from GRDC-Caravan, GRDC's open dataset "
+            "(daily, 1950-2023, CC BY 4.0), and the rest — or later years — from the national "
+            "service that runs the station. GRDC releases the others only on request through its "
+            "Data Portal (the link arrives by e-mail). Each download names its source."
         ),
-        seconds_per_station=3.0,
+        seconds_per_station=5.0,
     ),
     Provider(
         key="germany_berlin",
@@ -572,23 +572,41 @@ def station_download_note(fetcher, gauge_id: str) -> Optional[str]:
     return explain(gauge_id) if explain is not None else None
 
 
-def national_source(fetcher, gauge_id: str) -> Optional[dict]:
-    """The national provider and station a fetcher reads this station from, if it delegates.
+#: How GRDC-Caravan is named in the UI, downloads and attribution notes.
+GRDC_CARAVAN_LABEL = "GRDC-Caravan, GRDC's open dataset (CC BY 4.0)"
 
-    GRDC stations are downloaded from the national service that runs them.
+
+def download_source(fetcher, gauge_id: str) -> Optional[dict]:
+    """Where a fetcher that picks a source per station reads this one from, if it does.
+
+    GRDC stations come from GRDC's open GRDC-Caravan dataset, or else from the
+    national service that runs them.
     """
-    find = getattr(fetcher, "national_source", None)
-    match = find(gauge_id) if find is not None else None
-    if not match:
+    find = getattr(fetcher, "download_source", None)
+    source = find(gauge_id) if find is not None else None
+    if not source:
         return None
-    fetcher_name, national_id = match
-    provider = provider_for_fetcher(fetcher_name)
+    if source["kind"] == "grdc_caravan":
+        return {"kind": "grdc_caravan", "label": GRDC_CARAVAN_LABEL, "url": source["doi"]}
+    provider = provider_for_fetcher(source["fetcher"])
     return {
-        "provider_key": provider.key if provider else None,
-        "provider_label": provider.label if provider else fetcher_name,
-        "gauge_id": national_id,
-        "station_key": station_key(provider.key, national_id) if provider else None,
+        "kind": "national",
+        "label": provider.label if provider else source["fetcher"],
+        "gauge_id": source["gauge_id"],
+        "station_key": station_key(provider.key, source["gauge_id"]) if provider else None,
     }
+
+
+def source_note(frame) -> Optional[str]:
+    """One line naming where a downloaded frame came from, when not its station's own provider."""
+    if frame.attrs.get("grdc_caravan"):
+        return f"From {GRDC_CARAVAN_LABEL}: {frame.attrs['grdc_caravan']}"
+    national = frame.attrs.get("national_source")
+    if national:
+        provider = provider_for_fetcher(national.get("fetcher", ""))
+        label = provider.label if provider else national.get("fetcher")
+        return f"Downloaded from {label}, national station {national.get('gauge_id')}."
+    return None
 
 
 def station_key(country: str, gauge_id: str) -> str:

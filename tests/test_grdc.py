@@ -12,7 +12,7 @@ from unittest.mock import MagicMock, patch
 
 import pandas as pd
 
-from rivretrieve import GRDCFetcher, constants
+from rivretrieve import GRDCFetcher, constants, grdc
 from rivretrieve.grdc import GRDC_SAMPLE_RECORDS_URL
 
 TEST_DATA_DIR = Path(os.path.dirname(__file__)) / "test_data"
@@ -91,10 +91,14 @@ def _grdc_station_in(country: str) -> str:
 
 
 class TestGRDCData(unittest.TestCase):
-    """GRDC series come from the national service that runs each station."""
+    """Stations outside GRDC-Caravan come from the national service that runs them."""
 
     def setUp(self):
         self.fetcher = GRDCFetcher()
+        # These tests are about the national route, so GRDC-Caravan is taken out of the way.
+        caravan = patch.object(GRDCFetcher, "in_caravan", return_value=False)
+        caravan.start()
+        self.addCleanup(caravan.stop)
 
     def test_station_without_national_source_returns_empty_and_says_why(self):
         # 1104150 is in Algeria, which no RivRetrieve fetcher covers.
@@ -155,6 +159,76 @@ class TestGRDCData(unittest.TestCase):
     def test_unsupported_variable_raises(self):
         with self.assertRaises(ValueError):
             self.fetcher.get_data("1104150", constants.STAGE_DAILY_MEAN, "2000-01-01", "2000-01-31")
+
+
+def _caravan_csv(rows: dict) -> bytes:
+    """A GRDC-Caravan station file, trimmed to the columns the fetcher reads (streamflow in mm/day)."""
+    lines = ["date,dewpoint_temperature_2m_max,streamflow"]
+    lines += [f"{date},1.0,{'' if value is None else value}" for date, value in rows.items()]
+    return ("\n".join(lines) + "\n").encode("utf-8")
+
+
+class TestGRDCCaravan(unittest.TestCase):
+    """GRDC's own open dataset is read first, one station file per range request."""
+
+    # GRDC 6335020 is in Germany: in GRDC-Caravan, with no national source in RivRetrieve.
+    GERMAN = "6335020"
+
+    def setUp(self):
+        self.fetcher = GRDCFetcher()
+        grdc._caravan_daily.cache_clear()
+        self.addCleanup(grdc._caravan_daily.cache_clear)
+
+    def test_index_is_shipped_with_an_area_for_every_station(self):
+        index = grdc._caravan_index()
+        self.assertGreater(len(index), 5000)
+        self.assertFalse(index["area_km2"].isna().any())
+        self.assertTrue(GRDCFetcher.in_caravan(self.GERMAN))
+        self.assertIsNone(GRDCFetcher.national_source(self.GERMAN))
+        self.assertEqual(GRDCFetcher.download_source(self.GERMAN)["kind"], "grdc_caravan")
+        self.assertIsNone(GRDCFetcher.unavailable_reason(self.GERMAN))
+
+    def test_runoff_depth_is_converted_to_discharge(self):
+        reply = _caravan_csv({"1999-12-31": 9.0, "2000-01-01": 1.5, "2000-01-02": None, "2000-01-03": 2.0})
+        with patch("rivretrieve.grdc.utils.read_zip_member", return_value=reply) as read:
+            frame = self.fetcher.get_data(self.GERMAN, constants.DISCHARGE_DAILY_MEAN, "2000-01-01", "2000-01-03")
+
+        row = grdc._caravan_index().loc[self.GERMAN]
+        read.assert_called_once()
+        self.assertEqual(read.call_args.args[1:], (
+            grdc.GRDC_CARAVAN_URL, int(row["header_offset"]), int(row["compress_size"]), int(row["compress_type"])
+        ))
+        # mm/day over the catchment, back to m³/s; the empty day is dropped, not zero.
+        expected = [value * row["area_km2"] / 86.4 for value in (1.5, 2.0)]
+        self.assertEqual(list(frame.index.strftime("%Y-%m-%d")), ["2000-01-01", "2000-01-03"])
+        for got, want in zip(frame[constants.DISCHARGE_DAILY_MEAN], expected):
+            self.assertAlmostEqual(got, want)
+        self.assertEqual(frame.attrs["grdc_caravan"], grdc.GRDC_CARAVAN_DOI)
+
+    def test_one_download_serves_daily_and_monthly(self):
+        reply = _caravan_csv({f"2000-01-{day:02d}": 1.0 for day in range(1, 32)})
+        with patch("rivretrieve.grdc.utils.read_zip_member", return_value=reply) as read:
+            self.fetcher.get_data(self.GERMAN, constants.DISCHARGE_DAILY_MEAN, "2000-01-01", "2000-01-31")
+            monthly = self.fetcher.get_data(self.GERMAN, constants.DISCHARGE_MONTHLY_MEAN, "2000-01-01", "2000-01-31")
+        read.assert_called_once()
+        self.assertEqual(len(monthly), 1)
+
+    def test_years_after_the_dataset_come_from_the_national_service(self):
+        # GRDC 4101200 (USGS 15747000) is in GRDC-Caravan, which ends in 2023.
+        reply = _caravan_csv({"2020-01-01": 1.0})
+        later = pd.DataFrame(
+            {constants.DISCHARGE_DAILY_MEAN: [5.0]},
+            index=pd.DatetimeIndex(["2025-06-01"], name=constants.TIME_INDEX),
+        )
+        with (
+            patch("rivretrieve.grdc.utils.read_zip_member", return_value=reply),
+            patch("rivretrieve.USAFetcher.get_data", return_value=later) as national,
+        ):
+            frame = self.fetcher.get_data("4101200", constants.DISCHARGE_DAILY_MEAN, "2025-06-01", "2025-06-30")
+
+        national.assert_called_once()
+        self.assertEqual(list(frame[constants.DISCHARGE_DAILY_MEAN]), [5.0])
+        self.assertEqual(frame.attrs["national_source"]["fetcher"], "USAFetcher")
 
 
 if __name__ == "__main__":
